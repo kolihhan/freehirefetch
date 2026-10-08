@@ -18,6 +18,16 @@ python freehire_fetch.py --mode full
 
 FreeHire's public search window is capped at 10,000 rows per market, 100 rows per request.
 
+## Automation
+
+GitHub Actions runs on the repository's public standard runner:
+
+- hourly delta at minute `17`;
+- daily full backstop at `18:43 UTC`;
+- manual `workflow_dispatch` for bootstrap/delta/full probes.
+
+The worker needs no API key or paid service. It commits only changed public state (`feed/`, `state/`, `health.json`).
+
 ## Public state
 
 - `feed/events.jsonl`: 30-day rolling `NEW`/`CHANGED` event feed with monotonic `seq`.
