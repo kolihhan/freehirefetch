@@ -15,6 +15,7 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn("permissions:\n  contents: write", text)
         self.assertIn("runs-on: ubuntu-latest", text)
         self.assertNotIn("secrets.", text)
+        self.assertNotIn("\n  push:", text)
 
     def test_scheduled_mode_mapping_is_explicit(self):
         text = WORKFLOW.read_text(encoding="utf-8")
