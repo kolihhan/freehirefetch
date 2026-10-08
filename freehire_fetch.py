@@ -170,7 +170,7 @@ def content_fingerprint(job: dict) -> str:
     meaningful = {
         "title": job.get("title"),
         "company": job.get("company_name") or job.get("company"),
-        "location": job.get("location") or job.get("market"),
+        "location": job.get("location"),
         "description": job.get("description"),
         "source_url": job.get("source_url") or job.get("apply_url") or job.get("application_url"),
         "freehire_url": job.get("freehire_url") or job.get("url"),
@@ -191,6 +191,15 @@ def _bootstrap_recent(job: dict, now: datetime) -> bool:
     return first_seen >= now - timedelta(days=BOOTSTRAP_EMIT_DAYS)
 
 
+def _canonical_source_url(job: dict) -> object:
+    return job.get("url") or job.get("source_url") or job.get("apply_url") or job.get("application_url")
+
+
+def _canonical_freehire_url(job: dict) -> str | None:
+    slug = job.get("public_slug")
+    return f"https://freehire.me/jobs/{slug}" if slug else None
+
+
 def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool) -> tuple[list[dict], dict]:
     now = _parse_iso(now_iso) or _utcnow()
     next_seen = {key: dict(value) for key, value in seen.items()}
@@ -206,17 +215,20 @@ def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool)
         elif previous.get("fingerprint") != fingerprint:
             kind = "CHANGED"
 
-        next_seen[identity] = {
-            "fingerprint": fingerprint,
-            "last_seen": now_iso,
-            "public_slug": job.get("public_slug"),
-            "market": job.get("market") or job.get("country") or job.get("countries"),
-        }
+        if kind is not None:
+            next_seen[identity] = {
+                "fingerprint": fingerprint,
+                "last_seen": now_iso,
+                "public_slug": job.get("public_slug"),
+                "market": job.get("market") or job.get("country") or job.get("countries"),
+            }
+
         if hard_drop or kind is None:
             continue
         if bootstrap and kind == "NEW" and not _bootstrap_recent(job, now):
             continue
 
+        enrichment = job.get("enrichment") if isinstance(job.get("enrichment"), dict) else {}
         events.append(
             {
                 "kind": kind,
@@ -226,15 +238,44 @@ def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool)
                 "company": job.get("company_name") or job.get("company"),
                 "title": job.get("title"),
                 "location": job.get("location"),
-                "source_url": job.get("source_url") or job.get("apply_url") or job.get("application_url"),
-                "freehire_url": job.get("freehire_url") or job.get("url"),
+                "countries": job.get("countries"),
+                "source": job.get("source"),
+                "external_id": job.get("external_id") or job.get("source_job_id"),
+                "source_url": _canonical_source_url(job),
+                "freehire_url": _canonical_freehire_url(job),
+                "created_at": job.get("created_at"),
+                "posted_at": job.get("posted_at"),
+                "work_mode": job.get("work_mode"),
+                "category": job.get("category"),
+                "employment_type": enrichment.get("employment_type") or job.get("employment_type"),
                 "detected_at": now_iso,
                 "fingerprint": fingerprint,
                 "flags": flags,
-                "job": job,
             }
         )
     return events, next_seen
+
+
+def _compact_event(event: dict) -> dict:
+    compact = dict(event)
+    legacy_job = compact.pop("job", None)
+    if isinstance(legacy_job, dict):
+        compact.setdefault("public_slug", legacy_job.get("public_slug"))
+        compact.setdefault("company", legacy_job.get("company_name") or legacy_job.get("company"))
+        compact.setdefault("title", legacy_job.get("title"))
+        compact.setdefault("location", legacy_job.get("location"))
+        compact.setdefault("countries", legacy_job.get("countries"))
+        compact.setdefault("source", legacy_job.get("source"))
+        compact.setdefault("external_id", legacy_job.get("external_id") or legacy_job.get("source_job_id"))
+        if not compact.get("source_url"):
+            compact["source_url"] = _canonical_source_url(legacy_job)
+        if compact.get("public_slug"):
+            compact["freehire_url"] = f"https://freehire.me/jobs/{compact['public_slug']}"
+        compact.setdefault("created_at", legacy_job.get("created_at"))
+        compact.setdefault("posted_at", legacy_job.get("posted_at"))
+        compact.setdefault("work_mode", legacy_job.get("work_mode"))
+        compact.setdefault("category", legacy_job.get("category"))
+    return compact
 
 
 def apply_retention(
@@ -314,6 +355,7 @@ def run(
     now = (now or _utcnow()).astimezone(timezone.utc)
     now_iso = _iso(now)
     previous_seen, previous_events, previous_health = load_public_state(root)
+    previous_events = [_compact_event(event) for event in previous_events]
 
     market_jobs = {
         "SG": fetch_market(fetch_json, "SG", mode),
@@ -351,7 +393,8 @@ def run(
             changed_count += 1
 
     combined_events = previous_events + new_events
-    next_seen, combined_events = apply_retention(next_seen, combined_events, now, current_identities)
+    retention_current = current_identities if mode in {"bootstrap", "full"} else set(next_seen)
+    next_seen, combined_events = apply_retention(next_seen, combined_events, now, retention_current)
     first_seq = int(combined_events[0]["seq"]) if combined_events else last_seq
     health = {
         "last_success": now_iso,
@@ -364,7 +407,7 @@ def run(
         "retained_events": len(combined_events),
     }
 
-    _atomic_write_text(root / "state" / "seen.json", json.dumps(next_seen, ensure_ascii=False, indent=2, sort_keys=True, default=str) + "\n")
+    _atomic_write_text(root / "state" / "seen.json", json.dumps(next_seen, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str) + "\n")
     _atomic_write_text(root / "feed" / "events.jsonl", _events_jsonl(combined_events))
     _atomic_write_text(root / "health.json", json.dumps(health, ensure_ascii=False, indent=2, sort_keys=True, default=str) + "\n")
     return health
