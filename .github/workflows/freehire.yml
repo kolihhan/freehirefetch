@@ -1,0 +1,80 @@
+name: FreeHire Ingestion
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Run mode
+        required: true
+        default: bootstrap
+        type: choice
+        options:
+          - bootstrap
+          - delta
+          - full
+  schedule:
+    - cron: '17 * * * *'
+    - cron: '43 18 * * *'
+  # One-time rollout trigger. Remove after the first live bootstrap is verified.
+  push:
+    branches: [main]
+    paths:
+      - freehire_fetch.py
+      - tests/**
+      - .github/workflows/freehire.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: freehire-ingestion
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Resolve run mode
+        id: mode
+        shell: bash
+        run: |
+          MODE="delta"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            MODE="${{ inputs.mode }}"
+          elif [[ "${{ github.event.schedule }}" == "43 18 * * *" ]]; then
+            MODE="full"
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            MODE="bootstrap"
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch FreeHire
+        shell: bash
+        run: |
+          MODE="${{ steps.mode.outputs.mode }}"
+          python freehire_fetch.py --mode "$MODE"
+
+      - name: Publish changed public state
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed/events.jsonl state/seen.json health.json
+          if git diff --cached --quiet; then
+            echo "No public-state changes."
+            exit 0
+          fi
+          git commit -m "chore: update FreeHire feed [skip ci]"
+          git push
