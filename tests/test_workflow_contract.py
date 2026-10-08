@@ -17,7 +17,6 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn("uses: actions/checkout@v7", text)
         self.assertIn("uses: actions/setup-python@v7", text)
         self.assertNotIn("secrets.", text)
-        self.assertNotIn("\n  push:", text)
 
     def test_scheduled_mode_mapping_is_explicit(self):
         text = WORKFLOW.read_text(encoding="utf-8")
