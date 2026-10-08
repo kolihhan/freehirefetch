@@ -15,12 +15,10 @@ on:
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
-  # One-time rollout trigger. Remove after the first live bootstrap is verified.
+  # Temporary rollout trigger to live-test the delta path. Remove after this run.
   push:
     branches: [main]
     paths:
-      - freehire_fetch.py
-      - tests/**
       - .github/workflows/freehire.yml
 
 permissions:
@@ -55,8 +53,6 @@ jobs:
             MODE="${{ inputs.mode }}"
           elif [[ "${{ github.event.schedule }}" == "43 18 * * *" ]]; then
             MODE="full"
-          elif [[ "${{ github.event_name }}" == "push" ]]; then
-            MODE="bootstrap"
           fi
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
 
