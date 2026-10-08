@@ -14,8 +14,8 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn('python freehire_fetch.py --mode "$MODE"', text)
         self.assertIn("permissions:\n  contents: write", text)
         self.assertIn("runs-on: ubuntu-latest", text)
-        self.assertIn("uses: actions/checkout@v7", text)
-        self.assertIn("uses: actions/setup-python@v7", text)
+        self.assertIn("uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1", text)
+        self.assertIn("uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97", text)
         self.assertNotIn("secrets.", text)
         self.assertNotIn("\n  push:", text)
 
