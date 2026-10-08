@@ -15,11 +15,6 @@ on:
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
-  # Temporary rollout trigger to live-test the delta path. Remove after this run.
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/freehire.yml
 
 permissions:
   contents: write
