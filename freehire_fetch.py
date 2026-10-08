@@ -352,6 +352,7 @@ def run(
 ) -> dict:
     if mode not in {"bootstrap", "delta", "full"}:
         raise ValueError(f"unsupported mode: {mode}")
+    started = time.monotonic()
     now = (now or _utcnow()).astimezone(timezone.utc)
     now_iso = _iso(now)
     previous_seen, previous_events, previous_health = load_public_state(root)
@@ -395,7 +396,7 @@ def run(
     combined_events = previous_events + new_events
     retention_current = current_identities if mode in {"bootstrap", "full"} else set(next_seen)
     next_seen, combined_events = apply_retention(next_seen, combined_events, now, retention_current)
-    first_seq = int(combined_events[0]["seq"]) if combined_events else last_seq
+    first_seq = int(combined_events[0]["seq"]) if combined_events else (last_seq + 1 if last_seq else 0)
     health = {
         "last_success": now_iso,
         "mode": mode,
@@ -405,6 +406,7 @@ def run(
         "first_seq": first_seq,
         "last_seq": last_seq,
         "retained_events": len(combined_events),
+        "duration_seconds": round(time.monotonic() - started, 3),
     }
 
     _atomic_write_text(root / "state" / "seen.json", json.dumps(next_seen, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str) + "\n")
