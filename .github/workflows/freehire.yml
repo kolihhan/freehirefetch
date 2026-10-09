@@ -12,6 +12,12 @@ on:
           - bootstrap
           - delta
           - full
+  push:
+    branches:
+      - main
+    paths:
+      - 'freehire_fetch.py'
+      - 'tests/**'
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
