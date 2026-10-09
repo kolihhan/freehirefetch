@@ -378,7 +378,7 @@ def run(
             current_identities.add(job_identity(job))
             if machine_flags(job)[0]:
                 hard_drops += 1
-        classified, next_seen = classify_events(jobs, next_seen, now_iso, bootstrap=(mode == "bootstrap"))
+        classified, next_seen = classify_events(jobs, next_seen, now_iso, bootstrap=(mode in {"bootstrap", "full"}))
         new_events.extend(classified)
         market_stats[market] = {"fetched": len(jobs), "title_hard_drops": hard_drops}
 
