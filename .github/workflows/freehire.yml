@@ -12,6 +12,11 @@ on:
           - bootstrap
           - delta
           - full
+  push:
+    branches:
+      - probe/visa-scan
+    paths:
+      - probe-trigger
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
