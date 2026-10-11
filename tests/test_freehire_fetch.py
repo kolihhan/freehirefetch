@@ -67,6 +67,15 @@ class FreeHireWorkerTests(unittest.TestCase):
         self.assertEqual(events[0]["visa_signal"], "positive")
         self.assertEqual(events[0]["visa_evidence"], ["We offer visa sponsorship for this role."])
 
+    def test_structured_sponsorship_wording_is_positive(self):
+        for text in (
+            "Visa Sponsorship: Yes",
+            "Working Pass will be provided",
+            "We support relocation and visas",
+        ):
+            with self.subTest(text=text):
+                self.assertEqual(mod.visa_evidence(text)[0], "positive")
+
     def test_explicit_no_sponsorship_emits_negative_evidence(self):
         job = {
             "public_slug": "visa-negative",
@@ -76,6 +85,9 @@ class FreeHireWorkerTests(unittest.TestCase):
         events, _ = mod.classify_events([job], {}, "2026-10-11T00:00:00Z", bootstrap=False)
         self.assertEqual(events[0]["visa_signal"], "negative")
         self.assertEqual(events[0]["visa_evidence"], ["We are unable to sponsor visas for this position.", "Applicants must have existing work authorization."])
+
+    def test_structured_no_sponsorship_is_negative(self):
+        self.assertEqual(mod.visa_evidence("Visa Sponsorship: No")[0], "negative")
 
     def test_may_sponsor_is_ambiguous(self):
         job = {
