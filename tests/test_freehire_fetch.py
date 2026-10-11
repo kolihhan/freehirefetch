@@ -57,6 +57,59 @@ class FreeHireWorkerTests(unittest.TestCase):
         self.assertIn("seniority_hint", flags)
         self.assertIn("agency_or_outstaff_hint", flags)
 
+    def test_explicit_sponsorship_emits_positive_evidence(self):
+        job = {
+            "public_slug": "visa-positive",
+            "title": "AI Engineer",
+            "description": "We offer visa sponsorship for this role. Join our Singapore engineering team.",
+        }
+        events, _ = mod.classify_events([job], {}, "2026-10-11T00:00:00Z", bootstrap=False)
+        self.assertEqual(events[0]["visa_signal"], "positive")
+        self.assertEqual(events[0]["visa_evidence"], ["We offer visa sponsorship for this role."])
+
+    def test_structured_sponsorship_wording_is_positive(self):
+        for text in (
+            "Visa Sponsorship: Yes",
+            "Working Pass will be provided",
+            "We support relocation and visas",
+        ):
+            with self.subTest(text=text):
+                self.assertEqual(mod.visa_evidence(text)[0], "positive")
+
+    def test_explicit_no_sponsorship_emits_negative_evidence(self):
+        job = {
+            "public_slug": "visa-negative",
+            "title": "Backend Engineer",
+            "description": "We are unable to sponsor visas for this position. Applicants must have existing work authorization.",
+        }
+        events, _ = mod.classify_events([job], {}, "2026-10-11T00:00:00Z", bootstrap=False)
+        self.assertEqual(events[0]["visa_signal"], "negative")
+        self.assertEqual(events[0]["visa_evidence"], ["We are unable to sponsor visas for this position.", "Applicants must have existing work authorization."])
+
+    def test_structured_no_sponsorship_is_negative(self):
+        self.assertEqual(mod.visa_evidence("Visa Sponsorship: No")[0], "negative")
+
+    def test_may_sponsor_is_ambiguous(self):
+        job = {
+            "public_slug": "visa-ambiguous",
+            "title": "Software Engineer",
+            "description": "Visa sponsorship may be considered for exceptional candidates.",
+        }
+        events, _ = mod.classify_events([job], {}, "2026-10-11T00:00:00Z", bootstrap=False)
+        self.assertEqual(events[0]["visa_signal"], "ambiguous")
+        self.assertEqual(events[0]["visa_evidence"], ["Visa sponsorship may be considered for exceptional candidates."])
+
+    def test_enrichment_visa_hint_alone_does_not_become_positive(self):
+        job = {
+            "public_slug": "visa-hint-only",
+            "title": "AI Engineer",
+            "enrichment": {"visa_sponsorship": True},
+        }
+        events, _ = mod.classify_events([job], {}, "2026-10-11T00:00:00Z", bootstrap=False)
+        self.assertIn("visa_hint", events[0]["flags"])
+        self.assertEqual(events[0]["visa_signal"], "none")
+        self.assertEqual(events[0]["visa_evidence"], [])
+
     def test_same_identity_same_fingerprint_emits_nothing(self):
         job = {"public_slug": "abc", "title": "AI Engineer", "company_name": "Acme", "location": "Singapore"}
         seen = {"abc": {"fingerprint": mod.content_fingerprint(job), "last_seen": "2026-10-08T00:00:00Z"}}
