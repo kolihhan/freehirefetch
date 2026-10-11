@@ -21,6 +21,7 @@ API_MAX_PAGE_SIZE = 100
 DELTA_OPEN_WITHIN_DAYS = 2
 BOOTSTRAP_EMIT_DAYS = 7
 RETENTION_DAYS = 30
+VISA_EVIDENCE_FINGERPRINT_VERSION = 1
 DEFAULT_CATEGORIES = (
     "backend",
     "fullstack",
@@ -234,6 +235,9 @@ def content_fingerprint(job: dict) -> str:
         "experience_years_min": enrichment.get("experience_years_min"),
         "company_type": enrichment.get("company_type"),
     }
+    visa_signal, _ = visa_evidence(job.get("description"))
+    if visa_signal != "none":
+        meaningful["visa_evidence_version"] = VISA_EVIDENCE_FINGERPRINT_VERSION
     raw = json.dumps(meaningful, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
