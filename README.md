@@ -31,7 +31,7 @@ The worker needs no API key or paid service. It commits only changed public stat
 ## Public state
 
 - `feed/events.jsonl`: 30-day rolling `NEW`/`CHANGED` event feed with monotonic `seq`.
-- New events also retain sentence-level `visa_signal` (`positive`/`negative`/`ambiguous`/`none`) and `visa_evidence` extracted from the public JD; the full JD is not stored.
+- New events also retain sentence-level `visa_signal` (`positive`/`negative`/`ambiguous`/`none`) and `visa_evidence` extracted from FreeHire's public JD snippet; absence of a signal is not proof that the full employer JD says nothing about sponsorship.
 - `state/seen.json`: exact machine-dedupe state, bounded by current/recent identities.
 - `health.json`: latest successful run metadata including `first_seq` / `last_seq`.
 
