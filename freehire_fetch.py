@@ -38,6 +38,30 @@ _TITLE_HARD_DROP = re.compile(
 )
 _HARD_SENIORITY_HINTS = {"senior", "lead", "staff", "principal", "c_level", "manager", "director"}
 _AGENCY_HINTS = {"agency", "outstaff", "outsource", "outsourcing"}
+_VISA_NEGATIVE = re.compile(
+    r"\b(?:unable|cannot|can't|do\s+not|don't|does\s+not|doesn't|will\s+not|won't)\b.{0,24}\b(?:sponsor|provide|offer|support)\w*\b.{0,40}\b(?:visa|visas|work\s+permit|employment\s+pass|s\s*pass)\b"
+    r"|\bno\s+(?:visa\s+)?sponsorship\b"
+    r"|\bmust\s+(?:already\s+)?(?:have|hold)\b.{0,40}\b(?:work\s+authorization|work\s+permit|employment\s+pass|s\s*pass)\b"
+    r"|\b(?:existing|current)\s+work\s+authorization\s+(?:is\s+)?required\b"
+    r"|不(?:提供|办理|支持|协助).{0,12}(?:签证|工作许可|工作许可证)"
+    r"|需(?:已有|持有).{0,12}(?:工作许可|工作许可证|签证)",
+    re.IGNORECASE,
+)
+_VISA_AMBIGUOUS = re.compile(
+    r"\bmay\s+(?:be\s+able\s+to\s+)?(?:sponsor|provide|offer|support)\b"
+    r"|\bsponsorship\s+may\b"
+    r"|\b(?:visa\s+sponsorship|work\s+visa|work\s+permit)\b.{0,40}\b(?:may|might|considered|case[- ]by[- ]case)\b"
+    r"|(?:签证|工作许可).{0,12}(?:视情况|可考虑|酌情)",
+    re.IGNORECASE,
+)
+_VISA_POSITIVE = re.compile(
+    r"\b(?:offer|offers|offered|provide|provides|provided|support|supports|supported)\b.{0,40}\bvisa\s+sponsorship\b"
+    r"|\bvisa\s+sponsorship\b.{0,40}\b(?:available|provided|offered|supported)\b"
+    r"|\b(?:offer|offers|offered|provide|provides|provided|support|supports|supported|sponsor|sponsors|sponsored)\b.{0,40}\b(?:work\s+visa|work\s+permit|employment\s+pass|s\s*pass)\b"
+    r"|\b(?:work\s+visa|work\s+permit|employment\s+pass|s\s*pass)\b.{0,40}\b(?:available|provided|offered|supported|sponsored)\b"
+    r"|(?:提供|办理|协助办理|支持办理).{0,12}(?:工作签证|工作许可|工作许可证|外国人工作许可|签证)",
+    re.IGNORECASE,
+)
 
 
 def _utcnow() -> datetime:
@@ -148,6 +172,33 @@ def machine_flags(job: dict) -> tuple[bool, list[str]]:
     return hard_drop, flags
 
 
+def visa_evidence(description: object) -> tuple[str, list[str]]:
+    text = " ".join(str(description or "").split())
+    if not text:
+        return "none", []
+    sentences = [match.group(0).strip() for match in re.finditer(r"[^.!?。！？]+(?:[.!?。！？]+|$)", text) if match.group(0).strip()]
+    evidence: list[str] = []
+    signals: set[str] = set()
+    for sentence in sentences:
+        signal = None
+        if _VISA_NEGATIVE.search(sentence):
+            signal = "negative"
+        elif _VISA_AMBIGUOUS.search(sentence):
+            signal = "ambiguous"
+        elif _VISA_POSITIVE.search(sentence):
+            signal = "positive"
+        if signal:
+            signals.add(signal)
+            evidence.append(sentence)
+    if "negative" in signals:
+        return "negative", evidence[:4]
+    if "ambiguous" in signals:
+        return "ambiguous", evidence[:4]
+    if "positive" in signals:
+        return "positive", evidence[:4]
+    return "none", []
+
+
 def _norm(value: object) -> str:
     return " ".join(str(value or "").strip().lower().split())
 
@@ -179,6 +230,9 @@ def content_fingerprint(job: dict) -> str:
         "seniority": enrichment.get("seniority"),
         "experience_years_min": enrichment.get("experience_years_min"),
         "company_type": enrichment.get("company_type"),
+        "visa_sponsorship": enrichment.get("visa_sponsorship"),
+        "work_authorization": enrichment.get("work_authorization"),
+        "sponsorship": enrichment.get("sponsorship"),
     }
     raw = json.dumps(meaningful, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
@@ -229,6 +283,7 @@ def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool)
             continue
 
         enrichment = job.get("enrichment") if isinstance(job.get("enrichment"), dict) else {}
+        visa_signal, visa_matches = visa_evidence(job.get("description"))
         events.append(
             {
                 "kind": kind,
@@ -248,6 +303,9 @@ def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool)
                 "work_mode": job.get("work_mode"),
                 "category": job.get("category"),
                 "employment_type": enrichment.get("employment_type") or job.get("employment_type"),
+                "visa_signal": visa_signal,
+                "visa_evidence": visa_matches,
+                "visa_hint": "visa_hint" in flags,
                 "detected_at": now_iso,
                 "fingerprint": fingerprint,
                 "flags": flags,
