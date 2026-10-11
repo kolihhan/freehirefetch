@@ -56,6 +56,9 @@ jobs:
           fi
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
 
+      - name: Probe raw JD coverage
+        run: python probe_stats.py
+
       - name: Fetch FreeHire
         shell: bash
         run: |
