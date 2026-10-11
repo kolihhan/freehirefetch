@@ -230,9 +230,6 @@ def content_fingerprint(job: dict) -> str:
         "seniority": enrichment.get("seniority"),
         "experience_years_min": enrichment.get("experience_years_min"),
         "company_type": enrichment.get("company_type"),
-        "visa_sponsorship": enrichment.get("visa_sponsorship"),
-        "work_authorization": enrichment.get("work_authorization"),
-        "sponsorship": enrichment.get("sponsorship"),
     }
     raw = json.dumps(meaningful, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
