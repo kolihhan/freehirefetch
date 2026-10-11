@@ -1,0 +1,52 @@
+name: One-shot visa regex patch
+
+on:
+  push:
+    branches:
+      - feat/visa-evidence
+    paths:
+      - visa-patch-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Patch supported visa wording
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path("freehire_fetch.py")
+          text = path.read_text()
+          text = text.replace(
+              '    r"|\\bno\\s+(?:visa\\s+)?sponsorship\\b"\n',
+              '    r"|\\bno\\s+(?:visa\\s+)?sponsorship\\b"\n'
+              '    r"|\\bvisa\\s+sponsorship\\s*[:=-]\\s*(?:no|false|none|not\\s+available)\\b"\n',
+          )
+          text = text.replace(
+              '    r"|\\bvisa\\s+sponsorship\\b.{0,40}\\b(?:available|provided|offered|supported)\\b"\n',
+              '    r"|\\bvisa\\s+sponsorship\\b.{0,40}\\b(?:available|provided|offered|supported)\\b"\n'
+              '    r"|\\bvisa\\s+sponsorship\\s*[:=-]\\s*(?:yes|true)\\b"\n',
+          )
+          text = text.replace(
+              '(?:work\\s+visa|work\\s+permit|employment\\s+pass|s\\s*pass)',
+              '(?:work\\s+visa|work\\s+permit|work(?:ing)?\\s+pass|employment\\s+pass|s\\s*pass)',
+          )
+          text = text.replace(
+              '    r"|(?:提供|办理|协助办理|支持办理).{0,12}(?:工作签证|工作许可|工作许可证|外国人工作许可|签证)",\n',
+              '    r"|\\bsupport\\w*\\b.{0,20}\\brelocation\\b.{0,20}\\bvisas?\\b"\n'
+              '    r"|(?:提供|办理|协助办理|支持办理).{0,12}(?:工作签证|工作许可|工作许可证|外国人工作许可|签证)",\n',
+          )
+          path.write_text(text)
+      - name: Self-clean and commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/visa-patch.yml visa-patch-trigger
+          git add freehire_fetch.py
+          git commit -m "fix: cover structured visa sponsorship wording"
+          git push
