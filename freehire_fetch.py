@@ -41,6 +41,7 @@ _AGENCY_HINTS = {"agency", "outstaff", "outsource", "outsourcing"}
 _VISA_NEGATIVE = re.compile(
     r"\b(?:unable|cannot|can't|do\s+not|don't|does\s+not|doesn't|will\s+not|won't)\b.{0,24}\b(?:sponsor|provide|offer|support)\w*\b.{0,40}\b(?:visa|visas|work\s+permit|employment\s+pass|s\s*pass)\b"
     r"|\bno\s+(?:visa\s+)?sponsorship\b"
+    r"|\bvisa\s+sponsorship\s*[:=-]\s*(?:no|false|none|not\s+available)\b"
     r"|\bmust\s+(?:already\s+)?(?:have|hold)\b.{0,40}\b(?:work\s+authorization|work\s+permit|employment\s+pass|s\s*pass)\b"
     r"|\b(?:existing|current)\s+work\s+authorization\s+(?:is\s+)?required\b"
     r"|不(?:提供|办理|支持|协助).{0,12}(?:签证|工作许可|工作许可证)"
@@ -57,8 +58,10 @@ _VISA_AMBIGUOUS = re.compile(
 _VISA_POSITIVE = re.compile(
     r"\b(?:offer|offers|offered|provide|provides|provided|support|supports|supported)\b.{0,40}\bvisa\s+sponsorship\b"
     r"|\bvisa\s+sponsorship\b.{0,40}\b(?:available|provided|offered|supported)\b"
-    r"|\b(?:offer|offers|offered|provide|provides|provided|support|supports|supported|sponsor|sponsors|sponsored)\b.{0,40}\b(?:work\s+visa|work\s+permit|employment\s+pass|s\s*pass)\b"
-    r"|\b(?:work\s+visa|work\s+permit|employment\s+pass|s\s*pass)\b.{0,40}\b(?:available|provided|offered|supported|sponsored)\b"
+    r"|\bvisa\s+sponsorship\s*[:=-]\s*(?:yes|true)\b"
+    r"|\b(?:offer|offers|offered|provide|provides|provided|support|supports|supported|sponsor|sponsors|sponsored)\b.{0,40}\b(?:work\s+visa|work\s+permit|work(?:ing)?\s+pass|employment\s+pass|s\s*pass)\b"
+    r"|\b(?:work\s+visa|work\s+permit|work(?:ing)?\s+pass|employment\s+pass|s\s*pass)\b.{0,40}\b(?:available|provided|offered|supported|sponsored)\b"
+    r"|\bsupport\w*\b.{0,20}\brelocation\b.{0,20}\bvisas?\b"
     r"|(?:提供|办理|协助办理|支持办理).{0,12}(?:工作签证|工作许可|工作许可证|外国人工作许可|签证)",
     re.IGNORECASE,
 )
