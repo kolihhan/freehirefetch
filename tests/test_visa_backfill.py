@@ -45,7 +45,7 @@ class VisaBackfillTests(unittest.TestCase):
             }
         }
 
-        events, _ = mod.classify_events(job and [job], seen, "2026-10-11T00:00:00Z", bootstrap=False)
+        events, _ = mod.classify_events([job], seen, "2026-10-11T00:00:00Z", bootstrap=False)
 
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["kind"], "CHANGED")
