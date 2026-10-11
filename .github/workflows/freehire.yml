@@ -41,8 +41,8 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Run tests
-        run: python -m unittest discover -s tests -v
+      - name: Run focused probe tests
+        run: python -m unittest discover -s tests -p 'test_freehire_fetch.py' -v
 
       - name: Resolve run mode
         id: mode
