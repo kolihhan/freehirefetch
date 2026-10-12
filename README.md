@@ -1,6 +1,6 @@
 # freehirefetch
 
-Small public-data worker for FreeHire SG/CN job discovery.
+Small public-data worker for FreeHire SG/CN/MY job discovery.
 
 It deliberately contains **no personal job-search data**. It fetches FreeHire's public API, validates pagination/filter behavior, applies only conservative title-level hard drops, exact-deduplicates unchanged jobs, and publishes a bounded `NEW`/`CHANGED` event feed.
 
@@ -12,7 +12,7 @@ python freehire_fetch.py --mode delta
 python freehire_fetch.py --mode full
 ```
 
-- `bootstrap`: max-page SG + CN scan; seeds all fetched identities, but emits initial `NEW` events only for jobs FreeHire first saw within 7 days.
+- `bootstrap`: max-page SG + CN + MY scan; seeds all fetched identities, but emits initial `NEW` events only for jobs FreeHire first saw within 7 days.
 - `delta`: hourly path using `open_within_days=2` overlap.
 - `full`: max-page daily backstop/state refresh.
 
