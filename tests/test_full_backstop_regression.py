@@ -26,6 +26,7 @@ class FullBackstopRegressionTests(unittest.TestCase):
                     }
                 ],
                 "CN": [],
+                "MY": [],
             }
 
             def fake_fetch(params):
