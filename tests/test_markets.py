@@ -11,6 +11,11 @@ spec.loader.exec_module(mod)
 
 
 class MarketCoverageTests(unittest.TestCase):
+    def test_malaysia_params_use_country_filter(self):
+        params = mod.build_params("MY", "delta", 0)
+        self.assertEqual(params["countries"], "MY")
+        self.assertEqual(params["open_within_days"], 2)
+
     def test_run_fetches_malaysia_alongside_sg_and_cn(self):
         calls = []
         jobs = {
