@@ -172,9 +172,15 @@ class FreeHireWorkerTests(unittest.TestCase):
     def test_health_exposes_first_seq_last_seq_and_counts(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
-            jobs = {"SG": [{"public_slug": "sg1", "title": "AI Engineer", "company_name": "A", "created_at": "2026-10-09T00:00:00Z"}], "CN": [{"public_slug": "cn1", "title": "Backend Engineer", "company_name": "B", "created_at": "2026-10-09T00:00:00Z"}]}
+            jobs = {
+                "SG": [{"public_slug": "sg1", "title": "AI Engineer", "company_name": "A", "created_at": "2026-10-09T00:00:00Z"}],
+                "CN": [{"public_slug": "cn1", "title": "Backend Engineer", "company_name": "B", "created_at": "2026-10-09T00:00:00Z"}],
+                "MY": [],
+            }
             def fake_fetch(params):
-                country = params["countries"]; return {"data": jobs[country], "meta": {"total": 1, "limit": 100, "offset": 0}}
+                country = params["countries"]
+                data = jobs[country]
+                return {"data": data, "meta": {"total": len(data), "limit": 100, "offset": 0}}
             health = mod.run("bootstrap", root, fake_fetch, now=datetime(2026, 10, 9, tzinfo=timezone.utc))
             self.assertEqual(health["first_seq"], 1); self.assertEqual(health["last_seq"], 2)
             self.assertEqual(health["markets"]["SG"]["fetched"], 1); self.assertEqual(health["markets"]["CN"]["fetched"], 1)

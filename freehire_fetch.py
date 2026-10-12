@@ -423,6 +423,7 @@ def run(
     market_jobs = {
         "SG": fetch_market(fetch_json, "SG", mode),
         "CN": fetch_market(fetch_json, "CN", mode),
+        "MY": fetch_market(fetch_json, "MY", mode),
     }
 
     next_seen = {key: dict(value) for key, value in previous_seen.items()}
@@ -430,7 +431,7 @@ def run(
     market_stats: dict[str, dict[str, int]] = {}
     current_identities: set[str] = set()
 
-    for market in ("SG", "CN"):
+    for market in ("SG", "CN", "MY"):
         jobs = []
         hard_drops = 0
         for source_job in market_jobs[market]:
@@ -478,7 +479,7 @@ def run(
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Fetch and deduplicate FreeHire SG/CN engineering jobs.")
+    parser = argparse.ArgumentParser(description="Fetch and deduplicate FreeHire SG/CN/MY engineering jobs.")
     parser.add_argument("--mode", choices=["bootstrap", "delta", "full"], default="delta")
     parser.add_argument("--root", default=".", help="Repository root containing feed/, state/, health.json")
     return parser.parse_args(argv)
