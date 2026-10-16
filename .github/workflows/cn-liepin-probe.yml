@@ -25,11 +25,13 @@ jobs:
       - name: Install probe dependency
         run: python -m pip install --disable-pip-version-check curl_cffi
 
-      - name: Probe Liepin public web API
+      - name: Probe Liepin search and detail
         shell: bash
         run: |
           python - <<'PY'
+          import html
           import json
+          import re
           import time
           import uuid
           from urllib.parse import quote
@@ -102,7 +104,7 @@ jobs:
           response = session.post(api_url, headers=headers, json=payload, timeout=15)
           elapsed = time.monotonic() - started
           print("api_status=", response.status_code)
-          print("elapsed_seconds=", round(elapsed, 3))
+          print("search_elapsed_seconds=", round(elapsed, 3))
           if response.status_code >= 400:
               raise SystemExit(f"probe_failed: API HTTP {response.status_code}")
 
@@ -137,4 +139,55 @@ jobs:
           print("sample_rows=")
           for row in rows[:5]:
               print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          candidate = next((row for row in rows if row.get("work_years") == "经验不限" and row.get("url")), None)
+          if candidate is None:
+              candidate = next((row for row in rows if row.get("url")), None)
+          if candidate is None:
+              raise SystemExit("probe_failed: no detail candidate")
+
+          detail_url = candidate["url"]
+          detail_started = time.monotonic()
+          detail = session.get(detail_url, headers={"User-Agent": ua, "Referer": search_url}, timeout=15)
+          detail_elapsed = time.monotonic() - detail_started
+          print("detail_url=", detail_url)
+          print("detail_status=", detail.status_code)
+          print("detail_elapsed_seconds=", round(detail_elapsed, 3))
+          print("detail_html_bytes=", len(detail.content))
+          text = detail.text
+
+          scripts = re.findall(
+              r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+              text,
+              flags=re.I | re.S,
+          )
+          print("jsonld_script_count=", len(scripts))
+          jsonld_items = []
+          for raw in scripts:
+              raw = html.unescape(raw).strip()
+              try:
+                  parsed = json.loads(raw)
+              except Exception:
+                  continue
+              if isinstance(parsed, list):
+                  jsonld_items.extend(parsed)
+              else:
+                  jsonld_items.append(parsed)
+
+          job_postings = [
+              item for item in jsonld_items
+              if isinstance(item, dict) and str(item.get("@type", "")).lower() == "jobposting"
+          ]
+          print("jsonld_jobposting_count=", len(job_postings))
+          if job_postings:
+              jp = job_postings[0]
+              description = str(jp.get("description") or "")
+              print("jsonld_datePosted=", jp.get("datePosted"))
+              print("jsonld_validThrough=", jp.get("validThrough"))
+              print("jsonld_title=", jp.get("title"))
+              print("jsonld_description_chars=", len(description))
+              print("jsonld_description_has_requirements=", bool(re.search(r"职责|要求|任职|岗位|职位", description)))
+          else:
+              for key in ("datePosted", "publishTime", "jobDescription", "职位描述", "岗位职责"):
+                  print(f"raw_contains_{key}=", key in text)
           PY
