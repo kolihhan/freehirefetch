@@ -1,0 +1,140 @@
+name: CN Liepin Source Probe
+
+on:
+  push:
+    branches:
+      - probe/cn-liepin-source
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install probe dependency
+        run: python -m pip install --disable-pip-version-check curl_cffi
+
+      - name: Probe Liepin public web API
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import time
+          import uuid
+          from urllib.parse import quote
+          from curl_cffi import requests
+
+          keyword = "AI Agent"
+          search_url = f"https://www.liepin.com/zhaopin/?key={quote(keyword)}"
+          api_url = "https://api-c.liepin.com/api/com.liepin.searchfront4c.pc-search-job"
+          ua = (
+              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+              "AppleWebKit/537.36 (KHTML, like Gecko) "
+              "Chrome/126.0.0.0 Safari/537.36"
+          )
+
+          started = time.monotonic()
+          session = requests.Session(impersonate="chrome")
+          landing = session.get(search_url, headers={"User-Agent": ua}, timeout=15)
+          print("landing_status=", landing.status_code)
+          xsrf = session.cookies.get("XSRF-TOKEN", "")
+          print("xsrf_present=", bool(xsrf))
+          if landing.status_code >= 400 or not xsrf:
+              raise SystemExit("probe_failed: no usable landing/XSRF session")
+
+          payload = {
+              "data": {
+                  "mainSearchPcConditionForm": {
+                      "city": "",
+                      "dq": "",
+                      "pubTime": "",
+                      "currentPage": 0,
+                      "pageSize": 40,
+                      "key": keyword,
+                      "suggestTag": "",
+                      "workYearCode": "0",
+                      "compId": "",
+                      "compName": "",
+                      "compTag": "",
+                      "industry": "",
+                      "salaryCode": "",
+                      "jobKind": "",
+                      "compScale": "",
+                      "compKind": "",
+                      "compStage": "",
+                      "eduLevel": "",
+                      "salaryLow": "",
+                      "salaryHigh": "",
+                  },
+                  "passThroughForm": {
+                      "scene": "input",
+                      "skId": uuid.uuid4().hex,
+                      "fkId": uuid.uuid4().hex,
+                      "ckId": uuid.uuid4().hex,
+                  },
+              }
+          }
+          headers = {
+              "User-Agent": ua,
+              "Content-Type": "application/json;charset=UTF-8",
+              "X-Client-Type": "web",
+              "X-Requested-With": "XMLHttpRequest",
+              "X-Fscp-Bi-Stat": json.dumps({"location": search_url}),
+              "X-Fscp-Fe-Version": "",
+              "X-Fscp-Std-Info": json.dumps({"client_id": "40108"}),
+              "X-Fscp-Trace-Id": str(uuid.uuid4()),
+              "X-Fscp-Version": "1.1",
+              "X-XSRF-TOKEN": xsrf,
+              "Origin": "https://www.liepin.com",
+              "Referer": search_url,
+          }
+          response = session.post(api_url, headers=headers, json=payload, timeout=15)
+          elapsed = time.monotonic() - started
+          print("api_status=", response.status_code)
+          print("elapsed_seconds=", round(elapsed, 3))
+          if response.status_code >= 400:
+              raise SystemExit(f"probe_failed: API HTTP {response.status_code}")
+
+          data = response.json()
+          print("business_flag=", data.get("flag"))
+          cards = (((data.get("data") or {}).get("data") or {}).get("jobCardList") or [])
+          print("cards=", len(cards))
+          if not isinstance(cards, list) or not cards:
+              raise SystemExit("probe_failed: no cards / contract changed")
+
+          rows = []
+          for card in cards:
+              job = card.get("job") or {}
+              comp = card.get("comp") or {}
+              rows.append({
+                  "title": job.get("title"),
+                  "company": comp.get("compName"),
+                  "location": job.get("dq"),
+                  "salary": job.get("salary"),
+                  "job_id": job.get("jobId"),
+                  "url": job.get("link"),
+                  "work_years": job.get("requireWorkYears"),
+                  "education": job.get("requireEduLevel"),
+                  "labels": job.get("labels"),
+              })
+
+          fields = ["title", "company", "location", "job_id", "url"]
+          for field in fields:
+              present = sum(1 for row in rows if row.get(field))
+              print(f"field_{field}_present={present}/{len(rows)}")
+
+          print("sample_rows=")
+          for row in rows[:5]:
+              print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+          PY
