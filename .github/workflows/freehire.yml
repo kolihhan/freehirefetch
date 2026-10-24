@@ -55,7 +55,7 @@ jobs:
         shell: bash
         run: |
           MODE="${{ steps.mode.outputs.mode }}"
-          python freehire_fetch.py --mode "$MODE"
+          python firehose_fetch.py --mode "$MODE"
           python feed_pages.py
 
       - name: Publish changed public state
