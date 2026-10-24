@@ -1,22 +1,26 @@
 # freehirefetch
 
-Small public-data worker for FreeHire SG/CN/MY job discovery.
+Public-data firehose for broad SG/CN/MY tech-job discovery from FreeHire.
 
 It deliberately contains **no personal job-search data**. It fetches FreeHire's public API, validates pagination/filter behavior, applies only conservative title-level hard drops, exact-deduplicates unchanged jobs, and publishes a bounded `NEW`/`CHANGED` event feed.
 
 ## Run
 
+Use the firehose entrypoint for normal discovery:
+
 ```bash
-python freehire_fetch.py --mode bootstrap
-python freehire_fetch.py --mode delta
-python freehire_fetch.py --mode full
+python firehose_fetch.py --mode bootstrap
+python firehose_fetch.py --mode delta
+python firehose_fetch.py --mode full
 ```
 
-- `bootstrap`: max-page SG + CN + MY scan; seeds all fetched identities, but emits initial `NEW` events only for jobs FreeHire first saw within 7 days.
-- `delta`: hourly path using `open_within_days=2` overlap.
-- `full`: max-page daily backstop/state refresh.
+`firehose_fetch.py` reuses the tested `freehire_fetch.py` worker while widening its search scope to broad early-career tech categories: generic software engineering, backend, frontend, fullstack, mobile, data engineering/science/analytics, ML/AI, QA, security, solutions engineering, developer relations, technical writing, DevOps, SRE, and network engineering.
 
-FreeHire's public search window is capped at 10,000 rows per market, 100 rows per request.
+- `bootstrap`: max-page SG + CN + MY scan; seeds fetched identities and emits initial `NEW` events for jobs FreeHire first saw within 30 days under the firehose scope.
+- `delta`: hourly path using `open_within_days=2` overlap.
+- `full`: max-page daily backstop/state refresh; newly discovered broad-scope jobs still use the 30-day initial-event window.
+
+FreeHire's public search window is capped at 10,000 rows per market, 100 rows per request. The feed therefore prioritizes the newest matching jobs rather than claiming exhaustive historical coverage.
 
 ## Automation
 
@@ -41,7 +45,7 @@ FreeHire enrichment (seniority, experience, employer type, visa hints) is **not 
 
 ```bash
 python -m unittest discover -s tests -v
-python -m py_compile freehire_fetch.py
+python -m py_compile freehire_fetch.py firehose_fetch.py
 ```
 
 No paid API, browser automation, private cookies, or required secret.
