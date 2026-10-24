@@ -11,7 +11,7 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn("workflow_dispatch:", text)
         self.assertIn("cron: '17 * * * *'", text)
         self.assertIn("cron: '43 18 * * *'", text)
-        self.assertIn('python freehire_fetch.py --mode "$MODE"', text)
+        self.assertIn('python firehose_fetch.py --mode "$MODE"', text)
         self.assertIn("permissions:\n  contents: write", text)
         self.assertIn("runs-on: ubuntu-latest", text)
         self.assertIn("uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1", text)
