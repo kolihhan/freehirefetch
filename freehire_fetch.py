@@ -34,9 +34,10 @@ DEFAULT_CATEGORIES = (
 )
 
 _TITLE_HARD_DROP = re.compile(
-    r"\b(senior|staff|principal|lead|director|manager|intern|internship)\b|\bhead\s+of\b",
+    r"\b(staff|principal|lead|director|manager|intern|internship)\b|\bhead\s+of\b",
     re.IGNORECASE,
 )
+_SENIOR_TITLE_HINT = re.compile(r"\bsenior\b", re.IGNORECASE)
 _HARD_SENIORITY_HINTS = {"senior", "lead", "staff", "principal", "c_level", "manager", "director"}
 _AGENCY_HINTS = {"agency", "outstaff", "outsource", "outsourcing"}
 _VISA_NEGATIVE = re.compile(
@@ -163,6 +164,8 @@ def machine_flags(job: dict) -> tuple[bool, list[str]]:
     hard_drop = bool(_TITLE_HARD_DROP.search(title))
     if hard_drop:
         flags.append("title_hard_drop")
+    if _SENIOR_TITLE_HINT.search(title):
+        flags.append("senior_title_hint")
 
     years = enrichment.get("experience_years_min")
     if isinstance(years, (int, float)) and years >= 5:
