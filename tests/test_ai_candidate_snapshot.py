@@ -5,8 +5,8 @@ import tempfile
 import unittest
 from datetime import datetime, timezone
 
-SCRIPT = Path(__file__).parents[1] / "freehire_fetch.py"
-spec = importlib.util.spec_from_file_location("freehire_fetch", SCRIPT)
+SCRIPT = Path(__file__).parents[1] / "firehose_fetch.py"
+spec = importlib.util.spec_from_file_location("firehose_fetch", SCRIPT)
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
@@ -103,7 +103,8 @@ class AICandidateSnapshotTests(unittest.TestCase):
                 data = jobs[params["countries"]]
                 return {"data": data, "meta": {"total": len(data), "limit": 100, "offset": 0}}
 
-            mod.run("delta", root, fake_fetch, now=datetime(2026, 10, 25, tzinfo=timezone.utc))
+            mod.configure_worker()
+            mod.worker.run("delta", root, fake_fetch, now=datetime(2026, 10, 25, tzinfo=timezone.utc))
             snapshot = json.loads((root / "feed" / "candidates.json").read_text(encoding="utf-8"))
             self.assertEqual(snapshot["count"], 1)
             self.assertEqual(snapshot["candidates"][0]["public_slug"], "sg-ai")
