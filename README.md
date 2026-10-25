@@ -33,11 +33,13 @@ FreeHire's public search window is capped at 10,000 rows **per query window**, 1
 
 ## AI candidate snapshot
 
-Every firehose run also writes `feed/candidates.json`: a **derived machine triage artifact**, not a second human tracker.
+Every firehose run writes `feed/candidates.json`: a **derived machine triage artifact**, not a second human tracker.
 
-It scores the jobs fetched in that run for material AI/ML/research relevance using title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough.
+The snapshot now contains only AI/ML/research jobs that emitted a `NEW` or `CHANGED` event in that exact ingestion run. Unchanged jobs are not repeated on every hourly scan. Each candidate carries its event `kind` and monotonic `seq`, so downstream review can process only fresh work.
 
-The snapshot is bounded to at most **30 candidates per market** (90 total), contains compact AI-relevance signals plus a short JD excerpt, and excludes the worker's existing title hard-drops. Its purpose is to reduce downstream review from thousands of raw rows to tens of plausible AI candidates. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
+Material AI relevance is scored from title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough. Explicit contract, fixed-term, temporary, part-time, freelance, internship and trainee employment types are removed before the snapshot.
+
+The snapshot is bounded to at most **10 candidates per market** (30 total), contains compact AI-relevance signals plus a short JD excerpt, and excludes the worker's existing title hard-drops. Typical hourly delta runs should be much smaller because only fresh/changed AI jobs are emitted. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
 
 ## Automation
 
@@ -52,7 +54,7 @@ The worker needs no API key or paid service. It commits only changed public stat
 ## Public state
 
 - `feed/events.jsonl`: 30-day rolling `NEW`/`CHANGED` event feed with monotonic `seq`.
-- `feed/candidates.json`: bounded current-run AI/ML/research candidate snapshot for fast downstream triage.
+- `feed/candidates.json`: latest-run incremental AI/ML/research review candidates only.
 - New events also retain sentence-level `visa_signal` (`positive`/`negative`/`ambiguous`/`none`) and `visa_evidence` extracted from FreeHire's public JD snippet; absence of a signal is not proof that the full employer JD says nothing about sponsorship.
 - `state/seen.json`: exact machine-dedupe state, bounded by current/recent identities.
 - `health.json`: latest successful run metadata including `first_seq` / `last_seq`.
