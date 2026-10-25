@@ -1,6 +1,6 @@
 # freehirefetch
 
-Public-data firehose for broad SG/CN/MY tech-job discovery from FreeHire.
+Public-data firehose for broad SG/CN/MY engineering-job discovery from FreeHire.
 
 It deliberately contains **no personal job-search data**. It fetches FreeHire's public API, validates pagination/filter behavior, applies only conservative title-level hard drops, exact-deduplicates unchanged jobs, and publishes a bounded `NEW`/`CHANGED` event feed.
 
@@ -14,13 +14,22 @@ python firehose_fetch.py --mode delta
 python firehose_fetch.py --mode full
 ```
 
-`firehose_fetch.py` reuses the tested `freehire_fetch.py` worker while widening its search scope to broad early-career tech categories: generic software engineering, backend, frontend, fullstack, mobile, data engineering/science/analytics, ML/AI, QA, security, solutions engineering, developer relations, technical writing, DevOps, SRE, and network engineering.
+`firehose_fetch.py` reuses the tested `freehire_fetch.py` worker while widening its search scope to broad early-career engineering categories: generic software engineering, backend, frontend, fullstack, mobile, data engineering/science/analytics, ML/AI, QA, security, solutions engineering, DevOps, SRE, and network engineering. Developer-relations and technical-writing categories are intentionally excluded so they do not consume engineering search capacity.
+
+Singapore is split into four category windows so one 10,000-row API window cannot crowd out other engineering lanes:
+
+1. SWE — software engineering / backend / frontend / fullstack / mobile;
+2. AI + data — data engineering/science/analytics / ML / AI engineering;
+3. QA — QA/test roles;
+4. infra — security / solutions engineering / DevOps / SRE / network engineering.
+
+Each SG shard may scan up to FreeHire's 10,000-row window. Results are unioned and exact-deduplicated by job identity before event classification. CN and MY continue to use one broad engineering window each.
 
 - `bootstrap`: max-page SG + CN + MY scan; seeds fetched identities and emits initial `NEW` events for jobs FreeHire first saw within 30 days under the firehose scope.
 - `delta`: hourly path using `open_within_days=2` overlap.
 - `full`: max-page daily backstop/state refresh; newly discovered broad-scope jobs still use the 30-day initial-event window.
 
-FreeHire's public search window is capped at 10,000 rows per market, 100 rows per request. The feed therefore prioritizes the newest matching jobs rather than claiming exhaustive historical coverage.
+FreeHire's public search window is capped at 10,000 rows **per query window**, 100 rows per request. Sharding improves Singapore coverage but still does not imply exhaustive market coverage.
 
 ## Automation
 
@@ -39,7 +48,7 @@ The worker needs no API key or paid service. It commits only changed public stat
 - `state/seen.json`: exact machine-dedupe state, bounded by current/recent identities.
 - `health.json`: latest successful run metadata including `first_seq` / `last_seq`.
 
-FreeHire enrichment (seniority, experience, employer type, visa hints) is **not employer truth**. It can add flags, but only explicit title-level mismatches such as Senior/Staff/Lead/Manager/Intern are hard-dropped here. Private verification happens elsewhere.
+FreeHire enrichment (seniority, experience, employer type, visa hints) is **not employer truth**. It can add flags. Clear mature titles such as Staff/Principal/Lead/Manager/Director and internships remain title-level hard drops. A `Senior` title alone is now a `senior_title_hint`, not a source-level rejection, so downstream JD review can decide whether the actual experience/ownership requirements are viable.
 
 ## Test
 

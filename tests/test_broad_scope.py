@@ -16,9 +16,10 @@ class BroadScopeTests(unittest.TestCase):
             "devops",
             "sre",
         )
+        worker.MARKET_CATEGORY_SHARDS = {}
         worker.BOOTSTRAP_EMIT_DAYS = 7
 
-    def test_firehose_enables_broad_early_career_tech_categories(self):
+    def test_firehose_enables_broad_early_career_engineering_categories(self):
         firehose.configure_worker()
         required = {
             "software_engineering",
@@ -34,15 +35,22 @@ class BroadScopeTests(unittest.TestCase):
             "qa",
             "security",
             "solutions_engineering",
-            "developer_relations",
-            "technical_writing",
             "devops",
             "sre",
             "network_engineering",
         }
         self.assertEqual(set(worker.DEFAULT_CATEGORIES), required)
+        self.assertEqual(len(worker.MARKET_CATEGORY_SHARDS["SG"]), 4)
+        shard_union = {
+            category
+            for shard in worker.MARKET_CATEGORY_SHARDS["SG"]
+            for category in shard
+        }
+        self.assertEqual(shard_union, required)
         params = worker.build_params("SG", "delta", 0)
         self.assertEqual(set(params["category"].split(",")), required)
+        self.assertNotIn("developer_relations", required)
+        self.assertNotIn("technical_writing", required)
 
     def test_firehose_bootstrap_surfaces_30_days_of_new_scope(self):
         firehose.configure_worker()

@@ -42,12 +42,13 @@ class FreeHireWorkerTests(unittest.TestCase):
         self.assertEqual(params["open_within_days"], 2)
         self.assertEqual(params["countries"], "CN")
 
-    def test_title_hard_drop_rejects_explicit_senior_and_intern(self):
+    def test_title_hard_drop_keeps_senior_as_flag_and_rejects_intern(self):
         senior_drop, senior_flags = mod.machine_flags({"title": "Senior AI Engineer", "enrichment": {}})
         intern_drop, intern_flags = mod.machine_flags({"title": "Software Engineer Intern", "enrichment": {}})
-        self.assertTrue(senior_drop)
+        self.assertFalse(senior_drop)
         self.assertTrue(intern_drop)
-        self.assertIn("title_hard_drop", senior_flags)
+        self.assertIn("senior_title_hint", senior_flags)
+        self.assertNotIn("title_hard_drop", senior_flags)
         self.assertIn("title_hard_drop", intern_flags)
 
     def test_enrichment_5_years_becomes_flag_not_reject(self):
