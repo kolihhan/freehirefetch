@@ -68,24 +68,49 @@ def _capturing_fetch_market(
     return jobs
 
 
+def _latest_run_events(root: Path, health: dict) -> dict[str, dict]:
+    emitted = int(health.get("new") or 0) + int(health.get("changed") or 0)
+    if emitted <= 0:
+        return {}
+
+    last_seq = int(health.get("last_seq") or 0)
+    first_seq = last_seq - emitted + 1
+    _, events, _ = worker.load_public_state(root)
+    latest: dict[str, dict] = {}
+    for event in events:
+        seq = int(event.get("seq") or 0)
+        identity = str(event.get("identity") or "")
+        if first_seq <= seq <= last_seq and identity and event.get("kind") in {"NEW", "CHANGED"}:
+            latest[identity] = event
+    return latest
+
+
 def _run_with_candidate_snapshot(
     mode: str,
     root: Path,
     fetch_json: Callable[[dict[str, object]], dict] = worker.http_fetch,
     now=None,
 ) -> dict:
+    root = Path(root)
     _CAPTURED_JOBS.clear()
     health = _ORIGINAL_RUN(mode, root, fetch_json=fetch_json, now=now)
+    latest_events = _latest_run_events(root, health)
 
     eligible_jobs: dict[str, list[dict]] = {}
     for market in ("SG", "CN", "MY"):
         prepared: list[dict] = []
         for source_job in _CAPTURED_JOBS.get(market, []):
+            identity = worker.job_identity(source_job)
+            event = latest_events.get(identity)
+            if event is None:
+                continue
             hard_drop, flags = worker.machine_flags(source_job)
             if hard_drop:
                 continue
             job = dict(source_job)
             job["_flags"] = flags
+            job["_event_kind"] = event.get("kind")
+            job["_event_seq"] = event.get("seq")
             prepared.append(job)
         eligible_jobs[market] = prepared
 
@@ -94,7 +119,7 @@ def _run_with_candidate_snapshot(
         generated_at=str(health.get("last_success") or ""),
         mode=mode,
     )
-    candidate_snapshot.write_candidate_snapshot(Path(root), snapshot)
+    candidate_snapshot.write_candidate_snapshot(root, snapshot)
     return health
 
 
