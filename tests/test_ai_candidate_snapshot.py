@@ -48,6 +48,25 @@ class AICandidateSnapshotTests(unittest.TestCase):
         self.assertGreaterEqual(score, mod.AI_CANDIDATE_MIN_SCORE)
         self.assertIn("title:research", signals)
 
+    def test_explicit_non_permanent_job_is_not_candidate(self):
+        snapshot = mod.build_candidate_snapshot(
+            {
+                "SG": [{
+                    "public_slug": "sg-contract-ai",
+                    "title": "AI Engineer",
+                    "company_name": "ContractCo",
+                    "description": "Build LLM agents and RAG systems.",
+                    "category": "ai_engineering",
+                    "employment_type": "Contract",
+                }],
+                "CN": [],
+                "MY": [],
+            },
+            generated_at="2026-10-25T00:00:00Z",
+            mode="delta",
+        )
+        self.assertEqual(snapshot["count"], 0)
+
     def test_snapshot_is_bounded_per_market_and_contains_short_excerpt(self):
         jobs = {
             "SG": [
@@ -58,6 +77,8 @@ class AICandidateSnapshotTests(unittest.TestCase):
                     "description": "Build LLM agents, RAG and evaluation systems. " + ("x" * 900),
                     "category": "ai_engineering",
                     "created_at": f"2026-10-{25 - i:02d}T00:00:00Z",
+                    "_event_kind": "NEW",
+                    "_event_seq": 100 + i,
                 }
                 for i in range(4)
             ],
@@ -75,6 +96,69 @@ class AICandidateSnapshotTests(unittest.TestCase):
         self.assertEqual(len(snapshot["candidates"]), 2)
         self.assertLessEqual(len(snapshot["candidates"][0]["description_excerpt"]), mod.AI_CANDIDATE_EXCERPT_CHARS)
         self.assertGreaterEqual(snapshot["candidates"][0]["ai_score"], mod.AI_CANDIDATE_MIN_SCORE)
+        self.assertIn(snapshot["candidates"][0]["event_kind"], {"NEW", "CHANGED"})
+        self.assertIsInstance(snapshot["candidates"][0]["event_seq"], int)
+
+    def test_run_snapshot_contains_only_new_or_changed_ai_jobs(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "state").mkdir(parents=True)
+            (root / "feed").mkdir(parents=True)
+
+            unchanged = {
+                "public_slug": "sg-unchanged",
+                "title": "AI Engineer",
+                "company_name": "SameCo",
+                "description": "Build LLM agents and RAG systems.",
+                "category": "ai_engineering",
+                "created_at": "2026-10-25T00:00:00Z",
+            }
+            old_changed = {
+                "public_slug": "sg-changed",
+                "title": "AI Engineer",
+                "company_name": "ChangedCo",
+                "description": "Build machine learning models.",
+                "category": "ai_engineering",
+                "created_at": "2026-10-25T00:00:00Z",
+            }
+            changed = dict(old_changed, description="Build LLM agents, RAG retrieval and evaluation pipelines.")
+            new = {
+                "public_slug": "sg-new",
+                "title": "Research Engineer",
+                "company_name": "NewCo",
+                "description": "Research machine learning and deep learning model evaluation.",
+                "category": "ml_ai",
+                "created_at": "2026-10-25T00:00:00Z",
+            }
+            seen = {
+                "sg-unchanged": {
+                    "fingerprint": mod.worker.content_fingerprint(unchanged),
+                    "last_seen": "2026-10-24T00:00:00Z",
+                },
+                "sg-changed": {
+                    "fingerprint": mod.worker.content_fingerprint(old_changed),
+                    "last_seen": "2026-10-24T00:00:00Z",
+                },
+            }
+            (root / "state" / "seen.json").write_text(json.dumps(seen) + "\n", encoding="utf-8")
+            (root / "feed" / "events.jsonl").write_text("", encoding="utf-8")
+            (root / "health.json").write_text('{"last_seq":40}\n', encoding="utf-8")
+
+            jobs = {"SG": [unchanged, changed, new], "CN": [], "MY": []}
+
+            def fake_fetch(params):
+                data = jobs[params["countries"]]
+                return {"data": data, "meta": {"total": len(data), "limit": 100, "offset": 0}}
+
+            mod.configure_worker()
+            mod.worker.run("delta", root, fake_fetch, now=datetime(2026, 10, 25, tzinfo=timezone.utc))
+            snapshot = json.loads((root / "feed" / "candidates.json").read_text(encoding="utf-8"))
+            by_slug = {candidate["public_slug"]: candidate for candidate in snapshot["candidates"]}
+
+            self.assertEqual(set(by_slug), {"sg-changed", "sg-new"})
+            self.assertEqual(by_slug["sg-changed"]["event_kind"], "CHANGED")
+            self.assertEqual(by_slug["sg-new"]["event_kind"], "NEW")
+            self.assertEqual({by_slug["sg-changed"]["event_seq"], by_slug["sg-new"]["event_seq"]}, {41, 42})
 
     def test_run_writes_candidate_snapshot(self):
         with tempfile.TemporaryDirectory() as td:
@@ -108,6 +192,8 @@ class AICandidateSnapshotTests(unittest.TestCase):
             snapshot = json.loads((root / "feed" / "candidates.json").read_text(encoding="utf-8"))
             self.assertEqual(snapshot["count"], 1)
             self.assertEqual(snapshot["candidates"][0]["public_slug"], "sg-ai")
+            self.assertEqual(snapshot["candidates"][0]["event_kind"], "NEW")
+            self.assertEqual(snapshot["candidates"][0]["event_seq"], 1)
 
 
 if __name__ == "__main__":
