@@ -31,6 +31,14 @@ Each SG shard may scan up to FreeHire's 10,000-row window. Results are unioned a
 
 FreeHire's public search window is capped at 10,000 rows **per query window**, 100 rows per request. Sharding improves Singapore coverage but still does not imply exhaustive market coverage.
 
+## AI candidate snapshot
+
+Every firehose run also writes `feed/candidates.json`: a **derived machine triage artifact**, not a second human tracker.
+
+It scores the jobs fetched in that run for material AI/ML/research relevance using title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough.
+
+The snapshot is bounded to at most **30 candidates per market** (90 total), contains compact AI-relevance signals plus a short JD excerpt, and excludes the worker's existing title hard-drops. Its purpose is to reduce downstream review from thousands of raw rows to tens of plausible AI candidates. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
+
 ## Automation
 
 GitHub Actions runs on the repository's public standard runner:
@@ -44,6 +52,7 @@ The worker needs no API key or paid service. It commits only changed public stat
 ## Public state
 
 - `feed/events.jsonl`: 30-day rolling `NEW`/`CHANGED` event feed with monotonic `seq`.
+- `feed/candidates.json`: bounded current-run AI/ML/research candidate snapshot for fast downstream triage.
 - New events also retain sentence-level `visa_signal` (`positive`/`negative`/`ambiguous`/`none`) and `visa_evidence` extracted from FreeHire's public JD snippet; absence of a signal is not proof that the full employer JD says nothing about sponsorship.
 - `state/seen.json`: exact machine-dedupe state, bounded by current/recent identities.
 - `health.json`: latest successful run metadata including `first_seq` / `last_seq`.
@@ -54,7 +63,7 @@ FreeHire enrichment (seniority, experience, employer type, visa hints) is **not 
 
 ```bash
 python -m unittest discover -s tests -v
-python -m py_compile freehire_fetch.py firehose_fetch.py
+python -m py_compile freehire_fetch.py firehose_fetch.py candidate_snapshot.py
 ```
 
 No paid API, browser automation, private cookies, or required secret.

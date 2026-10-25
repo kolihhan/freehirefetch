@@ -7,11 +7,13 @@ on:
     paths:
       - 'freehire_fetch.py'
       - 'firehose_fetch.py'
+      - 'candidate_snapshot.py'
       - 'tests/**'
   pull_request:
     paths:
       - 'freehire_fetch.py'
       - 'firehose_fetch.py'
+      - 'candidate_snapshot.py'
       - 'tests/**'
 
 permissions:
