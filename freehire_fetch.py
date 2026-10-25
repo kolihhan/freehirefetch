@@ -32,6 +32,7 @@ DEFAULT_CATEGORIES = (
     "devops",
     "sre",
 )
+MARKET_CATEGORY_SHARDS: dict[str, tuple[tuple[str, ...], ...]] = {}
 
 _TITLE_HARD_DROP = re.compile(
     r"\b(staff|principal|lead|director|manager|intern|internship)\b|\bhead\s+of\b",
@@ -97,10 +98,16 @@ def page_offsets(max_rows: int = API_MAX_ROWS, page_size: int = API_MAX_PAGE_SIZ
     return list(range(0, max_rows, page_size))
 
 
-def build_params(country: str, mode: str, offset: int, page_size: int = API_MAX_PAGE_SIZE) -> dict[str, object]:
+def build_params(
+    country: str,
+    mode: str,
+    offset: int,
+    page_size: int = API_MAX_PAGE_SIZE,
+    categories: tuple[str, ...] | None = None,
+) -> dict[str, object]:
     params: dict[str, object] = {
         "countries": country.upper(),
-        "category": ",".join(DEFAULT_CATEGORIES),
+        "category": ",".join(categories or DEFAULT_CATEGORIES),
         "sort": "created_at",
         "order": "desc",
         "limit": page_size,
@@ -130,16 +137,17 @@ def http_fetch(params: dict[str, object], timeout: int = 30, retries: int = 2) -
     raise RuntimeError(f"FreeHire request failed after {retries + 1} attempts: {last_error}")
 
 
-def fetch_market(
+def _fetch_category_window(
     fetch_json: Callable[[dict[str, object]], dict],
     country: str,
     mode: str,
-    max_rows: int = API_MAX_ROWS,
-    page_size: int = API_MAX_PAGE_SIZE,
+    categories: tuple[str, ...],
+    max_rows: int,
+    page_size: int,
 ) -> list[dict]:
     jobs: list[dict] = []
     for offset in page_offsets(max_rows=max_rows, page_size=page_size):
-        payload = fetch_json(build_params(country, mode, offset, page_size))
+        payload = fetch_json(build_params(country, mode, offset, page_size, categories=categories))
         if not isinstance(payload, dict):
             raise RuntimeError("FreeHire returned malformed payload")
         meta = payload.get("meta")
@@ -155,6 +163,45 @@ def fetch_market(
         if not data or len(jobs) >= total or len(jobs) >= max_rows:
             break
     return jobs[:max_rows]
+
+
+def fetch_market(
+    fetch_json: Callable[[dict[str, object]], dict],
+    country: str,
+    mode: str,
+    max_rows: int = API_MAX_ROWS,
+    page_size: int = API_MAX_PAGE_SIZE,
+) -> list[dict]:
+    country = country.upper()
+    shards = MARKET_CATEGORY_SHARDS.get(country)
+    if not shards:
+        return _fetch_category_window(
+            fetch_json,
+            country,
+            mode,
+            DEFAULT_CATEGORIES,
+            max_rows,
+            page_size,
+        )
+
+    jobs: list[dict] = []
+    seen_identities: set[str] = set()
+    for categories in shards:
+        shard_jobs = _fetch_category_window(
+            fetch_json,
+            country,
+            mode,
+            categories,
+            max_rows,
+            page_size,
+        )
+        for job in shard_jobs:
+            identity = job_identity(job)
+            if identity in seen_identities:
+                continue
+            seen_identities.add(identity)
+            jobs.append(job)
+    return jobs
 
 
 def machine_flags(job: dict) -> tuple[bool, list[str]]:
@@ -483,7 +530,7 @@ def run(
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Fetch and deduplicate FreeHire SG/CN/MY engineering jobs.")
-    parser.add_argument("--mode", choices=["bootstrap", "delta", "full"], default="delta")
+    parser.add_argument("--mode", choices=("bootstrap", "delta", "full"), default="delta")
     parser.add_argument("--root", default=".", help="Repository root containing feed/, state/, health.json")
     return parser.parse_args(argv)
 
