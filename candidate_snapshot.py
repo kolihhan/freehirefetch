@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 
 AI_CANDIDATE_MIN_SCORE = 4
-AI_CANDIDATE_LIMIT_PER_MARKET = 30
+AI_CANDIDATE_LIMIT_PER_MARKET = 10
 AI_CANDIDATE_EXCERPT_CHARS = 600
 
 _TITLE_RULES = (
@@ -44,6 +44,11 @@ _JD_RULES = (
     ("model_training", re.compile(r"\b(?:model training|train(?:ing)? models?|post[- ]training)\b", re.IGNORECASE)),
     ("evaluation", re.compile(r"\b(?:llm evaluation|model evaluation|agent evaluation|evals?|benchmarking)\b", re.IGNORECASE)),
     ("vector_db", re.compile(r"\b(?:vector database|vector db|embeddings?)\b", re.IGNORECASE)),
+)
+
+_NON_PERMANENT = re.compile(
+    r"\b(?:contract|contractor|fixed[- ]term|temporary|temp|part[- ]time|freelance|intern|internship|trainee)\b",
+    re.IGNORECASE,
 )
 
 
@@ -99,8 +104,17 @@ def _source_url(job: dict) -> object:
     return job.get("url") or job.get("source_url") or job.get("apply_url") or job.get("application_url")
 
 
-def _candidate(job: dict, market: str, score: int, signals: list[str]) -> dict:
+def _employment_type(job: dict) -> str:
     enrichment = job.get("enrichment") if isinstance(job.get("enrichment"), dict) else {}
+    return _norm(enrichment.get("employment_type") or job.get("employment_type"))
+
+
+def _is_explicitly_non_permanent(job: dict) -> bool:
+    employment_type = _employment_type(job)
+    return bool(employment_type and _NON_PERMANENT.search(employment_type))
+
+
+def _candidate(job: dict, market: str, score: int, signals: list[str]) -> dict:
     description = _norm(job.get("description"))
     slug = job.get("public_slug")
     return {
@@ -116,8 +130,10 @@ def _candidate(job: dict, market: str, score: int, signals: list[str]) -> dict:
         "freehire_url": f"https://freehire.me/jobs/{slug}" if slug else None,
         "created_at": job.get("created_at"),
         "posted_at": job.get("posted_at"),
-        "employment_type": enrichment.get("employment_type") or job.get("employment_type"),
+        "employment_type": _employment_type(job) or None,
         "flags": list(job.get("_flags") or []),
+        "event_kind": job.get("_event_kind"),
+        "event_seq": job.get("_event_seq"),
         "ai_score": score,
         "ai_signals": signals,
         "description_excerpt": description[:AI_CANDIDATE_EXCERPT_CHARS],
@@ -144,6 +160,8 @@ def build_candidate_snapshot(
             if identity in seen:
                 continue
             seen.add(identity)
+            if _is_explicitly_non_permanent(job):
+                continue
             score, signals = ai_relevance(job)
             if score < AI_CANDIDATE_MIN_SCORE:
                 continue
@@ -152,6 +170,7 @@ def build_candidate_snapshot(
         matched.sort(
             key=lambda item: (
                 int(item.get("ai_score") or 0),
+                int(item.get("event_seq") or 0),
                 str(item.get("posted_at") or item.get("created_at") or ""),
             ),
             reverse=True,
