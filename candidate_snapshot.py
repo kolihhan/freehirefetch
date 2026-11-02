@@ -9,8 +9,13 @@ import tempfile
 from pathlib import Path
 
 AI_CANDIDATE_MIN_SCORE = 4
-AI_CANDIDATE_LIMIT_PER_MARKET = 10
+AI_CANDIDATE_LIMIT_PER_MARKET = None
 AI_CANDIDATE_EXCERPT_CHARS = 600
+
+_RESEARCH_TITLE = re.compile(
+    r"\b(?:research assistant|research associate|research officer|research engineer|research scientist|ai researcher|ml researcher|machine learning researcher)\b",
+    re.IGNORECASE,
+)
 
 _TITLE_RULES = (
     ("llm", re.compile(r"\b(?:llm|large language model)s?\b", re.IGNORECASE), 5),
@@ -22,7 +27,7 @@ _TITLE_RULES = (
     ("deep_learning", re.compile(r"\bdeep learning\b", re.IGNORECASE), 4),
     ("computer_vision", re.compile(r"\b(?:computer vision|vision language|vision-language)\b", re.IGNORECASE), 4),
     ("applied_scientist", re.compile(r"\bapplied scientist\b", re.IGNORECASE), 4),
-    ("research", re.compile(r"\b(?:research engineer|research scientist|ai researcher|ml researcher|machine learning researcher)\b", re.IGNORECASE), 2),
+    ("research", _RESEARCH_TITLE, 2),
     ("data_science", re.compile(r"\bdata scientist\b", re.IGNORECASE), 2),
 )
 
@@ -111,7 +116,9 @@ def _employment_type(job: dict) -> str:
 
 def _is_explicitly_non_permanent(job: dict) -> bool:
     employment_type = _employment_type(job)
-    return bool(employment_type and _NON_PERMANENT.search(employment_type))
+    if not employment_type or not _NON_PERMANENT.search(employment_type):
+        return False
+    return not bool(_RESEARCH_TITLE.search(_norm(job.get("title"))))
 
 
 def _candidate(job: dict, market: str, score: int, signals: list[str]) -> dict:
@@ -144,9 +151,9 @@ def build_candidate_snapshot(
     market_jobs: dict[str, list[dict]],
     generated_at: str,
     mode: str,
-    limit_per_market: int = AI_CANDIDATE_LIMIT_PER_MARKET,
+    limit_per_market: int | None = AI_CANDIDATE_LIMIT_PER_MARKET,
 ) -> dict:
-    if limit_per_market < 1:
+    if limit_per_market is not None and limit_per_market < 1:
         raise ValueError("limit_per_market must be >= 1")
 
     candidates: list[dict] = []
@@ -176,7 +183,7 @@ def build_candidate_snapshot(
             reverse=True,
         )
         matched_counts[market] = len(matched)
-        selected = matched[:limit_per_market]
+        selected = matched if limit_per_market is None else matched[:limit_per_market]
         counts[market] = len(selected)
         candidates.extend(selected)
 
