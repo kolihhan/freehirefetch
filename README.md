@@ -35,11 +35,11 @@ FreeHire's public search window is capped at 10,000 rows **per query window**, 1
 
 Every firehose run writes `feed/candidates.json`: a **derived machine triage artifact**, not a second human tracker.
 
-The snapshot now contains only AI/ML/research jobs that emitted a `NEW` or `CHANGED` event in that exact ingestion run. Unchanged jobs are not repeated on every hourly scan. Each candidate carries its event `kind` and monotonic `seq`, so downstream review can process only fresh work.
+The snapshot contains only AI/ML/research jobs that emitted a `NEW` or `CHANGED` event in that exact ingestion run. Unchanged jobs are not repeated on every hourly scan. Each candidate carries its event `kind` and monotonic `seq`, so downstream review can process only fresh work.
 
-Material AI relevance is scored from title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough. Explicit contract, fixed-term, temporary, part-time, freelance, internship and trainee employment types are removed before the snapshot.
+Material AI relevance is scored from title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough.
 
-The snapshot is bounded to at most **10 candidates per market** (30 total), contains compact AI-relevance signals plus a short JD excerpt, and excludes the worker's existing title hard-drops. Typical hourly delta runs should be much smaller because only fresh/changed AI jobs are emitted. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
+The default snapshot is **not capped per market**: all matching candidates from the current ingestion run are emitted. Explicit non-permanent ordinary engineering roles are still removed, but Research Assistant / Research Associate / Research Officer / Research Engineer / Research Scientist-style roles are preserved for downstream research-exception review instead of being machine-dropped. The snapshot contains compact AI-relevance signals plus a short JD excerpt and excludes the worker's existing title hard-drops. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
 
 ## Automation
 
