@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 from typing import Callable
@@ -85,6 +86,52 @@ def _latest_run_events(root: Path, health: dict) -> dict[str, dict]:
     return latest
 
 
+def _prepare_jobs_for_snapshot(*, latest_events: dict[str, dict] | None) -> tuple[dict[str, list[dict]], dict[str, int], dict[str, int]]:
+    eligible_jobs: dict[str, list[dict]] = {}
+    raw_counts: dict[str, int] = {}
+    hard_drop_counts: dict[str, int] = {}
+
+    for market in ("SG", "CN", "MY"):
+        captured = _CAPTURED_JOBS.get(market, [])
+        raw_counts[market] = len(captured)
+        prepared: list[dict] = []
+        hard_drops = 0
+        for source_job in captured:
+            identity = worker.job_identity(source_job)
+            event = latest_events.get(identity) if latest_events is not None else None
+            if latest_events is not None and event is None:
+                continue
+            hard_drop, flags = worker.machine_flags(source_job)
+            if hard_drop:
+                hard_drops += 1
+                continue
+            job = dict(source_job)
+            job["_flags"] = flags
+            if event is not None:
+                job["_event_kind"] = event.get("kind")
+                job["_event_seq"] = event.get("seq")
+            prepared.append(job)
+        eligible_jobs[market] = prepared
+        hard_drop_counts[market] = hard_drops
+
+    return eligible_jobs, raw_counts, hard_drop_counts
+
+
+def _write_coldstart_snapshot(root: Path, health: dict) -> None:
+    eligible_jobs, raw_counts, hard_drop_counts = _prepare_jobs_for_snapshot(latest_events=None)
+    snapshot = candidate_snapshot.build_candidate_snapshot(
+        eligible_jobs,
+        generated_at=str(health.get("last_success") or ""),
+        mode="coldstart",
+    )
+    snapshot["raw_counts"] = raw_counts
+    snapshot["title_hard_drop_counts"] = hard_drop_counts
+    candidate_snapshot._atomic_write_text(
+        root / "feed" / "coldstart.json",
+        json.dumps(snapshot, ensure_ascii=False, indent=2, sort_keys=True, default=str) + "\n",
+    )
+
+
 def _run_with_candidate_snapshot(
     mode: str,
     root: Path,
@@ -96,30 +143,17 @@ def _run_with_candidate_snapshot(
     health = _ORIGINAL_RUN(mode, root, fetch_json=fetch_json, now=now)
     latest_events = _latest_run_events(root, health)
 
-    eligible_jobs: dict[str, list[dict]] = {}
-    for market in ("SG", "CN", "MY"):
-        prepared: list[dict] = []
-        for source_job in _CAPTURED_JOBS.get(market, []):
-            identity = worker.job_identity(source_job)
-            event = latest_events.get(identity)
-            if event is None:
-                continue
-            hard_drop, flags = worker.machine_flags(source_job)
-            if hard_drop:
-                continue
-            job = dict(source_job)
-            job["_flags"] = flags
-            job["_event_kind"] = event.get("kind")
-            job["_event_seq"] = event.get("seq")
-            prepared.append(job)
-        eligible_jobs[market] = prepared
-
+    eligible_jobs, _, _ = _prepare_jobs_for_snapshot(latest_events=latest_events)
     snapshot = candidate_snapshot.build_candidate_snapshot(
         eligible_jobs,
         generated_at=str(health.get("last_success") or ""),
         mode=mode,
     )
     candidate_snapshot.write_candidate_snapshot(root, snapshot)
+
+    if mode == "full":
+        _write_coldstart_snapshot(root, health)
+
     return health
 
 
