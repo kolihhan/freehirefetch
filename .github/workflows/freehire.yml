@@ -12,6 +12,12 @@ on:
           - bootstrap
           - delta
           - full
+  push:
+    paths:
+      - 'firehose_fetch.py'
+      - 'candidate_snapshot.py'
+      - 'tests/test_coldstart_snapshot.py'
+      - '.github/workflows/freehire.yml'
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
@@ -46,6 +52,8 @@ jobs:
           MODE="delta"
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             MODE="${{ inputs.mode }}"
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            MODE="full"
           elif [[ "${{ github.event.schedule }}" == "43 18 * * *" ]]; then
             MODE="full"
           fi
@@ -63,7 +71,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add feed/events.jsonl feed/index.json feed/pages feed/candidates.json state/seen.json health.json
+          git add feed/events.jsonl feed/index.json feed/pages feed/candidates.json feed/coldstart.json state/seen.json health.json
           if git diff --cached --quiet; then
             echo "No public-state changes."
             exit 0
