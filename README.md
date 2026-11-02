@@ -2,7 +2,7 @@
 
 Public-data firehose for broad SG/CN/MY engineering-job discovery from FreeHire.
 
-It deliberately contains **no personal job-search data**. It fetches FreeHire's public API, validates pagination/filter behavior, applies only conservative title-level hard drops, exact-deduplicates unchanged jobs, and publishes a bounded `NEW`/`CHANGED` event feed.
+It deliberately contains **no personal job-search data**. It fetches FreeHire's public API, validates pagination/filter behavior, applies only conservative title-level hard drops, exact-deduplicates unchanged jobs, and publishes machine-readable discovery feeds.
 
 ## Run
 
@@ -27,19 +27,27 @@ Each SG shard may scan up to FreeHire's 10,000-row window. Results are unioned a
 
 - `bootstrap`: max-page SG + CN + MY scan; seeds fetched identities and emits initial `NEW` events for jobs FreeHire first saw within 30 days under the firehose scope.
 - `delta`: hourly path using `open_within_days=2` overlap.
-- `full`: max-page daily backstop/state refresh; newly discovered broad-scope jobs still use the 30-day initial-event window.
+- `full`: max-page daily backstop/state refresh; newly discovered broad-scope jobs still use the 30-day initial-event window. A full run also refreshes `feed/coldstart.json` from the complete jobs/JD text seen in that scan.
 
 FreeHire's public search window is capped at 10,000 rows **per query window**, 100 rows per request. Sharding improves Singapore coverage but still does not imply exhaustive market coverage.
 
-## AI candidate snapshot
+## Candidate feeds
+
+### Incremental feed
 
 Every firehose run writes `feed/candidates.json`: a **derived machine triage artifact**, not a second human tracker.
 
 The snapshot contains only AI/ML/research jobs that emitted a `NEW` or `CHANGED` event in that exact ingestion run. Unchanged jobs are not repeated on every hourly scan. Each candidate carries its event `kind` and monotonic `seq`, so downstream review can process only fresh work.
 
-Material AI relevance is scored from title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough.
+### Cold-start feed
 
-The default snapshot is **not capped per market**: all matching candidates from the current ingestion run are emitted. Explicit non-permanent ordinary engineering roles are still removed, but Research Assistant / Research Associate / Research Officer / Research Engineer / Research Scientist-style roles are preserved for downstream research-exception review instead of being machine-dropped. The snapshot contains compact AI-relevance signals plus a short JD excerpt and excludes the worker's existing title hard-drops. It does **not** decide APPLY/CHECK/SKIP, does not perform Gmail/GitHub dedupe, and does not create Issues or submit applications.
+Every `full` scan also writes `feed/coldstart.json`. Unlike the incremental feed, it is built from **all current jobs captured by the full API scan**, including unchanged jobs. It exists so downstream private consumers can perform a one-time/history-aware cold start without asking an LLM to replay the compact event log one sequence at a time.
+
+The cold-start feed deliberately does **not** contain personal application history and does not decide whether a candidate has already been reviewed. That private dedupe belongs downstream. `feed/events.jsonl` remains the audit/recovery event log; it is not the preferred normal review queue.
+
+Material AI relevance in both candidate feeds is scored from title, FreeHire category and public JD text. Strong AI titles can pass directly; generic SWE/backend/full-stack titles only pass when the JD contains several concrete AI signals such as LLMs, agents, RAG, retrieval, model training or evaluation. A single casual AI mention is intentionally not enough.
+
+The candidate feeds are **not capped per market**. Explicit non-permanent ordinary engineering roles are still removed, but Research Assistant / Research Associate / Research Officer / Research Engineer / Research Scientist-style roles are preserved for downstream research-exception review instead of being machine-dropped. The feeds contain compact AI-relevance signals plus a short JD excerpt and exclude the worker's existing title hard-drops. They do **not** decide APPLY/CHECK/SKIP, do not perform Gmail/GitHub dedupe, and do not create Issues or submit applications.
 
 ## Automation
 
@@ -47,7 +55,8 @@ GitHub Actions runs on the repository's public standard runner:
 
 - hourly delta at minute `17`;
 - daily full backstop at `18:43 UTC`;
-- manual `workflow_dispatch` for bootstrap/delta/full probes.
+- manual `workflow_dispatch` for bootstrap/delta/full probes;
+- a separate `FreeHire Cold Start` workflow can run an explicit full-scan refresh without changing the trigger contract of the normal ingestion workflow.
 
 The worker needs no API key or paid service. It commits only changed public state (`feed/`, `state/`, `health.json`).
 
@@ -55,6 +64,7 @@ The worker needs no API key or paid service. It commits only changed public stat
 
 - `feed/events.jsonl`: 30-day rolling `NEW`/`CHANGED` event feed with monotonic `seq`.
 - `feed/candidates.json`: latest-run incremental AI/ML/research review candidates only.
+- `feed/coldstart.json`: latest full-scan set of current plausible AI/ML/research candidates for downstream cold-start dedupe/review.
 - New events also retain sentence-level `visa_signal` (`positive`/`negative`/`ambiguous`/`none`) and `visa_evidence` extracted from FreeHire's public JD snippet; absence of a signal is not proof that the full employer JD says nothing about sponsorship.
 - `state/seen.json`: exact machine-dedupe state, bounded by current/recent identities.
 - `health.json`: latest successful run metadata including `first_seq` / `last_seq`.
