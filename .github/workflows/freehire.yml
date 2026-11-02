@@ -12,12 +12,6 @@ on:
           - bootstrap
           - delta
           - full
-  push:
-    paths:
-      - 'firehose_fetch.py'
-      - 'candidate_snapshot.py'
-      - 'tests/test_coldstart_snapshot.py'
-      - '.github/workflows/freehire.yml'
   schedule:
     - cron: '17 * * * *'
     - cron: '43 18 * * *'
@@ -52,8 +46,6 @@ jobs:
           MODE="delta"
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             MODE="${{ inputs.mode }}"
-          elif [[ "${{ github.event_name }}" == "push" ]]; then
-            MODE="full"
           elif [[ "${{ github.event.schedule }}" == "43 18 * * *" ]]; then
             MODE="full"
           fi
