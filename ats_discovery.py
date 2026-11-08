@@ -153,34 +153,46 @@ def listing(board: dict) -> list[dict]:
             if not rows:
                 raise RuntimeError("SmartRecruiters empty page before total")
         raise RuntimeError("SmartRecruiters page cap reached; do not treat as exhausted")
-    # Workday: only the exact verified tenant/cluster/site URL is used.
+    # Workday CXS. Huge global boards (e.g. Micron) need smaller, exact
+    # public searchText windows to avoid the ~2000-result API search cap.
+    # A complete targeted search is NOT a complete employer-wide scan.
     parsed = urlparse(board["career_url"])
     host, tenant = parsed.hostname, parsed.hostname.split(".")[0]
     pieces = [p for p in parsed.path.split("/") if p]
     site = pieces[1] if pieces[0].count("-") == 1 and len(pieces) > 1 else pieces[0]
     api = "https://" + host + "/wday/cxs/" + tenant + "/" + site
-    result = []
-    offset = 0
-    for _ in range(MAX_PAGES):
-        data = request_json(api + "/jobs", payload={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": ""})
-        if not isinstance(data, dict) or "jobPostings" not in data or "total" not in data:
-            raise ValueError("Workday unexpected listing schema")
-        rows = data.get("jobPostings") or []
-        for j in rows:
-            external = j.get("externalPath", "")
-            url = ("https://" + host + "/" + site + external) if external.startswith("/") else ""
-            result.append({"id": str(j.get("jobId") or external or ""), "title": j.get("title", ""),
-                "location": j.get("locationsText") or ", ".join(j.get("locations") or []),
-                "description": "", "url": url, "detail_url": api + external if external.startswith("/") else "",
-                "posted_at": j.get("postedOn", ""), "employment": ""})
-        offset += len(rows)
-        total = int(data.get("total", offset))
-        if offset >= total:
-            return result
-        if not rows:
-            raise RuntimeError("Workday empty page before total")
-        time.sleep(0.25)
-    raise RuntimeError("Workday page cap reached; do not treat as exhausted")
+    result = {}
+    terms = board.get("search_terms") or [""]
+    for term in terms:
+        offset = 0
+        for _ in range(MAX_PAGES):
+            data = request_json(api + "/jobs", payload={
+                "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term
+            })
+            if not isinstance(data, dict) or "jobPostings" not in data or "total" not in data:
+                raise ValueError("Workday unexpected listing schema")
+            rows = data.get("jobPostings") or []
+            for j in rows:
+                external = j.get("externalPath", "")
+                url = ("https://" + host + "/" + site + external) if external.startswith("/") else ""
+                item = {"id": str(j.get("jobId") or external or ""),
+                    "title": j.get("title", ""),
+                    "location": j.get("locationsText") or ", ".join(j.get("locations") or []),
+                    "description": "", "url": url,
+                    "detail_url": api + external if external.startswith("/") else "",
+                    "posted_at": j.get("postedOn", ""), "employment": ""}
+                if item["id"]:
+                    result[item["id"]] = item
+            offset += len(rows)
+            total = int(data.get("total", offset))
+            if offset >= total:
+                break
+            if not rows:
+                raise RuntimeError("Workday empty page before total for " + repr(term))
+            time.sleep(0.12)
+        else:
+            raise RuntimeError("Workday search window exceeded page cap: " + repr(term))
+    return list(result.values())
 
 
 def market_for(location: str, board: dict) -> str | None:
@@ -255,7 +267,9 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 if key.startswith(board["slug"].lower() + "|" + board["ats"] + "|"):
                     del new_by[key]
             new_by.update(candidates)
-            statuses[board_id] = {"status": "COMPLETE", "rows_read": len(rows), "candidates": len(candidates)}
+            statuses[board_id] = {"status": "COMPLETE", "rows_read": len(rows),
+                                  "candidates": len(candidates),
+                                  "scope": "targeted_keywords" if board.get("search_terms") else "whole_board"}
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError) as exc:
             statuses[board_id] = {"status": "FAILED", "error": type(exc).__name__ + ": " + str(exc)[:180]}
     events = []
