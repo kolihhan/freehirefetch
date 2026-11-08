@@ -38,14 +38,14 @@ TECH_TITLES = re.compile(
     re.I,
 )
 REGIONS = {
-    "SG": re.compile(r"\bsingapore\b|新加坡|ntu main campus", re.I),
+    "SG": re.compile(r"\bsingapore\b|\bsg\b|新加坡|ntu main campus", re.I),
     "MY": re.compile(
-        r"\bmalaysia\b|kuala lumpur|petaling jaya|shah alam|cyberjaya|"
+        r"\bmalaysia\b|\bmy\b|kuala lumpur|petaling jaya|shah alam|cyberjaya|"
         r"penang|selangor|johor|bayan lepas|kulim|george town|ipoh|putrajaya|alor setar",
         re.I,
     ),
     "CN": re.compile(
-        r"\bchina\b|prc|beijing|shanghai|shenzhen|hangzhou|chengdu|"
+        r"\bchina\b|\bcn\b|prc|beijing|shanghai|shenzhen|hangzhou|chengdu|"
         r"guangzhou|suzhou|nanjing|wuhan|hefei|tianjin|xian|xi'an|"
         r"中国|北京|上海|深圳|杭州|成都|广州|苏州|南京|武汉|合肥|天津|西安",
         re.I,
@@ -94,7 +94,7 @@ def validate(board: dict) -> None:
         raise ValueError("Unsupported ATS")
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", str(board.get("slug", ""))):
         raise ValueError("Invalid board slug")
-    if not board.get("company") or not set(board.get("markets", [])) <= set(REGIONS):
+    if not board.get("company") or not board.get("markets") or not set(board["markets"]) <= set(REGIONS):
         raise ValueError("Missing company or unsupported markets")
     if board["ats"] == "workday":
         parsed = urlparse(board.get("career_url", ""))
@@ -137,7 +137,9 @@ def listing(board: dict) -> list[dict]:
         offset = 0
         for _ in range(MAX_PAGES):
             data = request_json(base + "?limit=100&offset=" + str(offset))
-            rows = data.get("content") or []
+            if not isinstance(data, dict) or "content" not in data or "totalFound" not in data:
+            raise ValueError("SmartRecruiters unexpected listing schema")
+        rows = data.get("content") or []
             for j in rows:
                 loc = j.get("location") or {}
                 result.append({"id": str(j.get("id", "")), "title": j.get("name", ""),
@@ -161,6 +163,8 @@ def listing(board: dict) -> list[dict]:
     offset = 0
     for _ in range(MAX_PAGES):
         data = request_json(api + "/jobs", payload={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": ""})
+        if not isinstance(data, dict) or "jobPostings" not in data or "total" not in data:
+            raise ValueError("Workday unexpected listing schema")
         rows = data.get("jobPostings") or []
         for j in rows:
             external = j.get("externalPath", "")
@@ -265,7 +269,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     # Closures only derive from successful, full board snapshots.
     for key, job in sorted(old_by.items()):
         if key not in new_by:
-            events.append({"kind": "CLOSED", "key": key, "company": job["company"],
+            events.append({"kind": "REMOVED_FROM_FEED", "key": key, "company": job["company"],
                            "market": job["market"], "title": job["title"], "url": job["url"]})
     current = {"version": 1, "jobs": sorted(new_by.values(), key=lambda j: j["key"])}
     change = {"version": 1, "events": events}
@@ -274,7 +278,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     write_if_changed(target / "changes.json", change)
     write_if_changed(target / "health.json", health)
     print(json.dumps({"boards": len(statuses), "status": health["complete"], "jobs": len(new_by),
-                      "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "CLOSED")},
+                      "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "REMOVED_FROM_FEED")},
                       "failures": [k for k, v in statuses.items() if v["status"] != "COMPLETE"]}))
     return {"health": health, "events": events, "jobs": len(new_by)}
 
