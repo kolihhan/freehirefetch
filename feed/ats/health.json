@@ -1,0 +1,40 @@
+{
+  "boards": {
+    "ashby:bjakcareer": {
+      "candidates": 93,
+      "rows_read": 3190,
+      "status": "COMPLETE"
+    },
+    "ashby:gen-digital": {
+      "candidates": 15,
+      "rows_read": 107,
+      "status": "COMPLETE"
+    },
+    "greenhouse:neweratech": {
+      "candidates": 3,
+      "rows_read": 77,
+      "status": "COMPLETE"
+    },
+    "lever:binance": {
+      "candidates": 0,
+      "rows_read": 4,
+      "status": "COMPLETE"
+    },
+    "smartrecruiters:ncs3": {
+      "candidates": 18,
+      "rows_read": 485,
+      "status": "COMPLETE"
+    },
+    "workday:micron": {
+      "error": "RuntimeError: Workday page cap reached; do not treat as exhausted",
+      "status": "FAILED"
+    },
+    "workday:ntu": {
+      "candidates": 5,
+      "rows_read": 40,
+      "status": "COMPLETE"
+    }
+  },
+  "complete": false,
+  "version": 1
+}
