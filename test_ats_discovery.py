@@ -57,7 +57,7 @@ class ATSFeedTests(unittest.TestCase):
                 ats.run(root, [MY])
             with patch.object(ats, "listing", return_value=[]):
                 result = ats.run(root, [MY])
-            self.assertEqual(["CLOSED"], [e["kind"] for e in result["events"]])
+            self.assertEqual(["REMOVED_FROM_FEED"], [e["kind"] for e in result["events"]])
             self.assertEqual([], feed(root, "current.json")["jobs"])
 
     def test_title_and_market_gate_avoid_generic_sg(self):
@@ -92,6 +92,23 @@ class ATSFeedTests(unittest.TestCase):
         self.assertEqual(2, len(result))
         self.assertEqual(2, req.call_count)
         self.assertIn("/Careers/job/Engineer", result[1]["url"])
+
+
+    def test_keyword_workday_windows_dedupe_same_id(self):
+        board = {"ats": "workday", "slug": "micron", "company": "Micron", "markets": ["SG"],
+                 "career_url": "https://micron.wd1.myworkdayjobs.com/en-US/External",
+                 "search_terms": ["AI", "machine learning"]}
+        same = {"title": "AI Engineer", "externalPath": "/job/Singapore/AI-Engineer_JR1",
+                "locationsText": "Singapore"}
+        with patch.object(ats, "request_json", side_effect=[
+            {"jobPostings": [same], "total": 1},
+            {"jobPostings": [same], "total": 1}
+        ]) as req:
+            rows = ats.listing(board)
+        self.assertEqual(1, len(rows))
+        self.assertEqual(["AI", "machine learning"],
+                         [call.kwargs["payload"]["searchText"] for call in req.call_args_list])
+
 
 
 if __name__ == "__main__":
