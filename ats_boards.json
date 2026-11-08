@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Public first-party ATS board list; exact career board URLs corroborated by official job postings. Crawler results are NOT application-ready decisions.",
+  "note": "Public, verified employer-controlled ATS boards only. Do not infer an application from a job listing; no private candidate data.",
   "boards": [
     {
       "ats": "ashby",
@@ -68,17 +68,6 @@
         "backend engineer",
         "software engineer"
       ]
-    },
-    {
-      "ats": "lever",
-      "slug": "binance",
-      "company": "Binance",
-      "markets": [
-        "SG",
-        "MY",
-        "CN"
-      ],
-      "career_url": "https://jobs.lever.co/binance"
     },
     {
       "ats": "ashby",
@@ -153,6 +142,36 @@
         "SG"
       ],
       "career_url": "https://job-boards.greenhouse.io/arizeai"
+    },
+    {
+      "ats": "lever",
+      "slug": "patsnap",
+      "company": "PatSnap",
+      "markets": [
+        "SG",
+        "CN"
+      ],
+      "career_url": "https://jobs.lever.co/patsnap"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "heygen",
+      "company": "HeyGen",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/heygen"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "binance",
+      "company": "Binance",
+      "markets": [
+        "SG",
+        "CN",
+        "MY"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/binance"
     }
   ]
 }
