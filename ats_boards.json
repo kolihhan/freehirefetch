@@ -1,13 +1,15 @@
 {
   "version": 1,
-  "note": "Public, employer-controlled ATS boards only. Verified exact board URLs; no credentials or applicant data. Extend after checking boards and geographies.",
+  "note": "Public first-party ATS board list; exact career board URLs corroborated by official job postings. Crawler results are NOT application-ready decisions.",
   "boards": [
     {
       "ats": "ashby",
       "slug": "bjakcareer",
       "company": "BJAK",
       "markets": [
-        "MY"
+        "SG",
+        "MY",
+        "CN"
       ],
       "my_swe": true,
       "career_url": "https://jobs.ashbyhq.com/bjakcareer"
@@ -70,6 +72,80 @@
         "CN"
       ],
       "career_url": "https://jobs.lever.co/binance"
+    },
+    {
+      "ats": "ashby",
+      "slug": "manusai",
+      "company": "Manus AI",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://jobs.ashbyhq.com/manusai"
+    },
+    {
+      "ats": "ashby",
+      "slug": "Sierra",
+      "company": "Sierra",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://jobs.ashbyhq.com/Sierra"
+    },
+    {
+      "ats": "ashby",
+      "slug": "clera",
+      "company": "Clera",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://jobs.ashbyhq.com/clera"
+    },
+    {
+      "ats": "ashby",
+      "slug": "SASH",
+      "company": "Singapore AI Safety Hub",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://jobs.ashbyhq.com/SASH"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "okx",
+      "company": "OKX",
+      "markets": [
+        "SG",
+        "CN"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/okx"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "temus",
+      "company": "Temus",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/temus"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "simplifynext",
+      "company": "SimplifyNext",
+      "markets": [
+        "SG",
+        "MY"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/simplifynext"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "arizeai",
+      "company": "Arize AI",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/arizeai"
     }
   ]
 }
