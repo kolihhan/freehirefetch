@@ -1,0 +1,58 @@
+name: Browserless ATS Job Discovery
+
+on:
+  schedule:
+    # UTC, four-hour cadence offset from FreeHire's existing hourly ingestion.
+    - cron: '37 1,5,9,13,17,21 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - ats_discovery.py
+      - ats_boards.json
+      - test_ats_discovery.py
+      - .github/workflows/ats-discovery.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ats-discovery
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regression tests (offline)
+        run: python -m unittest -v test_ats_discovery
+      - name: Fetch exact public ATS board feeds
+        id: fetch
+        shell: bash
+        run: |
+          set +e
+          python ats_discovery.py
+          exit_code=$?
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Commit public ATS feed changes only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed/ats/current.json feed/ats/changes.json feed/ats/health.json
+          if git diff --cached --quiet; then
+            echo "No new/changed public ATS evidence."
+          else
+            git commit -m "data: refresh ATS job feed (public only)"
+            git push
+          fi
+      - name: Fail visibly on any incomplete board
+        if: steps.fetch.outputs.exit_code != '0'
+        run: |
+          echo "::error::One or more ATS boards failed; retained prior data for those boards. See feed/ats/health.json."
+          exit 1
