@@ -31,6 +31,20 @@ Each SG shard may scan up to FreeHire's 10,000-row window. Results are unioned a
 
 FreeHire's public search window is capped at 10,000 rows **per query window**, 100 rows per request. Sharding improves Singapore coverage but still does not imply exhaustive market coverage.
 
+## Public ATS discovery (browserless)
+
+Separate from FreeHire, `ats_discovery.py` scans a **configured set of first-party employer ATS boards**, using public HTTP JSON endpoints only: **Ashby, Greenhouse, Lever, SmartRecruiters, and Workday CXS**. No Playwright, browser cookies, login, API key or candidate data.
+
+- Config: `ats_boards.json` (SG/MY/CN official career-board owners).
+- GitHub Actions: `.github/workflows/ats-discovery.yml` (every four hours and on relevant code/config pushes).
+- Live public machine artifacts: `feed/ats/current.json` (snapshot), `feed/ats/changes.json` (ephemeral latest-run delta), `feed/ats/health.json` (per-board complete/error status).
+- **Always consume `current.json` for review recovery.** `changes.json` is overwritten and is not a lossless downstream event journal.
+- Workday boards with a global vacancy count over the public search-window cap can use **explicit keyword windows**. Their `scope: targeted_keywords` status is not a claim of full company coverage. A failed board preserves its previous candidates rather than declaring them closed.
+- Public candidate count is not eligibility. An ATS listing still requires the **full exact JD, liveness, hard qualifications, open/closed GitHub Issue history, Gmail application dedupe, and true apply route** before promotion into the private `kolihhan/job-resources` APPLY/CHECK queue.
+- The private queue and applications remain entirely in `kolihhan/job-resources`; this public repo never stores user data, applicant outcomes, or submitted application state.
+
+Offline tests: `python -m unittest -v test_ats_discovery`. New boards should use verified official board URLs and have their source/geography and paging checked. In particular, a board with many irrelevant AI-branded but generic roles is *not* high eligible-role yield.
+
 ## Candidate feeds
 
 ### Incremental feed
