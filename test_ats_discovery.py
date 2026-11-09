@@ -111,5 +111,26 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_ai_branded_non_engineering_titles_do_not_flood_feed(self):
+        for title in ("CEO, AI Finance", "Technical Product Manager - AI Investing",
+                      "Product Owner - AI Agent", "Head of Machine Learning",
+                      "AI Sales Engineer", "Research Engineer Internship"):
+            with self.subTest(title=title):
+                self.assertIsNone(ats.normalize(MY, row(title=title), "2026-11-09T00:00:00Z"))
+
+    def test_real_ai_role_and_genuine_backend_still_survive(self):
+        for title in ("AI Agent Engineer", "LLM Application Engineer",
+                      "Research Engineer, Benchmarks", "Applied Machine Learning Engineer"):
+            with self.subTest(title=title):
+                record = ats.normalize(MY, row(title=title), "2026-11-09T00:00:00Z")
+                self.assertIsNotNone(record)
+                self.assertEqual("HIGH", record["triage_priority"])
+        record = ats.normalize(MY, row(title="Backend Software Engineer",
+            desc="Build a production RAG evaluation pipeline and retrieval APIs"), "now")
+        self.assertIsNotNone(record)
+        self.assertEqual("MEDIUM", record["triage_priority"])
+
+
+
 if __name__ == "__main__":
     unittest.main()
