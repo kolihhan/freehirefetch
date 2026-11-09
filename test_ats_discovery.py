@@ -144,5 +144,21 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_public_jd_preserves_decisive_requirements_beyond_excerpt(self):
+        description = "Design RAG systems. " * 50 + "Hard requirement: AWS production deployment experience."
+        actual = ats.normalize(MY, row(desc=description), "now")
+        self.assertIsNotNone(actual)
+        self.assertTrue(len(actual["description_text"]) > 550)
+        self.assertIn("Hard requirement: AWS", actual["description_text"])
+        self.assertNotIn("Hard requirement: AWS", actual["description_excerpt"])
+        self.assertFalse(actual["description_truncated"])
+        self.assertEqual("full_jd", actual["evidence"])
+        very_long = ats.normalize(MY, row(desc="Build RAG. " * 2000), "now")
+        self.assertTrue(very_long["description_truncated"])
+        self.assertEqual(12000, len(very_long["description_text"]))
+        self.assertEqual("partial_jd", very_long["evidence"])
+
+
+
 if __name__ == "__main__":
     unittest.main()
