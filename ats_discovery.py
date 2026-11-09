@@ -307,7 +307,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     jd_index = read_json(target / "jd" / "index.json", {"parts": []})
     for part in jd_index.get("parts", []):
         rel = part.get("path", "")
-        if not re.fullmatch(r"(?:SG|MY|CN)-[0-9]{3}\\.json", rel):
+        if not re.fullmatch(r"(?:SG|MY|CN)-[0-9]{3}\.json", rel):
             continue
         for item in read_json(target / "jd" / rel, {"jobs": []}).get("jobs", []):
             job = old_by.get(item.get("key", ""))
