@@ -160,5 +160,29 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_small_candidate_index_and_sharded_jd_recovery_on_board_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            details = "Build RAG, agent evaluation, Python. " * 80
+            with patch.object(ats, "listing", return_value=[row(desc=details)]):
+                ats.run(root, [MY], clock="2026-11-09T00:00:00Z")
+            current = feed(root, "current.json")
+            self.assertEqual(1, len(current["jobs"]))
+            self.assertNotIn("description_text", current["jobs"][0])
+            index = json.loads((root / "feed/ats/jd/index.json").read_text())
+            self.assertEqual(1, len(index["parts"]))
+            part = index["parts"][0]["path"]
+            content = json.loads((root / "feed/ats/jd" / part).read_text())
+            self.assertEqual(details.strip(), content["jobs"][0]["description_text"])
+            with patch.object(ats, "listing", side_effect=RuntimeError("429")):
+                failed = ats.run(root, [MY], clock="2026-11-09T01:00:00Z")
+            self.assertEqual([], failed["events"])
+            self.assertEqual("FAILED", failed["health"]["boards"]["ashby:bjakcareer"]["status"])
+            fresh = json.loads((root / "feed/ats/jd" / part).read_text())
+            self.assertEqual(details.strip(), fresh["jobs"][0]["description_text"])
+            self.assertNotIn("description_text", feed(root, "current.json")["jobs"][0])
+
+
+
 if __name__ == "__main__":
     unittest.main()
