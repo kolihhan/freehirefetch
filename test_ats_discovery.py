@@ -132,5 +132,17 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_applied_scientists_must_reach_review_queue(self):
+        for title in ("Pioneer Talent Program - Applied Data Scientist",
+                      "Applied Scientist, Agent Evaluation",
+                      "Research Scientist, LLM Systems", "Algorithm Engineer - NLP"):
+            with self.subTest(title=title):
+                role = ats.normalize(MY, row(title=title), "2026-11-09T00:00:00Z")
+                self.assertIsNotNone(role)
+                self.assertEqual("AI", role["lane"])
+        self.assertIsNone(ats.normalize(MY, row(title="Director, Applied Scientist"), "now"))
+
+
+
 if __name__ == "__main__":
     unittest.main()
