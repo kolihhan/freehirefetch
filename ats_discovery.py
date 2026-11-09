@@ -40,6 +40,25 @@ TECH_TITLES = re.compile(
     r"data engineer|platform engineer|ai|ml|nlp|engineer)\b|开发|工程师|研究员",
     re.I,
 )
+# This is a conservative pre-review gate, not an eligibility decision.
+# Seniority, user history and work authorization are decided downstream.
+NON_ENGINEERING_TITLE = re.compile(
+    r"\b(ceo|chief executive|chief of staff|chief technology|"
+    r"vice president|vp|director|head of|business unit head|"
+    r"engineering manager|product manager|product owner|product lead|"
+    r"recruiter|talent acquisition|account executive|sales|"
+    r"business development|designer|design lead|marketing|operations manager|"
+    r"intern|internship)\b",
+    re.I,
+)
+# An AI product name does not mean the engineer builds AI.
+CORE_AI_ENGINEERING_TITLE = re.compile(
+    r"\b(ai|ml|llm|nlp|machine learning|data scientist|research|"
+    r"agentic|agents?|rag|retrieval|generative ai|model|algorithm)\b|"
+    r"算法|大模型|智能体|机器学习|人工智能|检索|研究",
+    re.I,
+)
+
 REGIONS = {
     "SG": re.compile(r"\bsingapore\b|\bsg\b|新加坡|ntu main campus", re.I),
     "MY": re.compile(
@@ -208,15 +227,19 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
     title = plain(raw.get("title"))
     loc = plain(raw.get("location"))
     market = market_for(loc, board)
-    if not market or not TECH_TITLES.search(title):
+    if not market or not TECH_TITLES.search(title) or NON_ENGINEERING_TITLE.search(title):
         return None
     desc = plain(raw.get("description"))
-    if not (AI_TERMS.search(title) or AI_TERMS.search(desc) or (market == "MY" and board.get("my_swe") and TECH_TITLES.search(title))):
+    primary = bool(CORE_AI_ENGINEERING_TITLE.search(title) and AI_TERMS.search(title))
+    jd_ai = bool(AI_TERMS.search(desc))
+    if not (primary or jd_ai or (market == "MY" and board.get("my_swe") and TECH_TITLES.search(title))):
         return None
     url = str(raw.get("url") or "")
     if not url.startswith("https://") or not raw.get("id"):
         return None
-    lane = "AI" if AI_TERMS.search(title) or AI_TERMS.search(desc) else "MY_SWE_SECONDARY"
+    lane = "AI" if primary or jd_ai else "MY_SWE_SECONDARY"
+    # Priority is for cheap downstream review ordering, never an APPLY/eligibility verdict.
+    priority = "HIGH" if primary else "MEDIUM" if jd_ai else "LOW"
     key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw["id"])
     digest = hashlib.sha256(json.dumps([title, loc, plain(desc)[:1500], url, str(raw.get("employment") or "")],
                 ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()[:20]
@@ -225,6 +248,7 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
         "job_id": str(raw["id"]), "title": title, "location": loc, "url": url,
         "employment_type": str(raw.get("employment") or ""),
         "posted_at": str(raw.get("posted_at") or ""), "lane": lane,
+        "triage_priority": priority,
         "description_excerpt": desc[:550], "evidence": "full_jd" if desc else "listing_only",
         "fingerprint": digest,
         "first_seen_at": (previous or {}).get("first_seen_at", now),
