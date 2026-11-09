@@ -242,7 +242,7 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
         and CORE_AI_ENGINEERING_TITLE.search(plain(row.get("title")))
         and not NON_ENGINEERING_TITLE.search(plain(row.get("title")))
     ]
-    mature = re.compile(r"\\b(senior|staff|principal|lead|director|head|fellow|sr\\.?|vp)\\b", re.I)
+    mature = re.compile(r"\b(senior|staff|principal|lead|director|head|fellow|sr\.?|vp)\b", re.I)
     eligible.sort(key=lambda r: (
         bool(mature.search(plain(r.get("title")))),
         not bool(AI_TERMS.search(plain(r.get("title")))),
