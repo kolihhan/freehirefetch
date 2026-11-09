@@ -67,7 +67,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A feed/ats/current.json feed/ats/changes.json feed/ats/health.json feed/ats/ci-health.json
+          git add -A feed/ats
           if git diff --cached --quiet; then
             echo "No new/changed public ATS evidence."
           else
