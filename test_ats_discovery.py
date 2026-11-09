@@ -234,5 +234,25 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_compact_market_index_matches_global_public_candidates(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(ats, "listing", return_value=[
+                row("id-1", desc="Build RAG and agent evaluations " * 150),
+                row("id-2", title="Backend Software Engineer", desc="Develop AI retrieval evaluation services")
+            ]):
+                ats.run(root, [MY])
+            global_rows = feed(root, "current.json")["jobs"]
+            my_rows = json.loads((root / "feed/ats/markets/MY.json").read_text())["jobs"]
+            sg_rows = json.loads((root / "feed/ats/markets/SG.json").read_text())["jobs"]
+            self.assertEqual(global_rows, my_rows)
+            self.assertEqual([], sg_rows)
+            self.assertTrue(all(len(r["description_excerpt"]) <= 240 for r in my_rows))
+            self.assertTrue(all("description_text" not in r for r in my_rows))
+            part = json.loads((root / "feed/ats/jd/MY-000.json").read_text())["jobs"]
+            self.assertEqual({r["key"] for r in my_rows}, {r["key"] for r in part})
+
+
+
 if __name__ == "__main__":
     unittest.main()
