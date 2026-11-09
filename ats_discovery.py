@@ -224,6 +224,75 @@ def market_for(location: str, board: dict) -> str | None:
     return hits[0] if len(hits) == 1 else None
 
 
+
+def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> int:
+    """Best-effort first-party JD hydration for ATS that list metadata only.
+
+    A detail request failure MUST NOT invalidate a complete board listing.
+    Hard source limits and a short per-job timeout avoid starving other boards.
+    This fetches only public ATS data; no browser, login or applicant details.
+    """
+    ats = board["ats"]
+    if ats not in ("smartrecruiters", "workday"):
+        return 0
+    eligible = [
+        row for row in rows
+        if not row.get("description")
+        and market_for(plain(row.get("location")), board)
+        and CORE_AI_ENGINEERING_TITLE.search(plain(row.get("title")))
+        and not NON_ENGINEERING_TITLE.search(plain(row.get("title")))
+    ]
+    mature = re.compile(r"\\b(senior|staff|principal|lead|director|head|fellow|sr\\.?|vp)\\b", re.I)
+    eligible.sort(key=lambda r: (
+        bool(mature.search(plain(r.get("title")))),
+        not bool(AI_TERMS.search(plain(r.get("title")))),
+        plain(r.get("title")),
+    ))
+    enriched = 0
+    for row in eligible[:limit]:
+        if ats == "smartrecruiters":
+            # Construct the first-party API URL, do not trust arbitrary ref URLs.
+            url = ("https://api.smartrecruiters.com/v1/companies/"
+                   + quote(board["slug"]) + "/postings/" + quote(str(row["id"])))
+        else:
+            url = str(row.get("detail_url") or "")
+            host = urlparse(board["career_url"]).hostname
+            if urlparse(url).scheme != "https" or urlparse(url).hostname != host:
+                continue
+        try:
+            with board_deadline(4):
+                item = request_json(url)
+            if not isinstance(item, dict):
+                continue
+            if ats == "smartrecruiters":
+                sections = (item.get("jobAd") or {}).get("sections") or {}
+                if not isinstance(sections, dict):
+                    continue
+                detail = " ".join(
+                    str((sections.get(section) or {}).get("text") or "")
+                    for section in ("jobDescription", "qualifications", "additionalInformation")
+                    if isinstance(sections.get(section), dict)
+                )
+                location = item.get("location") or {}
+                if isinstance(location, dict) and location.get("city"):
+                    row["location"] = ", ".join(str(location.get(k) or "")
+                        for k in ("city", "region", "country") if location.get(k))
+            else:
+                info = item.get("jobPostingInfo") or {}
+                if not isinstance(info, dict):
+                    continue
+                detail = info.get("jobDescription") or ""
+                if info.get("timeType"):
+                    row["employment"] = str(info["timeType"])
+            if plain(detail):
+                row["description"] = detail
+                enriched += 1
+        except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError):
+            # A temporarily restricted detail API is a documented listing-only lead.
+            continue
+    return enriched
+
+
 def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) -> dict | None:
     title = plain(raw.get("title"))
     loc = plain(raw.get("location"))
@@ -325,6 +394,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
             validate(board)
             with board_deadline():
                 rows = listing(board)  # only a complete enumeration promotes its snapshot
+            enriched = enrich_listed_details(board, rows)
             candidates = {}
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
@@ -337,7 +407,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                     del new_by[key]
             new_by.update(candidates)
             statuses[board_id] = {"status": "COMPLETE", "rows_read": len(rows),
-                                  "candidates": len(candidates),
+                                  "candidates": len(candidates), "full_jds_hydrated": enriched,
                                   "scope": "targeted_keywords" if board.get("search_terms") else "whole_board"}
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError) as exc:
             statuses[board_id] = {"status": "FAILED", "error": type(exc).__name__ + ": " + str(exc)[:180]}
