@@ -319,7 +319,7 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
         "employment_type": str(raw.get("employment") or ""),
         "posted_at": str(raw.get("posted_at") or ""), "lane": lane,
         "triage_priority": priority,
-        "description_excerpt": desc[:550],
+        "description_excerpt": desc[:240],
         "description_text": desc[:12000],
         "description_truncated": len(desc) > 12000,
         "evidence": "full_jd" if desc and len(desc) <= 12000 else "partial_jd" if desc else "listing_only",
@@ -453,6 +453,13 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
         for event in events
     ]}
     health = {"version": 1, "boards": statuses, "complete": all(x["status"] == "COMPLETE" for x in statuses.values())}
+    # Bounded market-sized indexes avoid connector truncation as employer
+    # coverage expands. Keep current.json for existing consumers.
+    for market in ("SG", "MY", "CN"):
+        write_if_changed(target / "markets" / (market + ".json"), {
+            "version": 1, "market": market,
+            "jobs": [job for job in current["jobs"] if job["market"] == market],
+        })
     write_if_changed(target / "current.json", current)
     write_if_changed(target / "changes.json", change)
     write_if_changed(target / "health.json", health)
