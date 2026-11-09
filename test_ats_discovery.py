@@ -22,6 +22,26 @@ def feed(root, file):
 
 
 class ATSFeedTests(unittest.TestCase):
+    def test_abound_shenzhen_official_board_is_registered_cn_only(self):
+        config=json.loads((Path(__file__).parent / "ats_boards.json").read_text())
+        items=[b for b in config["boards"] if b["ats"]=="ashby" and
+               b["slug"].lower()=="abound"]
+        self.assertEqual(1,len(items))
+        board=items[0]
+        ats.validate(board)
+        self.assertEqual(["CN"], board["markets"])
+        # The public employer role is 1-3 YOE Shenzhen, NOT its separate
+        # London graduate programme; geography must not leak across markets.
+        shenzhen=row(title="AI Engineer", loc="Shenzhen", desc=
+                     "Build AI agents and RAG evaluation pipelines")
+        shenzhen["url"]="https://jobs.ashbyhq.com/abound/c952071d-2249-4137-b03e-e67a5b6353d6"
+        self.assertEqual("CN",ats.normalize(board,shenzhen,"2026-11-09T13:00:00Z")["market"])
+        london=row(title="Graduate AI Engineer", loc="London",
+                   desc="Build LLM agents and evaluation pipelines")
+        london["url"]="https://jobs.ashbyhq.com/abound/066b6933-ea2d-4a1a-a1a4-2a80d5d3a57f"
+        self.assertIsNone(ats.normalize(board,london,"2026-11-09T13:00:00Z"))
+
+
     def test_baseline_then_new_and_changed(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
