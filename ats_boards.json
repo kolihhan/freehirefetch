@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Public, verified employer-controlled ATS boards only. Do not infer an application from a job listing; no private candidate data.",
+  "note": "First-party ATS owner list: curated from currently accessible employer recruitment pages, NOT exhaustive. Failed boards remain explicit; Micron Workday uses partial keyword searches.",
   "boards": [
     {
       "ats": "ashby",
@@ -62,21 +62,10 @@
       ],
       "career_url": "https://micron.wd1.myworkdayjobs.com/en-US/External",
       "search_terms": [
-        "AI",
         "machine learning",
         "data scientist",
-        "backend engineer",
-        "software engineer"
+        "ml engineer"
       ]
-    },
-    {
-      "ats": "ashby",
-      "slug": "manusai",
-      "company": "Manus AI",
-      "markets": [
-        "SG"
-      ],
-      "career_url": "https://jobs.ashbyhq.com/manusai"
     },
     {
       "ats": "ashby",
@@ -172,6 +161,64 @@
         "MY"
       ],
       "career_url": "https://job-boards.greenhouse.io/binance"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "stripe",
+      "company": "Stripe",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/stripe"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "capco",
+      "company": "Capco",
+      "markets": [
+        "MY",
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/capco"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "speechify",
+      "company": "Speechify",
+      "markets": [
+        "SG"
+      ],
+      "career_url": "https://job-boards.greenhouse.io/speechify"
+    },
+    {
+      "ats": "smartrecruiters",
+      "slug": "Grab",
+      "company": "Grab",
+      "markets": [
+        "MY",
+        "SG"
+      ],
+      "career_url": "https://jobs.smartrecruiters.com/Grab"
+    },
+    {
+      "ats": "smartrecruiters",
+      "slug": "WesternDigital",
+      "company": "Western Digital",
+      "markets": [
+        "MY",
+        "SG"
+      ],
+      "career_url": "https://jobs.smartrecruiters.com/WesternDigital"
+    },
+    {
+      "ats": "smartrecruiters",
+      "slug": "NielsenIQ",
+      "company": "NielsenIQ",
+      "markets": [
+        "MY",
+        "SG"
+      ],
+      "career_url": "https://jobs.smartrecruiters.com/NielsenIQ"
     }
   ]
 }
