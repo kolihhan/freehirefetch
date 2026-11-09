@@ -37,7 +37,8 @@ AI_TERMS = re.compile(
 )
 TECH_TITLES = re.compile(
     r"\b(software|backend|back.end|full.stack|fullstack|research|"
-    r"data engineer|platform engineer|ai|ml|nlp|engineer)\b|开发|工程师|研究员",
+    r"scientist|data scientist|applied scientist|algorithm|data engineer|"
+    r"platform engineer|ai|ml|nlp|engineer)\b|开发|工程师|研究员|科学家|算法",
     re.I,
 )
 # This is a conservative pre-review gate, not an eligibility decision.
