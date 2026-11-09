@@ -184,5 +184,55 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_smartrecruiters_hydrates_first_party_jd_before_issue_review(self):
+        role = {"id": "6000000001174513", "title": "Machine Learning Engineer",
+                "location": "Singapore", "description": "",
+                "url": "https://jobs.smartrecruiters.com/NCS3/6000000001174513"}
+        api_payload = {"jobAd": {"sections": {
+            "jobDescription": {"text": "<p>Build machine learning services.</p>"},
+            "qualifications": {"text": "<p>Python, ML projects required; cloud is a plus.</p>"}
+        }}}
+        with patch.object(ats, "request_json", return_value=api_payload) as mocked:
+            changed = ats.enrich_listed_details(SG, [role])
+        self.assertEqual(1, changed)
+        self.assertIn("machine learning", role["description"])
+        self.assertIn("ML projects required", role["description"])
+        self.assertTrue(mocked.call_args.args[0].endswith("/NCS3/postings/6000000001174513"))
+
+    def test_workday_hydrates_jd_and_preserves_listing_when_api_fails(self):
+        board = {"ats": "workday", "slug": "ntu", "company": "NTU",
+                 "markets": ["SG"], "career_url": "https://ntu.wd3.myworkdayjobs.com/Careers"}
+        url = "https://ntu.wd3.myworkdayjobs.com/wday/cxs/ntu/Careers/job/AI_Req123"
+        good = {"id": "AI_Req123", "title": "AI Research Engineer", "location": "Singapore",
+                "description": "", "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/AI_Req123",
+                "detail_url": url}
+        with patch.object(ats, "request_json", return_value={
+            "jobPostingInfo": {"jobDescription": "<p>Research NLP agents and evaluate tools.</p>",
+                               "timeType": "Full time"}
+        }):
+            count = ats.enrich_listed_details(board, [good])
+        self.assertEqual(1, count)
+        self.assertIn("NLP agents", good["description"])
+        self.assertEqual("Full time", good["employment"])
+        failed = dict(good, description="")
+        with patch.object(ats, "request_json", side_effect=RuntimeError("429")):
+            self.assertEqual(0, ats.enrich_listed_details(board, [failed]))
+        self.assertEqual("", failed["description"])
+
+    def test_detail_hydration_prioritizes_early_career_ai(self):
+        roles = [
+            {"id": "senior", "title": "Senior AI Engineer", "location": "Singapore", "description": ""},
+            {"id": "junior", "title": "AI Engineer", "location": "Singapore", "description": ""}
+        ]
+        with patch.object(ats, "request_json", return_value={
+            "jobAd": {"sections": {"jobDescription": {"text": "Build RAG and agent models"}}}
+        }) as req:
+            self.assertEqual(1, ats.enrich_listed_details(SG, roles, limit=1))
+        self.assertTrue(req.call_args.args[0].endswith("/junior"))
+        self.assertEqual("", roles[0]["description"])
+        self.assertIn("RAG", roles[1]["description"])
+
+
+
 if __name__ == "__main__":
     unittest.main()
