@@ -15,9 +15,10 @@ on:
 permissions:
   contents: write
 
+# New code/config pushes supersede stale checkout runs; scheduled data refreshes remain serialized.
 concurrency:
   group: ats-discovery
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   collect:
