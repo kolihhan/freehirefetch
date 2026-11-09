@@ -11,7 +11,9 @@ import hashlib
 import html
 import json
 import re
+import signal
 import time
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -22,6 +24,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent
 API_TIMEOUT = 20
 MAX_PAGES = 100
+MAX_BOARD_SECONDS = 40  # bounded failure isolation on GitHub's Linux runner
 USER_AGENT = "job-resources-ats-discovery/1.0 (public-job-board-feed; GitHub Actions)"
 ALLOWED_ATS = {"greenhouse", "ashby", "lever", "smartrecruiters", "workday"}
 AI_TERMS = re.compile(
@@ -240,6 +243,31 @@ def write_if_changed(path: Path, data: dict) -> bool:
     return True
 
 
+
+@contextmanager
+def board_deadline(seconds: int = MAX_BOARD_SECONDS):
+    """Bound one employer board on the Ubuntu Actions runner, not whole ingestion.
+
+    Preserve previous board data on deadline failures. The timer is local to the
+    active Python main thread and is unavailable on some non-Unix platforms.
+    """
+    if not hasattr(signal, "SIGALRM"):
+        yield
+        return
+    prior_handler = signal.getsignal(signal.SIGALRM)
+
+    def expire(_signum, _frame):
+        raise TimeoutError("ATS board exceeded " + str(seconds) + "s time budget")
+
+    signal.signal(signal.SIGALRM, expire)
+    signal.setitimer(signal.ITIMER_REAL, seconds)
+    try:
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, prior_handler)
+
+
 def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     clock = clock or datetime.now(timezone.utc).isoformat(timespec="seconds")
     target = root / "feed" / "ats"
@@ -249,13 +277,14 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     statuses = {}
     seen_board_ids = set()
     for board in config:
-        validate(board)
-        board_id = board["ats"] + ":" + board["slug"].lower()
+        board_id = str(board.get("ats", "unknown")) + ":" + str(board.get("slug", "unknown")).lower()
         if board_id in seen_board_ids:
             raise ValueError("Duplicate board " + board_id)
         seen_board_ids.add(board_id)
         try:
-            rows = listing(board)  # returns only after complete, paginated enumeration
+            validate(board)
+            with board_deadline():
+                rows = listing(board)  # only a complete enumeration promotes its snapshot
             candidates = {}
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
