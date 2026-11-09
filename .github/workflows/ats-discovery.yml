@@ -28,15 +28,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Regression tests (offline)
-        run: python -m unittest -v test_ats_discovery
+      - name: Regression tests (record failure evidence)
+        id: tests
+        shell: bash
+        run: |
+          mkdir -p feed/ats
+          set +e
+          python -m unittest -v test_ats_discovery > /tmp/ats-tests.txt 2>&1
+          code=$?
+          cat /tmp/ats-tests.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          export TEST_EXIT=$code
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          log = Path("/tmp/ats-tests.txt").read_text(errors="replace")
+          Path("feed/ats/ci-health.json").write_text(json.dumps({
+              "tests_exit_code": int(os.environ["TEST_EXIT"]),
+              "tests_tail": log[-6000:],
+          }, indent=2) + "\n")
+          PY
       - name: Fetch exact public ATS board feeds
         id: fetch
         shell: bash
         run: |
           set +e
-          python ats_discovery.py
-          exit_code=$?
+          if [ "${{ steps.tests.outputs.exit_code }}" != "0" ]; then
+            echo "Tests failed: preserving previous ATS feed; see ci-health."
+            exit_code=2
+          else
+            timeout 660s python ats_discovery.py
+            exit_code=$?
+          fi
           echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
           exit 0
       - name: Commit public ATS feed changes only
@@ -44,15 +67,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add feed/ats/current.json feed/ats/changes.json feed/ats/health.json
+          git add -A feed/ats/current.json feed/ats/changes.json feed/ats/health.json feed/ats/ci-health.json
           if git diff --cached --quiet; then
             echo "No new/changed public ATS evidence."
           else
-            git commit -m "data: refresh ATS job feed (public only)"
+            git commit -m "data: refresh ATS job feed and CI status (public only)"
+            git pull --rebase
             git push
           fi
-      - name: Fail visibly on any incomplete board
-        if: steps.fetch.outputs.exit_code != '0'
+      - name: Fail visibly on tests or incomplete board
+        if: steps.tests.outputs.exit_code != '0' || steps.fetch.outputs.exit_code != '0'
         run: |
-          echo "::error::One or more ATS boards failed; retained prior data for those boards. See feed/ats/health.json."
+          echo "::error::ATS tests or at least one board failed. See feed/ats/ci-health.json and feed/ats/health.json."
           exit 1
