@@ -147,7 +147,8 @@ def listing(board: dict) -> list[dict]:
                 loc = j.get("location") or {}
                 result.append({"id": str(j.get("id", "")), "title": j.get("name", ""),
                     "location": ", ".join(str(loc.get(k) or "") for k in ("city", "region", "country") if loc.get(k)),
-                    "description": "", "url": j.get("ref") or "https://jobs.smartrecruiters.com/" + slug + "/" + str(j.get("id", "")),
+                    "description": "", "url": j.get("postingUrl") or "https://jobs.smartrecruiters.com/" + slug + "/" + str(j.get("id", "")),
+                    "detail_url": j.get("ref") or "",
                     "posted_at": j.get("releasedDate", ""), "employment": j.get("typeOfEmployment", "")})
             offset += len(rows)
             total = int(data.get("totalFound", offset))
