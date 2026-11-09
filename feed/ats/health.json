@@ -1,37 +1,101 @@
 {
   "boards": {
     "ashby:bjakcareer": {
-      "candidates": 93,
+      "candidates": 202,
       "rows_read": 3190,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "ashby:clera": {
+      "candidates": 4,
+      "rows_read": 275,
+      "scope": "whole_board",
       "status": "COMPLETE"
     },
     "ashby:gen-digital": {
       "candidates": 15,
       "rows_read": 107,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "ashby:manusai": {
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "status": "FAILED"
+    },
+    "ashby:sash": {
+      "candidates": 1,
+      "rows_read": 7,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "ashby:sierra": {
+      "candidates": 5,
+      "rows_read": 217,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "greenhouse:arizeai": {
+      "candidates": 1,
+      "rows_read": 27,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "greenhouse:binance": {
+      "candidates": 32,
+      "rows_read": 226,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "greenhouse:heygen": {
+      "candidates": 2,
+      "rows_read": 20,
+      "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:neweratech": {
       "candidates": 3,
-      "rows_read": 77,
+      "rows_read": 75,
+      "scope": "whole_board",
       "status": "COMPLETE"
     },
-    "lever:binance": {
+    "greenhouse:okx": {
+      "candidates": 40,
+      "rows_read": 377,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "greenhouse:simplifynext": {
+      "candidates": 7,
+      "rows_read": 33,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "greenhouse:temus": {
+      "candidates": 11,
+      "rows_read": 46,
+      "scope": "whole_board",
+      "status": "COMPLETE"
+    },
+    "lever:patsnap": {
       "candidates": 0,
-      "rows_read": 4,
+      "rows_read": 0,
+      "scope": "whole_board",
       "status": "COMPLETE"
     },
     "smartrecruiters:ncs3": {
       "candidates": 18,
       "rows_read": 485,
+      "scope": "whole_board",
       "status": "COMPLETE"
     },
     "workday:micron": {
-      "error": "RuntimeError: Workday page cap reached; do not treat as exhausted",
+      "error": "RuntimeError: Workday search window exceeded page cap: 'AI'",
       "status": "FAILED"
     },
     "workday:ntu": {
       "candidates": 5,
       "rows_read": 40,
+      "scope": "whole_board",
       "status": "COMPLETE"
     }
   },
