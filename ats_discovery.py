@@ -141,8 +141,8 @@ def listing(board: dict) -> list[dict]:
         for _ in range(MAX_PAGES):
             data = request_json(base + "?limit=100&offset=" + str(offset))
             if not isinstance(data, dict) or "content" not in data or "totalFound" not in data:
-            raise ValueError("SmartRecruiters unexpected listing schema")
-        rows = data.get("content") or []
+                raise ValueError("SmartRecruiters unexpected listing schema")
+            rows = data.get("content") or []
             for j in rows:
                 loc = j.get("location") or {}
                 result.append({"id": str(j.get("id", "")), "title": j.get("name", ""),
