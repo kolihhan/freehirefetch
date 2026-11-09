@@ -242,7 +242,7 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
     # Priority is for cheap downstream review ordering, never an APPLY/eligibility verdict.
     priority = "HIGH" if primary else "MEDIUM" if jd_ai else "LOW"
     key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw["id"])
-    digest = hashlib.sha256(json.dumps([title, loc, plain(desc)[:1500], url, str(raw.get("employment") or "")],
+    digest = hashlib.sha256(json.dumps([title, loc, desc[:8000], url, str(raw.get("employment") or "")],
                 ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()[:20]
     return {
         "key": key, "company": board["company"], "ats": board["ats"], "market": market,
@@ -250,7 +250,10 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
         "employment_type": str(raw.get("employment") or ""),
         "posted_at": str(raw.get("posted_at") or ""), "lane": lane,
         "triage_priority": priority,
-        "description_excerpt": desc[:550], "evidence": "full_jd" if desc else "listing_only",
+        "description_excerpt": desc[:550],
+        "description_text": desc[:12000],
+        "description_truncated": len(desc) > 12000,
+        "evidence": "full_jd" if desc and len(desc) <= 12000 else "partial_jd" if desc else "listing_only",
         "fingerprint": digest,
         "first_seen_at": (previous or {}).get("first_seen_at", now),
     }
