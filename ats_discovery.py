@@ -302,6 +302,17 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     target = root / "feed" / "ats"
     old = read_json(target / "current.json", {"version": 1, "jobs": []})
     old_by = {j["key"]: j for j in old["jobs"]}
+    # Recover public full-JD evidence from last successful sharded snapshot.
+    # An unavailable board must keep prior evidence; no false closure on outage.
+    jd_index = read_json(target / "jd" / "index.json", {"parts": []})
+    for part in jd_index.get("parts", []):
+        rel = part.get("path", "")
+        if not re.fullmatch(r"(?:SG|MY|CN)-[0-9]{3}\\.json", rel):
+            continue
+        for item in read_json(target / "jd" / rel, {"jobs": []}).get("jobs", []):
+            job = old_by.get(item.get("key", ""))
+            if job is not None and not job.get("description_text"):
+                job["description_text"] = item.get("description_text", "")
     new_by = dict(old_by)
     statuses = {}
     seen_board_ids = set()
@@ -343,8 +354,34 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
         if key not in new_by:
             events.append({"kind": "REMOVED_FROM_FEED", "key": key, "company": job["company"],
                            "market": job["market"], "title": job["title"], "url": job["url"]})
-    current = {"version": 1, "jobs": sorted(new_by.values(), key=lambda j: j["key"])}
-    change = {"version": 1, "events": events}
+    # Public ATS JD records are source evidence, not a second application queue.
+    # Keep every file below the GitHub connector's practical fetch size limit.
+    documents = {"SG": [], "MY": [], "CN": []}
+    for job in sorted(new_by.values(), key=lambda j: j["key"]):
+        if job.get("description_text"):
+            documents[job["market"]].append({
+                "key": job["key"], "title": job["title"],
+                "url": job["url"], "description_text": job["description_text"],
+                "description_truncated": job.get("description_truncated", False),
+            })
+    parts = []
+    for market in ("SG", "MY", "CN"):
+        for i in range(0, len(documents[market]), 10):
+            relative = market + "-" + str(i // 10).zfill(3) + ".json"
+            chunk = documents[market][i:i + 10]
+            write_if_changed(target / "jd" / relative, {"version": 1, "jobs": chunk})
+            parts.append({"market": market, "path": relative, "count": len(chunk)})
+    write_if_changed(target / "jd" / "index.json", {"version": 1, "parts": parts})
+    # The complete candidate index stays small and readable by GitHub tools.
+    # Consumers join full text via jd/index.json -> named part -> exact key.
+    current = {"version": 1, "jobs": [
+        {key: value for key, value in job.items() if key != "description_text"}
+        for job in sorted(new_by.values(), key=lambda j: j["key"])
+    ]}
+    change = {"version": 1, "events": [
+        {key: value for key, value in event.items() if key != "description_text"}
+        for event in events
+    ]}
     health = {"version": 1, "boards": statuses, "complete": all(x["status"] == "COMPLETE" for x in statuses.values())}
     write_if_changed(target / "current.json", current)
     write_if_changed(target / "changes.json", change)
