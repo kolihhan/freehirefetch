@@ -1,0 +1,173 @@
+{
+  "SG": {
+    "freehire": {
+      "status": "PARTIAL",
+      "successful_pages": 6,
+      "accepted_exact_urls": 77,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "LLM",
+          "rows": 99,
+          "truncated": true
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 100,
+          "truncated": true
+        }
+      ],
+      "errors": []
+    },
+    "aidevboard": {
+      "status": "PARTIAL",
+      "successful_pages": 5,
+      "accepted_exact_urls": 29,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "LLM",
+          "rows": 41,
+          "truncated": false
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 57,
+          "truncated": false
+        }
+      ],
+      "errors": []
+    }
+  },
+  "MY": {
+    "freehire": {
+      "status": "PARTIAL",
+      "successful_pages": 6,
+      "accepted_exact_urls": 75,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "LLM",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 99,
+          "truncated": true
+        }
+      ],
+      "errors": []
+    },
+    "aidevboard": {
+      "status": "UNAVAILABLE",
+      "successful_pages": 0,
+      "accepted_exact_urls": 0,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 0,
+          "truncated": true
+        },
+        {
+          "q": "LLM",
+          "rows": 0,
+          "truncated": true
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 0,
+          "truncated": true
+        }
+      ],
+      "errors": [
+        "AI Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "LLM:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "Research Engineer:page1:ValueError:AI Dev Jobs jobs[] missing"
+      ]
+    }
+  },
+  "CN": {
+    "freehire": {
+      "status": "PARTIAL",
+      "successful_pages": 10,
+      "accepted_exact_urls": 58,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "LLM",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "\u5927\u6a21\u578b",
+          "rows": 100,
+          "truncated": true
+        },
+        {
+          "q": "\u7b97\u6cd5\u5de5\u7a0b\u5e08",
+          "rows": 100,
+          "truncated": true
+        }
+      ],
+      "errors": []
+    },
+    "aidevboard": {
+      "status": "PARTIAL",
+      "successful_pages": 3,
+      "accepted_exact_urls": 2,
+      "queries": [
+        {
+          "q": "AI Engineer",
+          "rows": 9,
+          "truncated": false
+        },
+        {
+          "q": "LLM",
+          "rows": 7,
+          "truncated": false
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 2,
+          "truncated": false
+        },
+        {
+          "q": "\u5927\u6a21\u578b",
+          "rows": 0,
+          "truncated": true
+        },
+        {
+          "q": "\u7b97\u6cd5\u5de5\u7a0b\u5e08",
+          "rows": 0,
+          "truncated": true
+        }
+      ],
+      "errors": [
+        "\u5927\u6a21\u578b:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "\u7b97\u6cd5\u5de5\u7a0b\u5e08:page1:ValueError:AI Dev Jobs jobs[] missing"
+      ]
+    }
+  }
+}
