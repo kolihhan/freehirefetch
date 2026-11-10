@@ -318,6 +318,7 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
         "job_id": str(raw["id"]), "title": title, "location": loc, "url": url,
         "employment_type": str(raw.get("employment") or ""),
         "posted_at": str(raw.get("posted_at") or ""), "lane": lane,
+        "source_checked_at": now,
         "triage_priority": priority,
         "description_excerpt": desc[:240],
         "description_text": desc[:12000],
@@ -435,13 +436,24 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 "description_truncated": job.get("description_truncated", False),
             })
     parts = []
+    # Public batch manifest supports O(1) exact role -> file lookup downstream;
+    # this is source provenance only, not applicant ranking or fit.
+    lookup = []
+    source_verified_at = {job["key"]: job.get("source_checked_at")
+                          for job in new_by.values()}
     for market in ("SG", "MY", "CN"):
         for i in range(0, len(documents[market]), 10):
             relative = market + "-" + str(i // 10).zfill(3) + ".json"
             chunk = documents[market][i:i + 10]
             write_if_changed(target / "jd" / relative, {"version": 1, "jobs": chunk})
             parts.append({"market": market, "path": relative, "count": len(chunk)})
-    write_if_changed(target / "jd" / "index.json", {"version": 1, "parts": parts})
+            lookup.extend({"market": market, "part": relative, "key": item["key"],
+                           "title": item["title"], "url": item["url"],
+                           "checked_at": source_verified_at.get(item["key"]),
+                           "description_truncated": item["description_truncated"]}
+                          for item in chunk)
+    write_if_changed(target / "jd" / "index.json",
+                     {"version": 2, "parts": parts, "jobs": lookup})
     # The complete candidate index stays small and readable by GitHub tools.
     # Consumers join full text via jd/index.json -> named part -> exact key.
     current = {"version": 1, "jobs": [
