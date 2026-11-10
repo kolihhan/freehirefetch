@@ -48,6 +48,24 @@ class FreeJobAPIContractTests(unittest.TestCase):
         m=dict(FREEHIRE,countries=["MY"],location="Singapore")
         self.assertIsNone(api.normalize_freehire(m,"SG"))
 
+    def test_api_description_context_is_bounded_and_never_official(self):
+        long_body = "<p>" + "Build RAG agents and evaluate retrieval. " * 200
+        row = dict(FREEHIRE, description=long_body)
+        job = api.normalize_freehire(row, "SG")
+        self.assertEqual(job["description_excerpt"], long_body[:240])
+        self.assertEqual(job["api_description_text"],
+                         long_body[:api.MAX_API_DESCRIPTION_CHARS])
+        self.assertTrue(job["api_description_truncated"])
+        self.assertEqual(job["api_description_provenance"],
+                         "UNVERIFIED_THIRD_PARTY_API")
+        self.assertEqual(job["evidence"], "listing_only")
+        self.assertNotIn("full_jd_complete", job)
+        short = api.normalize_freehire(dict(FREEHIRE, description="RAG"), "SG")
+        self.assertEqual(short["api_description_text"], "RAG")
+        self.assertFalse(short["api_description_truncated"])
+        invalid = api.normalize_freehire(dict(FREEHIRE, description={"bad": "value"}), "SG")
+        self.assertEqual(invalid["api_description_text"], "")
+
     def test_aidevboard_ashby_application_suffix_becomes_exact_role(self):
         item=api.normalize_aidevboard(AIDEV,"SG")
         self.assertEqual(item["url"],URL)
