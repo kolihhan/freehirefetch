@@ -10,7 +10,7 @@ Native/platform-wide scans are not performed by this Action. All source hits bel
 | SG | MyCareersFuture | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | SG | Employer ATS / other | 64 | 0 | API_PROXY_ONLY |
 | MY | LinkedIn | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| MY | JobStreet | 63 | 0 | API_PROXY_ONLY |
+| MY | JobStreet | 64 | 0 | API_PROXY_ONLY |
 | MY | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | MY | Hiredly | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | MY | Employer ATS / other | 12 | 0 | API_PROXY_ONLY |
