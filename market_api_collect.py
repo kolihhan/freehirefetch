@@ -81,7 +81,7 @@ LOCATIONS = {
 MAX_BYTES = 3_000_000
 LIMIT = 50
 # Unverified third-party source text is useful for review, NEVER a verified JD.
-MAX_API_DESCRIPTION_CHARS = 4000
+MAX_API_DESCRIPTION_CHARS = 12000
 
 
 def get_json(url):
@@ -211,6 +211,21 @@ def normalize_freehire(row, market):
         return None
     return job
 
+def normalize_freehire_full(row, market):
+    """Full-text public agent API; still THIRD PARTY and never an official JD."""
+    job = normalize_freehire(row, market)
+    if job:
+        description = row.get("description")
+        # The agent endpoint documents full-text results. Only our local 12k
+        # output bound can truncate it; the search/list 1k cap does not.
+        job["api_description_truncated"] = (
+            isinstance(description, str) and
+            len(description) > MAX_API_DESCRIPTION_CHARS
+        )
+        job["api_description_cap_suspected"] = False
+        job["api_description_provenance"] = "UNVERIFIED_THIRD_PARTY_API_FULL_TEXT"
+    return job
+
 
 def normalize_aidevboard(row, market):
     if not isinstance(row, dict):
@@ -236,10 +251,26 @@ def normalize_aidevboard(row, market):
 
 def request_page(provider, market, query, page, fetch):
     if provider == "freehire":
-        url = "https://freehire.me/api/v1/jobs/search?" + urlencode({
-            "countries": market, "q": query, "limit": LIMIT, "offset": (page-1)*LIMIT,
+        params = urlencode({
+            "countries": market, "q": query, "limit": LIMIT,
+            "offset": (page-1)*LIMIT, "description_format": "html",
         })
-        payload = fetch(url)
+        full_url = "https://freehire.me/api/v1/agent/jobs/search?" + params
+        preview_url = ("https://freehire.me/api/v1/jobs/search?" +
+                       urlencode({"countries": market, "q": query, "limit": LIMIT,
+                                  "offset": (page-1)*LIMIT}))
+        converter = normalize_freehire_full
+        try:
+            payload = fetch(full_url)
+            if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):
+                raise ValueError("FreeHire full-text data[] missing")
+        except (OSError, ValueError, TypeError, json.JSONDecodeError) as e:
+            # On shared 429/rate-limit, do not retry a different FreeHire
+            # endpoint. The collector must report this as partial.
+            if isinstance(e, HTTPError) and e.code == 429:
+                raise
+            payload = fetch(preview_url)
+            converter = normalize_freehire
         if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):
             raise ValueError("FreeHire data[] missing")
         meta = payload.get("meta") or {}
@@ -258,7 +289,7 @@ def request_page(provider, market, query, page, fetch):
         # A suspicious short/empty page must not be silently called exhausted.
         if not rows and start < total:
             raise ValueError("FreeHire inconsistent empty page")
-        return rows, (start + len(rows) < total), normalize_freehire
+        return rows, (start + len(rows) < total), converter
 
     url = "https://aidevboard.com/api/v1/jobs?" + urlencode({
         "q": query, "location": MARKETS[market], "limit": LIMIT, "page": page,
@@ -281,12 +312,15 @@ def collect(market, *, fetch=get_json, max_pages=2):
     queries = QUERIES + (CN_EXTRA if market == "CN" else ())
     for provider in ("freehire", "aidevboard"):
         successful_pages, errors, windows, seen_urls = 0, [], [], set()
+        full_text_fallback_pages = 0
         for q in queries:
             rows_seen, truncated = 0, False
             for page in range(1, max_pages+1):
                 try:
                     rows, has_next, converter = request_page(provider,market,q,page,fetch)
                     successful_pages += 1
+                    if provider == "freehire" and converter is normalize_freehire:
+                        full_text_fallback_pages += 1
                     rows_seen += len(rows)
                     signatures = set()
                     for row in rows:
@@ -319,8 +353,10 @@ def collect(market, *, fetch=get_json, max_pages=2):
                 break
         reports[provider] = {
             "status": ("UNAVAILABLE" if not successful_pages else
-                       "PARTIAL" if errors or any(w["truncated"] for w in windows)
+                       "PARTIAL" if (errors or full_text_fallback_pages or
+                                     any(w["truncated"] for w in windows))
                        else "COMPLETE"),
+            "full_text_fallback_pages": full_text_fallback_pages,
             "successful_pages": successful_pages, "accepted_exact_urls": len(seen_urls),
             "queries": windows, "errors": errors,
         }
