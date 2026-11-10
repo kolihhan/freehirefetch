@@ -49,7 +49,7 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertIsNone(api.normalize_freehire(m,"SG"))
 
     def test_api_description_context_is_bounded_and_never_official(self):
-        long_body = "<p>" + "Build RAG agents and evaluate retrieval. " * 200
+        long_body = "<p>" + "Build RAG agents and evaluate retrieval. " * 500
         row = dict(FREEHIRE, description=long_body)
         job = api.normalize_freehire(row, "SG")
         self.assertEqual(job["description_excerpt"], long_body[:240])
