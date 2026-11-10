@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "checked_at": "2026-11-10T13:12:34.374982+00:00",
+  "source": "public native Liepin JSON + public job-pro careers",
+  "liepin": {
+    "status": "SOURCE_SAMPLE_COMPLETED",
+    "jobs": 164,
+    "failed_pages": 0,
+    "completed_queries": 2
+  },
+  "jobpro": {
+    "ai": {
+      "jobs": 718,
+      "failed_adapters": 3
+    },
+    "backend": {
+      "jobs": 431,
+      "failed_adapters": 2
+    },
+    "swe": {
+      "jobs": 216,
+      "failed_adapters": 4
+    }
+  },
+  "coverage": "bounded rotating sample, NOT all China platforms; no applicant decisions"
+}
