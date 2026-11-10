@@ -1,0 +1,118 @@
+name: CN Native Public Discovery
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Public source production 15 minutes before private CN Issue consumer.
+    - cron: '05 1,4,7,10,13,16,19,22 * * *'
+  push:
+    paths:
+      - liepin_discovery.mjs
+      - test_liepin_discovery.mjs
+      - .github/workflows/cn-native-discovery.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cn-native-public-source
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test Liepin public JSON collector
+        run: node --test test_liepin_discovery.mjs
+      - name: Fetch bounded CN native Liepin public API slice
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p feed/cn-native
+          node liepin_discovery.mjs \
+            --rotation-number "$GITHUB_RUN_NUMBER" \
+            --pages 2 --days 0 \
+            --output feed/cn-native/liepin-raw.json
+      - name: Fetch public employer careers via pinned job-pro
+        shell: bash
+        run: |
+          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师'; do
+            name="${spec%%:*}"
+            query="${spec#*:}"
+            if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
+                --scope all --limit 20 --timeout 12000 --compact \
+                > "feed/cn-native/jobpro-${name}.json"; then
+              printf '{"ok":false,"keyword":"%s","results":[],"failed":[{"company":"job-pro","message":"call failed"}]}' \
+                "$query" > "feed/cn-native/jobpro-${name}.json"
+            fi
+          done
+      - name: Validate source identity, record scoped health and preserve unavailable sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime,timezone
+          from pathlib import Path
+          src=Path('feed/cn-native')
+          liepin=json.loads((src/'liepin-raw.json').read_text())
+          assert liepin.get('source')=='liepin-public-api'
+          assert isinstance(liepin.get('jobs'),list)
+          assert isinstance(liepin.get('searches'),list)
+          jobs=liepin['jobs']
+          ids=[str(x.get('sourceId') or '') for x in jobs]
+          assert all(ids) and len(ids)==len(set(ids)) if jobs else True
+          quality=liepin.get('meta',{}).get('runQuality','UNKNOWN')
+          failed=liepin.get('failedPages') or []
+          reports={}
+          for name in ('ai','backend','swe'):
+              doc=json.loads((src/f'jobpro-{name}.json').read_text())
+              if not isinstance(doc,dict) or not isinstance(doc.get('results'),list):
+                  raise ValueError('Invalid published employer public API JSON: '+name)
+              reports[name]={'jobs':sum(len(x.get('positions') or []) for x in doc['results']),
+                             'failed_adapters':len(doc.get('failed') or [])}
+          # Do not erase last known public source rows with a totally failed
+          # source response. A failure is not an empty job market.
+          if not jobs and failed:
+              previous=Path('/tmp/cn-native-previous.json')
+              import subprocess
+              old=subprocess.run(['git','show','HEAD:feed/cn-native/liepin-raw.json'],
+                                 text=True,capture_output=True,check=False)
+              if old.returncode==0:
+                  (src/'liepin-raw.json').write_text(old.stdout)
+          health={'version':1,'checked_at':datetime.now(timezone.utc).isoformat(),
+                  'source':'public native Liepin JSON + public job-pro careers',
+                  'liepin':{'status':quality,'jobs':len(jobs),'failed_pages':len(failed),
+                            'completed_queries':liepin.get('meta',{}).get('completedQueryCount',0)},
+                  'jobpro':reports,
+                  'coverage':'bounded rotating sample, NOT all China platforms; no applicant decisions'}
+          (src/'health.json').write_text(json.dumps(health,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(health,ensure_ascii=False))
+          PY
+      - name: Publish public raw source batch ONLY
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A feed/cn-native
+          if git diff --cached --quiet; then
+            echo 'No new public source data to publish.'
+          else
+            git commit -m 'data: publish bounded CN native public source [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cn-native-public-source
+          path: feed/cn-native/
+          retention-days: 7
