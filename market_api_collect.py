@@ -80,6 +80,8 @@ LOCATIONS = {
 }
 MAX_BYTES = 3_000_000
 LIMIT = 50
+# Unverified third-party source text is useful for review, NEVER a verified JD.
+MAX_API_DESCRIPTION_CHARS = 4000
 
 
 def get_json(url):
@@ -159,6 +161,9 @@ def normalized(title, company, url, market, *, source, key, uid, location, excer
     exact = canonical_apply(url, market)
     if not exact:
         return None
+    # Preserve more API-supplied context for downstream *research only*.
+    # This does not establish author, completeness, liveness or eligibility.
+    description = excerpt if isinstance(excerpt, str) else ""
     return {
         "market": market, "ats": "external-api",
         "company": str(company)[:150], "title": str(title)[:180],
@@ -168,7 +173,10 @@ def normalized(title, company, url, market, *, source, key, uid, location, excer
         "source_platform": platform_family(exact),
         "discovery_access": "API_PROXY_ONLY",
         "evidence": "listing_only", "lane": "AI", "triage_priority": "MEDIUM",
-        "description_excerpt": str(excerpt or "")[:240],
+        "description_excerpt": description[:240],
+        "api_description_text": description[:MAX_API_DESCRIPTION_CHARS],
+        "api_description_truncated": len(description) > MAX_API_DESCRIPTION_CHARS,
+        "api_description_provenance": "UNVERIFIED_THIRD_PARTY_API",
     }
 
 
