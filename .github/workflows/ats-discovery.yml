@@ -9,6 +9,8 @@ on:
     paths:
       - ats_discovery.py
       - market_api_collect.py
+      - collect_devglobal_source.py
+      - test_collect_devglobal_source.py
       - test_market_api_collect.py
       - ats_boards.json
       - test_ats_discovery.py
@@ -37,7 +39,7 @@ jobs:
         run: |
           mkdir -p feed/ats
           set +e
-          python -m unittest -v test_ats_discovery test_market_api_collect > /tmp/ats-tests.txt 2>&1
+          python -m unittest -v test_ats_discovery test_market_api_collect test_collect_devglobal_source > /tmp/ats-tests.txt 2>&1
           code=$?
           cat /tmp/ats-tests.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -71,12 +73,18 @@ jobs:
         run: |
           python market_api_collect.py --out-dir feed/market-api --max-pages 2 ||
             echo "::warning::Public API batch providers failed; keep previous candidate snapshots and report outage"
+      - name: Collect DevGlobal public supplementary job batches
+        if: steps.tests.outputs.exit_code == '0'
+        shell: bash
+        run: |
+          python collect_devglobal_source.py --out-dir feed/devglobal ||
+            echo "::warning::DevGlobal public API unavailable; keep earlier source snapshot, report coverage error"
       - name: Commit public source feed changes only
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A feed/ats feed/market-api
+          git add -A feed/ats feed/market-api feed/devglobal
           if git diff --cached --quiet; then
             echo "No new/changed public ATS evidence."
           else
