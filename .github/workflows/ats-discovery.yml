@@ -80,6 +80,7 @@ jobs:
           python collect_devglobal_source.py --out-dir feed/devglobal ||
             echo "::warning::DevGlobal public API unavailable; keep earlier source snapshot, report coverage error"
       - name: Commit public source feed changes only
+        if: github.ref == 'refs/heads/main'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
