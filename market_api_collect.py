@@ -164,6 +164,11 @@ def normalized(title, company, url, market, *, source, key, uid, location, excer
     # Preserve more API-supplied context for downstream *research only*.
     # This does not establish author, completeness, liveness or eligibility.
     description = excerpt if isinstance(excerpt, str) else ""
+    # FreeHire's search/list API can return a description clipped near 1,000
+    # characters without a truncation flag. This is source uncertainty,
+    # *not* a full employer-authored JD. Be conservative for near-cap bodies.
+    upstream_cap_suspected = (source.startswith("freehire:") and
+                              len(description) >= 950)
     return {
         "market": market, "ats": "external-api",
         "company": str(company)[:150], "title": str(title)[:180],
@@ -175,7 +180,9 @@ def normalized(title, company, url, market, *, source, key, uid, location, excer
         "evidence": "listing_only", "lane": "AI", "triage_priority": "MEDIUM",
         "description_excerpt": description[:240],
         "api_description_text": description[:MAX_API_DESCRIPTION_CHARS],
-        "api_description_truncated": len(description) > MAX_API_DESCRIPTION_CHARS,
+        "api_description_truncated": (len(description) > MAX_API_DESCRIPTION_CHARS or
+                                      upstream_cap_suspected),
+        "api_description_cap_suspected": upstream_cap_suspected,
         "api_description_provenance": "UNVERIFIED_THIRD_PARTY_API",
     }
 
