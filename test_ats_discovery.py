@@ -191,7 +191,12 @@ class ATSFeedTests(unittest.TestCase):
             self.assertNotIn("description_text", current["jobs"][0])
             index = json.loads((root / "feed/ats/jd/index.json").read_text())
             self.assertEqual(1, len(index["parts"]))
+            self.assertEqual(2, index["version"])
+            self.assertEqual(1, len(index["jobs"]))
+            self.assertEqual(current["jobs"][0]["key"], index["jobs"][0]["key"])
+            self.assertEqual("2026-11-09T00:00:00Z", index["jobs"][0]["checked_at"])
             part = index["parts"][0]["path"]
+            self.assertEqual(part, index["jobs"][0]["part"])
             content = json.loads((root / "feed/ats/jd" / part).read_text())
             self.assertEqual(details.strip(), content["jobs"][0]["description_text"])
             with patch.object(ats, "listing", side_effect=RuntimeError("429")):
@@ -201,6 +206,8 @@ class ATSFeedTests(unittest.TestCase):
             fresh = json.loads((root / "feed/ats/jd" / part).read_text())
             self.assertEqual(details.strip(), fresh["jobs"][0]["description_text"])
             self.assertNotIn("description_text", feed(root, "current.json")["jobs"][0])
+            recovered = json.loads((root / "feed/ats/jd/index.json").read_text())
+            self.assertEqual("2026-11-09T00:00:00Z", recovered["jobs"][0]["checked_at"])
 
 
 
