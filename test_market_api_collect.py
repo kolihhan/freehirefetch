@@ -60,6 +60,17 @@ class FreeJobAPIContractTests(unittest.TestCase):
                          "UNVERIFIED_THIRD_PARTY_API")
         self.assertEqual(job["evidence"], "listing_only")
         self.assertNotIn("full_jd_complete", job)
+        # A search/list API response can end near 1,000 chars even though
+        # the original employer JD is considerably longer. Never treat that
+        # unmarked upstream cap as complete source evidence.
+        capped = api.normalize_freehire(dict(FREEHIRE, description="<p>" + "X" * 990), "SG")
+        self.assertTrue(capped["api_description_truncated"])
+        self.assertTrue(capped["api_description_cap_suspected"])
+        near = api.normalize_freehire(dict(FREEHIRE, description="X" * 949), "SG")
+        self.assertFalse(near["api_description_cap_suspected"])
+        self.assertFalse(near["api_description_truncated"])
+        aidev = api.normalize_aidevboard(dict(AIDEV, description="X" * 990), "SG")
+        self.assertFalse(aidev["api_description_cap_suspected"])
         short = api.normalize_freehire(dict(FREEHIRE, description="RAG"), "SG")
         self.assertEqual(short["api_description_text"], "RAG")
         self.assertFalse(short["api_description_truncated"])
