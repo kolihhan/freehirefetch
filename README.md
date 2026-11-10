@@ -45,6 +45,15 @@ Separate from FreeHire, `ats_discovery.py` scans a **configured set of first-par
 
 Offline tests: `python -m unittest -v test_ats_discovery`. New boards should use verified official board URLs and have their source/geography and paging checked. In particular, a board with many irrelevant AI-branded but generic roles is *not* high eligible-role yield.
 
+## Public batch ownership (2026-11-10)
+
+All **public, profile-agnostic source batches** run here, not in `job-resources`.
+
+- `ats_discovery.py` pulls employer-controlled ATS boards and publishes `feed/ats/markets/{SG,MY,CN}.json` for exact IDs. Full employer-published JDs stay in `feed/ats/jd/{market}-{shard}.json`; `feed/ats/jd/index.json` **v2** maps exact canonical job URL and title to its shard and last successful source check time.
+- `market_api_collect.py` uses the public FreeHire/AI Dev Jobs APIs to produce `feed/market-api/{SG,MY,CN}.json`, `health.json` and `platform-coverage.md`. API aliases are not native-board scans. When an entire market's API sources fail, keep the last usable public snapshot and report the outage explicitly.
+- The scheduled `.github/workflows/ats-discovery.yml` owns both public collection paths. Source identity, JD text, freshness, provider failures and generic technical title signals are public **evidence**, never applicant fit, eligibility, Gmail dedupe, APPLY/CHECK or permission to contact an employer.
+- `kolihhan/job-resources` consumes these **already-published** artifacts. It does not repeat ATS/API batch collection; the user's private matching rules, lifecycle, evidence decisions, application and all outbound communication belong exclusively there. A full JD here is never proof an application is already submitted.
+
 ## Candidate feeds
 
 ### Incremental feed
