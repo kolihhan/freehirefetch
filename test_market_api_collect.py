@@ -77,6 +77,67 @@ class FreeJobAPIContractTests(unittest.TestCase):
         invalid = api.normalize_freehire(dict(FREEHIRE, description={"bad": "value"}), "SG")
         self.assertEqual(invalid["api_description_text"], "")
 
+    def test_freehire_agent_search_returns_full_unverified_description(self):
+        full = "<p>" + ("Build agentic RAG systems and measure reliability. " * 75) + "</p>"
+        calls = []
+        listing = dict(FREEHIRE, countries=["MY"], location="Kuala Lumpur",
+                       url="https://my.jobstreet.com/job/95373292",
+                       description=full[:999])
+        def fake(url):
+            calls.append(url)
+            if "freehire.me/api/v1/agent/jobs/search" in url:
+                self.assertIn("description_format=html", url)
+                return {"data": [dict(listing, description=full)],
+                        "meta": {"total": 1, "limit": 50, "offset": 0}}
+            if "aidevboard.com" in url:
+                return {"jobs": [], "has_next": False, "total": 0}
+            raise ValueError("unexpected legacy list fallback")
+        result = api.collect("MY", fetch=fake, max_pages=1)
+        self.assertEqual(len(result["jobs"]), 1)
+        item = result["jobs"][0]
+        self.assertEqual(item["api_description_text"], full)
+        self.assertFalse(item["api_description_truncated"])
+        self.assertFalse(item["api_description_cap_suspected"])
+        self.assertEqual(item["api_description_provenance"],
+                         "UNVERIFIED_THIRD_PARTY_API_FULL_TEXT")
+        self.assertNotIn("full_jd_complete", item)
+        self.assertEqual(result["providers"]["freehire"]["full_text_fallback_pages"], 0)
+        self.assertTrue(all("/agent/jobs/search" in url
+                            for url in calls if "freehire.me" in url))
+
+    def test_full_description_outage_degrades_to_flagged_preview(self):
+        requests = []
+        listing = dict(FREEHIRE, countries=["MY"], location="Kuala Lumpur",
+                       url="https://my.jobstreet.com/job/95373292",
+                       description="<p>" + "X" * 990)
+        def degraded(url):
+            requests.append(url)
+            if "freehire.me/api/v1/agent/jobs/search" in url:
+                raise OSError("simulated full-description outage")
+            if "freehire.me/api/v1/jobs/search" in url:
+                return {"data": [listing],
+                        "meta": {"total": 1, "limit": 50, "offset": 0}}
+            if "aidevboard.com" in url:
+                return {"jobs": [], "has_next": False, "total": 0}
+            raise ValueError("unexpected URL")
+        result = api.collect("MY", fetch=degraded, max_pages=1)
+        self.assertEqual(len(result["jobs"]), 1)
+        self.assertTrue(result["jobs"][0]["api_description_truncated"])
+        self.assertTrue(result["jobs"][0]["api_description_cap_suspected"])
+        self.assertEqual(result["jobs"][0]["api_description_provenance"],
+                         "UNVERIFIED_THIRD_PARTY_API")
+        self.assertEqual(result["providers"]["freehire"]["status"], "PARTIAL")
+        self.assertEqual(result["providers"]["freehire"]["full_text_fallback_pages"], 3)
+        self.assertEqual(sum("freehire.me" in url for url in requests), 6)
+
+    def test_agent_search_respects_local_full_text_size_bound(self):
+        long_text = "A" * (api.MAX_API_DESCRIPTION_CHARS + 20)
+        job = api.normalize_freehire_full(
+            dict(FREEHIRE, description=long_text), "SG")
+        self.assertEqual(len(job["api_description_text"]), api.MAX_API_DESCRIPTION_CHARS)
+        self.assertTrue(job["api_description_truncated"])
+        self.assertFalse(job["api_description_cap_suspected"])
+
     def test_aidevboard_ashby_application_suffix_becomes_exact_role(self):
         item=api.normalize_aidevboard(AIDEV,"SG")
         self.assertEqual(item["url"],URL)
