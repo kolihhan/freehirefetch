@@ -5,7 +5,7 @@ Native/platform-wide scans are not performed by this Action. All source hits bel
 | Market | Named platform | API-proxy exact links | Native verified here | Status |
 |---|---|---:|---:|---|
 | SG | LinkedIn | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| SG | JobStreet | 42 | 0 | API_PROXY_ONLY |
+| SG | JobStreet | 41 | 0 | API_PROXY_ONLY |
 | SG | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | SG | MyCareersFuture | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | SG | Employer ATS / other | 64 | 0 | API_PROXY_ONLY |
