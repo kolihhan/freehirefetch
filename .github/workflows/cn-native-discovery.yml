@@ -10,6 +10,8 @@ on:
       - liepin_discovery.mjs
       - test_liepin_discovery.mjs
       - .github/workflows/cn-native-discovery.yml
+      - hydrate_cn_jobpro_jd.py
+      - test_hydrate_cn_jobpro_jd.py
 
 permissions:
   contents: write
@@ -62,6 +64,10 @@ jobs:
                 "$query" > "feed/cn-native/jobpro-${name}.json"
             fi
           done
+      - name: Verify CN official JD hydration matching, completeness and source-only boundaries
+        run: python -m unittest -v test_hydrate_cn_jobpro_jd
+      - name: Hydrate bounded full JDs from public employer job-pro detail APIs
+        run: python hydrate_cn_jobpro_jd.py --limit 10
       - name: Validate source identity, record scoped health and preserve unavailable sources
         shell: bash
         run: |
