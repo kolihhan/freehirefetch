@@ -21,9 +21,10 @@ PACKAGE = "@ha7ch/job-pro@1.2.1"
 MAX_JD_CHARS = 12000
 # Intentionally restricted to official employer channels documented in
 # the private CN canonical-URL transport. Never treat Liepin as first-party.
-SUPPORTED = ("tencent", "bytedance", "alibaba", "nio", "zerooneai")
+SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai")
 FEISHU_HOSTS = {"nio": "nio.jobs.feishu.cn",
-                "zerooneai": "01ai.jobs.feishu.cn"}
+                "zerooneai": "01ai.jobs.feishu.cn",
+                "agibot": "agirobot.jobs.feishu.cn"}
 SIGNALS = re.compile(
     r"AI|ML|LLM|NLP|RAG|Agent|人工智能|大模型|机器学习|生成式|"
     r"智能体|研究|算法|模型|检索|后端|软件工程|AI应用", re.I)
@@ -71,6 +72,21 @@ def official_url(company: str, position: dict) -> str | None:
     return None
 
 
+def substantive_ai_priority(title: str) -> int:
+    """Source-only JD fetch order. Never an applicant eligibility decision."""
+    score = sum(4 for pattern in (
+        r"Agent|智能体",
+        r"大模型|LLM|RAG",
+        r"后端|研发|工程师|Research|研究",
+        r"AI应用|AI全栈|检索|评测|推理",
+    ) if re.search(pattern, title, re.I))
+    score -= sum(6 for pattern in (
+        r"数据运营|产品经理|销售|客户成功|市场",
+        r"实习|Intern",
+    ) if re.search(pattern, title, re.I))
+    return score
+
+
 def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 3) -> list[dict]:
     if limit < 1 or per_company < 1:
         raise ValueError("positive limits required")
@@ -94,6 +110,10 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
                     "company_key": company, "post_id": uid, "title": title,
                     "url": url, "work_cities": pos.get("work_cities") or "",
                 })
+    # Prioritize substantive Agent/LLM/backend/research JDs instead of
+    # the first API rows, which often start with AI operations/PM listings.
+    for entries in groups.values():
+        entries.sort(key=lambda item: -substantive_ai_priority(item["title"]))
     # Round-robin: avoids single-company dominance and gives both AI and
     # substantive engineering sources a fair chance under bounded CI budget.
     rows: list[dict] = []

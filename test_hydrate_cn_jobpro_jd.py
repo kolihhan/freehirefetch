@@ -44,6 +44,24 @@ class JDProducerTests(unittest.TestCase):
         self.assertEqual(len(selected), 3)
         self.assertEqual({x["company_key"] for x in selected}, {"bytedance", "tencent"})
 
+    def test_prioritize_agent_backend_and_research_over_ai_operations(self):
+        weak = {"post_id": "7683513087236688181", "title": "AI数据运营（视频通话）",
+                "apply_url": "https://jobs.bytedance.com/campus/position/7683513087236688181/detail"}
+        strong = {"post_id": "7628143430628919557",
+                  "title": "面向大模型与AI Agent的AI云原生基础设施关键技术研究-SRE",
+                  "apply_url": "https://jobs.bytedance.com/campus/position/7628143430628919557/detail"}
+        agibot = {"post_id": "7657507612519483702", "title": "语音大模型后端工程师",
+                  "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7657507612519483702/detail"}
+        rows = jd.choose_candidates([{"results": [
+            {"company": "bytedance", "positions": [weak, strong]},
+            {"company": "agibot", "positions": [agibot]},
+        ]}], limit=2)
+        self.assertEqual({x["post_id"] for x in rows},
+                         {"7628143430628919557", "7657507612519483702"})
+        self.assertEqual(rows[0]["title"], strong["title"])
+        self.assertEqual(rows[1]["title"], agibot["title"])
+        self.assertEqual(jd.official_url("agibot", agibot), agibot["apply_url"])
+
     def test_detail_accept_requires_matching_company_id_title_url_and_both_jd_sections(self):
         item = {"company_key": "tencent", **TENCENT, "url": TENCENT["apply_url"]}
         detail = {"ok": True, "post_id": TENCENT["post_id"], "title": TENCENT["title"],
