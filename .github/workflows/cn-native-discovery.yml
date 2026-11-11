@@ -47,10 +47,18 @@ jobs:
           for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师'; do
             name="${spec%%:*}"
             query="${spec#*:}"
+            # The all-50-company AI query exceeded the 75s job timeout and
+            # published a false empty AI source on 2026-11-11. Keep a bounded
+            # high-signal, publicly supported company slice; broad backend/SWE
+            # sweeps remain independent and source failures stay explicit.
+            companies=()
+            if [[ "$name" == "ai" ]]; then
+              companies=(--companies tencent,bytedance,alibaba,meituan,xiaohongshu,minimax,moonshot,zerooneai)
+            fi
             if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
-                --scope all --limit 20 --timeout 12000 --compact \
+                --scope all "${companies[@]}" --limit 20 --timeout 12000 --compact \
                 > "feed/cn-native/jobpro-${name}.json"; then
-              printf '{"ok":false,"keyword":"%s","results":[],"failed":[{"company":"job-pro","message":"call failed"}]}' \
+              printf '{"ok":false,"keyword":"%s","results":[],"failed":[{"company":"job-pro","message":"call failed or timed out"}]}' \
                 "$query" > "feed/cn-native/jobpro-${name}.json"
             fi
           done
@@ -97,6 +105,7 @@ jobs:
           print(json.dumps(health,ensure_ascii=False))
           PY
       - name: Publish public raw source batch ONLY
+        if: github.ref == 'refs/heads/main'
         shell: bash
         run: |
           set -euo pipefail
