@@ -45,7 +45,7 @@ class JDProducerTests(unittest.TestCase):
         self.assertEqual({x["company_key"] for x in selected}, {"bytedance", "tencent"})
 
     def test_detail_accept_requires_matching_company_id_title_url_and_both_jd_sections(self):
-        item = {"company_key": "tencent", **TENCENT}
+        item = {"company_key": "tencent", **TENCENT, "url": TENCENT["apply_url"]}
         detail = {"ok": True, "post_id": TENCENT["post_id"], "title": TENCENT["title"],
                   "apply_url": TENCENT["apply_url"],
                   "description": "为研发团队开发高质量的 Agent / RAG 工具与工程平台。" * 10,
