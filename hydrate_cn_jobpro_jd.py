@@ -34,7 +34,7 @@ def checked_at() -> str:
 
 
 def normalized_title(title: str) -> str:
-    return "".join(re.findall(r"[\\w\\u4e00-\\u9fff]+", str(title or "").casefold()))
+    return "".join(re.findall(r"[\w\u4e00-\u9fff]+", str(title or "").casefold()))
 
 
 def official_url(company: str, position: dict) -> str | None:
@@ -110,9 +110,9 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
 def clean_text(text: str) -> str:
     if not isinstance(text, str):
         return ""
-    text = re.sub(r"<(?:br|/p|/li|/div)\\s*/?>", "\\n", text, flags=re.I)
+    text = re.sub(r"<(?:br|/p|/li|/div)\s*/?>", "\n", text, flags=re.I)
     text = re.sub(r"<[^>]{1,150}>", " ", text)
-    return re.sub(r"[ \\t\\r]+", " ", unescape(text)).strip()
+    return re.sub(r"[ \t\r]+", " ", unescape(text)).strip()
 
 
 def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
@@ -131,7 +131,7 @@ def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
     requirements = clean_text(detail.get("requirements"))
     if not 70 <= len(description) <= MAX_JD_CHARS or not 45 <= len(requirements) <= MAX_JD_CHARS:
         return None
-    full = "岗位职责 / Responsibilities\\n" + description + "\\n任职要求 / Requirements\\n" + requirements
+    full = "岗位职责 / Responsibilities\n" + description + "\n任职要求 / Requirements\n" + requirements
     if not 230 <= len(full) <= MAX_JD_CHARS:
         return None
     return {
@@ -199,7 +199,7 @@ def main() -> None:
         raise SystemExit("No valid public job-pro employer source batch; retaining previous JD evidence")
     result = hydrate(inputs, limit=args.limit)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\\n",
+    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                            encoding="utf-8")
     print(json.dumps({k: result[k] for k in ("attempted", "failed", "checked_at")},
                      ensure_ascii=False))
