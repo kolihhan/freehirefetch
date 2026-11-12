@@ -1,25 +1,25 @@
 {
   "version": 1,
-  "checked_at": "2026-11-12T12:34:44.166836+00:00",
+  "checked_at": "2026-11-12T20:46:57.560917+00:00",
   "source": "public native Liepin JSON + public job-pro careers",
   "liepin": {
-    "status": "PARTIAL_COVERAGE",
-    "jobs": 0,
-    "failed_pages": 2,
-    "completed_queries": 0
+    "status": "SOURCE_SAMPLE_COMPLETED",
+    "jobs": 166,
+    "failed_pages": 0,
+    "completed_queries": 2
   },
   "jobpro": {
     "ai": {
-      "jobs": 120,
-      "failed_adapters": 2
+      "jobs": 160,
+      "failed_adapters": 0
     },
     "backend": {
-      "jobs": 354,
-      "failed_adapters": 15
+      "jobs": 412,
+      "failed_adapters": 3
     },
     "swe": {
-      "jobs": 184,
-      "failed_adapters": 17
+      "jobs": 231,
+      "failed_adapters": 4
     }
   },
   "coverage": "bounded rotating sample, NOT all China platforms; no applicant decisions"
