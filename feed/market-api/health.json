@@ -4,11 +4,11 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 6,
-      "accepted_exact_urls": 79,
+      "accepted_exact_urls": 82,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 99,
+          "rows": 100,
           "truncated": true
         },
         {
@@ -25,28 +25,32 @@
       "errors": []
     },
     "aidevboard": {
-      "status": "PARTIAL",
+      "status": "UNAVAILABLE",
       "full_text_fallback_pages": 0,
-      "successful_pages": 5,
-      "accepted_exact_urls": 29,
+      "successful_pages": 0,
+      "accepted_exact_urls": 0,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 100,
+          "rows": 0,
           "truncated": true
         },
         {
           "q": "LLM",
-          "rows": 41,
-          "truncated": false
+          "rows": 0,
+          "truncated": true
         },
         {
           "q": "Research Engineer",
-          "rows": 57,
-          "truncated": false
+          "rows": 0,
+          "truncated": true
         }
       ],
-      "errors": []
+      "errors": [
+        "AI Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "LLM:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "Research Engineer:page1:ValueError:AI Dev Jobs jobs[] missing"
+      ]
     }
   },
   "MY": {
@@ -108,7 +112,7 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 10,
-      "accepted_exact_urls": 54,
+      "accepted_exact_urls": 55,
       "queries": [
         {
           "q": "AI Engineer",
@@ -139,25 +143,25 @@
       "errors": []
     },
     "aidevboard": {
-      "status": "PARTIAL",
+      "status": "UNAVAILABLE",
       "full_text_fallback_pages": 0,
-      "successful_pages": 3,
-      "accepted_exact_urls": 2,
+      "successful_pages": 0,
+      "accepted_exact_urls": 0,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 9,
-          "truncated": false
+          "rows": 0,
+          "truncated": true
         },
         {
           "q": "LLM",
-          "rows": 7,
-          "truncated": false
+          "rows": 0,
+          "truncated": true
         },
         {
           "q": "Research Engineer",
-          "rows": 2,
-          "truncated": false
+          "rows": 0,
+          "truncated": true
         },
         {
           "q": "\u5927\u6a21\u578b",
@@ -171,6 +175,9 @@
         }
       ],
       "errors": [
+        "AI Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "LLM:page1:ValueError:AI Dev Jobs jobs[] missing",
+        "Research Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
         "\u5927\u6a21\u578b:page1:ValueError:AI Dev Jobs jobs[] missing",
         "\u7b97\u6cd5\u5de5\u7a0b\u5e08:page1:ValueError:AI Dev Jobs jobs[] missing"
       ]
