@@ -10,7 +10,7 @@
     "ashby:airwallex": {
       "candidates": 27,
       "full_jds_hydrated": 0,
-      "rows_read": 484,
+      "rows_read": 485,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -52,7 +52,7 @@
     "ashby:openai": {
       "candidates": 17,
       "full_jds_hydrated": 0,
-      "rows_read": 838,
+      "rows_read": 839,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -164,7 +164,7 @@
     "smartrecruiters:nielseniq": {
       "candidates": 3,
       "full_jds_hydrated": 4,
-      "rows_read": 403,
+      "rows_read": 404,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -176,8 +176,11 @@
       "status": "COMPLETE"
     },
     "workday:micron": {
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "status": "FAILED"
+      "candidates": 22,
+      "full_jds_hydrated": 10,
+      "rows_read": 515,
+      "scope": "targeted_keywords",
+      "status": "COMPLETE"
     },
     "workday:ntu": {
       "candidates": 6,
@@ -187,6 +190,6 @@
       "status": "COMPLETE"
     }
   },
-  "complete": false,
+  "complete": true,
   "version": 1
 }
