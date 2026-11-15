@@ -43,6 +43,26 @@ class ATSFeedTests(unittest.TestCase):
             self.assertIsNone(ats.market_for("Shenzhen, China",item))
         self.assertEqual(expected,{})
 
+    def test_sg_frontier_retrieval_and_research_owner_boards(self):
+        # First-party exact application routes; CI probes their live Ashby JSON.
+        config=json.loads((Path(__file__).parent / "ats_boards.json").read_text())
+        expected={
+            "exa": ("Exa", "https://jobs.ashbyhq.com/exa"),
+            "ami": ("AMI Labs", "https://jobs.ashbyhq.com/ami"),
+        }
+        for board in config["boards"]:
+            if board["ats"] != "ashby" or board["slug"] not in expected:
+                continue
+            company, url=expected.pop(board["slug"])
+            self.assertEqual(board["company"], company)
+            self.assertEqual(board["career_url"], url)
+            self.assertEqual(board["markets"], ["SG"])
+            ats.validate(board)
+            self.assertEqual(ats.market_for("Singapore", board), "SG")
+            self.assertIsNone(ats.market_for("Paris", board))
+            self.assertIsNone(ats.market_for("Austin, TX", board))
+        self.assertEqual(expected, {})
+
     def test_abound_shenzhen_official_board_is_registered_cn_only(self):
         config=json.loads((Path(__file__).parent / "ats_boards.json").read_text())
         items=[b for b in config["boards"] if b["ats"]=="ashby" and
