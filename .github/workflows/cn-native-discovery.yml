@@ -46,7 +46,7 @@ jobs:
       - name: Fetch public employer careers via pinned job-pro
         shell: bash
         run: |
-          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师'; do
+          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师' 'agent:Agent' 'llm:大模型'; do
             name="${spec%%:*}"
             query="${spec#*:}"
             # The all-50-company AI query exceeded the 75s job timeout and
@@ -56,6 +56,12 @@ jobs:
             companies=()
             if [[ "$name" == "ai" ]]; then
               companies=(--companies tencent,bytedance,alibaba,meituan,xiaohongshu,minimax,moonshot,zerooneai)
+            elif [[ "$name" == "agent" ]]; then
+              # Narrow official-employer slice: AI search's first 20 results
+              # are frequently consumed by non-engineering AI titles.
+              companies=(--companies tencent,bytedance,alibaba,meituan,antgroup,baichuan,zerooneai)
+            elif [[ "$name" == "llm" ]]; then
+              companies=(--companies tencent,bytedance,alibaba,baichuan,minimax,iflytek,zerooneai)
             fi
             if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
                 --scope all "${companies[@]}" --limit 20 --timeout 12000 --compact \
@@ -86,7 +92,7 @@ jobs:
           quality=liepin.get('meta',{}).get('runQuality','UNKNOWN')
           failed=liepin.get('failedPages') or []
           reports={}
-          for name in ('ai','backend','swe'):
+          for name in ('ai','backend','swe','agent','llm'):
               doc=json.loads((src/f'jobpro-{name}.json').read_text())
               if not isinstance(doc,dict) or not isinstance(doc.get('results'),list):
                   raise ValueError('Invalid published employer public API JSON: '+name)

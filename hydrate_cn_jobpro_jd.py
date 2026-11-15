@@ -207,7 +207,7 @@ def main() -> None:
     p.add_argument("--limit", type=int, default=10)
     args = p.parse_args()
     inputs = []
-    for key in ("ai", "backend", "swe"):
+    for key in ("ai", "backend", "swe", "agent", "llm"):
         path = args.source_dir / ("jobpro-" + key + ".json")
         try:
             source = json.loads(path.read_text(encoding="utf-8"))

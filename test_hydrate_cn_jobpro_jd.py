@@ -1,6 +1,7 @@
 """CN first-party job detail production contract (source-only, no applicant data)."""
 import json
 import unittest
+from tempfile import TemporaryDirectory
 from pathlib import Path
 import sys
 from unittest.mock import patch
@@ -80,6 +81,24 @@ class JDProducerTests(unittest.TestCase):
                                               "2026-11-11T04:00:00Z"))
         self.assertIsNone(jd.detail_evidence(item, {**detail,"title":"Sales Director"},
                                               "2026-11-11T04:00:00Z"))
+
+    def test_main_includes_agent_and_llm_source_batches(self):
+        with TemporaryDirectory() as tmp:
+            source_dir = Path(tmp)
+            for keyword in ("ai", "backend", "swe", "agent", "llm"):
+                (source_dir / f"jobpro-{keyword}.json").write_text(
+                    json.dumps({"ok": True, "results": [
+                        {"company": keyword, "positions": []}]}), encoding="utf-8")
+            result = {"attempted": 0, "failed": 0, "checked_at": "test", "jobs": []}
+            with patch.object(sys, "argv", ["hydrate_cn_jobpro_jd.py",
+                                           "--source-dir", str(source_dir),
+                                           "--output", str(source_dir / "out.json")]):
+                with patch.object(jd, "hydrate", return_value=result) as mocked:
+                    jd.main()
+            inputs = mocked.call_args.args[0]
+            self.assertEqual(len(inputs), 5)
+            self.assertEqual({doc["results"][0]["company"] for doc in inputs},
+                             {"ai", "backend", "swe", "agent", "llm"})
 
     def test_run_fail_closed_and_finite_failure_reports(self):
         data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
