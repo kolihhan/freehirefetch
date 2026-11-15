@@ -22,6 +22,27 @@ def feed(root, file):
 
 
 class ATSFeedTests(unittest.TestCase):
+    def test_new_official_sg_owner_ats_slugs_and_region_gate(self):
+        # Slugs are anchored to exact employer-authored application URLs;
+        # actual endpoint availability must be verified by the ATS producer.
+        config=json.loads((Path(__file__).parent / "ats_boards.json").read_text())
+        expected={
+            ("greenhouse", "telnyx54"): ("Telnyx", "https://job-boards.greenhouse.io/telnyx54"),
+            ("lever", "sonarsource"): ("Sonar", "https://jobs.lever.co/sonarsource"),
+        }
+        for item in config["boards"]:
+            ident=(item["ats"],item["slug"])
+            if ident not in expected:
+                continue
+            company,url=expected.pop(ident)
+            self.assertEqual(item["company"],company)
+            self.assertEqual(item["career_url"],url)
+            self.assertEqual(item["markets"],["SG"])
+            ats.validate(item)
+            self.assertEqual("SG",ats.market_for("Singapore",item))
+            self.assertIsNone(ats.market_for("Shenzhen, China",item))
+        self.assertEqual(expected,{})
+
     def test_abound_shenzhen_official_board_is_registered_cn_only(self):
         config=json.loads((Path(__file__).parent / "ats_boards.json").read_text())
         items=[b for b in config["boards"] if b["ats"]=="ashby" and
