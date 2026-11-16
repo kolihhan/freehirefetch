@@ -1,25 +1,25 @@
 {
   "version": 1,
-  "checked_at": "2026-11-15T23:23:07.299316+00:00",
+  "checked_at": "2026-11-16T07:55:02.109849+00:00",
   "source": "public native Liepin JSON + public job-pro careers",
   "liepin": {
-    "status": "SOURCE_SAMPLE_COMPLETED",
-    "jobs": 164,
-    "failed_pages": 0,
-    "completed_queries": 2
+    "status": "PARTIAL_COVERAGE",
+    "jobs": 0,
+    "failed_pages": 2,
+    "completed_queries": 0
   },
   "jobpro": {
     "ai": {
-      "jobs": 160,
-      "failed_adapters": 0
-    },
-    "backend": {
-      "jobs": 430,
+      "jobs": 120,
       "failed_adapters": 2
     },
+    "backend": {
+      "jobs": 316,
+      "failed_adapters": 17
+    },
     "swe": {
-      "jobs": 236,
-      "failed_adapters": 3
+      "jobs": 204,
+      "failed_adapters": 16
     },
     "agent": {
       "jobs": 125,
