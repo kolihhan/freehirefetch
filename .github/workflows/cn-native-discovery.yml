@@ -2,6 +2,8 @@ name: CN Native Public Discovery
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '05 1,4,7,10,13,16,19,22 * * *'
 permissions:
   contents: write
 
