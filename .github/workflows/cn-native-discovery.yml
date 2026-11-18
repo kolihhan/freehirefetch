@@ -2,9 +2,6 @@ name: CN Native Public Discovery
 
 on:
   workflow_dispatch:
-  schedule:
-    # Public source production 15 minutes before private CN Issue consumer.
-    - cron: '05 1,4,7,10,13,16,19,22 * * *'
   push:
     paths:
       - liepin_discovery.mjs

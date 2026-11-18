@@ -1,9 +1,6 @@
 name: Browserless ATS Job Discovery
 
 on:
-  schedule:
-    # UTC, four-hour cadence offset from FreeHire's existing hourly ingestion.
-    - cron: '37 1,5,9,13,17,21 * * *'
   workflow_dispatch:
   push:
     paths:
