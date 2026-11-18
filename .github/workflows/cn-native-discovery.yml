@@ -2,14 +2,6 @@ name: CN Native Public Discovery
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - liepin_discovery.mjs
-      - test_liepin_discovery.mjs
-      - .github/workflows/cn-native-discovery.yml
-      - hydrate_cn_jobpro_jd.py
-      - test_hydrate_cn_jobpro_jd.py
-
 permissions:
   contents: write
 

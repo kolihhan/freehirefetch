@@ -2,17 +2,6 @@ name: Browserless ATS Job Discovery
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - ats_discovery.py
-      - market_api_collect.py
-      - collect_devglobal_source.py
-      - test_collect_devglobal_source.py
-      - test_market_api_collect.py
-      - ats_boards.json
-      - test_ats_discovery.py
-      - .github/workflows/ats-discovery.yml
-
 permissions:
   contents: write
 
