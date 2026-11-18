@@ -2,10 +2,6 @@ name: FreeHire Cold Start
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/coldstart.yml'
-
 permissions:
   contents: write
 
