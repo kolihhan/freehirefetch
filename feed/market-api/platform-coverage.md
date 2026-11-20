@@ -4,12 +4,12 @@ Native/platform-wide scans are not performed by this Action. All source hits bel
 
 | Market | Named platform | API-proxy exact links | Native verified here | Status |
 |---|---|---:|---:|---|
-| SG | LinkedIn | 29 | 0 | API_PROXY_ONLY |
-| SG | JobStreet | 40 | 0 | API_PROXY_ONLY |
+| SG | LinkedIn | 30 | 0 | API_PROXY_ONLY |
+| SG | JobStreet | 38 | 0 | API_PROXY_ONLY |
 | SG | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | SG | MyCareersFuture | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| SG | Employer ATS / other | 38 | 0 | API_PROXY_ONLY |
-| MY | LinkedIn | 7 | 0 | API_PROXY_ONLY |
+| SG | Employer ATS / other | 41 | 0 | API_PROXY_ONLY |
+| MY | LinkedIn | 15 | 0 | API_PROXY_ONLY |
 | MY | JobStreet | 40 | 0 | API_PROXY_ONLY |
 | MY | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | MY | Hiredly | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
