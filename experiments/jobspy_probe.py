@@ -10,12 +10,18 @@ from pathlib import Path
 from jobspy import scrape_jobs
 
 SEARCHES = (
-    ("SG", "Singapore", "Singapore", "LLM Engineer"),
-    ("SG", "Singapore", "Singapore", "AI Engineer"),
-    ("SG", "Singapore", "Singapore", "Research Engineer"),
-    ("MY", "Malaysia", "Kuala Lumpur", "LLM Engineer"),
-    ("MY", "Malaysia", "Kuala Lumpur", "AI Engineer"),
-    ("MY", "Malaysia", "Kuala Lumpur", "Machine Learning Engineer"),
+    ("SG", "Singapore", "Singapore", "Agentic AI"),
+    ("SG", "Singapore", "Singapore", "RAG Engineer"),
+    ("SG", "Singapore", "Singapore", "NLP Engineer"),
+    ("SG", "Singapore", "Singapore", "Applied AI Engineer"),
+    ("SG", "Singapore", "Singapore", "AI Backend Engineer"),
+    ("SG", "Singapore", "Singapore", "Research Scientist LLM"),
+    ("MY", "Malaysia", "Kuala Lumpur", "Agentic AI"),
+    ("MY", "Malaysia", "Kuala Lumpur", "RAG Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "NLP Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "Generative AI Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "AI Backend Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "Applied Machine Learning"),
 )
 SITES = ("linkedin", "seek")  # SEEK uses SG/MY JobStreet via country_indeed.
 FIELDS = ("market", "source", "job_id", "company", "title", "location", "job_url", "date_posted")
@@ -28,7 +34,7 @@ def main() -> None:
     trials = []
     for index, (market, country, location, query) in enumerate(SEARCHES):
         if index:
-            time.sleep(4)
+            time.sleep(5)
         item = {"market": market, "country": country, "query": query, "location": location,
                 "counts": {site: 0 for site in SITES}, "errors": {}, "warnings": {}}
         try:
@@ -37,8 +43,8 @@ def main() -> None:
                 search_term=query,
                 location=location,
                 country_indeed=country,
-                results_wanted=15,
-                hours_old=168,
+                results_wanted=25,
+                hours_old=336,
                 fetch_description=False,
                 verbose=1,
             )
