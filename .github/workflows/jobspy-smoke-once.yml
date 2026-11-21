@@ -1,0 +1,88 @@
+name: JobSpy SG MY One-shot Pilot
+
+on:
+  push:
+    branches:
+      - experiment/jobspy-freehirefetch-20261121
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned JobSpy
+        run: python -m pip install --disable-pip-version-check python-jobspy==1.5.0
+      - name: Bounded SG/MY LinkedIn and JobStreet probe
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, json, time
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from jobspy import scrape_jobs
+
+          searches = (
+              ("SG", "Singapore", "Singapore", "Research Engineer"),
+              ("SG", "Singapore", "Singapore", "AI Engineer LLM"),
+              ("MY", "Malaysia", "Kuala Lumpur", "Research Engineer"),
+              ("MY", "Malaysia", "Kuala Lumpur", "AI Engineer LLM"),
+          )
+          fields = ("market", "site", "id", "title", "company", "location", "job_url", "date_posted", "job_type")
+          rows, checks = {}, []
+          for index, (market, country, location, query) in enumerate(searches):
+              if index:
+                  time.sleep(3)
+              print(f"SEARCH {market} {query}", flush=True)
+              result = {"market": market, "query": query, "location": location, "counts": {"linkedin": 0, "seek": 0}}
+              try:
+                  df = scrape_jobs(
+                      site_name=["linkedin", "seek"], search_term=query, location=location,
+                      country_indeed=country, results_wanted=5, hours_old=168,
+                      fetch_description=False, verbose=1,
+                  )
+                  result["errors"] = df.attrs.get("errors", {})
+                  result["warnings"] = df.attrs.get("warnings", {})
+                  for job in df.to_dict("records"):
+                      site, jid = str(job.get("site") or ""), str(job.get("id") or "")
+                      if site not in result["counts"] or not jid:
+                          continue
+                      result["counts"][site] += 1
+                      key = (market, site, jid)
+                      if key not in rows:
+                          rows[key] = {k: str(job.get(k) or "") for k in fields}
+                          rows[key]["market"] = market
+              except Exception as exc:
+                  result["errors"] = {"probe": f"{type(exc).__name__}: {exc}"}
+                  result["warnings"] = {}
+              checks.append(result)
+              print(json.dumps(result, ensure_ascii=False), flush=True)
+
+          out = Path("jobspy-pilot-results")
+          out.mkdir(exist_ok=True)
+          with (out / "jobs.csv").open("w", encoding="utf-8", newline="") as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields)
+              writer.writeheader()
+              writer.writerows(rows.values())
+          report = {"checked_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "method": "JobSpy 1.5.0 public LinkedIn + SEEK/JobStreet; bounded smoke only",
+                    "unique_market_site_ids": len(rows), "checks": checks,
+                    "interpretation": "Zero jobs or HTTP failures never prove no openings. No official JD, eligibility or applicant dedupe verified."}
+          (out / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+          print("PILOT_SUMMARY " + json.dumps({"unique_ids": len(rows), "checks": checks}), flush=True)
+          PY
+      - name: Upload raw public pilot evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jobspy-sg-my-once
+          path: jobspy-pilot-results/
+          retention-days: 7
+          if-no-files-found: warn
