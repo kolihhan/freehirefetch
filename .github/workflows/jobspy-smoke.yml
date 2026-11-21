@@ -6,6 +6,7 @@ on:
       - spike/jobspy-sg-my-20261121
     paths:
       - .github/workflows/jobspy-smoke.yml
+      - experiments/jobspy_probe.py
   pull_request:
     branches:
       - main
