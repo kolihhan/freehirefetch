@@ -6,6 +6,12 @@ on:
       - spike/jobspy-sg-my-20261121
     paths:
       - .github/workflows/jobspy-smoke.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/jobspy-smoke.yml
+      - experiments/jobspy_probe.py
 
 permissions:
   contents: write
@@ -24,7 +30,7 @@ jobs:
       - name: Search bounded public SG/MY jobs
         run: timeout 420s python experiments/jobspy_probe.py
       - name: Preserve isolated test evidence on this spike branch
-        if: always()
+        if: always() && github.event_name == 'push'
         shell: bash
         run: |
           set -euo pipefail
