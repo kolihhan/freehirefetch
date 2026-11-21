@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - experiment/jobspy-freehirefetch-20261121
+    paths:
+      - '.github/workflows/jobspy-smoke-once.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
@@ -86,3 +88,21 @@ jobs:
           path: jobspy-pilot-results/
           retention-days: 7
           if-no-files-found: warn
+      - name: Commit public pilot evidence to isolated branch only
+        if: always()
+        shell: bash
+        run: |
+          if [ ! -f jobspy-pilot-results/report.json ]; then
+            echo "No pilot report: install or job failed before Python collection."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jobspy-pilot-results/report.json jobspy-pilot-results/jobs.csv
+          if git diff --cached --quiet; then
+            echo "No changed pilot output"
+          else
+            git commit -m "experiment: capture SG/MY JobSpy public source evidence [skip ci]"
+            git pull --rebase origin experiment/jobspy-freehirefetch-20261121
+            git push origin HEAD:experiment/jobspy-freehirefetch-20261121
+          fi
