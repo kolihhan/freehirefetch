@@ -10,10 +10,12 @@ from pathlib import Path
 from jobspy import scrape_jobs
 
 SEARCHES = (
-    ("SG", "Singapore", "Singapore", "Research Engineer"),
+    ("SG", "Singapore", "Singapore", "LLM Engineer"),
     ("SG", "Singapore", "Singapore", "AI Engineer"),
-    ("MY", "Malaysia", "Kuala Lumpur", "Research Engineer"),
+    ("SG", "Singapore", "Singapore", "Research Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "LLM Engineer"),
     ("MY", "Malaysia", "Kuala Lumpur", "AI Engineer"),
+    ("MY", "Malaysia", "Kuala Lumpur", "Machine Learning Engineer"),
 )
 SITES = ("linkedin", "seek")  # SEEK uses SG/MY JobStreet via country_indeed.
 FIELDS = ("market", "source", "job_id", "company", "title", "location", "job_url", "date_posted")
@@ -26,7 +28,7 @@ def main() -> None:
     trials = []
     for index, (market, country, location, query) in enumerate(SEARCHES):
         if index:
-            time.sleep(2)
+            time.sleep(4)
         item = {"market": market, "country": country, "query": query, "location": location,
                 "counts": {site: 0 for site in SITES}, "errors": {}, "warnings": {}}
         try:
@@ -35,7 +37,7 @@ def main() -> None:
                 search_term=query,
                 location=location,
                 country_indeed=country,
-                results_wanted=10,
+                results_wanted=15,
                 hours_old=168,
                 fetch_description=False,
                 verbose=1,
