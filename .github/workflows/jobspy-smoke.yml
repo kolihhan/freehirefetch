@@ -8,7 +8,7 @@ on:
       - .github/workflows/jobspy-smoke.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
@@ -23,17 +23,26 @@ jobs:
         run: python -m pip install --disable-pip-version-check python-jobspy==1.5.0
       - name: Search bounded public SG/MY jobs
         run: timeout 420s python experiments/jobspy_probe.py
-      - name: Validate whether actual job records were obtained
+      - name: Preserve isolated test evidence on this spike branch
+        if: always()
+        shell: bash
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          r=json.loads(Path("jobspy-probe-output/report.json").read_text())
-          print("STATUS",r["status"],"UNIQUE_IDS",r["market_source_job_ids"])
-          if r["status"] != "HAS_ROWS":
-              raise SystemExit("No live JobSpy rows; inspect report/errors, not a claim of zero vacancies")
-          PY
-      - name: Upload raw public smoke evidence
+          set -euo pipefail
+          mkdir -p experiments/jobspy-results
+          if test -f jobspy-probe-output/report.json; then
+            cp jobspy-probe-output/report.json experiments/jobspy-results/report.json
+            cp jobspy-probe-output/jobs.csv experiments/jobspy-results/jobs.csv
+          else
+            echo '{"status":"NO_REPORT","error":"JobSpy install or execution failed before report was generated"}' > experiments/jobspy-results/report.json
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/jobspy-results
+          if ! git diff --cached --quiet; then
+            git commit -m "test: record one-off public JobSpy result [skip ci]"
+            git push origin HEAD:spike/jobspy-sg-my-20261121
+          fi
+      - name: Upload isolated public test artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -41,3 +50,13 @@ jobs:
           path: jobspy-probe-output/
           if-no-files-found: warn
           retention-days: 7
+      - name: Fail if no live jobs were observed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path("jobspy-probe-output/report.json").read_text())
+          print(report["status"], report["market_source_job_ids"])
+          if report["status"] != "HAS_ROWS":
+              raise SystemExit("No live JobSpy rows: see errors in the report")
+          PY
