@@ -7,9 +7,11 @@ on:
     paths:
       - '.github/workflows/jobspy-smoke-once.yml'
   workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   probe:
@@ -89,7 +91,7 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
       - name: Commit public pilot evidence to isolated branch only
-        if: always()
+        if: github.event_name == 'push'
         shell: bash
         run: |
           if [ ! -f jobspy-pilot-results/report.json ]; then
