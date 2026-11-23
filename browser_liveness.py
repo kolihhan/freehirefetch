@@ -16,7 +16,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "feed/browser-liveness/current.json"
-APPLY_RE = re.compile(r"(?i)\bapply(?: now| for (?:this|the) (?:job|position))?\b|立即申请|申请职位|立即投递|投递简历|立即应聘|申请该职位")
+APPLY_RE = re.compile(r"\bapply(?: now| for (?:this|the) (?:job|position))?\b|立即申请|申请职位|立即投递|投递简历|立即应聘|申请该职位", re.I)
 CLOSED_RE = re.compile(
     r"(?i)\b(?:this (?:job|position|vacancy) (?:is |has been )?(?:closed|filled)|"
     r"(?:job|position) (?:is )?no longer (?:available|accepting applications)|"
@@ -208,6 +208,9 @@ def main(argv: list[str] | None = None) -> int:
                            encoding="utf-8")
     print(json.dumps({"targets": len(results), "status": summary, "output": str(args.output)},
                      ensure_ascii=False))
+    if results and all(row["status"] == "UNKNOWN_ERROR" for row in results):
+        print("::error::All browser probes failed; see per-role reasons in uploaded artifact")
+        return 2
     return 0
 
 
