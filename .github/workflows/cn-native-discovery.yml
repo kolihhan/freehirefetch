@@ -64,7 +64,7 @@ jobs:
       - name: Verify CN official JD hydration matching, completeness and source-only boundaries
         run: python -m unittest -v test_hydrate_cn_jobpro_jd
       - name: Hydrate bounded full JDs from public employer job-pro detail APIs
-        run: python hydrate_cn_jobpro_jd.py --limit 10
+        run: python hydrate_cn_jobpro_jd.py --limit 24
       - name: Validate source identity, record scoped health and preserve unavailable sources
         shell: bash
         run: |
