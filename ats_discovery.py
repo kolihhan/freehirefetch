@@ -131,6 +131,41 @@ def validate(board: dict) -> None:
             raise ValueError("Workday career URL must contain the exact board site")
 
 
+def ashby_job_identity(board: dict, item: dict) -> str:
+    """Derive a stable role ID from an employer-hosted Ashby URL when API id is absent.
+
+    A mismatched hostname, board or malformed role URL must not become a new
+    public candidate. Empty/invalid identity fails the board scan closed.
+    """
+    url = str(item.get("jobUrl") or "")
+    parsed = urlparse(url)
+    parts = parsed.path.strip("/").split("/")
+    if (parsed.scheme != "https" or parsed.hostname != "jobs.ashbyhq.com"
+            or parsed.username or parsed.password or parsed.port not in (None, 443)
+            or len(parts) != 2 or parts[0].casefold() != board["slug"].casefold()
+            or not re.fullmatch(r"[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}", parts[1])):
+        raise ValueError("Ashby posting has no valid employer-owned exact role URL")
+    return str(item.get("id") or item.get("jobId") or parts[1].lower())
+
+
+def ashby_compensation(item: dict) -> tuple[str, list[dict]]:
+    """Preserve only public salary evidence, never infer eligibility."""
+    c = item.get("compensation")
+    if not isinstance(c, dict):
+        return "", []
+    summary = str(c.get("scrapeableCompensationSalarySummary") or "")[:500]
+    components = c.get("summaryComponents")
+    salary = []
+    if isinstance(components, list):
+        for component in components[:12]:
+            if not isinstance(component, dict) or component.get("compensationType") != "Salary":
+                continue
+            salary.append({k: component[k] for k in
+                           ("currencyCode", "interval", "minValue", "maxValue", "compensationType")
+                           if k in component})
+    return summary, salary
+
+
 def listing(board: dict) -> list[dict]:
     validate(board)
     ats, slug = board["ats"], quote(board["slug"])
@@ -143,10 +178,23 @@ def listing(board: dict) -> list[dict]:
     if ats == "ashby":
         data = request_json("https://api.ashbyhq.com/posting-api/job-board/" + slug + "?includeCompensation=true")
         rows = data["jobs"]
-        return [{"id": str(j.get("id") or j.get("jobId") or ""), "title": j.get("title", ""),
-                 "location": j.get("location", ""), "description": j.get("descriptionPlain", ""),
-                 "url": j.get("jobUrl", ""), "posted_at": j.get("publishedDate", ""),
-                 "employment": j.get("employmentType", "")} for j in rows if j.get("isListed", True)]
+        result = []
+        for j in rows:
+            # Include published direct-link-only roles, without claiming that
+            # the final application is available. Their status stays distinct.
+            identity = ashby_job_identity(board, j)
+            salary_summary, salary_components = ashby_compensation(j)
+            result.append({"id": identity, "title": j.get("title", ""),
+                           "location": j.get("location", ""),
+                           "description": j.get("descriptionPlain") or j.get("descriptionHtml", ""),
+                           "url": j.get("jobUrl", ""), "apply_url": j.get("applyUrl") or "",
+                           "posted_at": j.get("publishedDate", ""),
+                           "employment": j.get("employmentType", ""),
+                           "listing_visibility": ("DIRECT_LINK_ONLY" if j.get("isListed") is False
+                                                  else "PUBLIC_LISTED"),
+                           "salary_summary": salary_summary,
+                           "salary_components": salary_components})
+        return result
     if ats == "lever":
         rows = request_json("https://api.lever.co/v0/postings/" + slug + "?mode=json")
         return [{"id": str(j.get("id", "")), "title": j.get("text", ""),
@@ -311,12 +359,18 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
     # Priority is for cheap downstream review ordering, never an APPLY/eligibility verdict.
     priority = "HIGH" if primary else "MEDIUM" if jd_ai else "LOW"
     key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw["id"])
-    digest = hashlib.sha256(json.dumps([title, loc, desc[:8000], url, str(raw.get("employment") or "")],
+    digest = hashlib.sha256(json.dumps([title, loc, desc[:8000], url, str(raw.get("employment") or ""),
+                                         str(raw.get("apply_url") or ""), str(raw.get("salary_summary") or ""),
+                                         raw.get("salary_components") or []],
                 ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()[:20]
     return {
         "key": key, "company": board["company"], "ats": board["ats"], "market": market,
         "job_id": str(raw["id"]), "title": title, "location": loc, "url": url,
         "employment_type": str(raw.get("employment") or ""),
+        "apply_url": str(raw.get("apply_url") or ""),
+        "listing_visibility": str(raw.get("listing_visibility") or "PUBLIC_LISTED"),
+        "salary_summary": str(raw.get("salary_summary") or "")[:500],
+        "salary_components": (raw.get("salary_components") or [])[:12],
         "posted_at": str(raw.get("posted_at") or ""), "lane": lane,
         "source_checked_at": now,
         "triage_priority": priority,

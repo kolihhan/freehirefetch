@@ -2,6 +2,12 @@ name: Browserless ATS Job Discovery
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'ats_discovery.py'
+      - 'test_ats_discovery.py'
+      - 'ats_boards.json'
+      - '.github/workflows/ats-discovery.yml'
   schedule:
     - cron: '37 1,5,9,13,17,21 * * *'
 permissions:
