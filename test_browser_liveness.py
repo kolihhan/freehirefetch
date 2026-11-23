@@ -66,6 +66,14 @@ class PublicLivenessTests(unittest.TestCase):
                                 apply_controls=0)
         self.assertEqual(status, "UNKNOWN_NO_APPLY")
 
+    def test_unsupported_browser_shell_is_not_an_open_job(self):
+        status, _ = assess_page(
+            requested_url=ASHBY, final_url=ASHBY, http_status=200,
+            heading="Sorry, Internet Explorer 11 is no longer supported by SmartRecruiters",
+            body="Sorry, Internet Explorer 11 is no longer supported by SmartRecruiters",
+            apply_controls=0)
+        self.assertEqual(status, "UNKNOWN_BLOCKED")
+
     def test_curated_plus_rotating_generic_feed_distinct_employers(self):
         config = {"version": 1, "targets": [{"market": "SG", "url": SG}]}
         feed = {"jobs": [
