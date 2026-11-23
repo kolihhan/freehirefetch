@@ -24,7 +24,7 @@ CLOSED_RE = re.compile(
 )
 BLOCKED_RE = re.compile(
     r"(?i)service unavailable|access denied|checking your browser|"
-    r"verify you are human|captcha|security check|request blocked|暂时无法访问"
+    r"verify you are human|captcha|security check|request blocked|"\n    r"internet explorer 11 is no longer supported|暂时无法访问"
 )
 TOPIC_RE = re.compile(r"(?i)\b(?:AI|LLM|NLP|RAG|GenAI|Agent|ML Engineer|"
                       r"Machine Learning|Retrieval|Research Engineer|Applied Scientist|"
