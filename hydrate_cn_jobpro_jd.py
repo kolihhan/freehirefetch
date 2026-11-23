@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html import unescape
 import json
@@ -87,7 +88,7 @@ def substantive_ai_priority(title: str) -> int:
     return score
 
 
-def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 3) -> list[dict]:
+def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 6) -> list[dict]:
     if limit < 1 or per_company < 1:
         raise ValueError("positive limits required")
     seen: set[tuple[str, str]] = set()
@@ -182,13 +183,20 @@ def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10) 
               "checked_at": checked_at(), "attempted": 0, "failed": 0,
               "jobs": [], "failures": [],
               "warning": "Official source JDs are not eligibility, current-route or application proof."}
-    for item in candidates:
-        output["attempted"] += 1
+    def fetch_one(item: dict) -> dict | None:
         try:
             detail = detail_fetch(item["company_key"], item["post_id"])
-            evidence = detail_evidence(item, detail, checked_at())
+            return detail_evidence(item, detail, checked_at())
         except (OSError, ValueError, TimeoutError, subprocess.TimeoutExpired):
-            evidence = None
+            return None
+
+    # Detail lookups are independent HTTP/CLI requests. A bounded pool cuts
+    # end-to-end latency without flooding employer public endpoints.
+    # executor.map preserves source priority order in the published artifact.
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        evidence_rows = list(pool.map(fetch_one, candidates))
+    for item, evidence in zip(candidates, evidence_rows):
+        output["attempted"] += 1
         if evidence:
             output["jobs"].append(evidence)
         else:
