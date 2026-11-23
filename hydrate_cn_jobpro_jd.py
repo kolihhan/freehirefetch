@@ -26,9 +26,11 @@ SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai")
 FEISHU_HOSTS = {"nio": "nio.jobs.feishu.cn",
                 "zerooneai": "01ai.jobs.feishu.cn",
                 "agibot": "agirobot.jobs.feishu.cn"}
+# Titles such as "embedded software engineer" are not NLP/Agent vacancies.
+# Require explicit AI/NLP/agent/retrieval relevance before expensive JD hydration.
 SIGNALS = re.compile(
-    r"AI|ML|LLM|NLP|RAG|Agent|人工智能|大模型|机器学习|生成式|"
-    r"智能体|研究|算法|模型|检索|后端|软件工程|AI应用", re.I)
+    r"AI|LLM|NLP|RAG|Agent|人工智能|大模型|机器学习|生成式|"
+    r"智能体|模型评测|算法评测|语义检索|知识图谱|自然语言|深度学习", re.I)
 
 
 def checked_at() -> str:
