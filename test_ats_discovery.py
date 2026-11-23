@@ -83,6 +83,65 @@ class ATSFeedTests(unittest.TestCase):
         self.assertIsNone(ats.normalize(board,london,"2026-11-09T13:00:00Z"))
 
 
+    def test_ashby_without_id_and_direct_only_survives_into_public_feed(self):
+        uuid = "52e1cc10-dfe0-4361-81c1-227f70f61e20"
+        item = {
+            "title": "LLM Agent Engineer", "location": "Singapore",
+            "jobUrl": f"https://jobs.ashbyhq.com/bjakcareer/{uuid}",
+            "applyUrl": f"https://jobs.ashbyhq.com/bjakcareer/{uuid}/application",
+            "descriptionPlain": "Build retrieval, RAG and agent evaluation.",
+            "employmentType": "FullTime", "isListed": False,
+            "compensation": {
+                "scrapeableCompensationSalarySummary": "SGD 72000 - 96000 per year",
+                "summaryComponents": [
+                    {"compensationType": "Salary", "currencyCode": "SGD",
+                     "interval": "1 YEAR", "minValue": 72000, "maxValue": 96000},
+                    {"compensationType": "Bonus", "currencyCode": "SGD", "minValue": 500}
+                ]
+            },
+        }
+        board = {**MY, "markets": ["SG"]}
+        with patch.object(ats, "request_json", return_value={"jobs": [item]}):
+            jobs = ats.listing(board)
+        self.assertEqual(1, len(jobs))
+        self.assertEqual(uuid, jobs[0]["id"])
+        self.assertEqual("DIRECT_LINK_ONLY", jobs[0]["listing_visibility"])
+        self.assertEqual(1, len(jobs[0]["salary_components"]))
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(ats, "listing", return_value=jobs):
+                result = ats.run(Path(tmp), [board])
+            self.assertTrue(result["health"]["complete"])
+            current = feed(Path(tmp), "current.json")["jobs"]
+            self.assertEqual(1, len(current))
+            self.assertEqual(uuid, current[0]["job_id"])
+            self.assertEqual("DIRECT_LINK_ONLY", current[0]["listing_visibility"])
+            self.assertEqual(72000, current[0]["salary_components"][0]["minValue"])
+            self.assertIn("/application", current[0]["apply_url"])
+            self.assertIn("SGD 72000", current[0]["salary_summary"])
+            self.assertEqual("FullTime", current[0]["employment_type"])
+
+    def test_ashby_url_must_match_official_board_and_uuid(self):
+        good_uuid = "52e1cc10-dfe0-4361-81c1-227f70f61e20"
+        for role_url in (
+            "https://malicious.example/bjakcareer/" + good_uuid,
+            "https://jobs.ashbyhq.com/otherboard/" + good_uuid,
+            "https://jobs.ashbyhq.com/bjakcareer/not-a-uuid",
+            "https://jobs.ashbyhq.com/bjakcareer/" + good_uuid + "/application",
+            "",
+        ):
+            with self.subTest(role_url=role_url):
+                with patch.object(ats, "request_json", return_value={"jobs": [
+                    {"title": "LLM Engineer", "location": "Singapore", "jobUrl": role_url}
+                ]}):
+                    with self.assertRaises(ValueError):
+                        ats.listing({**MY, "markets": ["SG"]})
+
+    def test_ashby_existing_id_kept_for_stable_historical_keys(self):
+        uuid = "52e1cc10-dfe0-4361-81c1-227f70f61e20"
+        item = {"id": "existing-ats-id", "jobUrl": f"https://jobs.ashbyhq.com/bjakcareer/{uuid}",
+                "title": "LLM Engineer", "location": "Singapore"}
+        self.assertEqual("existing-ats-id", ats.ashby_job_identity(MY, item))
+
     def test_baseline_then_new_and_changed(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
