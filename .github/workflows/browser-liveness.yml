@@ -2,6 +2,13 @@ name: Public ATS Playwright Liveness
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'browser_liveness.py'
+      - 'browser_liveness_targets.json'
+      - 'test_browser_liveness.py'
+      - '.github/workflows/browser-liveness.yml'
   pull_request:
     paths:
       - 'browser_liveness.py'
