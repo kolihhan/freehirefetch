@@ -63,6 +63,23 @@ class JDProducerTests(unittest.TestCase):
         self.assertEqual(rows[1]["title"], agibot["title"])
         self.assertEqual(jd.official_url("agibot", agibot), agibot["apply_url"])
 
+    def test_generic_embedded_roles_do_not_consume_agent_jd_budget(self):
+        generic = {
+            "post_id": "7611757252383197491",
+            "title": "嵌入式软件工程师",
+            "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7611757252383197491/detail",
+        }
+        agent = {
+            "post_id": "7612980262242584886",
+            "title": "Agent算法工程师",
+            "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7612980262242584886/detail",
+        }
+        selected = jd.choose_candidates(
+            [{"results": [{"company": "agibot", "positions": [generic, agent]}]}],
+            limit=10,
+        )
+        self.assertEqual([x["post_id"] for x in selected], [agent["post_id"]])
+
     def test_detail_accept_requires_matching_company_id_title_url_and_both_jd_sections(self):
         item = {"company_key": "tencent", **TENCENT, "url": TENCENT["apply_url"]}
         detail = {"ok": True, "post_id": TENCENT["post_id"], "title": TENCENT["title"],
