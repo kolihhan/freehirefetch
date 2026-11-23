@@ -34,6 +34,19 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check 'playwright==1.65.2'
           python -m playwright install --with-deps chromium
+      - name: Browser integration smoke test (real Chromium selectors)
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from browser_liveness import APPLY_RE
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True)
+              page = browser.new_page()
+              page.set_content("<h1>Agent Engineer</h1><button>Apply Now</button>")
+              assert page.get_by_role("button", name=APPLY_RE).count() == 1
+              assert page.locator("h1").inner_text() == "Agent Engineer"
+              browser.close()
+          PY
       - name: Render bounded official public job details (read-only)
         run: |
           python browser_liveness.py --rotation "${{ github.run_number }}" \
