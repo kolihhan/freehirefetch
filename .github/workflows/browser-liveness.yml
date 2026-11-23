@@ -1,0 +1,76 @@
+name: Public ATS Playwright Liveness
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'browser_liveness.py'
+      - 'browser_liveness_targets.json'
+      - 'test_browser_liveness.py'
+      - '.github/workflows/browser-liveness.yml'
+  schedule:
+    # Twice daily; bounded public-only checks. This is the source producer,
+    # not an applicant-side scheduler or employer contact.
+    - cron: '23 2,14 * * *'
+
+concurrency:
+  group: browser-liveness-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify fail-closed statuses and URL boundaries (no network)
+        run: python -m unittest -v test_browser_liveness
+      - name: Install pinned Playwright Chromium on standard GitHub runner
+        run: |
+          python -m pip install --disable-pip-version-check 'playwright==1.65.2'
+          python -m playwright install --with-deps chromium
+      - name: Render bounded official public job details (read-only)
+        run: |
+          python browser_liveness.py --rotation "${{ github.run_number }}" \
+            --max-feed 4 --timeout-ms 16000 \
+            --output feed/browser-liveness/current.json
+      - name: Publish public-source diagnostic artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-liveness-public-${{ github.run_number }}
+          path: feed/browser-liveness/current.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  publish:
+    needs: probe
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: browser-liveness-public-${{ github.run_number }}
+          path: feed/browser-liveness
+      - name: Commit only public job liveness evidence (no applicant data)
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add feed/browser-liveness/current.json
+          if git diff --cached --quiet; then
+            echo 'No new browser verification evidence.'
+          else
+            git commit -m 'data: refresh public employer browser liveness [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
