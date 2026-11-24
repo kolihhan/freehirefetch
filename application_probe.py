@@ -331,6 +331,44 @@ class Tests(unittest.TestCase):
         self.assertIn("99",[j["key"] for j in picked])
         self.assertEqual(3,len(select(proxy,{},20)))
 
+    def test_native_source_keeps_exact_roles_and_verified_jd(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            src = root/"feed/cn-native"
+            src.mkdir(parents=True)
+            url = "https://01ai.jobs.feishu.cn/index/position/7605812208450734374/detail"
+            role = {"post_id":"7605812208450734374", "title":"AI算法工程师（智能体）",
+                    "apply_url":url, "work_cities":"北京", "recruit_label":"全职"}
+            intern = dict(role, post_id="7605812208450734375",
+                          apply_url=url.replace("4374", "4375"), recruit_label="实习")
+            mismatched = dict(role, post_id="7605812208450734376")
+            group = {"company":"zerooneai", "positions":[role,intern,mismatched]}
+            for name in ("agent","llm"):
+                (src/f"jobpro-{name}.json").write_text(json.dumps({"results":[group]}))
+            detail = {"company_key":"zerooneai", "job_id":role["post_id"], "title":role["title"],
+                      "url":url, "full_jd_complete":True, "description_truncated":False,
+                      "full_jd_text":"岗位职责：开发智能体。任职要求：Python。", "checked_at":"2026-11-24"}
+            (src/"jobpro-jd.json").write_text(json.dumps({"jobs":[detail]}))
+            rows = load_jobs(root)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["market"],"CN")
+            self.assertEqual(rows[0]["url"],url)
+            self.assertEqual(rows[0]["jd_evidence"],"full_jd")
+            self.assertEqual(rows[0]["recruit_label"],"全职")
+            self.assertEqual(identity(url),("01ai.jobs.feishu.cn",role["post_id"]))
+
+    def test_native_source_identity_rejects_generic_and_mismatched_routes(self):
+        self.assertEqual(identity("https://join.qq.com/post_detail.html?postid=1282707395466077184"),
+                         ("join.qq.com","1282707395466077184"))
+        self.assertEqual(identity("https://jobs.bytedance.com/campus/position/7669725958044518661/detail"),
+                         ("jobs.bytedance.com","7669725958044518661"))
+        self.assertEqual(identity("https://campus-talent.alibaba.com/campus/position/199907640058"),
+                         ("campus-talent.alibaba.com","199907640058"))
+        self.assertIsNone(identity("https://join.qq.com/post_detail.html"))
+        self.assertIsNone(identity("https://01ai.jobs.feishu.cn/index/position/123/detail"))
+        self.assertIsNone(identity("https://evil.jobs.feishu.cn/index/position/7605812208450734374/detail"))
+
     def test_rotation(self):
         rows=[{"key":str(i),"market":"SG","title":"AI"} for i in range(5)]+[{"key":"cn","market":"CN","title":"AI"}]
         chosen=select(rows,{"0":{"checked_at":"2026-11-24"}},3)
