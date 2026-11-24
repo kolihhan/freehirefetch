@@ -22,7 +22,7 @@ HOSTS = {
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
     "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai engineer|research engineer|data scientist)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research engineer|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
 CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
@@ -90,7 +90,7 @@ def classify(expected, current, status, body, title_present, fields, controls):
     if not title_present:
         return "IDENTITY_UNCONFIRMED"
     # Form inputs must be visible and belong to a public application, not a sign-in.
-    if "email" in fields and ("resume" in fields or "name" in fields) and "password" not in fields:
+    if {"email", "resume", "name"} <= set(fields) and "password" not in fields:
         return "LIVE_FORM"
     if "password" in fields or (AUTH.search(body[:1800]) and not controls):
         return "AUTH_REQUIRED"
@@ -113,16 +113,23 @@ async def observe(page, job, expected, url):
     present = bool(title and title in norm(body))
     data = await page.evaluate("""() => {
       const visible = e => !!(e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden');
-      const fields = [];
+      const allFields = [];
+      const groups = new Map();
       for (const e of document.querySelectorAll('input,textarea,select')) {
         if (!visible(e)) continue;
         const labels = Array.from(e.labels || []).map(x => x.innerText).join(' ');
         const name = [e.name,e.id,e.type,e.placeholder,e.getAttribute('aria-label'),labels].join(' ').toLowerCase();
+        const owner = e.form || e.closest('form, [role=form]');
+        const fields = [];
         if (/email/.test(name)) fields.push('email');
         if (/password/.test(name)) fields.push('password');
         if (/resume|résumé|curriculum|\\bcv\\b/.test(name)) fields.push('resume');
         if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name)) fields.push('name');
+        allFields.push(...fields);
+        if (owner) groups.set(owner, [...(groups.get(owner) || []), ...fields]);
       }
+      const application = Array.from(groups.values()).find(xs => ['email','name','resume'].every(x=>xs.includes(x)) && !xs.includes('password'));
+      const fields = application || allFields.filter(x => x === 'password');
       return {fields, controls: Array.from(document.querySelectorAll('a,button,[role=button]')).filter(visible)
         .map(e => ({text:(e.innerText || e.getAttribute('aria-label') || '').trim(),href:e.getAttribute('href') || ''})).slice(0,500)};
     }""")
@@ -180,7 +187,10 @@ def load_jobs(root):
                 url = j.get("url","")
                 ident = identity(url)
                 title = j.get("title","")
-                if not ident or not j.get("key") or not CORE.search(title) or HARD_TITLE.search(title):
+                desc = str(j.get("description_text") or j.get("api_description_text") or j.get("description_excerpt") or "")
+                technical = re.search(r"\b(?:software|backend|full.stack|research|engineer|scientist|developer)\b|开发|工程师|研究", title, re.I)
+                signals = {m.group(0).casefold() for m in CORE.finditer(desc)}
+                if not ident or not j.get("key") or not (CORE.search(title) or (technical and len(signals) >= 3)) or HARD_TITLE.search(title):
                     continue
                 if CONTRACT.search(title+" "+str(j.get("employment_type",""))):
                     continue
@@ -241,7 +251,8 @@ class Tests(unittest.TestCase):
         self.id=identity(self.url)
     def test_classification(self):
         c=lambda body="", fields=(), controls=(), url=self.url, code=200, title=True: classify(self.id,url,code,body,title,fields,controls)
-        self.assertEqual(c(fields=["email","name"]),"LIVE_FORM")
+        self.assertEqual(c(fields=["email","name","resume"]),"LIVE_FORM")
+        self.assertEqual(c(fields=["email","name"]),"JD_ONLY")
         self.assertEqual(c(fields=["email","password","name"]),"AUTH_REQUIRED")
         self.assertEqual(c(controls=["Apply"]),"APPLY_CONTROL_ONLY")
         self.assertEqual(c("This job is no longer available",fields=["email","name"]),"CLOSED_EXPLICIT")
@@ -261,6 +272,30 @@ class Tests(unittest.TestCase):
         self.assertEqual(len(chosen),3)
         self.assertIn("cn",[x["key"] for x in chosen])
         self.assertNotIn("0",[x["key"] for x in chosen])
+
+
+class BrowserTests(unittest.IsolatedAsyncioTestCase):
+    async def test_public_form_and_expired_fixture(self):
+        from playwright.async_api import async_playwright
+        url = "https://job-boards.greenhouse.io/example/jobs/1234"
+        job = {"key":"fixture", "market":"SG","title":"AI Engineer","url":url}
+        async with async_playwright() as p:
+            kwargs = {"headless":True}
+            if os.getenv("CHROMIUM_EXECUTABLE"):
+                kwargs["executable_path"] = os.environ["CHROMIUM_EXECUTABLE"]
+            browser = await p.chromium.launch(**kwargs)
+            page = await browser.new_page()
+            html = ["<h1>AI Engineer</h1><form><input name='first_name'><input type='email'><input type='file' name='resume'><button>Submit application</button></form>",
+                    "<h1>AI Engineer</h1><form><input name='first_name'><input type='email'><button>Subscribe</button></form>",
+                    "<h1>This job is no longer available</h1>"]
+            async def mock(route):
+                await route.fulfill(status=200, content_type="text/html", body=html[0])
+            await page.route("**/*", mock)
+            for expected in ("LIVE_FORM","JD_ONLY","CLOSED_EXPLICIT"):
+                result, _ = await observe(page,job,identity(url),url)
+                self.assertEqual(result["status"],expected)
+                html.pop(0)
+            await browser.close()
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
