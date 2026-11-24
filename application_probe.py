@@ -13,6 +13,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, urljoin, unquote, parse_qs
+from hydrate_cn_jobpro_jd import official_url, FEISHU_HOSTS, normalized_title
 
 ROOT = Path(__file__).resolve().parent
 TARGET = ROOT / "feed/ats/application-probes.json"
@@ -21,6 +22,8 @@ HOSTS = {
     "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
     "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
+    "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
+    *FEISHU_HOSTS.values(),
 }
 CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
@@ -49,6 +52,18 @@ def identity(url):
     p = urlparse(url)
     path = unquote(p.path).rstrip("/")
     h = p.hostname
+    if h == "join.qq.com":
+        ids = parse_qs(p.query).get("postid", [])
+        return (h, ids[0]) if path == "/post_detail.html" and len(ids) == 1 and re.fullmatch(r"\d{10,20}", ids[0]) else None
+    if h == "jobs.bytedance.com":
+        m = re.fullmatch(r"/(?:campus|experienced)/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
+    if h == "campus-talent.alibaba.com":
+        m = re.fullmatch(r"/campus/position/(\d{10,20})", path)
+        return (h, m[1]) if m else None
+    if h in FEISHU_HOSTS.values():
+        m = re.fullmatch(r"/[A-Za-z0-9_-]+/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
     if h == "sg.indeed.com":
         key = parse_qs(p.query).get("jk", [""])[0]
         return (h, key) if re.fullmatch(r"[a-f0-9]{16}", key) else None
@@ -103,13 +118,20 @@ def norm(s):
 
 async def observe(page, job, expected, url):
     response = await page.goto(url, wait_until="domcontentloaded", timeout=14000)
-    # Wait briefly for client-side ATS rendering; do not bypass challenges.
+    # An arbitrary h1 (including a loading screen) is not the role title.
+    # Wait for exact normalized title or a terminal public-page signal.
+    title = norm(job.get("title"))
     try:
-        await page.locator("h1, [data-automation-id='jobPostingHeader']").first.wait_for(timeout=3500)
+        await page.wait_for_function("""title => {
+          const body = document.body?.innerText || "";
+          const norm = s => (s.toLowerCase().match(/[\\p{L}\\p{N}_]+/gu) || []).join(" ");
+          return (title && norm(body).includes(title)) || /no longer accepting|no longer available|job posting not found|access denied|verify you are human|职位已关闭/i.test(body);
+        }""", arg=title, timeout=7500)
+        if urlparse(url).hostname == "jobs.ashbyhq.com" and urlparse(url).path.rstrip("/").endswith("/application"):
+            await page.locator("input:not([type=hidden]), textarea").first.wait_for(state="visible", timeout=4500)
     except Exception:
         pass
     body = (await page.locator("body").inner_text(timeout=4000))[:35000]
-    title = norm(job.get("title"))
     present = bool(title and title in norm(body))
     data = await page.evaluate("""() => {
       const visible = e => !!(e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden');
@@ -124,7 +146,7 @@ async def observe(page, job, expected, url):
         if (/email/.test(name)) fields.push('email');
         if (/password/.test(name)) fields.push('password');
         if (/resume|résumé|curriculum|\\bcv\\b/.test(name)) fields.push('resume');
-        if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name)) fields.push('name');
+        if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name) || [e.name,e.id,e.placeholder,e.getAttribute('aria-label'),labels].some(x => (x || '').trim().toLowerCase() === 'name')) fields.push('name');
         allFields.push(...fields);
         if (owner) groups.set(owner, [...(groups.get(owner) || []), ...fields]);
       }
@@ -144,6 +166,9 @@ async def probe(browser, job, sem):
     expected = identity(url)
     result = {"key":job["key"], "market":job.get("market"), "company":job.get("company"), "title":job.get("title"),
               "url":url, "checked_at":now(), "status":"UNKNOWN"}
+    for field in ("source","location","recruit_label","batch_name","jd_evidence","jd_checked_at"):
+        if field in job:
+            result[field] = job[field]
     async with sem:
         context = await browser.new_context(accept_downloads=False)
         page = await context.new_page()
@@ -213,18 +238,72 @@ def load_jobs(root):
                     rows[k] = dict(j, aliases=[])
                 elif j["key"] != rows[k]["key"]:
                     rows[k]["aliases"].append(j["key"])
+    # CN native public sources were previously disconnected from browser probes.
+    # Retain source metadata; exact employer role identity, not candidate eligibility.
+    src = root/"feed/cn-native"
+    detail_file = src/"jobpro-jd.json"
+    details = {}
+    if detail_file.exists():
+        for d in json.loads(detail_file.read_text()).get("jobs", []):
+            if d.get("full_jd_complete") is True and not d.get("description_truncated") and d.get("full_jd_text"):
+                details[(d.get("company_key"),str(d.get("job_id")),d.get("url"))] = d
+    for name in ("agent","llm","ai","backend","swe"):
+        p = src/f"jobpro-{name}.json"
+        if not p.exists():
+            continue
+        for group in json.loads(p.read_text()).get("results", []):
+            company = group.get("company","")
+            for pos in group.get("positions", []):
+                title = str(pos.get("title") or "")
+                label = str(pos.get("recruit_label") or "")
+                uid = str(pos.get("post_id") or "")
+                url = official_url(company,pos)
+                if not url or not identity(url) or not CORE.search(title) or HARD_TITLE.search(title+" "+label) or CONTRACT.search(title+" "+label):
+                    continue
+                if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
+                    continue
+                key = f"jobpro|{company}|{uid}"
+                k = ("CN",identity(url))
+                detail = details.get((company,uid,url),{})
+                matched = bool(detail and normalized_title(detail.get("title")) == normalized_title(title))
+                if k in rows:
+                    if key != rows[k]["key"] and key not in rows[k]["aliases"]:
+                        rows[k]["aliases"].append(key)
+                    continue
+                rows[k] = {"key":key,"market":"CN","company":company,"title":title,
+                           "url":url,"location":pos.get("work_cities",""),"job_id":uid,
+                           "source":"jobpro-public-employer", "aliases":[],
+                           "recruit_label":label,"batch_name":pos.get("batch_name",""),
+                           "jd_evidence":"full_jd" if matched else "listing_only",
+                           "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-def select(rows, previous, limit):
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com"}
+
+
+def select(rows, previous, limit, fresh_keys=()):
+    # Protect the public browser budget: marketplaces frequently block CI.
+    # Keep a bounded sample, never bypass access controls, and prioritize
+    # newly discovered employer roles within the never-checked cohort.
+    fresh_keys = set(fresh_keys)
     def priority(j):
         old = previous.get(j["key"],{})
-        return (old.get("checked_at",""), j.get("title","").casefold(), j["key"])
-    sg = sorted((j for j in rows if j.get("market")=="SG"), key=priority)
-    cn = sorted((j for j in rows if j.get("market")=="CN"), key=priority)
-    # Both markets get coverage; rotate never-checked/oldest first.
-    sg_n = min(len(sg), max(1, int(limit*.8)))
-    cn_n = min(len(cn),limit-sg_n)
-    return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:limit-sg_n-cn_n]
+        return (old.get("checked_at",""), j["key"] not in fresh_keys, j.get("jd_evidence") != "full_jd" and j.get("evidence") != "full_jd", j.get("title","").casefold(), j["key"])
+    def balanced(pool, budget):
+        if budget <= 0:
+            return []
+        sg = sorted((j for j in pool if j.get("market")=="SG"), key=priority)
+        cn = sorted((j for j in pool if j.get("market")=="CN"), key=priority)
+        sg_n = min(len(sg), max(1, int(budget*.8)))
+        cn_n = min(len(cn),budget-sg_n)
+        return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:budget-sg_n-cn_n]
+    direct = [j for j in rows if urlparse(j.get("url","")).hostname not in MARKETPLACE_HOSTS]
+    proxy = [j for j in rows if urlparse(j.get("url","")).hostname in MARKETPLACE_HOSTS]
+    proxy_cap = min(len(proxy), max(1, int(limit*.15)))
+    chosen = balanced(direct, limit - proxy_cap)
+    sample = balanced(proxy, min(proxy_cap, limit-len(chosen)))
+    seen = {j["key"] for j in chosen}
+    return chosen + sample + balanced([j for j in direct if j["key"] not in seen], limit-len(chosen)-len(sample))
 
 async def run(root, limit, workers):
     from playwright.async_api import async_playwright
@@ -232,7 +311,9 @@ async def run(root, limit, workers):
     old = json.loads(target.read_text()) if target.exists() else {}
     prev = {j["key"]:j for j in old.get("jobs",[])}
     rows = load_jobs(root)
-    selected = select(rows,prev,limit)
+    changes = root/"feed/ats/changes.json"
+    fresh_keys = {j["key"] for j in json.loads(changes.read_text()).get("events", []) if j.get("kind") == "NEW" and j.get("key")} if changes.exists() else set()
+    selected = select(rows,prev,limit,fresh_keys)
     async with async_playwright() as p:
         launch = {"headless":True}
         if os.getenv("CHROMIUM_EXECUTABLE"):
@@ -250,6 +331,8 @@ async def run(root, limit, workers):
         current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
+            "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
+            "new_ats_attempted":sum(j["key"] in fresh_keys for j in selected),
             "note":"LIVE_FORM = public exact-role form seen, not eligibility, sponsorship, prior-application status or submitted application. Older probes must be rechecked.",
             "jobs":sorted(current.values(),key=lambda j:j["key"])}
     target.parent.mkdir(parents=True,exist_ok=True)
@@ -294,6 +377,53 @@ class Tests(unittest.TestCase):
             (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
             (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
+    def test_marketplace_budget_and_new_role_priority(self):
+        direct = [{"key":str(i),"market":"SG","title":"AI","url":self.url} for i in range(100)]
+        proxy = [{"key":"proxy"+str(i),"market":"SG","title":"AI","url":"https://sg.jobstreet.com/job/1234567"} for i in range(100)]
+        picked = select(direct+proxy,{},20,{"99"})
+        self.assertEqual(20,len(picked))
+        self.assertEqual(3,sum(j["key"].startswith("proxy") for j in picked))
+        self.assertIn("99",[j["key"] for j in picked])
+        self.assertEqual(3,len(select(proxy,{},20)))
+
+    def test_native_source_keeps_exact_roles_and_verified_jd(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            src = root/"feed/cn-native"
+            src.mkdir(parents=True)
+            url = "https://01ai.jobs.feishu.cn/index/position/7605812208450734374/detail"
+            role = {"post_id":"7605812208450734374", "title":"AI算法工程师（智能体）",
+                    "apply_url":url, "work_cities":"北京", "recruit_label":"全职"}
+            intern = dict(role, post_id="7605812208450734375",
+                          apply_url=url.replace("4374", "4375"), recruit_label="实习")
+            mismatched = dict(role, post_id="7605812208450734376")
+            group = {"company":"zerooneai", "positions":[role,intern,mismatched]}
+            for name in ("agent","llm"):
+                (src/f"jobpro-{name}.json").write_text(json.dumps({"results":[group]}))
+            detail = {"company_key":"zerooneai", "job_id":role["post_id"], "title":role["title"],
+                      "url":url, "full_jd_complete":True, "description_truncated":False,
+                      "full_jd_text":"岗位职责：开发智能体。任职要求：Python。", "checked_at":"2026-11-24"}
+            (src/"jobpro-jd.json").write_text(json.dumps({"jobs":[detail]}))
+            rows = load_jobs(root)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["market"],"CN")
+            self.assertEqual(rows[0]["url"],url)
+            self.assertEqual(rows[0]["jd_evidence"],"full_jd")
+            self.assertEqual(rows[0]["recruit_label"],"全职")
+            self.assertEqual(identity(url),("01ai.jobs.feishu.cn",role["post_id"]))
+
+    def test_native_source_identity_rejects_generic_and_mismatched_routes(self):
+        self.assertEqual(identity("https://join.qq.com/post_detail.html?postid=1282707395466077184"),
+                         ("join.qq.com","1282707395466077184"))
+        self.assertEqual(identity("https://jobs.bytedance.com/campus/position/7669725958044518661/detail"),
+                         ("jobs.bytedance.com","7669725958044518661"))
+        self.assertEqual(identity("https://campus-talent.alibaba.com/campus/position/199907640058"),
+                         ("campus-talent.alibaba.com","199907640058"))
+        self.assertIsNone(identity("https://join.qq.com/post_detail.html"))
+        self.assertIsNone(identity("https://01ai.jobs.feishu.cn/index/position/123/detail"))
+        self.assertIsNone(identity("https://evil.jobs.feishu.cn/index/position/7605812208450734374/detail"))
 
     def test_rotation(self):
         rows=[{"key":str(i),"market":"SG","title":"AI"} for i in range(5)]+[{"key":"cn","market":"CN","title":"AI"}]
