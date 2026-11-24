@@ -13,6 +13,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, urljoin, unquote, parse_qs
+from hydrate_cn_jobpro_jd import official_url, FEISHU_HOSTS, normalized_title
 
 ROOT = Path(__file__).resolve().parent
 TARGET = ROOT / "feed/ats/application-probes.json"
@@ -21,6 +22,8 @@ HOSTS = {
     "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
     "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
+    "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
+    *FEISHU_HOSTS.values(),
 }
 CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
@@ -49,6 +52,18 @@ def identity(url):
     p = urlparse(url)
     path = unquote(p.path).rstrip("/")
     h = p.hostname
+    if h == "join.qq.com":
+        ids = parse_qs(p.query).get("postid", [])
+        return (h, ids[0]) if path == "/post_detail.html" and len(ids) == 1 and re.fullmatch(r"\d{10,20}", ids[0]) else None
+    if h == "jobs.bytedance.com":
+        m = re.fullmatch(r"/(?:campus|experienced)/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
+    if h == "campus-talent.alibaba.com":
+        m = re.fullmatch(r"/campus/position/(\d{10,20})", path)
+        return (h, m[1]) if m else None
+    if h in FEISHU_HOSTS.values():
+        m = re.fullmatch(r"/[A-Za-z0-9_-]+/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
     if h == "sg.indeed.com":
         key = parse_qs(p.query).get("jk", [""])[0]
         return (h, key) if re.fullmatch(r"[a-f0-9]{16}", key) else None
@@ -151,6 +166,9 @@ async def probe(browser, job, sem):
     expected = identity(url)
     result = {"key":job["key"], "market":job.get("market"), "company":job.get("company"), "title":job.get("title"),
               "url":url, "checked_at":now(), "status":"UNKNOWN"}
+    for field in ("source","location","recruit_label","batch_name","jd_evidence","jd_checked_at"):
+        if field in job:
+            result[field] = job[field]
     async with sem:
         context = await browser.new_context(accept_downloads=False)
         page = await context.new_page()
@@ -220,6 +238,44 @@ def load_jobs(root):
                     rows[k] = dict(j, aliases=[])
                 elif j["key"] != rows[k]["key"]:
                     rows[k]["aliases"].append(j["key"])
+    # CN native public sources were previously disconnected from browser probes.
+    # Retain source metadata; exact employer role identity, not candidate eligibility.
+    src = root/"feed/cn-native"
+    detail_file = src/"jobpro-jd.json"
+    details = {}
+    if detail_file.exists():
+        for d in json.loads(detail_file.read_text()).get("jobs", []):
+            if d.get("full_jd_complete") is True and not d.get("description_truncated") and d.get("full_jd_text"):
+                details[(d.get("company_key"),str(d.get("job_id")),d.get("url"))] = d
+    for name in ("agent","llm","ai","backend","swe"):
+        p = src/f"jobpro-{name}.json"
+        if not p.exists():
+            continue
+        for group in json.loads(p.read_text()).get("results", []):
+            company = group.get("company","")
+            for pos in group.get("positions", []):
+                title = str(pos.get("title") or "")
+                label = str(pos.get("recruit_label") or "")
+                uid = str(pos.get("post_id") or "")
+                url = official_url(company,pos)
+                if not url or not identity(url) or not CORE.search(title) or HARD_TITLE.search(title+" "+label) or CONTRACT.search(title+" "+label):
+                    continue
+                if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
+                    continue
+                key = f"jobpro|{company}|{uid}"
+                k = ("CN",identity(url))
+                detail = details.get((company,uid,url),{})
+                matched = bool(detail and normalized_title(detail.get("title")) == normalized_title(title))
+                if k in rows:
+                    if key != rows[k]["key"] and key not in rows[k]["aliases"]:
+                        rows[k]["aliases"].append(key)
+                    continue
+                rows[k] = {"key":key,"market":"CN","company":company,"title":title,
+                           "url":url,"location":pos.get("work_cities",""),"job_id":uid,
+                           "source":"jobpro-public-employer", "aliases":[],
+                           "recruit_label":label,"batch_name":pos.get("batch_name",""),
+                           "jd_evidence":"full_jd" if matched else "listing_only",
+                           "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
 MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com"}
@@ -232,7 +288,7 @@ def select(rows, previous, limit, fresh_keys=()):
     fresh_keys = set(fresh_keys)
     def priority(j):
         old = previous.get(j["key"],{})
-        return (old.get("checked_at",""), j["key"] not in fresh_keys, j.get("title","").casefold(), j["key"])
+        return (old.get("checked_at",""), j["key"] not in fresh_keys, j.get("jd_evidence") != "full_jd" and j.get("evidence") != "full_jd", j.get("title","").casefold(), j["key"])
     def balanced(pool, budget):
         if budget <= 0:
             return []
