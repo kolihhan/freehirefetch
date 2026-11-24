@@ -4,7 +4,7 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 6,
-      "accepted_exact_urls": 103,
+      "accepted_exact_urls": 116,
       "queries": [
         {
           "q": "AI Engineer",
@@ -25,32 +25,28 @@
       "errors": []
     },
     "aidevboard": {
-      "status": "UNAVAILABLE",
+      "status": "COMPLETE",
       "full_text_fallback_pages": 0,
-      "successful_pages": 0,
-      "accepted_exact_urls": 0,
+      "successful_pages": 5,
+      "accepted_exact_urls": 24,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 0,
-          "truncated": true
+          "rows": 93,
+          "truncated": false
         },
         {
           "q": "LLM",
-          "rows": 0,
-          "truncated": true
+          "rows": 37,
+          "truncated": false
         },
         {
           "q": "Research Engineer",
-          "rows": 0,
-          "truncated": true
+          "rows": 57,
+          "truncated": false
         }
       ],
-      "errors": [
-        "AI Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "LLM:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "Research Engineer:page1:ValueError:AI Dev Jobs jobs[] missing"
-      ]
+      "errors": []
     }
   },
   "MY": {
@@ -58,7 +54,7 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 6,
-      "accepted_exact_urls": 53,
+      "accepted_exact_urls": 54,
       "queries": [
         {
           "q": "AI Engineer",
@@ -112,7 +108,7 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 10,
-      "accepted_exact_urls": 55,
+      "accepted_exact_urls": 54,
       "queries": [
         {
           "q": "AI Engineer",
@@ -175,11 +171,11 @@
         }
       ],
       "errors": [
-        "AI Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "LLM:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "Research Engineer:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "\u5927\u6a21\u578b:page1:ValueError:AI Dev Jobs jobs[] missing",
-        "\u7b97\u6cd5\u5de5\u7a0b\u5e08:page1:ValueError:AI Dev Jobs jobs[] missing"
+        "AI Engineer:page1:TimeoutError:The read operation timed out",
+        "LLM:page1:ValueError:AI Dev Jobs degraded response",
+        "Research Engineer:page1:HTTPError:HTTP Error 502: Bad Gateway",
+        "\u5927\u6a21\u578b:page1:ValueError:AI Dev Jobs degraded response",
+        "\u7b97\u6cd5\u5de5\u7a0b\u5e08:page1:ValueError:AI Dev Jobs degraded response"
       ]
     }
   }
