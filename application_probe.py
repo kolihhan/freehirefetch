@@ -22,7 +22,7 @@ HOSTS = {
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
     "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research engineer|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
 CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
@@ -179,6 +179,19 @@ async def probe(browser, job, sem):
 
 def load_jobs(root):
     rows = {}
+    # ATS market indexes deliberately omit full JD text; restore it by exact key.
+    jd_dir = root/"feed/ats/jd"
+    index = jd_dir/"index.json"
+    descriptions = {}
+    if index.exists():
+        for part in json.loads(index.read_text()).get("parts", []):
+            rel = part.get("path", "")
+            if not re.fullmatch(r"(?:SG|CN)-[0-9]{3}\.json", rel):
+                continue
+            file = jd_dir/rel
+            if file.exists():
+                for item in json.loads(file.read_text()).get("jobs", []):
+                    descriptions[(item.get("key"), item.get("url"))] = item.get("description_text", "")
     for market in ("SG","CN"):
         for p in (root/"feed/ats/markets"/(market+".json"), root/"feed/market-api"/(market+".json")):
             if not p.exists():
@@ -187,7 +200,7 @@ def load_jobs(root):
                 url = j.get("url","")
                 ident = identity(url)
                 title = j.get("title","")
-                desc = str(j.get("description_text") or j.get("api_description_text") or j.get("description_excerpt") or "")
+                desc = str(j.get("description_text") or j.get("api_description_text") or descriptions.get((j.get("key"), url)) or j.get("description_excerpt") or "")
                 technical = re.search(r"\b(?:software|backend|full.stack|research|engineer|scientist|developer)\b|开发|工程师|研究", title, re.I)
                 signals = {m.group(0).casefold() for m in CORE.finditer(desc)}
                 if not ident or not j.get("key") or not (CORE.search(title) or (technical and len(signals) >= 3)) or HARD_TITLE.search(title):
@@ -266,6 +279,22 @@ class Tests(unittest.TestCase):
         self.assertEqual(identity("https://sg.jobstreet.com/job/1234/apply"),("sg.jobstreet.com","1234"))
         self.assertIsNone(identity("https://job-boards.greenhouse.io/example"))
         self.assertIsNone(identity("https://job-boards.greenhouse.io.evil.example/example/jobs/1234"))
+    def test_sharded_jd_and_research_assistant(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            jd = root/"feed/ats/jd"
+            jd.mkdir(parents=True)
+            markets = root/"feed/ats/markets"
+            markets.mkdir()
+            url = self.url
+            role = {"key":"backend", "market":"SG", "title":"Backend Engineer", "url":url}
+            ra = {"key":"ra", "market":"SG", "title":"Research Assistant", "url":url.replace("1234","5678")}
+            (markets/"SG.json").write_text(json.dumps({"jobs":[role,ra]}))
+            (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
+            (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
+            self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
     def test_rotation(self):
         rows=[{"key":str(i),"market":"SG","title":"AI"} for i in range(5)]+[{"key":"cn","market":"CN","title":"AI"}]
         chosen=select(rows,{"0":{"checked_at":"2026-11-24"}},3)
