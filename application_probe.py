@@ -1,0 +1,277 @@
+#!/usr/bin/env python3
+"""Read-only public application evidence. No applicants, login, form submission,
+CAPTCHA bypass, or eligibility decisions. Feed consumers must check freshness.
+"""
+from __future__ import annotations
+import argparse
+import asyncio
+import json
+import os
+import re
+import unittest
+from collections import Counter
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import urlparse, urljoin, unquote, parse_qs
+
+ROOT = Path(__file__).resolve().parent
+TARGET = ROOT / "feed/ats/application-probes.json"
+HOSTS = {
+    "jobs.ashbyhq.com", "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
+    "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
+    "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
+    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
+}
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai engineer|research engineer|data scientist)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
+HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
+CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
+CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
+BLOCKED = re.compile(r"verify (?:that )?you are human|access denied|unusual traffic|security verification|checking your browser|captcha|just a moment", re.I)
+AUTH = re.compile(r"sign in|log in|login|create (?:an |your )?account|register to apply", re.I)
+APPLY = re.compile(r"^\s*(?:apply(?: now| for this (?:job|position)| to this job| on company site)?|i['’]m interested|申请职位|立即申请|立即投递|投递简历)\s*$", re.I)
+
+def now():
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+def allowed(url):
+    try:
+        p = urlparse(url)
+        return (p.scheme == "https" and not p.username and not p.password
+                and p.port in (None, 443)
+                and (p.hostname in HOSTS or bool(re.fullmatch(r"[a-z0-9-]+\.wd[0-9]+\.myworkdayjobs\.com", p.hostname or ""))))
+    except ValueError:
+        return False
+
+def identity(url):
+    """Only identify exact known role paths, never a generic careers homepage."""
+    if not allowed(url):
+        return None
+    p = urlparse(url)
+    path = unquote(p.path).rstrip("/")
+    h = p.hostname
+    if h == "sg.indeed.com":
+        key = parse_qs(p.query).get("jk", [""])[0]
+        return (h, key) if re.fullmatch(r"[a-f0-9]{16}", key) else None
+    if h in {"www.linkedin.com", "sg.linkedin.com"}:
+        m = re.search(r"/jobs/view/(?:[^/]*-)?(\d+)(?:/|$)", path)
+        return ("linkedin", m[1]) if m else None
+    if h == "sg.jobstreet.com":
+        m = re.search(r"/job/(\d+)(?:/|$)", path)
+        return (h, m[1]) if m else None
+    if h.endswith(".myworkdayjobs.com"):
+        m = re.search(r"/job/[^?]+_([A-Za-z0-9-]+)(?:/|$)", path)
+        return (h, m[1].lower()) if m else None
+    if h in {"jobs.ashbyhq.com", "jobs.lever.co"}:
+        m = re.match(r"/([^/]+)/([0-9a-fA-F-]{36})(?:/|$)", path)
+        return (h, m[1].lower()+"/"+m[2].lower()) if m else None
+    if h == "jobs.smartrecruiters.com":
+        m = re.match(r"/([^/]+)/(\d{10,})(?:-|/|$)", path)
+        return (h, m[1].lower()+"/"+m[2]) if m else None
+    if "greenhouse.io" in h:
+        m = re.search(r"/([^/]+)/jobs/(\d+)(?:/|$)", path)
+        return ("greenhouse", m[1].lower()+"/"+m[2]) if m else None
+    if h == "abnormal.ai":
+        m = re.search(r"/careers/jobs/(\d+)(?:/|$)", path)
+        return (h, m[1]) if m else None
+    return None
+
+def classify(expected, current, status, body, title_present, fields, controls):
+    """Pure classification; only affirmative role-specific form evidence is LIVE_FORM."""
+    if status in (401, 403, 429) or BLOCKED.search(body[:1500]):
+        return "BLOCKED"
+    if status in (404, 410) and identity(current) == expected:
+        return "NOT_FOUND_HTTP"
+    if identity(current) != expected:
+        return "IDENTITY_UNCONFIRMED"
+    if CLOSED.search(body):
+        return "CLOSED_EXPLICIT"
+    if status is None or status >= 400:
+        return "UNKNOWN_HTTP"
+    if not title_present:
+        return "IDENTITY_UNCONFIRMED"
+    # Form inputs must be visible and belong to a public application, not a sign-in.
+    if "email" in fields and ("resume" in fields or "name" in fields) and "password" not in fields:
+        return "LIVE_FORM"
+    if "password" in fields or (AUTH.search(body[:1800]) and not controls):
+        return "AUTH_REQUIRED"
+    if controls:
+        return "APPLY_CONTROL_ONLY"
+    return "JD_ONLY"
+
+def norm(s):
+    return " ".join(re.findall(r"\w+", str(s or "").casefold()))
+
+async def observe(page, job, expected, url):
+    response = await page.goto(url, wait_until="domcontentloaded", timeout=14000)
+    # Wait briefly for client-side ATS rendering; do not bypass challenges.
+    try:
+        await page.locator("h1, [data-automation-id='jobPostingHeader']").first.wait_for(timeout=3500)
+    except Exception:
+        pass
+    body = (await page.locator("body").inner_text(timeout=4000))[:35000]
+    title = norm(job.get("title"))
+    present = bool(title and title in norm(body))
+    data = await page.evaluate("""() => {
+      const visible = e => !!(e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden');
+      const fields = [];
+      for (const e of document.querySelectorAll('input,textarea,select')) {
+        if (!visible(e)) continue;
+        const labels = Array.from(e.labels || []).map(x => x.innerText).join(' ');
+        const name = [e.name,e.id,e.type,e.placeholder,e.getAttribute('aria-label'),labels].join(' ').toLowerCase();
+        if (/email/.test(name)) fields.push('email');
+        if (/password/.test(name)) fields.push('password');
+        if (/resume|résumé|curriculum|\\bcv\\b/.test(name)) fields.push('resume');
+        if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name)) fields.push('name');
+      }
+      return {fields, controls: Array.from(document.querySelectorAll('a,button,[role=button]')).filter(visible)
+        .map(e => ({text:(e.innerText || e.getAttribute('aria-label') || '').trim(),href:e.getAttribute('href') || ''})).slice(0,500)};
+    }""")
+    controls = [c for c in data["controls"] if APPLY.fullmatch(c["text"])]
+    state = classify(expected, page.url, response.status if response else None, body, present, data["fields"], controls)
+    return {"status":state, "final_url":page.url, "http_status":response.status if response else None,
+            "title_match":present, "visible_field_types":sorted(set(data["fields"])),
+            "apply_controls":[c["text"][:120] for c in controls][:5]}, controls
+
+async def probe(browser, job, sem):
+    url = job["url"]
+    expected = identity(url)
+    result = {"key":job["key"], "market":job.get("market"), "company":job.get("company"), "title":job.get("title"),
+              "url":url, "checked_at":now(), "status":"UNKNOWN"}
+    async with sem:
+        context = await browser.new_context(accept_downloads=False)
+        page = await context.new_page()
+        # Restrict all top-level navigation to known public job providers.
+        async def guard(route):
+            req = route.request
+            if req.is_navigation_request() and req.frame == page.main_frame and not allowed(req.url):
+                await route.abort()
+            else:
+                await route.continue_()
+        await page.route("**/*", guard)
+        try:
+            result["checked_at"] = now()
+            info, controls = await observe(page, job, expected, url)
+            result.update(info)
+            if info["status"] == "APPLY_CONTROL_ONLY":
+                # GET-only exact-requisition links; never press a button, fill,
+                # submit, login, follow arbitrary redirects or upload a file.
+                urls = [job.get("apply_url") or ""] + [urljoin(page.url,c["href"]) for c in controls if c["href"]]
+                target = next((u for u in urls if u and identity(u) == expected and u != page.url and u != url), None)
+                if target:
+                    result["apply_url_observed"] = target
+                    second, _ = await observe(page, job, expected, target)
+                    result["apply_page"] = second
+                    if second["status"] in ("LIVE_FORM","AUTH_REQUIRED","CLOSED_EXPLICIT","NOT_FOUND_HTTP"):
+                        result["status"] = second["status"]
+        except Exception as e:
+            result["status"] = "UNKNOWN_ERROR"
+            result["error"] = type(e).__name__
+        finally:
+            await context.close()
+    return result
+
+def load_jobs(root):
+    rows = {}
+    for market in ("SG","CN"):
+        for p in (root/"feed/ats/markets"/(market+".json"), root/"feed/market-api"/(market+".json")):
+            if not p.exists():
+                continue
+            for j in json.loads(p.read_text()).get("jobs",[]):
+                url = j.get("url","")
+                ident = identity(url)
+                title = j.get("title","")
+                if not ident or not j.get("key") or not CORE.search(title) or HARD_TITLE.search(title):
+                    continue
+                if CONTRACT.search(title+" "+str(j.get("employment_type",""))):
+                    continue
+                # Preserve primary-source representation, also index aliases.
+                k = (market, ident)
+                if k not in rows:
+                    rows[k] = dict(j, aliases=[])
+                elif j["key"] != rows[k]["key"]:
+                    rows[k]["aliases"].append(j["key"])
+    return list(rows.values())
+
+def select(rows, previous, limit):
+    def priority(j):
+        old = previous.get(j["key"],{})
+        return (old.get("checked_at",""), j.get("title","").casefold(), j["key"])
+    sg = sorted((j for j in rows if j.get("market")=="SG"), key=priority)
+    cn = sorted((j for j in rows if j.get("market")=="CN"), key=priority)
+    # Both markets get coverage; rotate never-checked/oldest first.
+    sg_n = min(len(sg), max(1, int(limit*.8)))
+    cn_n = min(len(cn),limit-sg_n)
+    return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:limit-sg_n-cn_n]
+
+async def run(root, limit, workers):
+    from playwright.async_api import async_playwright
+    target = root/"feed/ats/application-probes.json"
+    old = json.loads(target.read_text()) if target.exists() else {}
+    prev = {j["key"]:j for j in old.get("jobs",[])}
+    rows = load_jobs(root)
+    selected = select(rows,prev,limit)
+    async with async_playwright() as p:
+        launch = {"headless":True}
+        if os.getenv("CHROMIUM_EXECUTABLE"):
+            launch["executable_path"] = os.environ["CHROMIUM_EXECUTABLE"]
+        browser = await p.chromium.launch(**launch)
+        sem = asyncio.Semaphore(workers)
+        results = await asyncio.gather(*(probe(browser,j,sem) for j in selected))
+        await browser.close()
+    current = {}
+    for j in rows:
+        prior = prev.get(j["key"])
+        if prior and prior.get("url")==j["url"]:
+            current[j["key"]] = dict(prior, fresh_this_run=False, aliases=j["aliases"])
+    for j,r in zip(selected,results):
+        current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
+    report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
+            "counts_this_run":dict(Counter(r["status"] for r in results)),
+            "note":"LIVE_FORM = public exact-role form seen, not eligibility, sponsorship, prior-application status or submitted application. Older probes must be rechecked.",
+            "jobs":sorted(current.values(),key=lambda j:j["key"])}
+    target.parent.mkdir(parents=True,exist_ok=True)
+    target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+    print(json.dumps({k:v for k,v in report.items() if k!="jobs"},indent=2))
+    if not selected:
+        raise RuntimeError("No eligible public URLs; check source coverage")
+
+class Tests(unittest.TestCase):
+    def setUp(self):
+        self.url="https://job-boards.greenhouse.io/example/jobs/1234"
+        self.id=identity(self.url)
+    def test_classification(self):
+        c=lambda body="", fields=(), controls=(), url=self.url, code=200, title=True: classify(self.id,url,code,body,title,fields,controls)
+        self.assertEqual(c(fields=["email","name"]),"LIVE_FORM")
+        self.assertEqual(c(fields=["email","password","name"]),"AUTH_REQUIRED")
+        self.assertEqual(c(controls=["Apply"]),"APPLY_CONTROL_ONLY")
+        self.assertEqual(c("This job is no longer available",fields=["email","name"]),"CLOSED_EXPLICIT")
+        self.assertEqual(c("Verify you are human",fields=["email","name"]),"BLOCKED")
+        self.assertEqual(c(url="https://job-boards.greenhouse.io/example/jobs/4321",fields=["email","name"]),"IDENTITY_UNCONFIRMED")
+        self.assertEqual(c(code=404),"NOT_FOUND_HTTP")
+        self.assertEqual(c(title=False,fields=["email","name"]),"IDENTITY_UNCONFIRMED")
+    def test_identity(self):
+        self.assertEqual(identity("https://jobs.ashbyhq.com/example/02234e0a-e1fc-4b23-b3e6-513200e4ff80/application"),("jobs.ashbyhq.com","example/02234e0a-e1fc-4b23-b3e6-513200e4ff80"))
+        self.assertEqual(identity("https://example.wd3.myworkdayjobs.com/en-US/Careers/job/Singapore/AI-Engineer_JR123/apply"),("example.wd3.myworkdayjobs.com","jr123"))
+        self.assertEqual(identity("https://sg.jobstreet.com/job/1234/apply"),("sg.jobstreet.com","1234"))
+        self.assertIsNone(identity("https://job-boards.greenhouse.io/example"))
+        self.assertIsNone(identity("https://job-boards.greenhouse.io.evil.example/example/jobs/1234"))
+    def test_rotation(self):
+        rows=[{"key":str(i),"market":"SG","title":"AI"} for i in range(5)]+[{"key":"cn","market":"CN","title":"AI"}]
+        chosen=select(rows,{"0":{"checked_at":"2026-11-24"}},3)
+        self.assertEqual(len(chosen),3)
+        self.assertIn("cn",[x["key"] for x in chosen])
+        self.assertNotIn("0",[x["key"] for x in chosen])
+
+if __name__=="__main__":
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--root",type=Path,default=ROOT)
+    parser.add_argument("--limit",type=int,default=100)
+    parser.add_argument("--workers",type=int,default=10)
+    parser.add_argument("--self-test",action="store_true")
+    args=parser.parse_args()
+    if args.self_test:
+        unittest.main(argv=[__file__])
+    else:
+        if args.limit<1 or not 1<=args.workers<=16:
+            parser.error("positive limit, workers 1-16")
+        asyncio.run(run(args.root,args.limit,args.workers))
