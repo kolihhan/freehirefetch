@@ -103,6 +103,9 @@ def request_json(url: str, *, payload: dict | None = None) -> object:
             with urlopen(req, timeout=API_TIMEOUT) as response:
                 return json.load(response)
         except HTTPError as exc:
+            # Workday throttling is a stop signal, not a reason to retry aggressively.
+            if exc.code == 429 and (urlparse(url).hostname or "").endswith(".myworkdayjobs.com"):
+                raise
             if exc.code not in (429, 500, 502, 503, 504) or attempt == 2:
                 raise
         except (TimeoutError, URLError):
@@ -276,6 +279,10 @@ def listing(board: dict) -> list[dict]:
                     raise RuntimeError("Workday search window exceeded page cap: " + repr(term))
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError, OSError) as exc:
             errors.append(f"{term!r}: {type(exc).__name__}: {str(exc)[:160]}")
+            if isinstance(exc, HTTPError) and exc.code == 429:
+                # Retain earlier rows but defer remaining windows on this board.
+                errors.append("remaining Workday keyword windows deferred after HTTP 429")
+                break
     if errors:
         raise PartialListing(list(result.values()), errors)
     return list(result.values())
@@ -349,7 +356,10 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
             if plain(detail):
                 row["description"] = detail
                 enriched += 1
-        except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError):
+        except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError) as exc:
+            # Do not turn a rate limit into a burst of detail requests.
+            if ats == "workday" and isinstance(exc, HTTPError) and exc.code == 429:
+                break
             # A temporarily restricted detail API is a documented listing-only lead.
             continue
     return enriched
@@ -471,7 +481,8 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
             except PartialListing as exc:
                 rows = exc.rows
                 partial_error = str(exc)
-            enriched = enrich_listed_details(board, rows)
+            throttled = bool(board["ats"] == "workday" and partial_error and "HTTP Error 429" in partial_error)
+            enriched = 0 if throttled else enrich_listed_details(board, rows)
             candidates = {}
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
