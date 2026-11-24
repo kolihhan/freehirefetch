@@ -103,13 +103,20 @@ def norm(s):
 
 async def observe(page, job, expected, url):
     response = await page.goto(url, wait_until="domcontentloaded", timeout=14000)
-    # Wait briefly for client-side ATS rendering; do not bypass challenges.
+    # An arbitrary h1 (including a loading screen) is not the role title.
+    # Wait for exact normalized title or a terminal public-page signal.
+    title = norm(job.get("title"))
     try:
-        await page.locator("h1, [data-automation-id='jobPostingHeader']").first.wait_for(timeout=3500)
+        await page.wait_for_function("""title => {
+          const body = document.body?.innerText || "";
+          const norm = s => (s.toLowerCase().match(/[\\p{L}\\p{N}_]+/gu) || []).join(" ");
+          return (title && norm(body).includes(title)) || /no longer accepting|no longer available|job posting not found|access denied|verify you are human|职位已关闭/i.test(body);
+        }""", arg=title, timeout=7500)
+        if urlparse(url).hostname == "jobs.ashbyhq.com" and urlparse(url).path.rstrip("/").endswith("/application"):
+            await page.locator("input:not([type=hidden]), textarea").first.wait_for(state="visible", timeout=4500)
     except Exception:
         pass
     body = (await page.locator("body").inner_text(timeout=4000))[:35000]
-    title = norm(job.get("title"))
     present = bool(title and title in norm(body))
     data = await page.evaluate("""() => {
       const visible = e => !!(e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden');
@@ -124,7 +131,7 @@ async def observe(page, job, expected, url):
         if (/email/.test(name)) fields.push('email');
         if (/password/.test(name)) fields.push('password');
         if (/resume|résumé|curriculum|\\bcv\\b/.test(name)) fields.push('resume');
-        if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name)) fields.push('name');
+        if (/first.?name|last.?name|full.?name|given.?name|family.?name/.test(name) || [e.name,e.id,e.placeholder,e.getAttribute('aria-label'),labels].some(x => (x || '').trim().toLowerCase() === 'name')) fields.push('name');
         allFields.push(...fields);
         if (owner) groups.set(owner, [...(groups.get(owner) || []), ...fields]);
       }
@@ -215,16 +222,32 @@ def load_jobs(root):
                     rows[k]["aliases"].append(j["key"])
     return list(rows.values())
 
-def select(rows, previous, limit):
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com"}
+
+
+def select(rows, previous, limit, fresh_keys=()):
+    # Protect the public browser budget: marketplaces frequently block CI.
+    # Keep a bounded sample, never bypass access controls, and prioritize
+    # newly discovered employer roles within the never-checked cohort.
+    fresh_keys = set(fresh_keys)
     def priority(j):
         old = previous.get(j["key"],{})
-        return (old.get("checked_at",""), j.get("title","").casefold(), j["key"])
-    sg = sorted((j for j in rows if j.get("market")=="SG"), key=priority)
-    cn = sorted((j for j in rows if j.get("market")=="CN"), key=priority)
-    # Both markets get coverage; rotate never-checked/oldest first.
-    sg_n = min(len(sg), max(1, int(limit*.8)))
-    cn_n = min(len(cn),limit-sg_n)
-    return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:limit-sg_n-cn_n]
+        return (old.get("checked_at",""), j["key"] not in fresh_keys, j.get("title","").casefold(), j["key"])
+    def balanced(pool, budget):
+        if budget <= 0:
+            return []
+        sg = sorted((j for j in pool if j.get("market")=="SG"), key=priority)
+        cn = sorted((j for j in pool if j.get("market")=="CN"), key=priority)
+        sg_n = min(len(sg), max(1, int(budget*.8)))
+        cn_n = min(len(cn),budget-sg_n)
+        return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:budget-sg_n-cn_n]
+    direct = [j for j in rows if urlparse(j.get("url","")).hostname not in MARKETPLACE_HOSTS]
+    proxy = [j for j in rows if urlparse(j.get("url","")).hostname in MARKETPLACE_HOSTS]
+    proxy_cap = min(len(proxy), max(1, int(limit*.15)))
+    chosen = balanced(direct, limit - proxy_cap)
+    sample = balanced(proxy, min(proxy_cap, limit-len(chosen)))
+    seen = {j["key"] for j in chosen}
+    return chosen + sample + balanced([j for j in direct if j["key"] not in seen], limit-len(chosen)-len(sample))
 
 async def run(root, limit, workers):
     from playwright.async_api import async_playwright
@@ -232,7 +255,9 @@ async def run(root, limit, workers):
     old = json.loads(target.read_text()) if target.exists() else {}
     prev = {j["key"]:j for j in old.get("jobs",[])}
     rows = load_jobs(root)
-    selected = select(rows,prev,limit)
+    changes = root/"feed/ats/changes.json"
+    fresh_keys = {j["key"] for j in json.loads(changes.read_text()).get("events", []) if j.get("kind") == "NEW" and j.get("key")} if changes.exists() else set()
+    selected = select(rows,prev,limit,fresh_keys)
     async with async_playwright() as p:
         launch = {"headless":True}
         if os.getenv("CHROMIUM_EXECUTABLE"):
@@ -250,6 +275,8 @@ async def run(root, limit, workers):
         current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
+            "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
+            "new_ats_attempted":sum(j["key"] in fresh_keys for j in selected),
             "note":"LIVE_FORM = public exact-role form seen, not eligibility, sponsorship, prior-application status or submitted application. Older probes must be rechecked.",
             "jobs":sorted(current.values(),key=lambda j:j["key"])}
     target.parent.mkdir(parents=True,exist_ok=True)
@@ -294,6 +321,15 @@ class Tests(unittest.TestCase):
             (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
             (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
+    def test_marketplace_budget_and_new_role_priority(self):
+        direct = [{"key":str(i),"market":"SG","title":"AI","url":self.url} for i in range(100)]
+        proxy = [{"key":"proxy"+str(i),"market":"SG","title":"AI","url":"https://sg.jobstreet.com/job/1234567"} for i in range(100)]
+        picked = select(direct+proxy,{},20,{"99"})
+        self.assertEqual(20,len(picked))
+        self.assertEqual(3,sum(j["key"].startswith("proxy") for j in picked))
+        self.assertIn("99",[j["key"] for j in picked])
+        self.assertEqual(3,len(select(proxy,{},20)))
 
     def test_rotation(self):
         rows=[{"key":str(i),"market":"SG","title":"AI"} for i in range(5)]+[{"key":"cn","market":"CN","title":"AI"}]
