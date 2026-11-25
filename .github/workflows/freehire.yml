@@ -12,6 +12,10 @@ on:
           - bootstrap
           - delta
           - full
+  schedule:
+    - cron: '17 * * * *'
+    - cron: '43 18 * * *'
+
 permissions:
   contents: write
 
@@ -65,4 +69,5 @@ jobs:
             exit 0
           fi
           git commit -m "chore: update FreeHire feed [skip ci]"
+          git pull --rebase origin main
           git push
