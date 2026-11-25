@@ -231,6 +231,19 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_workday_partial_windows_keep_successful_rows(self):
+        board = {"ats": "workday", "slug": "micron", "company": "Micron", "markets": ["SG"],
+                 "career_url": "https://micron.wd1.myworkdayjobs.com/en-US/External",
+                 "search_terms": ["AI", "machine learning", "LLM"]}
+        first = {"title": "AI Engineer", "externalPath": "/job/Singapore/AI-Engineer_JR1", "locationsText": "Singapore"}
+        second = {"title": "LLM Engineer", "externalPath": "/job/Singapore/LLM-Engineer_JR2", "locationsText": "Singapore"}
+        with patch.object(ats, "request_json", side_effect=[{"jobPostings": [first], "total": 1},
+                TimeoutError("blocked window"), {"jobPostings": [second], "total": 1}]):
+            with self.assertRaises(ats.PartialListing) as result:
+                ats.listing(board)
+        self.assertEqual(2, len(result.exception.rows))
+        self.assertIn("blocked window", str(result.exception))
+
     def test_ai_branded_non_engineering_titles_do_not_flood_feed(self):
         for title in ("CEO, AI Finance", "Technical Product Manager - AI Investing",
                       "Product Owner - AI Agent", "Head of Machine Learning",
