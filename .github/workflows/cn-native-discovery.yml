@@ -2,13 +2,18 @@ name: CN Native Public Discovery
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'hydrate_cn_jobpro_jd.py'
+      - 'test_hydrate_cn_jobpro_jd.py'
+      - '.github/workflows/cn-native-discovery.yml'
   schedule:
     - cron: '05 1,4,7,10,13,16,19,22 * * *'
 permissions:
   contents: write
 
 concurrency:
-  group: cn-native-public-source
+  group: cn-native-public-source-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
