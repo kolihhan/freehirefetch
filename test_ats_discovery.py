@@ -22,6 +22,26 @@ def feed(root, file):
 
 
 class ATSFeedTests(unittest.TestCase):
+    def test_lever_full_jd_includes_requirements_and_apply_url(self):
+        board = {"ats": "lever", "slug": "sonarsource", "company": "Sonar",
+                 "markets": ["SG"], "career_url": "https://jobs.lever.co/sonarsource"}
+        raw = {"id": "role-1", "text": "Research Engineer",
+               "categories": {"location": "Singapore", "commitment": "Full-time"},
+               "descriptionPlain": "Build AI systems.",
+               "lists": [{"text": "Requirements", "content": "<li>At least 2 years of experience as a Research Engineer.</li>"},
+                         {"text": "Responsibilities", "content": "<li>Evaluate coding agents.</li>"}],
+               "additionalPlain": "Work authorization information.",
+               "hostedUrl": "https://jobs.lever.co/sonarsource/role-1",
+               "applyUrl": "https://jobs.lever.co/sonarsource/role-1/apply"}
+        with patch.object(ats, "request_json", return_value=[raw]):
+            job = ats.listing(board)[0]
+        normalized = ats.normalize(board, job, "2026-11-25T00:00:00Z")
+        self.assertIn("At least 2 years of experience as a Research Engineer.", normalized["description_text"])
+        self.assertIn("Evaluate coding agents.", normalized["description_text"])
+        self.assertIn("Work authorization information.", normalized["description_text"])
+        self.assertEqual(raw["applyUrl"], normalized["apply_url"])
+        self.assertEqual("full_jd", normalized["evidence"])
+
     def test_new_official_sg_owner_ats_slugs_and_region_gate(self):
         # Slugs are anchored to exact employer-authored application URLs;
         # actual endpoint availability must be verified by the ATS producer.

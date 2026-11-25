@@ -166,6 +166,17 @@ def ashby_compensation(item: dict) -> tuple[str, list[dict]]:
     return summary, salary
 
 
+def lever_description(job: dict) -> str:
+    """Lever puts requirements/responsibilities in lists, not the intro."""
+    sections = [job.get("descriptionPlain") or job.get("description") or ""]
+    for section in job.get("lists") or []:
+        if not isinstance(section, dict):
+            continue
+        sections.extend([section.get("text") or "", section.get("content") or ""])
+    sections.append(job.get("additionalPlain") or job.get("additional") or "")
+    return "\n".join(str(part) for part in sections if part)
+
+
 def listing(board: dict) -> list[dict]:
     validate(board)
     ats, slug = board["ats"], quote(board["slug"])
@@ -199,8 +210,9 @@ def listing(board: dict) -> list[dict]:
         rows = request_json("https://api.lever.co/v0/postings/" + slug + "?mode=json")
         return [{"id": str(j.get("id", "")), "title": j.get("text", ""),
                  "location": (j.get("categories") or {}).get("location", ""),
-                 "description": j.get("descriptionPlain") or j.get("description", ""),
-                 "url": j.get("hostedUrl", ""), "posted_at": j.get("createdAt", ""),
+                 "description": lever_description(j),
+                 "url": j.get("hostedUrl", ""), "apply_url": j.get("applyUrl") or "",
+                 "posted_at": j.get("createdAt", ""),
                  "employment": (j.get("categories") or {}).get("commitment", "")} for j in rows]
     if ats == "smartrecruiters":
         base = "https://api.smartrecruiters.com/v1/companies/" + slug + "/postings"
