@@ -106,7 +106,9 @@ class JDProducerTests(unittest.TestCase):
                 (source_dir / f"jobpro-{keyword}.json").write_text(
                     json.dumps({"ok": True, "results": [
                         {"company": keyword, "positions": []}]}), encoding="utf-8")
-            result = {"attempted": 0, "failed": 0, "checked_at": "test", "jobs": []}
+            result = {"attempted": 0, "failed": 0, "checked_at": "test", "jobs": [],
+                      "state": {"records": {}}, "newly_verified": 0, "cached_verified": 0,
+                      "observed_distinct": 0, "coverage": "OBSERVED_BATCH_VERIFIED"}
             with patch.object(sys, "argv", ["hydrate_cn_jobpro_jd.py",
                                            "--source-dir", str(source_dir),
                                            "--output", str(source_dir / "out.json")]):
@@ -116,6 +118,45 @@ class JDProducerTests(unittest.TestCase):
             self.assertEqual(len(inputs), 5)
             self.assertEqual({doc["results"][0]["company"] for doc in inputs},
                              {"ai", "backend", "swe", "agent", "llm"})
+
+    def test_rotation_visits_unread_roles_then_retries_after_cooldown(self):
+        positions = [{**TENCENT, "post_id": str(1282707398326592512 + i),
+                      "apply_url": "https://join.qq.com/post_detail.html?postid=" + str(1282707398326592512 + i)}
+                     for i in range(9)]
+        data = [{"results": [{"company": "tencent", "positions": positions}]}]
+        bad = lambda *args: {"ok": False}
+        a = jd.hydrate(data, detail_fetch=bad, limit=6, now="2026-11-25T00:00:00Z")
+        b = jd.hydrate(data, detail_fetch=bad, limit=6, history=a["state"]["records"], now="2026-11-25T03:00:00Z")
+        self.assertEqual((a["attempted"], b["attempted"]), (6, 3))
+        self.assertFalse({r["job_id"] for r in a["failures"]} & {r["job_id"] for r in b["failures"]})
+        c = jd.hydrate(data, detail_fetch=bad, limit=6, history=b["state"]["records"], now="2026-11-25T12:00:00Z")
+        self.assertEqual(c["attempted"], 6)
+
+    def test_cache_preserves_original_timestamp_and_failed_refresh_is_not_live(self):
+        data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
+        detail = {"ok": True, **TENCENT, "description": "Agent RAG engineering. " * 12,
+                  "requirements": "Python and LLM engineering. " * 12}
+        a = jd.hydrate(data, detail_fetch=lambda *args: detail, now="2026-11-25T00:00:00Z")
+        b = jd.hydrate(data, detail_fetch=lambda *args: self.fail("fresh cache refetched"),
+                       history=a["state"]["records"], now="2026-11-25T03:00:00Z")
+        self.assertEqual((b["attempted"], b["cached_verified"]), (0, 1))
+        self.assertEqual(b["jobs"][0]["checked_at"], a["jobs"][0]["checked_at"])
+        c = jd.hydrate(data, detail_fetch=lambda *args: {"ok": False},
+                       history=b["state"]["records"], now="2026-11-26T01:00:00Z")
+        self.assertEqual(c["jobs"], [])
+        self.assertEqual(c["state"]["records"][jd.identity({"company_key": "tencent", **TENCENT})]["evidence"], a["jobs"][0])
+        self.assertEqual(c["coverage"], "PARTIAL")
+
+    def test_changed_identity_does_not_reuse_previous_evidence(self):
+        data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
+        detail = {"ok": True, **TENCENT, "description": "Agent RAG engineering. " * 12,
+                  "requirements": "Python and LLM engineering. " * 12}
+        a = jd.hydrate(data, detail_fetch=lambda *args: detail, now="2026-11-25T00:00:00Z")
+        changed = {**TENCENT, "title": "LLM研究工程师"}
+        b = jd.hydrate([{"results": [{"company": "tencent", "positions": [changed]}]}],
+                       detail_fetch=lambda *args: detail, history=a["state"]["records"],
+                       now="2026-11-25T03:00:00Z")
+        self.assertEqual((b["attempted"], b["failed"], b["jobs"]), (1, 1, []))
 
     def test_run_fail_closed_and_finite_failure_reports(self):
         data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]

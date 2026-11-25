@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html import unescape
 import json
 from pathlib import Path
@@ -20,6 +20,9 @@ from urllib.parse import parse_qs, urlsplit
 
 PACKAGE = "@ha7ch/job-pro@1.2.1"
 MAX_JD_CHARS = 12000
+REFRESH_AFTER = timedelta(hours=24)
+RETRY_AFTER = timedelta(hours=12)
+RETENTION = timedelta(days=7)
 # Intentionally restricted to official employer channels documented in
 # the private CN canonical-URL transport. Never treat Liepin as first-party.
 SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai")
@@ -90,7 +93,8 @@ def substantive_ai_priority(title: str) -> int:
     return score
 
 
-def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 6) -> list[dict]:
+def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 6,
+                      history: dict | None = None, now: str | None = None) -> list[dict]:
     if limit < 1 or per_company < 1:
         raise ValueError("positive limits required")
     seen: set[tuple[str, str]] = set()
@@ -113,21 +117,69 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
                     "company_key": company, "post_id": uid, "title": title,
                     "url": url, "work_cities": pos.get("work_cities") or "",
                 })
-    # Prioritize substantive Agent/LLM/backend/research JDs instead of
-    # the first API rows, which often start with AI operations/PM listings.
-    for entries in groups.values():
-        entries.sort(key=lambda item: -substantive_ai_priority(item["title"]))
-    # Round-robin: avoids single-company dominance and gives both AI and
-    # substantive engineering sources a fair chance under bounded CI budget.
-    rows: list[dict] = []
-    for index in range(per_company):
-        for company in SUPPORTED:
-            items = groups.get(company, [])
-            if index < len(items):
-                rows.append(items[index])
-                if len(rows) == limit:
-                    return rows
+    # Never let yesterday's first six titles consume every subsequent budget.
+    history = history or {}
+    clock = parse_time(now or checked_at())
+    tiers = ({}, {})
+    for company, entries in groups.items():
+        for item in entries:
+            old = matching_record(history, item)
+            if not old:
+                tier = 0
+            else:
+                last = parse_time(old.get("attempted_at"))
+                delay = RETRY_AFTER if old.get("status") != "OK" else REFRESH_AFTER
+                if clock - last < delay:
+                    continue
+                tier = 1
+            tiers[tier].setdefault(company, []).append(item)
+    rows = []
+    counts = defaultdict(int)
+    for tier in tiers:
+        for entries in tier.values():
+            entries.sort(key=lambda item: (
+                parse_time(matching_record(history, item).get("attempted_at")),
+                -substantive_ai_priority(item["title"]), item["post_id"]))
+        for index in range(max((len(x) for x in tier.values()), default=0)):
+            for company in SUPPORTED:
+                items = tier.get(company, [])
+                if index < len(items) and counts[company] < per_company:
+                    rows.append(items[index])
+                    counts[company] += 1
+                    if len(rows) == limit:
+                        return rows
     return rows
+
+
+def parse_time(value):
+    try:
+        result = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        return result if result.tzinfo else datetime.min.replace(tzinfo=timezone.utc)
+    except (ValueError, TypeError):
+        return datetime.min.replace(tzinfo=timezone.utc)
+
+
+def identity(item):
+    return item["company_key"] + "|" + str(item.get("post_id") or item.get("job_id"))
+
+
+def matching_record(history, item):
+    old = history.get(identity(item), {})
+    if (old.get("url") == item["url"]
+            and normalized_title(old.get("title")) == normalized_title(item["title"])):
+        return old
+    return {}
+
+
+def prior_records(previous, legacy):
+    records = previous.get("records", {}) if isinstance(previous, dict) else {}
+    if records:
+        return records
+    # Bootstrap existing verified public evidence without relabeling its date.
+    return {identity(row): {"title": row["title"], "url": row["url"],
+            "attempted_at": row["checked_at"], "status": "OK", "evidence": row}
+            for row in legacy.get("jobs", []) if row.get("full_jd_complete")
+            and row.get("company_key") and row.get("job_id") and row.get("checked_at")}
 
 
 def clean_text(text: str) -> str:
@@ -179,16 +231,23 @@ def cli_detail(company: str, uid: str) -> dict:
         return {"ok": False, "message": "non_json_result"}
 
 
-def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10) -> dict:
-    candidates = choose_candidates(documents, limit=limit)
+def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10,
+            history: dict | None = None, now: str | None = None) -> dict:
+    when = now or checked_at()
+    clock = parse_time(when)
+    history = {key: record for key, record in (history or {}).items()
+               if clock - parse_time(record.get("attempted_at")) < RETENTION}
+    # Enumerate every exact supported current identity, even when its JD is cached.
+    observed = choose_candidates(documents, limit=100000, per_company=100000, now=when)
+    candidates = choose_candidates(documents, limit=limit, history=history, now=when)
     output = {"version": 1, "source": "jobpro-public-employer-detail",
-              "checked_at": checked_at(), "attempted": 0, "failed": 0,
+              "checked_at": when, "attempted": 0, "failed": 0,
               "jobs": [], "failures": [],
               "warning": "Official source JDs are not eligibility, current-route or application proof."}
     def fetch_one(item: dict) -> dict | None:
         try:
             detail = detail_fetch(item["company_key"], item["post_id"])
-            return detail_evidence(item, detail, checked_at())
+            return detail_evidence(item, detail, when)
         except (OSError, ValueError, TimeoutError, subprocess.TimeoutExpired):
             return None
 
@@ -199,14 +258,31 @@ def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10) 
         evidence_rows = list(pool.map(fetch_one, candidates))
     for item, evidence in zip(candidates, evidence_rows):
         output["attempted"] += 1
-        if evidence:
-            output["jobs"].append(evidence)
-        else:
+        old = matching_record(history, item)
+        history[identity(item)] = {"title": item["title"], "url": item["url"],
+                                   "attempted_at": when,
+                                   "status": "OK" if evidence else "FAILED",
+                                   "evidence": evidence or old.get("evidence")}
+        if not evidence:
             output["failed"] += 1
             output["failures"].append({
                 "company_key": item["company_key"], "job_id": item["post_id"],
                 "reason": "OFFICIAL_DETAIL_NOT_VERIFIED",
             })
+    # Only publish fresh, matching, currently observed successful evidence.
+    # Failed refreshes or disappeared roles remain in state, not in the live JD list.
+    for item in observed:
+        old = matching_record(history, item)
+        evidence = old.get("evidence")
+        if (old.get("status") == "OK" and evidence
+                and clock - parse_time(evidence.get("checked_at")) < REFRESH_AFTER):
+            output["jobs"].append(evidence)
+    output["newly_verified"] = output["attempted"] - output["failed"]
+    output["cached_verified"] = len(output["jobs"]) - output["newly_verified"]
+    output["observed_distinct"] = len(observed)
+    output["not_currently_verified"] = len(observed) - len(output["jobs"])
+    output["coverage"] = "PARTIAL" if output["not_currently_verified"] else "OBSERVED_BATCH_VERIFIED"
+    output["state"] = {"version": 1, "records": history}
     return output
 
 
@@ -227,11 +303,22 @@ def main() -> None:
             pass
     if not inputs:
         raise SystemExit("No valid public job-pro employer source batch; retaining previous JD evidence")
-    result = hydrate(inputs, limit=args.limit)
+    state_path = args.output.with_name(args.output.stem + "-state.json")
+    def read_previous(path):
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+            return value if isinstance(value, dict) else {}
+        except (OSError, ValueError):
+            return {}
+    history = prior_records(read_previous(state_path), read_previous(args.output))
+    result = hydrate(inputs, limit=args.limit, history=history)
+    state = result.pop("state")
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+                          encoding="utf-8")
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                            encoding="utf-8")
-    print(json.dumps({k: result[k] for k in ("attempted", "failed", "checked_at")},
+    print(json.dumps({k: result[k] for k in ("attempted", "failed", "checked_at", "newly_verified", "cached_verified", "observed_distinct", "coverage")},
                      ensure_ascii=False))
     print("CN public job-pro official JDs:", len(result["jobs"]),
           "source-only, no applicant decisions")
