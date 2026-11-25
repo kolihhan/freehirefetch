@@ -1,10 +1,19 @@
-name: Browserless ATS Job Discovery
+name: ATS Discovery and Application Evidence
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ats_discovery.py'
+      - 'application_probe.py'
+      - 'test_ats_discovery.py'
+      - 'ats_boards.json'
+      - '.github/workflows/ats-discovery.yml'
   pull_request:
     paths:
       - 'ats_discovery.py'
+      - 'application_probe.py'
       - 'test_ats_discovery.py'
       - 'ats_boards.json'
       - '.github/workflows/ats-discovery.yml'
@@ -15,13 +24,13 @@ permissions:
 
 # New code/config pushes supersede stale checkout runs; scheduled data refreshes remain serialized.
 concurrency:
-  group: ats-discovery
+  group: ats-discovery-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   collect:
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -73,8 +82,29 @@ jobs:
         run: |
           python collect_devglobal_source.py --out-dir feed/devglobal ||
             echo "::warning::DevGlobal public API unavailable; keep earlier source snapshot, report coverage error"
+      - name: Read-only browser application evidence (SG/CN)
+        id: probe
+        if: steps.tests.outputs.exit_code == '0'
+        continue-on-error: true
+        shell: bash
+        run: |
+          python -m pip install playwright==1.65.2
+          python -m playwright install --with-deps chromium
+          python application_probe.py --self-test
+          timeout 420s python application_probe.py --limit 100 --workers 10
+      - name: Upload fresh collection and browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fresh-ats-application-evidence
+          path: |
+            feed/ats/health.json
+            feed/ats/ci-health.json
+            feed/ats/changes.json
+            feed/ats/application-probes.json
+          if-no-files-found: warn
       - name: Commit public source feed changes only
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && steps.tests.outputs.exit_code == '0'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -84,11 +114,11 @@ jobs:
             echo "No new/changed public ATS evidence."
           else
             git commit -m "data: refresh ATS job feed and CI status (public only)"
-            git pull --rebase
+            git pull --rebase origin main
             git push
           fi
       - name: Fail visibly on tests or incomplete board
-        if: steps.tests.outputs.exit_code != '0' || steps.fetch.outputs.exit_code != '0'
+        if: steps.tests.outputs.exit_code != '0' || steps.fetch.outputs.exit_code != '0' || steps.probe.outcome == 'failure'
         run: |
           echo "::error::ATS tests or at least one board failed. See feed/ats/ci-health.json and feed/ats/health.json."
           exit 1
