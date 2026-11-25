@@ -251,6 +251,48 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_workday_partial_windows_keep_successful_rows(self):
+        board = {"ats": "workday", "slug": "micron", "company": "Micron", "markets": ["SG"],
+                 "career_url": "https://micron.wd1.myworkdayjobs.com/en-US/External",
+                 "search_terms": ["AI", "machine learning", "LLM"]}
+        first = {"title": "AI Engineer", "externalPath": "/job/Singapore/AI-Engineer_JR1", "locationsText": "Singapore"}
+        second = {"title": "LLM Engineer", "externalPath": "/job/Singapore/LLM-Engineer_JR2", "locationsText": "Singapore"}
+        with patch.object(ats, "request_json", side_effect=[{"jobPostings": [first], "total": 1},
+                TimeoutError("blocked window"), {"jobPostings": [second], "total": 1}]):
+            with self.assertRaises(ats.PartialListing) as result:
+                ats.listing(board)
+        self.assertEqual(2, len(result.exception.rows))
+        self.assertIn("blocked window", str(result.exception))
+
+    def test_workday_429_defers_remaining_windows_preserving_rows(self):
+        board = {"ats": "workday", "slug": "micron", "company": "Micron", "markets": ["SG"],
+                 "career_url": "https://micron.wd1.myworkdayjobs.com/en-US/External",
+                 "search_terms": ["AI", "machine learning", "LLM"]}
+        first = {"title": "AI Engineer", "externalPath": "/job/Singapore/AI-Engineer_JR1", "locationsText": "Singapore"}
+        error = ats.HTTPError("https://micron.wd1.myworkdayjobs.com", 429, "Too Many Requests", {}, None)
+        with patch.object(ats, "request_json", side_effect=[
+            {"jobPostings": [first], "total": 1}, error]) as request:
+            with self.assertRaises(ats.PartialListing) as caught:
+                ats.listing(board)
+        self.assertEqual(2, request.call_count)
+        self.assertEqual(1, len(caught.exception.rows))
+        self.assertIn("deferred", str(caught.exception))
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(ats, "listing", side_effect=caught.exception), patch.object(ats, "enrich_listed_details") as enrich:
+                result = ats.run(Path(tmp), [board])
+            enrich.assert_not_called()
+            self.assertEqual("PARTIAL", result["health"]["boards"]["workday:micron"]["status"])
+            self.assertEqual(1, result["jobs"])
+
+    def test_workday_http_429_not_retried(self):
+        url = "https://micron.wd1.myworkdayjobs.com/wday/cxs/micron/External/jobs"
+        error = ats.HTTPError(url, 429, "Too Many Requests", {}, None)
+        with patch.object(ats, "urlopen", side_effect=error) as request, patch.object(ats.time, "sleep") as sleep:
+            with self.assertRaises(ats.HTTPError):
+                ats.request_json(url)
+        self.assertEqual(1, request.call_count)
+        sleep.assert_not_called()
+
     def test_ai_branded_non_engineering_titles_do_not_flood_feed(self):
         for title in ("CEO, AI Finance", "Technical Product Manager - AI Investing",
                       "Product Owner - AI Agent", "Head of Machine Learning",

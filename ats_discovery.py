@@ -103,6 +103,9 @@ def request_json(url: str, *, payload: dict | None = None) -> object:
             with urlopen(req, timeout=API_TIMEOUT) as response:
                 return json.load(response)
         except HTTPError as exc:
+            # Workday throttling is a stop signal, not a reason to retry aggressively.
+            if exc.code == 429 and (urlparse(url).hostname or "").endswith(".myworkdayjobs.com"):
+                raise
             if exc.code not in (429, 500, 502, 503, 504) or attempt == 2:
                 raise
         except (TimeoutError, URLError):
@@ -164,6 +167,13 @@ def ashby_compensation(item: dict) -> tuple[str, list[dict]]:
                            ("currencyCode", "interval", "minValue", "maxValue", "compensationType")
                            if k in component})
     return summary, salary
+
+
+class PartialListing(RuntimeError):
+    """A bounded Workday scan with recoverable rows; never implies closure."""
+    def __init__(self, rows, errors):
+        super().__init__("; ".join(errors))
+        self.rows = rows
 
 
 def lever_description(job: dict) -> str:
@@ -247,35 +257,46 @@ def listing(board: dict) -> list[dict]:
     api = "https://" + host + "/wday/cxs/" + tenant + "/" + site
     result = {}
     terms = board.get("search_terms") or [""]
+    errors = []
     for term in terms:
-        offset = 0
-        for _ in range(MAX_PAGES):
-            data = request_json(api + "/jobs", payload={
-                "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term
-            })
-            if not isinstance(data, dict) or "jobPostings" not in data or "total" not in data:
-                raise ValueError("Workday unexpected listing schema")
-            rows = data.get("jobPostings") or []
-            for j in rows:
-                external = j.get("externalPath", "")
-                url = ("https://" + host + "/" + site + external) if external.startswith("/") else ""
-                item = {"id": str(j.get("jobId") or external or ""),
-                    "title": j.get("title", ""),
-                    "location": j.get("locationsText") or ", ".join(j.get("locations") or []),
-                    "description": "", "url": url,
-                    "detail_url": api + external if external.startswith("/") else "",
-                    "posted_at": j.get("postedOn", ""), "employment": ""}
-                if item["id"]:
-                    result[item["id"]] = item
-            offset += len(rows)
-            total = int(data.get("total", offset))
-            if offset >= total:
+        try:
+            with board_deadline(25):
+                offset = 0
+                for _ in range(MAX_PAGES):
+                    data = request_json(api + "/jobs", payload={
+                        "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term
+                    })
+                    if not isinstance(data, dict) or "jobPostings" not in data or "total" not in data:
+                        raise ValueError("Workday unexpected listing schema")
+                    rows = data.get("jobPostings") or []
+                    for j in rows:
+                        external = j.get("externalPath", "")
+                        url = ("https://" + host + "/" + site + external) if external.startswith("/") else ""
+                        item = {"id": str(j.get("jobId") or external or ""),
+                            "title": j.get("title", ""),
+                            "location": j.get("locationsText") or ", ".join(j.get("locations") or []),
+                            "description": "", "url": url,
+                            "detail_url": api + external if external.startswith("/") else "",
+                            "posted_at": j.get("postedOn", ""), "employment": ""}
+                        if item["id"]:
+                            result[item["id"]] = item
+                    offset += len(rows)
+                    total = int(data.get("total", offset))
+                    if offset >= total:
+                        break
+                    if not rows:
+                        raise RuntimeError("Workday empty page before total for " + repr(term))
+                    time.sleep(0.12)
+                else:
+                    raise RuntimeError("Workday search window exceeded page cap: " + repr(term))
+        except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError, OSError) as exc:
+            errors.append(f"{term!r}: {type(exc).__name__}: {str(exc)[:160]}")
+            if isinstance(exc, HTTPError) and exc.code == 429:
+                # Retain earlier rows but defer remaining windows on this board.
+                errors.append("remaining Workday keyword windows deferred after HTTP 429")
                 break
-            if not rows:
-                raise RuntimeError("Workday empty page before total for " + repr(term))
-            time.sleep(0.12)
-        else:
-            raise RuntimeError("Workday search window exceeded page cap: " + repr(term))
+    if errors:
+        raise PartialListing(list(result.values()), errors)
     return list(result.values())
 
 
@@ -347,7 +368,10 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
             if plain(detail):
                 row["description"] = detail
                 enriched += 1
-        except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError):
+        except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError) as exc:
+            # Do not turn a rate limit into a burst of detail requests.
+            if ats == "workday" and isinstance(exc, HTTPError) and exc.code == 429:
+                break
             # A temporarily restricted detail API is a documented listing-only lead.
             continue
     return enriched
@@ -459,9 +483,18 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
         seen_board_ids.add(board_id)
         try:
             validate(board)
-            with board_deadline():
-                rows = listing(board)  # only a complete enumeration promotes its snapshot
-            enriched = enrich_listed_details(board, rows)
+            partial_error = None
+            try:
+                if board["ats"] == "workday":
+                    rows = listing(board)  # each search window has its own deadline
+                else:
+                    with board_deadline():
+                        rows = listing(board)
+            except PartialListing as exc:
+                rows = exc.rows
+                partial_error = str(exc)
+            throttled = bool(board["ats"] == "workday" and partial_error and "HTTP Error 429" in partial_error)
+            enriched = 0 if throttled else enrich_listed_details(board, rows)
             candidates = {}
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
@@ -469,15 +502,21 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 if norm is not None:
                     candidates[norm["key"]] = norm
             # Replace only the successfully enumerated board; a failed board NEVER creates fake closures.
-            for key in list(new_by):
-                if key.startswith(board["slug"].lower() + "|" + board["ats"] + "|"):
-                    del new_by[key]
+            if partial_error is None:
+                for key in list(new_by):
+                    if key.startswith(board["slug"].lower() + "|" + board["ats"] + "|"):
+                        del new_by[key]
             new_by.update(candidates)
-            statuses[board_id] = {"status": "COMPLETE", "rows_read": len(rows),
+            statuses[board_id] = {"status": "PARTIAL" if partial_error and rows else "FAILED" if partial_error else "COMPLETE", "rows_read": len(rows),
                                   "candidates": len(candidates), "full_jds_hydrated": enriched,
                                   "scope": "targeted_keywords" if board.get("search_terms") else "whole_board"}
+            if partial_error:
+                statuses[board_id]["error"] = partial_error
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError) as exc:
             statuses[board_id] = {"status": "FAILED", "error": type(exc).__name__ + ": " + str(exc)[:180]}
+    for board_id, status in statuses.items():
+        if status["status"] != "COMPLETE":
+            print(json.dumps({"board": board_id, **status}), flush=True)
     events = []
     baseline = not (target / "current.json").exists()
     for key, job in sorted(new_by.items()):
