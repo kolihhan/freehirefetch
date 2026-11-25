@@ -2,6 +2,12 @@ name: CN Native Public Discovery
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'hydrate_cn_jobpro_jd.py'
+      - 'test_hydrate_cn_jobpro_jd.py'
+      - '.github/workflows/cn-native-discovery.yml'
   pull_request:
     paths:
       - 'hydrate_cn_jobpro_jd.py'
@@ -50,17 +56,20 @@ jobs:
             # high-signal, publicly supported company slice; broad backend/SWE
             # sweeps remain independent and source failures stay explicit.
             companies=()
+            scope=all
             if [[ "$name" == "ai" ]]; then
               companies=(--companies tencent,bytedance,alibaba,meituan,xiaohongshu,minimax,moonshot,zerooneai)
             elif [[ "$name" == "agent" ]]; then
               # Narrow official-employer slice: AI search's first 20 results
               # are frequently consumed by non-engineering AI titles.
-              companies=(--companies tencent,bytedance,alibaba,meituan,antgroup,baichuan,zerooneai)
+              scope=social
+              companies=(--companies bytedance,alibaba,meituan,antgroup,baichuan,zerooneai,minimax,trip,nio)
             elif [[ "$name" == "llm" ]]; then
-              companies=(--companies tencent,bytedance,alibaba,baichuan,minimax,iflytek,zerooneai)
+              scope=social
+              companies=(--companies bytedance,alibaba,baichuan,minimax,iflytek,zerooneai,meituan,trip,nio)
             fi
             if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
-                --scope all "${companies[@]}" --limit 20 --timeout 12000 --compact \
+                --scope "$scope" "${companies[@]}" --limit 20 --timeout 12000 --compact \
                 > "feed/cn-native/jobpro-${name}.json"; then
               printf '{"ok":false,"keyword":"%s","results":[],"failed":[{"company":"job-pro","message":"call failed or timed out"}]}' \
                 "$query" > "feed/cn-native/jobpro-${name}.json"

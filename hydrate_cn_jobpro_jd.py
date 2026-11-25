@@ -25,10 +25,13 @@ RETRY_AFTER = timedelta(hours=12)
 RETENTION = timedelta(days=7)
 # Intentionally restricted to official employer channels documented in
 # the private CN canonical-URL transport. Never treat Liepin as first-party.
-SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai")
+SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai",
+             "baichuan", "minimax", "meituan")
 FEISHU_HOSTS = {"nio": "nio.jobs.feishu.cn",
                 "zerooneai": "01ai.jobs.feishu.cn",
-                "agibot": "agirobot.jobs.feishu.cn"}
+                "agibot": "agirobot.jobs.feishu.cn",
+                "baichuan": "cq6qe6bvfr6.jobs.feishu.cn",
+                "minimax": "vrfi1sk8a0.jobs.feishu.cn"}
 # Titles such as "embedded software engineer" are not NLP/Agent vacancies.
 # Require explicit AI/NLP/agent/retrieval relevance before expensive JD hydration.
 SIGNALS = re.compile(
@@ -72,6 +75,10 @@ def official_url(company: str, position: dict) -> str | None:
     if company == "alibaba" and host == "campus-talent.alibaba.com":
         if path == "/campus/position/" + uid:
             return "https://campus-talent.alibaba.com" + path
+    if company == "meituan" and host == "zhaopin.meituan.com" and path == "/web/position/detail":
+        ids = parse_qs(p.query).get("jobUnionId", [])
+        if len(ids) == 1 and ids[0] == uid:
+            return "https://zhaopin.meituan.com/web/position/detail?jobUnionId=" + uid
     if host == FEISHU_HOSTS.get(company):
         if re.fullmatch(r"/[A-Za-z0-9_-]+/position/" + uid + r"/detail", path):
             return "https://" + host + path

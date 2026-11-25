@@ -22,6 +22,20 @@ BYTE = {
 
 
 class JDProducerTests(unittest.TestCase):
+    def test_new_social_employer_routes_exact_and_canonical(self):
+        for company, url, uid in (
+            ("baichuan", "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7654879972347152650/detail", "7654879972347152650"),
+            ("minimax", "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7681599148466571566/detail", "7681599148466571566"),
+            ("meituan", "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4933015251", "4933015251"),
+        ):
+            self.assertEqual(jd.official_url(company, {"post_id":uid, "apply_url":url}), url)
+            self.assertIsNone(jd.official_url(company, {"post_id":uid[:-1]+"9", "apply_url":url}))
+        self.assertEqual(jd.official_url("meituan", {
+            "post_id":"4933015251", "apply_url":"https://zhaopin.meituan.com/web/position/detail?jobUnionId=4933015251&highlightType=social"}),
+            "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4933015251")
+        self.assertIsNone(jd.official_url("meituan", {"post_id":"4933015251",
+            "apply_url":"https://zhaopin.meituan.com.evil.example/web/position/detail?jobUnionId=4933015251"}))
+
     def test_exact_official_url_and_no_query_id_collapse(self):
         self.assertEqual(jd.official_url("tencent", TENCENT), TENCENT["apply_url"])
         self.assertEqual(jd.official_url("bytedance", BYTE), BYTE["apply_url"])
