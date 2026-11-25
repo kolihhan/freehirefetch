@@ -10,7 +10,7 @@
     "ashby:airwallex": {
       "candidates": 26,
       "full_jds_hydrated": 0,
-      "rows_read": 503,
+      "rows_read": 508,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -29,9 +29,9 @@
       "status": "COMPLETE"
     },
     "ashby:clera": {
-      "candidates": 0,
+      "candidates": 4,
       "full_jds_hydrated": 0,
-      "rows_read": 297,
+      "rows_read": 295,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -52,7 +52,7 @@
     "ashby:gen-digital": {
       "candidates": 13,
       "full_jds_hydrated": 0,
-      "rows_read": 90,
+      "rows_read": 89,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -66,7 +66,7 @@
     "ashby:openai": {
       "candidates": 18,
       "full_jds_hydrated": 0,
-      "rows_read": 877,
+      "rows_read": 876,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -80,7 +80,7 @@
     "ashby:sierra": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 203,
+      "rows_read": 204,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -94,28 +94,28 @@
     "greenhouse:binance": {
       "candidates": 35,
       "full_jds_hydrated": 0,
-      "rows_read": 229,
+      "rows_read": 231,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:capco": {
       "candidates": 1,
       "full_jds_hydrated": 0,
-      "rows_read": 696,
+      "rows_read": 706,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:heygen": {
       "candidates": 2,
       "full_jds_hydrated": 0,
-      "rows_read": 16,
+      "rows_read": 17,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:neweratech": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 66,
+      "rows_read": 67,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -143,7 +143,7 @@
     "greenhouse:stripe": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 771,
+      "rows_read": 772,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -171,7 +171,7 @@
     "lever:sonarsource": {
       "candidates": 2,
       "full_jds_hydrated": 0,
-      "rows_read": 109,
+      "rows_read": 110,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -185,7 +185,7 @@
     "smartrecruiters:grab": {
       "candidates": 25,
       "full_jds_hydrated": 10,
-      "rows_read": 449,
+      "rows_read": 450,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -199,14 +199,14 @@
     "smartrecruiters:nielseniq": {
       "candidates": 5,
       "full_jds_hydrated": 6,
-      "rows_read": 444,
+      "rows_read": 435,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "smartrecruiters:westerndigital": {
       "candidates": 3,
       "full_jds_hydrated": 4,
-      "rows_read": 339,
+      "rows_read": 340,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -238,32 +238,33 @@
       "candidates": 0,
       "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
       "full_jds_hydrated": 0,
-      "rows_read": 0,
+      "rows_read": 40,
       "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PARTIAL"
     },
     "workday:razer": {
-      "candidates": 0,
-      "error": "'AI': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
+      "candidates": 5,
+      "error": "'machine learning': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
       "full_jds_hydrated": 0,
-      "rows_read": 0,
+      "rows_read": 40,
       "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PARTIAL"
     },
     "workday:redhat": {
-      "candidates": 4,
-      "full_jds_hydrated": 4,
-      "rows_read": 51,
-      "scope": "targeted_keywords",
-      "status": "COMPLETE"
-    },
-    "workday:surbanajurong": {
       "candidates": 0,
-      "error": "'AI': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
+      "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
       "full_jds_hydrated": 0,
       "rows_read": 0,
       "scope": "targeted_keywords",
       "status": "FAILED"
+    },
+    "workday:surbanajurong": {
+      "candidates": 1,
+      "error": "'data scientist': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
+      "full_jds_hydrated": 0,
+      "rows_read": 33,
+      "scope": "targeted_keywords",
+      "status": "PARTIAL"
     }
   },
   "complete": false,
