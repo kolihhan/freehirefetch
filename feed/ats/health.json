@@ -10,7 +10,7 @@
     "ashby:airwallex": {
       "candidates": 26,
       "full_jds_hydrated": 0,
-      "rows_read": 508,
+      "rows_read": 511,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -22,16 +22,16 @@
       "status": "COMPLETE"
     },
     "ashby:bjakcareer": {
-      "candidates": 47,
+      "candidates": 45,
       "full_jds_hydrated": 0,
-      "rows_read": 1606,
+      "rows_read": 1580,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "ashby:clera": {
-      "candidates": 4,
+      "candidates": 6,
       "full_jds_hydrated": 0,
-      "rows_read": 296,
+      "rows_read": 297,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -52,14 +52,14 @@
     "ashby:gen-digital": {
       "candidates": 13,
       "full_jds_hydrated": 0,
-      "rows_read": 89,
+      "rows_read": 88,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "ashby:mistral.ai": {
       "candidates": 2,
       "full_jds_hydrated": 0,
-      "rows_read": 268,
+      "rows_read": 266,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -80,7 +80,7 @@
     "ashby:sierra": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 204,
+      "rows_read": 203,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -94,14 +94,14 @@
     "greenhouse:binance": {
       "candidates": 32,
       "full_jds_hydrated": 0,
-      "rows_read": 225,
+      "rows_read": 223,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:capco": {
       "candidates": 1,
       "full_jds_hydrated": 0,
-      "rows_read": 707,
+      "rows_read": 715,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -115,14 +115,14 @@
     "greenhouse:neweratech": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 67,
+      "rows_read": 66,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "greenhouse:okx": {
       "candidates": 33,
       "full_jds_hydrated": 0,
-      "rows_read": 388,
+      "rows_read": 387,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -143,7 +143,7 @@
     "greenhouse:stripe": {
       "candidates": 3,
       "full_jds_hydrated": 0,
-      "rows_read": 772,
+      "rows_read": 768,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -178,14 +178,14 @@
     "smartrecruiters:boschgroup": {
       "candidates": 71,
       "full_jds_hydrated": 10,
-      "rows_read": 5182,
+      "rows_read": 5191,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "smartrecruiters:grab": {
       "candidates": 25,
       "full_jds_hydrated": 10,
-      "rows_read": 456,
+      "rows_read": 455,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -199,7 +199,7 @@
     "smartrecruiters:nielseniq": {
       "candidates": 5,
       "full_jds_hydrated": 6,
-      "rows_read": 436,
+      "rows_read": 429,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -211,12 +211,12 @@
       "status": "COMPLETE"
     },
     "workday:micron": {
-      "candidates": 4,
+      "candidates": 0,
       "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
       "full_jds_hydrated": 0,
-      "rows_read": 200,
+      "rows_read": 0,
       "scope": "targeted_keywords",
-      "status": "PARTIAL"
+      "status": "FAILED"
     },
     "workday:ntu": {
       "candidates": 0,
@@ -251,11 +251,12 @@
       "status": "FAILED"
     },
     "workday:redhat": {
-      "candidates": 3,
-      "full_jds_hydrated": 3,
-      "rows_read": 50,
+      "candidates": 0,
+      "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
+      "full_jds_hydrated": 0,
+      "rows_read": 0,
       "scope": "targeted_keywords",
-      "status": "COMPLETE"
+      "status": "FAILED"
     },
     "workday:surbanajurong": {
       "candidates": 0,
