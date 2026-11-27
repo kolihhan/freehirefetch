@@ -135,6 +135,101 @@ def classify(expected, current, status, body, title_present, fields, controls):
 def norm(s):
     return " ".join(re.findall(r"\w+", str(s or "").casefold()))
 
+def api_board(url):
+    ident = identity(url)
+    if not ident:
+        return None
+    host, value = ident
+    kind = {"greenhouse":"greenhouse","jobs.ashbyhq.com":"ashby",
+            "jobs.lever.co":"lever","jobs.smartrecruiters.com":"smartrecruiters"}.get(host)
+    if not kind:
+        return None
+    owner = urlparse(url).path.strip("/").split("/")[0]
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+", owner):
+        return None
+    return kind, owner
+
+def api_match(job, postings, kind):
+    expected = identity(job["url"])
+    for item in postings:
+        if not isinstance(item, dict):
+            continue
+        url = item.get({"greenhouse":"absolute_url","ashby":"jobUrl","lever":"hostedUrl",
+                        "smartrecruiters":"postingUrl"}[kind], "")
+        title = item.get({"greenhouse":"title","ashby":"title","lever":"text",
+                          "smartrecruiters":"name"}[kind], "")
+        if identity(str(url or "")) != expected or not norm(title) or norm(title) != norm(job["title"]):
+            continue
+        if kind == "greenhouse" and str(item.get("id")) != expected[1].split("/")[-1]:
+            continue
+        apply = str(item.get("applyUrl") or "")
+        return {"status":"API_DIRECT_LINK" if item.get("isListed") is False else "API_LISTED",
+                "checked_at":now(),"provider":kind,"apply_url":apply if identity(apply)==expected else ""}
+    return None
+
+def age_seconds(value):
+    try:
+        return (datetime.now(timezone.utc)-datetime.fromisoformat(str(value).replace("Z","+00:00"))).total_seconds()
+    except (ValueError, TypeError):
+        return float("inf")
+
+def recent_form(job, prior, api):
+    return bool(api and prior.get("status") == "LIVE_FORM" and prior.get("url") == job["url"]
+                and norm(prior.get("title")) == norm(job["title"])
+                and 0 <= age_seconds(prior.get("checked_at")) <= 86400)
+
+def api_get_board(kind, owner):
+    from urllib.request import Request, urlopen
+    from urllib.parse import quote
+    owner = quote(owner, safe="")
+    urls = {"greenhouse":"https://boards-api.greenhouse.io/v1/boards/"+owner+"/jobs",
+            "ashby":"https://api.ashbyhq.com/posting-api/job-board/"+owner,
+            "lever":"https://api.lever.co/v0/postings/"+owner+"?mode=json",
+            "smartrecruiters":"https://api.smartrecruiters.com/v1/companies/"+owner+"/postings?limit=100&offset=0"}
+    req = Request(urls[kind],headers={"Accept":"application/json","User-Agent":"FreeHireFetch/1.0"})
+    with urlopen(req,timeout=8) as response:
+        if urlparse(response.geturl()).hostname != urlparse(urls[kind]).hostname:
+            raise ValueError("unexpected API redirect")
+        raw = response.read(8_000_001)
+        if len(raw)>8_000_000:
+            raise ValueError("API response exceeds bound")
+    payload = json.loads(raw)
+    rows = payload if kind=="lever" else payload.get("content" if kind=="smartrecruiters" else "jobs")
+    if not isinstance(rows,list):
+        raise ValueError("unexpected official ATS schema")
+    return rows
+
+async def api_liveness(rows, limit=16):
+    groups, verified = {}, {}
+    for job in rows:
+        board = api_board(job["url"])
+        if not board:
+            continue
+        # Reuse same-run official listing evidence instead of fetching it again.
+        if job.get("ats") == board[0] and 0 <= age_seconds(job.get("source_checked_at")) <= 900:
+            apply = str(job.get("apply_url") or "")
+            verified[job["key"]] = {"status":"API_DIRECT_LINK" if job.get("listing_visibility")=="DIRECT_LINK_ONLY" else "API_LISTED",
+                                    "checked_at":job["source_checked_at"],"provider":board[0],
+                                    "apply_url":apply if identity(apply)==identity(job["url"]) else ""}
+        else:
+            groups.setdefault(board,[]).append(job)
+    # ponytail: bounded public board batches, no extra pagination or closure inference.
+    selected = sorted(groups,key=lambda b:(-len(groups[b]),b))[:limit]
+    errors = {}
+    sem = asyncio.Semaphore(4)
+    async def check(board):
+        async with sem:
+            try:
+                postings = await asyncio.to_thread(api_get_board,*board)
+                for job in groups[board]:
+                    match = api_match(job,postings,board[0])
+                    if match:
+                        verified[job["key"]] = match
+            except Exception as exc:
+                errors["/".join(board)] = type(exc).__name__
+    await asyncio.gather(*(check(board) for board in selected))
+    return verified, {"boards_attempted":len(selected),"boards_deferred":len(groups)-len(selected),"errors":errors}
+
 async def observe(page, job, expected, url):
     response = await page.goto(url, wait_until="domcontentloaded", timeout=14000)
     # An arbitrary h1 (including a loading screen) is not the role title.
@@ -371,7 +466,9 @@ async def run(root, limit, workers):
     rows = load_jobs(root)
     changes = root/"feed/ats/changes.json"
     fresh_keys = {j["key"] for j in json.loads(changes.read_text()).get("events", []) if j.get("kind") == "NEW" and j.get("key")} if changes.exists() else set()
-    selected = select(rows,prev,limit,fresh_keys)
+    api, api_health = await api_liveness(rows)
+    browser_rows = [j for j in rows if not recent_form(j,prev.get(j["key"],{}),api.get(j["key"]))]
+    selected = select(browser_rows,prev,limit,fresh_keys)
     async with async_playwright() as p:
         launch = {"headless":True}
         if os.getenv("CHROMIUM_EXECUTABLE"):
@@ -395,7 +492,14 @@ async def run(root, limit, workers):
             current[j["key"]] = dict(prior, fresh_this_run=False, aliases=j["aliases"])
     for j,r in completed:
         current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
+    api_report = {"version":1,"run_at":now(),"counts":dict(Counter(v["status"] for v in api.values())),
+                  "eligible_public_urls":len(rows), **api_health,
+                  "jobs":[dict(api[j["key"]],key=j["key"],market=j["market"],url=j["url"],title=j["title"]) for j in rows if j["key"] in api],
+                  "note":"Official listing evidence only; absence from a bounded API response is not closure; never LIVE_FORM."}
+    target.parent.mkdir(parents=True,exist_ok=True)
+    (target.parent/"api-liveness.json").write_text(json.dumps(api_report,ensure_ascii=False,indent=2)+"\\n")
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
+            "api_verified":len(api),"api_health":api_health,"browser_skipped_recent_live_form":len(rows)-len(browser_rows),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
             "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
             "selected":len(selected), "incomplete":len(selected)-len(results),
@@ -408,7 +512,7 @@ async def run(root, limit, workers):
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
     print(json.dumps({k:v for k,v in report.items() if k!="jobs"},indent=2))
-    if not selected:
+    if not rows:
         raise RuntimeError("No eligible public URLs; check source coverage")
 
 class Tests(unittest.TestCase):
