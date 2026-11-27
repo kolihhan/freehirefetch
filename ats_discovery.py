@@ -325,12 +325,14 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
     ]
     mature = re.compile(r"\b(senior|staff|principal|lead|director|head|fellow|sr\.?|vp)\b", re.I)
     eligible.sort(key=lambda r: (
+        str(r.get("jd_attempted_at") or ""),
         bool(mature.search(plain(r.get("title")))),
         not bool(AI_TERMS.search(plain(r.get("title")))),
         plain(r.get("title")),
     ))
     enriched = 0
     for row in eligible[:limit]:
+        row["jd_attempted_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         if ats == "smartrecruiters":
             # Construct the first-party API URL, do not trust arbitrary ref URLs.
             url = ("https://api.smartrecruiters.com/v1/companies/"
@@ -384,6 +386,12 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
     if not market or not TECH_TITLES.search(title) or NON_ENGINEERING_TITLE.search(title):
         return None
     desc = plain(raw.get("description"))
+    previous = previous or {}
+    retained = False
+    if (not desc and previous.get("description_text") and previous.get("title") == title
+            and previous.get("location") == loc and previous.get("url") == raw.get("url")):
+        desc = previous["description_text"]
+        retained = True
     primary = bool(CORE_AI_ENGINEERING_TITLE.search(title) and AI_TERMS.search(title))
     jd_ai = bool(AI_TERMS.search(desc))
     if not (primary or jd_ai or (market == "MY" and board.get("my_swe") and TECH_TITLES.search(title))):
@@ -412,8 +420,10 @@ def normalize(board: dict, raw: dict, now: str, previous: dict | None = None) ->
         "triage_priority": priority,
         "description_excerpt": desc[:240],
         "description_text": desc[:12000],
-        "description_truncated": len(desc) > 12000,
-        "evidence": "full_jd" if desc and len(desc) <= 12000 else "partial_jd" if desc else "listing_only",
+        "description_truncated": len(desc) > 12000 or (retained and bool(previous.get("description_truncated"))),
+        "evidence": "retained_jd" if retained else "full_jd" if desc and len(desc) <= 12000 else "partial_jd" if desc else "listing_only",
+        "jd_checked_at": (previous.get("jd_checked_at") or previous.get("source_checked_at", "")) if retained else now if desc else "",
+        "jd_attempted_at": raw.get("jd_attempted_at") or previous.get("jd_attempted_at") or "",
         "fingerprint": digest,
         "first_seen_at": (previous or {}).get("first_seen_at", now),
     }
@@ -494,6 +504,11 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 rows = exc.rows
                 partial_error = str(exc)
             throttled = bool(board["ats"] == "workday" and partial_error and "HTTP Error 429" in partial_error)
+            for raw in rows:
+                prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
+                prior = old_by.get(prior_key, {})
+                if prior.get("url") == raw.get("url") and prior.get("title") == plain(raw.get("title")):
+                    raw["jd_attempted_at"] = prior.get("jd_attempted_at") or prior.get("jd_checked_at") or (prior.get("source_checked_at") if prior.get("description_text") else "")
             enriched = 0 if throttled else enrich_listed_details(board, rows)
             candidates = {}
             for raw in rows:
@@ -544,7 +559,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     # Public batch manifest supports O(1) exact role -> file lookup downstream;
     # this is source provenance only, not applicant ranking or fit.
     lookup = []
-    source_verified_at = {job["key"]: job.get("source_checked_at")
+    source_verified_at = {job["key"]: job.get("jd_checked_at") or job.get("source_checked_at")
                           for job in new_by.values()}
     for market in ("SG", "MY", "CN"):
         for i in range(0, len(documents[market]), 10):

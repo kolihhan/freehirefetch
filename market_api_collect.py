@@ -338,16 +338,18 @@ def collect(market, *, fetch=get_json, max_pages=2):
                     if provider == "freehire" and converter is normalize_freehire:
                         full_text_fallback_pages += 1
                     rows_seen += len(rows)
-                    signatures = set()
+                    # Raw IDs avoid declaring a repeated page merely because
+                    # different pages have the same eligible subset.
+                    signatures = {str(row.get("public_slug") or row.get("id") or row.get("url") or row.get("apply_url") or json.dumps(row, sort_keys=True))
+                                  for row in rows if isinstance(row, dict)}
+                    if page > 1 and signatures and signatures.issubset(previous_urls):
+                        raise ValueError("repeated API page")
+                    previous_urls.update(signatures)
                     for row in rows:
                         cand = converter(row,market)
                         if cand:
-                            signatures.add(cand["url"])
                             jobs.setdefault(cand["url"], cand)
                             seen_urls.add(cand["url"])
-                    if page > 1 and signatures and signatures.issubset(previous_urls):
-                        raise ValueError("repeated API page")
-                    previous_urls = signatures
                     if not has_next:
                         break
                     if page == max_pages:
@@ -388,12 +390,20 @@ def run(out_dir, *, fetch=get_json, max_pages=2):
         result = collect(market,fetch=fetch,max_pages=max_pages)
         market_results[market] = result
         health[market] = result["providers"]
-        # Preserve the last usable public candidate snapshot on a complete outage.
-        # Health still exposes current unavailability; consumer must not interpret
-        # a retained snapshot as freshly verified employment.
-        if any(p["status"] != "UNAVAILABLE" for p in result["providers"].values()):
-            (out_dir / f"{market}.json").write_text(
-                json.dumps({"market":market, "jobs":result["jobs"]},indent=2,ensure_ascii=False)+"\n")
+        # A partial window is not evidence that an unseen role disappeared.
+        # Keep it explicitly stale; coverage below still counts fresh observations only.
+        target = out_dir / f"{market}.json"
+        previous = json.loads(target.read_text()).get("jobs", []) if target.exists() else []
+        fresh = {j["url"]: dict(j, discovery_freshness="OBSERVED_THIS_RUN")
+                 for j in result["jobs"]}
+        for job in previous:
+            provider = str(job.get("source", "")).split(":")[0]
+            if (job.get("url") and job["url"] not in fresh
+                    and result["providers"].get(provider, {}).get("status") != "COMPLETE"):
+                fresh[job["url"]] = dict(job, discovery_freshness="RETAINED_UNVERIFIED")
+        if fresh or any(p["status"] != "UNAVAILABLE" for p in result["providers"].values()):
+            target.write_text(json.dumps({"market": market, "jobs": list(fresh.values())},
+                                         indent=2, ensure_ascii=False)+"\n")
         for provider, stats in result["providers"].items():
             print(f"API {market} {provider}: {stats['status']}, "
                   f"trusted exact employer URLs={stats['accepted_exact_urls']}, "
@@ -410,7 +420,7 @@ def run(out_dir, *, fetch=get_json, max_pages=2):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--out-dir",type=Path,required=True)
-    p.add_argument("--max-pages",type=int,choices=(1,2,3),default=2)
+    p.add_argument("--max-pages",type=int,choices=range(1,11),default=3)
     args=p.parse_args()
     run(args.out_dir,max_pages=args.max_pages)
 
