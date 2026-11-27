@@ -25,6 +25,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent
 API_TIMEOUT = 20
 MAX_PAGES = 100
+DETAIL_SUCCESS_TTL = timedelta(hours=20)
+DETAIL_FAILURE_TTL = timedelta(hours=4)
 MAX_BOARD_SECONDS = 40  # bounded failure isolation on GitHub's Linux runner
 USER_AGENT = "job-resources-ats-discovery/1.0 (public-job-board-feed; GitHub Actions)"
 ALLOWED_ATS = {"greenhouse", "ashby", "lever", "smartrecruiters", "workday"}
@@ -90,6 +92,7 @@ def plain(value: object) -> str:
     value = str(value or "")
     parser = _Text()
     parser.feed(value)
+    parser.close()
     return " ".join(html.unescape(" ".join(parser.parts)).split())
 
 
@@ -328,7 +331,23 @@ def market_for(location: str, board: dict) -> str | None:
 
 
 
-def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> int:
+def detail_age(record: dict, clock: str) -> timedelta | None:
+    try:
+        now = datetime.fromisoformat(clock.replace("Z", "+00:00"))
+        last = datetime.fromisoformat(str(record.get("attempted_at") or "").replace("Z", "+00:00"))
+        age = now-last
+        return age if age>=timedelta(0) else None
+    except (ValueError,TypeError):
+        return None
+
+
+def detail_due(record: dict, clock: str) -> bool:
+    age = detail_age(record,clock)
+    ttl = DETAIL_SUCCESS_TTL if record.get("status")=="OK" else DETAIL_FAILURE_TTL
+    return age is None or age>=ttl
+
+
+def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10, clock: str | None = None, metrics: dict | None = None) -> int:
     """Best-effort first-party JD hydration for ATS that list metadata only.
 
     A detail request failure MUST NOT invalidate a complete board listing.
@@ -352,9 +371,17 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
         not bool(AI_TERMS.search(plain(r.get("title")))),
         plain(r.get("title")),
     ))
+    clock = clock or datetime.now(timezone.utc).isoformat(timespec="seconds")
+    metrics = metrics if metrics is not None else {}
+    due = [r for r in eligible if detail_due(r.get("_detail_record",{}),clock)]
+    metrics.update({"eligible":len(eligible),"cooldown_skipped":len(eligible)-len(due),
+                    "due":len(due),"attempted":0,"failed":0,"deferred_budget":max(0,len(due)-limit)})
     enriched = 0
-    for row in eligible[:limit]:
-        row["jd_attempted_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    for row in due[:limit]:
+        row["jd_attempted_at"] = clock
+        row["_detail_attempted"] = True
+        row["_detail_status"] = "FAILED"
+        metrics["attempted"] += 1
         if ats == "smartrecruiters":
             # Construct the first-party API URL, do not trust arbitrary ref URLs.
             url = ("https://api.smartrecruiters.com/v1/companies/"
@@ -392,12 +419,15 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10) -> 
             if plain(detail):
                 row["description"] = detail
                 enriched += 1
+                row["_detail_status"] = "OK"
         except (HTTPError, URLError, TimeoutError, RuntimeError, KeyError, TypeError, ValueError, OSError) as exc:
             # Do not turn a rate limit into a burst of detail requests.
             if ats == "workday" and isinstance(exc, HTTPError) and exc.code == 429:
                 break
             # A temporarily restricted detail API is a documented listing-only lead.
             continue
+    metrics["failed"] = metrics["attempted"]-enriched
+    metrics["deferred_budget"] = len(due)-metrics["attempted"]
     return enriched
 
 
@@ -508,6 +538,8 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     new_by = dict(old_by)
     statuses = {}
     previous_health = read_json(target / "health.json", {"boards": {}}).get("boards", {})
+    attempts = read_json(target / "detail-attempts.json", {"records": {}}).get("records", {})
+    attempts = {k:v for k,v in attempts.items() if isinstance(v,dict) and (age:=detail_age(v,clock)) is not None and age<timedelta(days=30)}
     seen_board_ids = set()
     for board in config:
         board_id = str(board.get("ats", "unknown")) + ":" + str(board.get("slug", "unknown")).lower()
@@ -539,7 +571,19 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 prior = old_by.get(prior_key, {})
                 if prior.get("url") == raw.get("url") and prior.get("title") == plain(raw.get("title")):
                     raw["jd_attempted_at"] = prior.get("jd_attempted_at") or prior.get("jd_checked_at") or (prior.get("source_checked_at") if prior.get("description_text") else "")
-            enriched = 0 if throttled else enrich_listed_details(board, rows)
+                record=attempts.get(prior_key,{})
+                if record.get("url")==raw.get("url") and record.get("title")==plain(raw.get("title")):
+                    raw["_detail_record"]=record
+                    raw["jd_attempted_at"]=record.get("attempted_at","")
+                elif prior.get("url")==raw.get("url") and prior.get("title")==plain(raw.get("title")) and prior.get("description_text") and not prior.get("description_truncated"):
+                    raw["_detail_record"]={"attempted_at":prior.get("jd_checked_at"),"status":"OK"}
+            detail_metrics={}
+            enriched = 0 if throttled else enrich_listed_details(board, rows, clock=clock, metrics=detail_metrics)
+            for raw in rows:
+                if raw.get("_detail_attempted"):
+                    key=board["slug"].lower()+"|"+board["ats"]+"|"+str(raw.get("id"))
+                    attempts[key]={"url":raw.get("url"),"title":plain(raw.get("title")),
+                                   "attempted_at":raw["jd_attempted_at"],"status":raw["_detail_status"]}
             candidates = {}
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
@@ -554,7 +598,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
             new_by.update(candidates)
             statuses[board_id] = {"status": "PARTIAL" if partial_error and rows else "FAILED" if partial_error else "COMPLETE", "rows_read": len(rows),
                                   "candidates": len(candidates), "full_jds_hydrated": enriched,
-                                  "scope": "targeted_keywords" if board.get("search_terms") else "whole_board"}
+                                  "scope": "targeted_keywords" if board.get("search_terms") else "whole_board", "detail_requests":detail_metrics}
             if partial_error:
                 statuses[board_id]["error"] = partial_error
             if retry_after:
@@ -627,6 +671,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     write_if_changed(target / "current.json", current)
     write_if_changed(target / "changes.json", change)
     write_if_changed(target / "health.json", health)
+    write_if_changed(target / "detail-attempts.json", {"version":1,"records":attempts})
     print(json.dumps({"boards": len(statuses), "status": health["complete"], "jobs": len(new_by),
                       "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "REMOVED_FROM_FEED")},
                       "failures": [k for k, v in statuses.items() if v["status"] != "COMPLETE"]}))
