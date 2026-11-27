@@ -123,7 +123,7 @@ def build(rows,now,probes=()):
              "excerpt":clean_text(primary.get("excerpt"))[:600],
              "observations":observations,"application_evidence":routes}
         # Digest substantive evidence, not run time or mutable shard number.
-        job["content_fingerprint"]=hashlib.sha256(json.dumps({"title":job["title"],"company":job["company"],"locations":locations,"markets":markets,"conflict":conflict,"jd":(jd or {}).get("jd_ref",{}),"routes":[(p["source"],p["status"],p["fresh"]) for p in routes],"metadata":sorted({json.dumps({k:x.get(k) for k in ("salary","salary_summary","salary_components","employment_type","experience","education","posted_at","recruit_label")},ensure_ascii=False,sort_keys=True) for x in items})},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+        job["content_fingerprint"]=hashlib.sha256(json.dumps({"title":job["title"],"company":job["company"],"locations":locations,"markets":markets,"conflict":conflict,"jd":((jd or {}).get("jd_ref") or {}).get("sha256") if jd and isinstance(jd.get("jd_ref"),dict) else bool(jd),"source_states":sorted({(str(x.get("source")),str(x.get("source_run_status")),str(x.get("discovery_freshness"))) for x in items}),"routes":[(p["source"],p["status"],p["fresh"]) for p in routes],"metadata":sorted({json.dumps({k:x.get(k) for k in ("salary","salary_summary","salary_components","employment_type","experience","education","posted_at","recruit_label")},ensure_ascii=False,sort_keys=True) for x in items})},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
         for field in ("company","locations","location_markets"):
             if not job[field]: missing[field]+=1
         jobs.append(job)
