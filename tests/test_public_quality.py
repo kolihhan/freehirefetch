@@ -48,6 +48,8 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(jobs[0]["excerpt"],"Build & test")
         self.assertEqual(jobs[0]["location_markets"],["SG"])
         self.assertEqual(clean_text("<b>one</b><p>two</p>"),"one two")
+        self.assertEqual(clean_text("AI Engineer (R&D)"),"AI Engineer (R&D)")
+        self.assertEqual(clean_text("大模型编排调度工程师（训练&推理方向）"),"大模型编排调度工程师（训练&推理方向）")
 
     def test_unknown_urls_preserved_without_unsafe_fuzzy_merge(self):
         rows=[dict(source="other",url="https://example.com/job?id="+i,title="Engineer",company="Example")
