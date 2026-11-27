@@ -26,7 +26,7 @@ RETENTION = timedelta(days=7)
 # Intentionally restricted to official employer channels documented in
 # the private CN canonical-URL transport. Never treat Liepin as first-party.
 SUPPORTED = ("bytedance", "agibot", "tencent", "alibaba", "nio", "zerooneai",
-             "baichuan", "minimax", "meituan")
+             "baichuan", "minimax", "meituan", "xiaohongshu", "antgroup")
 FEISHU_HOSTS = {"nio": "nio.jobs.feishu.cn",
                 "zerooneai": "01ai.jobs.feishu.cn",
                 "agibot": "agirobot.jobs.feishu.cn",
@@ -52,7 +52,7 @@ def official_url(company: str, position: dict) -> str | None:
     if company not in SUPPORTED:
         return None
     uid = str(position.get("post_id") or "")
-    if not re.fullmatch(r"[0-9]{10,20}", uid):
+    if not re.fullmatch(r"[0-9]{4,10}" if company=="xiaohongshu" else r"[0-9]{10,20}", uid):
         return None
     url = position.get("apply_url")
     if not isinstance(url, str):
@@ -79,6 +79,12 @@ def official_url(company: str, position: dict) -> str | None:
         ids = parse_qs(p.query).get("jobUnionId", [])
         if len(ids) == 1 and ids[0] == uid:
             return "https://zhaopin.meituan.com/web/position/detail?jobUnionId=" + uid
+    if company == "xiaohongshu" and host == "job.xiaohongshu.com" and re.fullmatch(r"/(?:campus|social)/position/" + uid, path):
+        return "https://job.xiaohongshu.com" + path
+    if company == "antgroup" and host == "talent.antgroup.com" and path == "/off-campus-position":
+        ids = parse_qs(p.query).get("positionId", [])
+        if ids == [uid]:
+            return "https://talent.antgroup.com/off-campus-position?positionId=" + uid
     if host == FEISHU_HOSTS.get(company):
         if re.fullmatch(r"/[A-Za-z0-9_-]+/position/" + uid + r"/detail", path):
             return "https://" + host + path
@@ -300,7 +306,7 @@ def main() -> None:
     p.add_argument("--limit", type=int, default=10)
     args = p.parse_args()
     inputs = []
-    for key in ("ai", "backend", "swe", "agent", "llm"):
+    for key in ("ai", "backend", "swe", "agent", "llm", "nlp", "eval"):
         path = args.source_dir / ("jobpro-" + key + ".json")
         try:
             source = json.loads(path.read_text(encoding="utf-8"))
