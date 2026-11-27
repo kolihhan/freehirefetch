@@ -65,12 +65,20 @@ def canonical(url, market):
 
 MARKETS = {"SG": "Singapore", "MY": "Malaysia", "CN": "China"}
 QUERIES = ("AI Engineer", "LLM", "Research Engineer")
-CN_EXTRA = ("大模型", "算法工程师")
+CN_EXTRA = ("大模型", "算法工程师", "智能体", "自然语言处理",
+            "大模型评测", "大模型应用", "检索增强", "知识图谱",
+            "模型后训练", "Agent", "RAG")
+# Target distinct language/agent role families; keep the same bounded page budget.
+SG_EXTRA = ("Agent Engineer", "Agentic AI", "NLP", "RAG", "Applied AI",
+            "Generative AI", "Applied Scientist", "Retrieval Engineer")
+MY_EXTRA = ("Agent Engineer", "Agentic AI", "NLP", "RAG", "Applied AI",
+            "Generative AI", "Machine Learning Engineer", "Applied Scientist")
+MARKET_EXTRA = {"SG": SG_EXTRA, "MY": MY_EXTRA, "CN": CN_EXTRA}
 TITLE = re.compile(
     r"\b(?:AI|ML|LLM|NLP|RAG|agentic|agents?|machine learning|"
     r"applied scientist|research engineer|research assistant|"
     r"research associate|data scientist|retrieval|ranking)\b"
-    r"|人工智能|大模型|智能体|算法|机器学习|检索|研究工程师", re.I)
+    r"|人工智能|大模型|智能体|算法|机器学习|检索|研究工程师|自然语言处理|知识图谱|模型后训练", re.I)
 LOCATIONS = {
     "SG": re.compile(r"\bsingapore\b|新加坡", re.I),
     "MY": re.compile(r"\bmalaysia\b|kuala lumpur|petaling jaya|selangor|"
@@ -309,12 +317,18 @@ def collect(market, *, fetch=get_json, max_pages=2):
         raise ValueError("unsupported market or page budget")
     jobs = {}
     reports = {}
-    queries = QUERIES + (CN_EXTRA if market == "CN" else ())
     for provider in ("freehire", "aidevboard"):
+        # The MY AI Dev Jobs API currently returns malformed payloads; CN native
+        # language windows also fail there. Keep the existing baseline probes
+        # for recovery, and expand the healthy FreeHire query paths instead.
+        extra = MARKET_EXTRA[market] if provider == "freehire" or market == "SG" else ()
+        queries = QUERIES + extra
         successful_pages, errors, windows, seen_urls = 0, [], [], set()
         full_text_fallback_pages = 0
         for q in queries:
             rows_seen, truncated = 0, False
+            before_query = set(seen_urls)
+            previous_urls = set()
             for page in range(1, max_pages+1):
                 try:
                     rows, has_next, converter = request_page(provider,market,q,page,fetch)
@@ -349,6 +363,7 @@ def collect(market, *, fetch=get_json, max_pages=2):
                 truncated = True
             if not windows or windows[-1].get("q") != q:
                 windows.append({"q":q,"rows":rows_seen,"truncated":truncated})
+            windows[-1]["new_exact_urls"] = len(seen_urls - before_query)
             if errors and "HTTPError:HTTP Error 429" in errors[-1]:
                 break
         reports[provider] = {
