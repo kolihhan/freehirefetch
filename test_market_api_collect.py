@@ -127,8 +127,8 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertEqual(result["jobs"][0]["api_description_provenance"],
                          "UNVERIFIED_THIRD_PARTY_API")
         self.assertEqual(result["providers"]["freehire"]["status"], "PARTIAL")
-        self.assertEqual(result["providers"]["freehire"]["full_text_fallback_pages"], 3)
-        self.assertEqual(sum("freehire.me" in url for url in requests), 6)
+        self.assertEqual(result["providers"]["freehire"]["full_text_fallback_pages"], len(api.QUERIES + api.MY_EXTRA))
+        self.assertEqual(sum("freehire.me" in url for url in requests), 2 * len(api.QUERIES + api.MY_EXTRA))
 
     def test_agent_search_respects_local_full_text_size_bound(self):
         long_text = "A" * (api.MAX_API_DESCRIPTION_CHARS + 20)
@@ -212,6 +212,36 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertEqual(windows["LLM"]["new_exact_urls"], 0)
         self.assertIn(("freehire.me", "Retrieval Engineer"), calls)
         self.assertEqual(result["providers"]["freehire"]["status"], "COMPLETE")
+
+    def test_cn_and_my_specialized_queries_recover_distinct_roles(self):
+        scenarios = (
+            ("CN", "自然语言处理", "自然语言处理研究员", "北京", "https://www.liepin.com/job/123456789.shtml"),
+            ("MY", "RAG", "RAG Engineer", "Kuala Lumpur", "https://my.jobstreet.com/job/96012345"),
+        )
+        for market, term, title, location, url in scenarios:
+            with self.subTest(market=market):
+                calls = []
+                def fake(request_url):
+                    p = urlparse(request_url)
+                    params = parse_qs(p.query)
+                    query = params["q"][0]
+                    calls.append((p.hostname, query))
+                    if p.hostname == "freehire.me":
+                        self.assertEqual(params["countries"], [market])
+                        rows = [dict(FREEHIRE, title=title, location=location,
+                                     countries=[market], public_slug="niche-role",
+                                     url=url)] if query == term else []
+                        return {"data": rows, "meta": {"total": len(rows),
+                                "limit": 50, "offset": 0}}
+                    return {"jobs": [], "has_next": False, "total": 0}
+                result = api.collect(market, fetch=fake, max_pages=1)
+                self.assertEqual([j["url"] for j in result["jobs"]], [url])
+                windows = {w["q"]: w for w in result["providers"]["freehire"]["queries"]}
+                self.assertEqual(windows[term]["new_exact_urls"], 1)
+                self.assertEqual(windows["LLM"]["new_exact_urls"], 0)
+                self.assertEqual(result["providers"]["freehire"]["status"], "COMPLETE")
+                self.assertEqual([q for host, q in calls if host == "aidevboard.com"],
+                                 list(api.QUERIES))
 
     def test_ignored_country_filter_is_not_accepted(self):
         def ignored(url):
