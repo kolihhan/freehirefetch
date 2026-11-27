@@ -71,12 +71,21 @@ def location_markets(value):
 def norm(value):
     return re.sub(r"[^\w]+","",clean_text(value).casefold())
 
-def build(rows,now):
-    groups={}; invalid=0; sources=Counter(); missing=Counter()
+def build(rows,now,probes=()):
+    groups={}; invalid=[]; sources=Counter(); missing=Counter(); conflicts=[]
+    route_index={}
+    for probe in probes:
+        key=role_identity(probe)
+        checked=timestamp(probe.get("checked_at"))
+        if not key or key[0]!="exact" or not checked or checked>now:
+            continue
+        k=(key,norm(probe.get("title")),probe.get("evidence_source"))
+        if k not in route_index or timestamp(route_index[k]["checked_at"])<checked:
+            route_index[k]=probe
     for row in rows:
         key=role_identity(row)
         if not key or not clean_text(row.get("title")):
-            invalid+=1; continue
+            invalid.append({"source":row.get("source"),"source_file":row.get("source_file"),"title":row.get("title"),"url":row.get("url") or row.get("source_url"),"reason":"MISSING_TITLE" if not clean_text(row.get("title")) else "INVALID_URL"}); continue
         sources[row.get("source","unknown")]+=1
         groups.setdefault(key,[]).append(row)
     jobs=[]
@@ -87,32 +96,41 @@ def build(rows,now):
         primary=items[0]
         titles={norm(x.get("title")) for x in items if x.get("title")}
         conflict=len(titles)>1
+        if conflict: conflicts.append({"identity":list(key),"titles":sorted({clean_text(x.get("title")) for x in items}),"sources":sorted({x.get("source","unknown") for x in items})})
         observations=[]
         for x in items:
             observations.append({k:x[k] for k in ("source","source_file","market","url","source_url",
-                "key","job_id","event_seq","observed_at","discovery_freshness","jd_kind","jd_checked_at","jd_ref") if x.get(k) is not None})
+                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title") if x.get(k) is not None})
         markets=sorted({x["market"] for x in items if x.get("market") in MARKETS})
         locations=sorted({clean_text(x.get("location")) for x in items if clean_text(x.get("location"))})
         loc_markets=sorted({m for loc in locations for m in location_markets(loc)})
         full=[x for x in items if x.get("jd_kind")=="full_jd" and x.get("jd_ref") and fresh(x.get("jd_checked_at"),now) and x.get("discovery_freshness")!="RETAINED_UNVERIFIED"]
         jd=max(full,key=lambda x:timestamp(x["jd_checked_at"])) if full and not conflict else None
+        routes=[]
+        if not conflict:
+            for evidence_source in ("api","browser"):
+                p=route_index.get((key,norm(primary.get("title")),evidence_source))
+                if p:
+                    routes.append({"source":evidence_source,"status":p.get("status"),"checked_at":p["checked_at"],"fresh":fresh(p["checked_at"],now),"apply_url":p.get("apply_url_observed") or p.get("apply_url"),"title_match":p.get("title_match")})
         job={"id":"job:"+hashlib.sha256(json.dumps(key,ensure_ascii=False).encode()).hexdigest()[:24],
              "title":clean_text(primary.get("title")),"company":next((clean_text(x.get("company")) for x in items if clean_text(x.get("company"))),""),
              "url":primary.get("url") or primary.get("source_url") or primary.get("freehire_url"),
              "locations":locations,"observed_markets":markets,"location_markets":loc_markets,
              "location_status":"EXPLICIT_LOCATION_SIGNAL" if loc_markets else "UNRESOLVED",
-             "identity_conflict":conflict,"fresh_full_jd":bool(jd),"jd_ref":jd.get("jd_ref") if jd else None,
+             "identity_conflict":conflict,"identity_quality":"EXACT_ROLE" if key[0]=="exact" else ("AGGREGATOR_ID" if key[0]=="freehire" else "UNVERIFIED_URL"),"fresh_full_jd":bool(jd),"jd_ref":jd.get("jd_ref") if jd else None,
              "jd_checked_at":jd.get("jd_checked_at") if jd else None,
              "excerpt":clean_text(primary.get("excerpt"))[:600],
-             "observations":observations}
+             "observations":observations,"application_evidence":routes}
+        # Digest substantive evidence, not run time or mutable shard number.
+        job["content_fingerprint"]=hashlib.sha256(json.dumps({"title":job["title"],"company":job["company"],"locations":locations,"markets":markets,"conflict":conflict,"jd":(jd or {}).get("jd_ref",{}),"routes":[(p["source"],p["status"],p["fresh"]) for p in routes],"metadata":sorted({json.dumps({k:x.get(k) for k in ("salary","salary_summary","salary_components","employment_type","experience","education","posted_at","recruit_label")},ensure_ascii=False,sort_keys=True) for x in items})},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
         for field in ("company","locations","location_markets"):
             if not job[field]: missing[field]+=1
         jobs.append(job)
     jobs.sort(key=lambda j:(not j["identity_conflict"],j["fresh_full_jd"],max((o.get("event_seq") or 0 for o in j["observations"]),default=0),j["id"]),reverse=True)
-    valid=len(rows)-invalid
-    return jobs,{"input_observations":len(rows),"valid_observations":valid,"invalid_observations":invalid,
+    valid=len(rows)-len(invalid)
+    return jobs,{"input_observations":len(rows),"valid_observations":valid,"invalid_observations":len(invalid),"invalid_details":invalid,"conflict_details":conflicts,
         "unique_roles":len(jobs),"duplicate_observations":valid-len(jobs),"identity_conflicts":sum(j["identity_conflict"] for j in jobs),
-        "fresh_full_jd":sum(j["fresh_full_jd"] for j in jobs),"missing_fields":dict(missing),"source_observations":dict(sources)}
+        "fresh_full_jd":sum(j["fresh_full_jd"] for j in jobs),"unverified_url_roles":sum(j["identity_quality"]=="UNVERIFIED_URL" for j in jobs),"fresh_api_evidence":sum(any(p["source"]=="api" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"fresh_browser_evidence":sum(any(p["source"]=="browser" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"missing_fields":dict(missing),"source_observations":dict(sources)}
 
 def collect(root):
     rows=[]; health={}
