@@ -284,6 +284,24 @@ class ATSFeedTests(unittest.TestCase):
             self.assertEqual("PARTIAL", result["health"]["boards"]["workday:micron"]["status"])
             self.assertEqual(1, result["jobs"])
 
+    def test_workday_retry_after_defers_next_run_without_discarding_prior_rows(self):
+        board = {"ats":"workday","slug":"ntu","company":"NTU","markets":["SG"],
+                 "career_url":"https://ntu.wd3.myworkdayjobs.com/en-US/Careers"}
+        first = "2026-11-27T00:00:00+00:00"
+        second = "2026-11-27T00:02:00+00:00"
+        error = ats.HTTPError(board["career_url"],429,"Too Many Requests",{"Retry-After":"600"},None)
+        self.assertEqual(ats.retry_after_seconds(error),600)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            partial = ats.PartialListing([],["HTTP Error 429"],600)
+            with patch.object(ats,"listing",side_effect=partial):
+                ats.run(root,[board],clock=first)
+            with patch.object(ats,"listing") as listing:
+                result = ats.run(root,[board],clock=second)
+                listing.assert_not_called()
+            self.assertEqual(result["health"]["boards"]["workday:ntu"]["status"],"DEFERRED_RATE_LIMIT")
+            self.assertFalse(result["health"]["complete"])
+
     def test_workday_http_429_not_retried(self):
         url = "https://micron.wd1.myworkdayjobs.com/wday/cxs/micron/External/jobs"
         error = ats.HTTPError(url, 429, "Too Many Requests", {}, None)
