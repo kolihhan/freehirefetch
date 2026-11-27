@@ -8,12 +8,16 @@ on:
       - 'freehire_fetch.py'
       - 'firehose_fetch.py'
       - 'candidate_snapshot.py'
+      - 'public_quality.py'
+      - '.github/workflows/ci.yml'
       - 'tests/**'
   pull_request:
     paths:
       - 'freehire_fetch.py'
       - 'firehose_fetch.py'
       - 'candidate_snapshot.py'
+      - 'public_quality.py'
+      - '.github/workflows/ci.yml'
       - 'tests/**'
 
 permissions:
@@ -34,3 +38,6 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
+
+      - name: Build clean projection against actual checked-out public feeds
+        run: python public_quality.py

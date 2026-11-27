@@ -3,6 +3,12 @@
   "purpose": "Public, profile-agnostic discovery and source evidence. Chat owns applicant eligibility and private lifecycle. This catalog describes existing artifacts, not a unified or lossless cross-source event stream.",
   "sources": [
     {
+      "id": "clean-review",
+      "mode": "current_projection",
+      "index": "feed/clean/index.json",
+      "note": "25-row shards, exact deduplicated roles from latest firehose delta and available snapshots; observed markets are not work locations, verify source timestamps and JD references. Not a lossless journal."
+    },
+    {
       "id": "freehire",
       "mode": "event_journal",
       "index": "feed/index.json",
