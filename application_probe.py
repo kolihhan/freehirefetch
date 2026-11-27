@@ -25,9 +25,17 @@ HOSTS = {
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     *FEISHU_HOSTS.values(),
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
+RESEARCH_ROLE = re.compile(r"\bresearch (?:assistant|associate|engineer|officer|scientist|fellow)\b|研究助理|研究工程师|研究员", re.I | re.ASCII)
+
+def excluded_contract(title, employment=""):
+    text = title + " " + str(employment or "")
+    # Research appointments often use fixed terms; outsourcing remains excluded.
+    return bool(re.search(r"劳务派遣|\b(?:outsourced|staff augmentation)\b", text, re.I)
+                or (CONTRACT.search(text) and not RESEARCH_ROLE.search(title)))
+
 CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
 BLOCKED = re.compile(r"verify (?:that )?you are human|access denied|unusual traffic|security verification|checking your browser|captcha|just a moment", re.I)
 AUTH = re.compile(r"sign in|log in|login|create (?:an |your )?account|register to apply", re.I)
@@ -233,7 +241,7 @@ def load_jobs(root):
                 signals = {m.group(0).casefold() for m in CORE.finditer(desc)}
                 if not ident or not j.get("key") or not (CORE.search(title) or (technical and len(signals) >= 3)) or HARD_TITLE.search(title):
                     continue
-                if CONTRACT.search(title+" "+str(j.get("employment_type",""))):
+                if excluded_contract(title, j.get("employment_type","")):
                     continue
                 # Preserve primary-source representation, also index aliases.
                 k = (market, ident)
@@ -249,7 +257,7 @@ def load_jobs(root):
         for j in json.loads(liepin.read_text()).get("jobs", []):
             title = str(j.get("title") or "")
             ident = identity(j.get("url", ""))
-            if not ident or ident[0] != "www.liepin.com" or not CORE.search(title) or HARD_TITLE.search(title) or CONTRACT.search(title):
+            if not ident or ident[0] != "www.liepin.com" or not CORE.search(title) or HARD_TITLE.search(title) or excluded_contract(title):
                 continue
             if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
                 continue
@@ -280,7 +288,7 @@ def load_jobs(root):
                 label = str(pos.get("recruit_label") or "")
                 uid = str(pos.get("post_id") or "")
                 url = official_url(company,pos)
-                if not url or not identity(url) or not CORE.search(title) or HARD_TITLE.search(title+" "+label) or CONTRACT.search(title+" "+label):
+                if not url or not identity(url) or not CORE.search(title) or HARD_TITLE.search(title+" "+label) or excluded_contract(title, label):
                     continue
                 if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
                     continue
@@ -355,6 +363,9 @@ async def run(root, limit, workers):
             "counts_this_run":dict(Counter(r["status"] for r in results)),
             "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
             "new_ats_attempted":sum(j["key"] in fresh_keys for j in selected),
+            "never_checked_attempted":sum(j["key"] not in prev for j in selected),
+            "pending_never_checked":sum(j["key"] not in current for j in rows),
+            "market_counts_this_run":dict(Counter(r["market"] for r in results)),
             "note":"LIVE_FORM = public exact-role form seen, not eligibility, sponsorship, prior-application status or submitted application. Older probes must be rechecked.",
             "jobs":sorted(current.values(),key=lambda j:j["key"])}
     target.parent.mkdir(parents=True,exist_ok=True)
@@ -399,6 +410,27 @@ class Tests(unittest.TestCase):
             (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
             (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
+    def test_fixed_term_research_is_not_dropped(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            markets = root/"feed/ats/markets"
+            markets.mkdir(parents=True)
+            ra = {"key":"ra","market":"SG","title":"Research Assistant (Fixed-term)",
+                  "url":self.url,"employment_type":"fixed-term"}
+            eng = dict(ra,key="engineer",title="AI Engineer (Fixed-term)",
+                       url=self.url.replace("1234","5678"))
+            intern = dict(ra,key="intern",title="Research Assistant Internship",
+                          url=self.url.replace("1234","9999"))
+            (markets/"SG.json").write_text(json.dumps({"jobs":[ra,eng,intern]}))
+            self.assertEqual({j["key"] for j in load_jobs(root)}, {"ra"})
+
+    def test_new_non_ats_roles_prioritize_before_old_checks(self):
+        rows = [{"key":"old","market":"SG","title":"AI","url":self.url},
+                {"key":"new","market":"SG","title":"AI","url":self.url}]
+        chosen = select(rows,{"old":{"checked_at":"2026-11-24"}},1)
+        self.assertEqual([x["key"] for x in chosen],["new"])
 
     def test_marketplace_budget_and_new_role_priority(self):
         direct = [{"key":str(i),"market":"SG","title":"AI","url":self.url} for i in range(100)]
