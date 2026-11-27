@@ -387,6 +387,26 @@ class Tests(unittest.TestCase):
         self.assertIn("99",[j["key"] for j in picked])
         self.assertEqual(3,len(select(proxy,{},20)))
 
+    def test_liepin_source_reuses_exact_url_and_marketplace_budget(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            src = root/"feed/cn-native"
+            src.mkdir(parents=True)
+            url = "https://www.liepin.com/job/1982484575.shtml"
+            role = {"sourceId":"82484575", "title":"AI Agent开发工程师",
+                    "company":"Example", "location":"上海", "url":url}
+            (src/"liepin-raw.json").write_text(json.dumps({"jobs":[
+                role, dict(role, title="AI Agent 实习生", url=url.replace("4575","4576")),
+                dict(role, url="https://www.liepin.com/career/1982484575"),
+                dict(role, url=url+"?utm_source=test")]}))
+            rows = load_jobs(root)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["market"],"CN")
+            self.assertEqual(rows[0]["url"],url)
+            self.assertEqual(identity(url),("www.liepin.com","1982484575"))
+            self.assertIn("www.liepin.com", MARKETPLACE_HOSTS)
+
     def test_native_source_keeps_exact_roles_and_verified_jd(self):
         import tempfile
         with tempfile.TemporaryDirectory() as tmp:
