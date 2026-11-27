@@ -16,6 +16,7 @@ from urllib.error import HTTPError
 
 # Source-only exact-role normalization. No applicant / job-resources dependency.
 from urllib.parse import parse_qs
+from application_probe import identity as probe_identity
 
 def canonical(url, market):
     p = urlsplit(str(url or "").strip())
@@ -39,6 +40,11 @@ def canonical(url, market):
             return "https://"+("sg.indeed.com" if market=="SG" else "malaysia.indeed.com")+"/viewjob?jk="+jk
     if market == "MY" and host == "my.hiredly.com" and re.fullmatch(r"/jobs/(?:[^/]+/)?[\w-]{7,}",path):
         return "https://my.hiredly.com"+path
+    if market == "CN" and host in {"www.zhipin.com","m.zhipin.com","www.nowcoder.com","www.zhaopin.com","jobs.51job.com"}:
+        exact = probe_identity(url)
+        if exact and exact[0] in {"zhipin.com","www.nowcoder.com","www.zhaopin.com","jobs.51job.com"}:
+            return urlunsplit(p._replace(query="",fragment=""))
+        return None
     if market == "CN" and host in ("www.liepin.com","liepin.com"):
         match = re.fullmatch(r"/job/(\d{5,16})\.shtml",path)
         if match:return "https://www.liepin.com/job/"+match.group(1)+".shtml"
@@ -124,6 +130,14 @@ def platform_family(url):
         return "Indeed"
     if host in ("www.liepin.com", "liepin.com"):
         return "猎聘"
+    if host in ("www.zhipin.com","m.zhipin.com"):
+        return "BOSS直聘"
+    if host == "www.nowcoder.com":
+        return "牛客"
+    if host == "www.zhaopin.com":
+        return "智联"
+    if host == "jobs.51job.com":
+        return "51job"
     if host == "my.hiredly.com":
         return "Hiredly"
     if host.endswith(".mycareersfuture.gov.sg"):
