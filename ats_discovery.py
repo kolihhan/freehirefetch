@@ -14,7 +14,8 @@ import re
 import signal
 import time
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -169,11 +170,30 @@ def ashby_compensation(item: dict) -> tuple[str, list[dict]]:
     return summary, salary
 
 
+def retry_after_seconds(error, clock=None):
+    value = str((error.headers or {}).get("Retry-After", "")).strip()
+    try:
+        return max(60, int(value))
+    except ValueError:
+        try:
+            stamp = parsedate_to_datetime(value)
+            return max(60, int((stamp - (clock or datetime.now(timezone.utc))).total_seconds()))
+        except (TypeError, ValueError, OverflowError):
+            return 900
+
+def cooldown_active(until, clock):
+    try:
+        return datetime.fromisoformat(until) > datetime.fromisoformat(clock)
+    except (ValueError, TypeError):
+        return False
+
+
 class PartialListing(RuntimeError):
     """A bounded Workday scan with recoverable rows; never implies closure."""
-    def __init__(self, rows, errors):
+    def __init__(self, rows, errors, retry_after=0):
         super().__init__("; ".join(errors))
         self.rows = rows
+        self.retry_after = retry_after
 
 
 def lever_description(job: dict) -> str:
@@ -258,6 +278,7 @@ def listing(board: dict) -> list[dict]:
     result = {}
     terms = board.get("search_terms") or [""]
     errors = []
+    retry_after = 0
     for term in terms:
         try:
             with board_deadline(25):
@@ -286,17 +307,18 @@ def listing(board: dict) -> list[dict]:
                         break
                     if not rows:
                         raise RuntimeError("Workday empty page before total for " + repr(term))
-                    time.sleep(0.12)
+                    time.sleep(0.8)
                 else:
                     raise RuntimeError("Workday search window exceeded page cap: " + repr(term))
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError, OSError) as exc:
             errors.append(f"{term!r}: {type(exc).__name__}: {str(exc)[:160]}")
             if isinstance(exc, HTTPError) and exc.code == 429:
                 # Retain earlier rows but defer remaining windows on this board.
+                retry_after = retry_after_seconds(exc)
                 errors.append("remaining Workday keyword windows deferred after HTTP 429")
                 break
     if errors:
-        raise PartialListing(list(result.values()), errors)
+        raise PartialListing(list(result.values()), errors, retry_after)
     return list(result.values())
 
 
@@ -485,15 +507,22 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                 job["description_text"] = item.get("description_text", "")
     new_by = dict(old_by)
     statuses = {}
+    previous_health = read_json(target / "health.json", {"boards": {}}).get("boards", {})
     seen_board_ids = set()
     for board in config:
         board_id = str(board.get("ats", "unknown")) + ":" + str(board.get("slug", "unknown")).lower()
         if board_id in seen_board_ids:
             raise ValueError("Duplicate board " + board_id)
         seen_board_ids.add(board_id)
+        prior_status = previous_health.get(board_id, {})
+        if board.get("ats") == "workday" and cooldown_active(prior_status.get("retry_after_until"), clock):
+            statuses[board_id] = dict(prior_status, status="DEFERRED_RATE_LIMIT",
+                                      error="Workday Retry-After cooldown; retained previous records")
+            continue
         try:
             validate(board)
             partial_error = None
+            retry_after = 0
             try:
                 if board["ats"] == "workday":
                     rows = listing(board)  # each search window has its own deadline
@@ -503,6 +532,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
             except PartialListing as exc:
                 rows = exc.rows
                 partial_error = str(exc)
+                retry_after = exc.retry_after
             throttled = bool(board["ats"] == "workday" and partial_error and "HTTP Error 429" in partial_error)
             for raw in rows:
                 prior_key = board["slug"].lower() + "|" + board["ats"] + "|" + str(raw.get("id"))
@@ -527,6 +557,8 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
                                   "scope": "targeted_keywords" if board.get("search_terms") else "whole_board"}
             if partial_error:
                 statuses[board_id]["error"] = partial_error
+            if retry_after:
+                statuses[board_id]["retry_after_until"] = (datetime.fromisoformat(clock) + timedelta(seconds=retry_after)).isoformat()
         except (ValueError, KeyError, TypeError, HTTPError, URLError, TimeoutError, RuntimeError) as exc:
             statuses[board_id] = {"status": "FAILED", "error": type(exc).__name__ + ": " + str(exc)[:180]}
     for board_id, status in statuses.items():

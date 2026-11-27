@@ -25,6 +25,8 @@ HOSTS = {
     "my.jobstreet.com", "my.hiredly.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     "careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg",
+    "www.zhipin.com", "m.zhipin.com", "www.nowcoder.com", "www.zhaopin.com", "sou.zhaopin.com",
+    "we.51job.com", "jobs.51job.com",
     *FEISHU_HOSTS.values(),
 }
 CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
@@ -77,6 +79,18 @@ def identity(url):
     if h in {"careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg"}:
         m = re.search(r"/job/.+/(\d{2,12})(?:-[A-Za-z_]+)?$", path)
         return (h, m[1]) if m else None
+    if h in {"www.zhipin.com", "m.zhipin.com"}:
+        m = re.fullmatch(r"/job_detail/([A-Za-z0-9_~-]{8,100})\.html",path)
+        return ("zhipin.com",m[1]) if m else None
+    if h == "www.nowcoder.com":
+        m = re.fullmatch(r"/jobs/detail/(\d{4,16})",path)
+        return (h,m[1]) if m else None
+    if h == "www.zhaopin.com":
+        m = re.fullmatch(r"/jobdetail/([A-Za-z0-9]{12,80})\.htm",path)
+        return (h,m[1]) if m else None
+    if h == "jobs.51job.com":
+        m = re.fullmatch(r"/[A-Za-z0-9_/-]+/(\d{6,16})\.html",path)
+        return (h,m[1]) if m else None
     if h == "www.liepin.com":
         m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
         return (h, m[1]) if m else None
@@ -134,6 +148,101 @@ def classify(expected, current, status, body, title_present, fields, controls):
 
 def norm(s):
     return " ".join(re.findall(r"\w+", str(s or "").casefold()))
+
+def api_board(url):
+    ident = identity(url)
+    if not ident:
+        return None
+    host, value = ident
+    kind = {"greenhouse":"greenhouse","jobs.ashbyhq.com":"ashby",
+            "jobs.lever.co":"lever","jobs.smartrecruiters.com":"smartrecruiters"}.get(host)
+    if not kind:
+        return None
+    owner = urlparse(url).path.strip("/").split("/")[0]
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+", owner):
+        return None
+    return kind, owner
+
+def api_match(job, postings, kind):
+    expected = identity(job["url"])
+    for item in postings:
+        if not isinstance(item, dict):
+            continue
+        url = item.get({"greenhouse":"absolute_url","ashby":"jobUrl","lever":"hostedUrl",
+                        "smartrecruiters":"postingUrl"}[kind], "")
+        title = item.get({"greenhouse":"title","ashby":"title","lever":"text",
+                          "smartrecruiters":"name"}[kind], "")
+        if identity(str(url or "")) != expected or not norm(title) or norm(title) != norm(job["title"]):
+            continue
+        if kind == "greenhouse" and str(item.get("id")) != expected[1].split("/")[-1]:
+            continue
+        apply = str(item.get("applyUrl") or "")
+        return {"status":"API_DIRECT_LINK" if item.get("isListed") is False else "API_LISTED",
+                "checked_at":now(),"provider":kind,"apply_url":apply if identity(apply)==expected else ""}
+    return None
+
+def age_seconds(value):
+    try:
+        return (datetime.now(timezone.utc)-datetime.fromisoformat(str(value).replace("Z","+00:00"))).total_seconds()
+    except (ValueError, TypeError):
+        return float("inf")
+
+def recent_form(job, prior, api):
+    return bool(api and prior.get("status") == "LIVE_FORM" and prior.get("url") == job["url"]
+                and norm(prior.get("title")) == norm(job["title"])
+                and 0 <= age_seconds(prior.get("checked_at")) <= 86400)
+
+def api_get_board(kind, owner):
+    from urllib.request import Request, urlopen
+    from urllib.parse import quote
+    owner = quote(owner, safe="")
+    urls = {"greenhouse":"https://boards-api.greenhouse.io/v1/boards/"+owner+"/jobs",
+            "ashby":"https://api.ashbyhq.com/posting-api/job-board/"+owner,
+            "lever":"https://api.lever.co/v0/postings/"+owner+"?mode=json",
+            "smartrecruiters":"https://api.smartrecruiters.com/v1/companies/"+owner+"/postings?limit=100&offset=0"}
+    req = Request(urls[kind],headers={"Accept":"application/json","User-Agent":"FreeHireFetch/1.0"})
+    with urlopen(req,timeout=8) as response:
+        if urlparse(response.geturl()).hostname != urlparse(urls[kind]).hostname:
+            raise ValueError("unexpected API redirect")
+        raw = response.read(8_000_001)
+        if len(raw)>8_000_000:
+            raise ValueError("API response exceeds bound")
+    payload = json.loads(raw)
+    rows = payload if kind=="lever" else payload.get("content" if kind=="smartrecruiters" else "jobs")
+    if not isinstance(rows,list):
+        raise ValueError("unexpected official ATS schema")
+    return rows
+
+async def api_liveness(rows, limit=16):
+    groups, verified = {}, {}
+    for job in rows:
+        board = api_board(job["url"])
+        if not board:
+            continue
+        # Reuse same-run official listing evidence instead of fetching it again.
+        if job.get("ats") == board[0] and 0 <= age_seconds(job.get("source_checked_at")) <= 900:
+            apply = str(job.get("apply_url") or "")
+            verified[job["key"]] = {"status":"API_DIRECT_LINK" if job.get("listing_visibility")=="DIRECT_LINK_ONLY" else "API_LISTED",
+                                    "checked_at":job["source_checked_at"],"provider":board[0],
+                                    "apply_url":apply if identity(apply)==identity(job["url"]) else ""}
+        else:
+            groups.setdefault(board,[]).append(job)
+    # ponytail: bounded public board batches, no extra pagination or closure inference.
+    selected = sorted(groups,key=lambda b:(-len(groups[b]),b))[:limit]
+    errors = {}
+    sem = asyncio.Semaphore(4)
+    async def check(board):
+        async with sem:
+            try:
+                postings = await asyncio.to_thread(api_get_board,*board)
+                for job in groups[board]:
+                    match = api_match(job,postings,board[0])
+                    if match:
+                        verified[job["key"]] = match
+            except Exception as exc:
+                errors["/".join(board)] = type(exc).__name__
+    await asyncio.gather(*(check(board) for board in selected))
+    return verified, {"boards_attempted":len(selected),"boards_deferred":len(groups)-len(selected),"errors":errors}
 
 async def observe(page, job, expected, url):
     response = await page.goto(url, wait_until="domcontentloaded", timeout=14000)
@@ -297,6 +406,20 @@ def load_jobs(root):
             rows[k] = {"key":key, "market":"CN", "title":title, "company":j.get("company",""),
                        "url":url, "location":j.get("location",""), "job_id":ident[1],
                        "source":"liepin-public-api", "aliases":[], "jd_evidence":"listing_only"}
+    platform_file = src/"platform-public.json"
+    if platform_file.exists():
+        for group in json.loads(platform_file.read_text()).get("sources",[]):
+            for job in group.get("jobs",[]):
+                url, title = job.get("url",""), job.get("title","")
+                ident = identity(url)
+                if not ident or ident[0] not in {"zhipin.com","www.nowcoder.com","www.zhaopin.com","jobs.51job.com"} or not CORE.search(title) or HARD_TITLE.search(title) or excluded_contract(title):
+                    continue
+                k = ("CN",ident)
+                if k not in rows:
+                    rows[k] = {"key":"native-cn|"+"|".join(ident),"market":"CN","title":title,
+                               "url":url,"source":group.get("source",""),"company":"","location":"",
+                               "job_id":ident[1],"aliases":[],"jd_evidence":"listing_only",
+                               "discovery_freshness":job.get("discovery_freshness","OBSERVED_THIS_RUN")}
     detail_file = src/"jobpro-jd.json"
     details = {}
     if detail_file.exists():
@@ -334,7 +457,7 @@ def load_jobs(root):
                            "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-MARKETPLACE_HOSTS = {"sg.jobstreet.com", "my.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "my.indeed.com", "malaysia.indeed.com", "my.hiredly.com", "www.liepin.com"}
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "my.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "my.indeed.com", "malaysia.indeed.com", "my.hiredly.com", "www.liepin.com", "www.zhipin.com", "m.zhipin.com", "www.nowcoder.com", "www.zhaopin.com", "jobs.51job.com"}
 
 
 def select(rows, previous, limit, fresh_keys=()):
@@ -371,7 +494,9 @@ async def run(root, limit, workers):
     rows = load_jobs(root)
     changes = root/"feed/ats/changes.json"
     fresh_keys = {j["key"] for j in json.loads(changes.read_text()).get("events", []) if j.get("kind") == "NEW" and j.get("key")} if changes.exists() else set()
-    selected = select(rows,prev,limit,fresh_keys)
+    api, api_health = await api_liveness(rows)
+    browser_rows = [j for j in rows if not recent_form(j,prev.get(j["key"],{}),api.get(j["key"]))]
+    selected = select(browser_rows,prev,limit,fresh_keys)
     async with async_playwright() as p:
         launch = {"headless":True}
         if os.getenv("CHROMIUM_EXECUTABLE"):
@@ -395,7 +520,14 @@ async def run(root, limit, workers):
             current[j["key"]] = dict(prior, fresh_this_run=False, aliases=j["aliases"])
     for j,r in completed:
         current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
+    api_report = {"version":1,"run_at":now(),"counts":dict(Counter(v["status"] for v in api.values())),
+                  "eligible_public_urls":len(rows), **api_health,
+                  "jobs":[dict(api[j["key"]],key=j["key"],market=j["market"],url=j["url"],title=j["title"]) for j in rows if j["key"] in api],
+                  "note":"Official listing evidence only; absence from a bounded API response is not closure; never LIVE_FORM."}
+    target.parent.mkdir(parents=True,exist_ok=True)
+    (target.parent/"api-liveness.json").write_text(json.dumps(api_report,ensure_ascii=False,indent=2)+"\\n")
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
+            "api_verified":len(api),"api_health":api_health,"browser_skipped_recent_live_form":len(rows)-len(browser_rows),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
             "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
             "selected":len(selected), "incomplete":len(selected)-len(results),
@@ -408,13 +540,47 @@ async def run(root, limit, workers):
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
     print(json.dumps({k:v for k,v in report.items() if k!="jobs"},indent=2))
-    if not selected:
+    if not rows:
         raise RuntimeError("No eligible public URLs; check source coverage")
 
 class Tests(unittest.TestCase):
     def setUp(self):
         self.url="https://job-boards.greenhouse.io/example/jobs/1234"
         self.id=identity(self.url)
+    def test_cn_platform_exact_role_paths(self):
+        self.assertEqual(identity("https://www.nowcoder.com/jobs/detail/457568"),("www.nowcoder.com","457568"))
+        self.assertEqual(identity("https://www.zhaopin.com/jobdetail/CC466267010J40873443311.htm"),("www.zhaopin.com","CC466267010J40873443311"))
+        self.assertEqual(identity("https://www.zhipin.com/job_detail/abc123def456.html"),("zhipin.com","abc123def456"))
+        self.assertEqual(identity("https://jobs.51job.com/shenzhen/12345678.html"),("jobs.51job.com","12345678"))
+        self.assertIsNone(identity("https://www.zhipin.com/zhaopin/abc123"))
+        self.assertIsNone(identity("https://www.nowcoder.com/jobs"))
+        self.assertIsNone(identity("https://www.zhaopin.com.evil.example/jobdetail/CC466267010J40873443311.htm"))
+
+    def test_api_liveness_requires_exact_title_and_role(self):
+        row = {"key":"a","title":"AI Engineer","market":"SG","url":self.url}
+        listed = {"id":1234,"title":"AI Engineer","absolute_url":self.url}
+        self.assertEqual(api_match(row,[listed],"greenhouse")["status"],"API_LISTED")
+        self.assertIsNone(api_match(row,[dict(listed,title="Different role")],"greenhouse"))
+        self.assertIsNone(api_match(row,[dict(listed,id=4321,absolute_url=self.url.replace("1234","4321"))],"greenhouse"))
+
+    def test_api_does_not_replace_browser_form_evidence(self):
+        url = "https://jobs.ashbyhq.com/example/02234e0a-e1fc-4b23-b3e6-513200e4ff80"
+        row = {"key":"a","title":"AI Engineer","market":"SG","url":url}
+        item = {"title":"AI Engineer","jobUrl":url,"applyUrl":url+"/application","isListed":False}
+        match = api_match(row,[item],"ashby")
+        self.assertEqual(match["status"],"API_DIRECT_LINK")
+        self.assertEqual(match["apply_url"],url+"/application")
+        self.assertNotEqual(match["status"],"LIVE_FORM")
+        recent = {"url":url,"title":"AI Engineer","status":"LIVE_FORM","checked_at":now()}
+        self.assertTrue(recent_form(row,recent,match))
+        self.assertFalse(recent_form(row,dict(recent,status="APPLY_CONTROL_ONLY"),match))
+        self.assertFalse(recent_form(row,dict(recent,checked_at="2020-01-01T00:00:00+00:00"),match))
+
+    def test_api_board_groups_exact_supported_paths(self):
+        self.assertEqual(api_board(self.url),("greenhouse","example"))
+        self.assertIsNone(api_board("https://job-boards.greenhouse.io/example"))
+        self.assertIsNone(api_board("https://www.liepin.com/job/1982484575.shtml"))
+
     def test_classification(self):
         c=lambda body="", fields=(), controls=(), url=self.url, code=200, title=True: classify(self.id,url,code,body,title,fields,controls)
         self.assertEqual(c(fields=["email","name","resume"]),"LIVE_FORM")
