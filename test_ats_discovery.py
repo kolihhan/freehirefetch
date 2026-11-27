@@ -454,6 +454,26 @@ class ATSFeedTests(unittest.TestCase):
         self.assertTrue(req.call_args.args[0].endswith("/b"))
         self.assertTrue(roles[1]["jd_attempted_at"])
 
+    def test_fresh_exact_jd_cooldown_preserves_detail_budget_for_new_roles(self):
+        clock="2026-11-28T00:00:00Z"
+        rows=[
+            {"id":"cached","title":"AI Engineer","location":"Singapore","description":"",
+             "_detail_record":{"attempted_at":"2026-11-27T20:00:00Z","status":"OK"}},
+            {"id":"new","title":"AI Engineer","location":"Singapore","description":""},
+            {"id":"failed","title":"AI Engineer","location":"Singapore","description":"",
+             "_detail_record":{"attempted_at":"2026-11-27T23:00:00Z","status":"FAILED"}},
+        ]
+        metrics={}
+        with patch.object(ats,"request_json",return_value={"jobAd":{"sections":{"jobDescription":{"text":"Develop retrieval systems"}}}}) as req:
+            self.assertEqual(ats.enrich_listed_details(SG,rows,limit=1,clock=clock,metrics=metrics),1)
+        self.assertEqual(req.call_count,1)
+        self.assertTrue(req.call_args.args[0].endswith("/new"))
+        self.assertEqual(metrics["cooldown_skipped"],2)
+        self.assertEqual(metrics["attempted"],1)
+        self.assertEqual(rows[0]["description"],"")
+        self.assertTrue(ats.detail_due(rows[0]["_detail_record"],"2026-11-29T00:00:00Z"))
+        self.assertTrue(ats.detail_due(rows[2]["_detail_record"],"2026-11-28T04:00:00Z"))
+
     def test_retained_jd_keeps_original_evidence_time(self):
         first = "2026-11-26T00:00:00Z"
         second = "2026-11-27T00:00:00Z"
