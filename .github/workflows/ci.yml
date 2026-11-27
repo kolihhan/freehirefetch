@@ -9,6 +9,7 @@ on:
       - 'firehose_fetch.py'
       - 'candidate_snapshot.py'
       - 'public_quality.py'
+      - 'role_tags.py'
       - '.github/workflows/ci.yml'
       - 'tests/**'
   pull_request:
@@ -17,6 +18,7 @@ on:
       - 'firehose_fetch.py'
       - 'candidate_snapshot.py'
       - 'public_quality.py'
+      - 'role_tags.py'
       - '.github/workflows/ci.yml'
       - 'tests/**'
 
