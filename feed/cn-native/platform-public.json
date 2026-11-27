@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-27T17:15:35+00:00",
+  "run_at": "2026-11-27T22:21:01+00:00",
   "sources": [
     {
       "source": "BOSS",
@@ -8,11 +8,8 @@
         {
           "page": 1,
           "url": "https://www.zhipin.com/web/geek/job?query=%E5%A4%A7%E6%A8%A1%E5%9E%8B&city=101280600&page=1",
-          "status": "NO_EXACT_ROLE_LINKS",
-          "http_status": 200,
-          "structured_role_links": 0,
-          "role_links": 0,
-          "new_links": 0
+          "status": "CHALLENGE",
+          "http_status": 200
         }
       ],
       "jobs": [],
@@ -64,9 +61,9 @@
           "url": "https://we.51job.com/pc/search?keyword=%E5%A4%A7%E6%A8%A1%E5%9E%8B&pageNum=1",
           "status": "ROLE_LINKS_ONLY",
           "http_status": 200,
-          "structured_role_links": 14,
-          "role_links": 14,
-          "new_links": 14
+          "structured_role_links": 15,
+          "role_links": 15,
+          "new_links": 15
         },
         {
           "page": 2,
@@ -75,7 +72,7 @@
           "http_status": 200,
           "structured_role_links": 14,
           "role_links": 14,
-          "new_links": 1
+          "new_links": 3
         }
       ],
       "jobs": [
@@ -92,18 +89,6 @@
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai/164902149.html",
-          "title": "大模型微调工程师",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "进迭时空（北京）智能科技",
-          "location": "上海",
-          "salary": "3-6万",
-          "experience": "1年及以上",
-          "education": "本科",
-          "posted_at": "2026-04-22 18:09:27",
-          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
-        },
-        {
           "url": "https://jobs.51job.com/shanghai-pdxq/174352568.html",
           "title": "AI工程师",
           "discovery_freshness": "OBSERVED_THIS_RUN",
@@ -113,6 +98,18 @@
           "experience": "2年及以上",
           "education": "本科",
           "posted_at": "2026-11-27 17:10:10",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai/164902149.html",
+          "title": "大模型微调工程师",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "进迭时空（北京）智能科技",
+          "location": "上海",
+          "salary": "3-6万",
+          "experience": "1年及以上",
+          "education": "本科",
+          "posted_at": "2026-04-22 18:09:27",
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
@@ -140,18 +137,6 @@
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai-mhq/174319653.html",
-          "title": "大模型算法工程师 (MJ001167)",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "思特威（上海）电子科技",
-          "location": "上海·闵行区",
-          "salary": "3-6万·15薪",
-          "experience": "1-5年",
-          "education": "硕士",
-          "posted_at": "2026-11-24 19:35:52",
-          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
-        },
-        {
           "url": "https://jobs.51job.com/shanghai/172509344.html",
           "title": "豆包AI大模型评测工程师-火山方舟MaaS",
           "discovery_freshness": "OBSERVED_THIS_RUN",
@@ -164,15 +149,15 @@
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai-hkq/173529368.html",
-          "title": "大模型应用工程师",
+          "url": "https://jobs.51job.com/shanghai-mhq/174319653.html",
+          "title": "大模型算法工程师 (MJ001167)",
           "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "浙江时空智子大数据",
-          "location": "上海·虹口区",
-          "salary": "1.2-2.4万·13薪",
-          "experience": "1年及以上",
+          "company": "思特威（上海）电子科技",
+          "location": "上海·闵行区",
+          "salary": "3-6万·15薪",
+          "experience": "1-5年",
           "education": "硕士",
-          "posted_at": "2026-09-04 13:51:15",
+          "posted_at": "2026-11-24 19:35:52",
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
@@ -188,39 +173,27 @@
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai/174294100.html",
-          "title": "大模型算法研究员",
+          "url": "https://jobs.51job.com/shanghai-hkq/173529368.html",
+          "title": "大模型应用工程师",
           "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "四川携途人力资源服务有限公司重庆",
-          "location": "上海",
-          "salary": "1.2-2万",
-          "experience": "3年及以上",
+          "company": "浙江时空智子大数据",
+          "location": "上海·虹口区",
+          "salary": "1.2-2.4万·13薪",
+          "experience": "1年及以上",
           "education": "硕士",
-          "posted_at": "2026-11-22 23:25:08",
+          "posted_at": "2026-09-04 13:51:15",
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai-xhq/171401722.html",
-          "title": "大模型训练",
+          "url": "https://jobs.51job.com/shanghai-mhq/173012513.html",
+          "title": "AI算法与大模型应用工程师",
           "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "壹珈智晟（上海）科技",
-          "location": "上海·徐汇区",
-          "salary": "1.5-2.5万·13薪",
-          "experience": "3年及以上",
-          "education": "本科",
-          "posted_at": "2026-04-02 14:19:37",
-          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
-        },
-        {
-          "url": "https://jobs.51job.com/shanghai-cnq/174145534.html",
-          "title": "大模型工程师（后训练）",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "无锡云翼未来科技发展",
-          "location": "上海·长宁区",
-          "salary": "2.5-4万",
+          "company": "寰宇泛智（上海）航天科技",
+          "location": "上海·闵行区",
+          "salary": "1.3-1.6万",
           "experience": "2年及以上",
-          "education": "硕士",
-          "posted_at": "2026-11-06 11:27:49",
+          "education": "本科",
+          "posted_at": "2026-11-16 13:56:44",
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
@@ -248,19 +221,91 @@
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         },
         {
-          "url": "https://jobs.51job.com/shanghai-mhq/173012513.html",
-          "title": "AI算法与大模型应用工程师",
+          "url": "https://jobs.51job.com/shanghai-cnq/174145534.html",
+          "title": "大模型工程师（后训练）",
           "discovery_freshness": "OBSERVED_THIS_RUN",
-          "company": "寰宇泛智（上海）航天科技",
-          "location": "上海·闵行区",
-          "salary": "1.3-1.6万",
+          "company": "无锡云翼未来科技发展",
+          "location": "上海·长宁区",
+          "salary": "2.5-4万",
           "experience": "2年及以上",
+          "education": "硕士",
+          "posted_at": "2026-11-06 11:27:49",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai-xhq/173662455.html",
+          "title": "情感大模型算法工程师",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "上海德智普类脑智能科技",
+          "location": "上海·徐汇区",
+          "salary": "2-3万·15薪",
+          "experience": "3年及以上",
+          "education": "硕士",
+          "posted_at": "2026-09-15 19:07:26",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai-xhq/174287342.html",
+          "title": "大模型应用开发工程师",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "华东计算技术研究所（中国电子科技集团公司第三十二研究所）",
+          "location": "上海·徐汇区",
+          "salary": "1.8-3万",
+          "experience": "3年及以上",
           "education": "本科",
-          "posted_at": "2026-11-16 13:56:44",
+          "posted_at": "2026-11-20 16:20:21",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai/174294100.html",
+          "title": "大模型算法研究员",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "四川携途人力资源服务有限公司重庆",
+          "location": "上海",
+          "salary": "1.2-2万",
+          "experience": "3年及以上",
+          "education": "硕士",
+          "posted_at": "2026-11-22 23:25:08",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai/173371926.html",
+          "title": "大模型算法工程师",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "上海仪电鑫森科技发展",
+          "location": "上海",
+          "salary": "2.5-3万",
+          "experience": "5年及以上",
+          "education": "硕士",
+          "posted_at": "2026-08-24 10:23:40",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai-bsq/173911717.html",
+          "title": "工业大模型算法工程师",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "company": "上海德托智能工程",
+          "location": "上海·宝山区",
+          "salary": "2.5-5万·13薪",
+          "experience": "3年及以上",
+          "education": "本科",
+          "posted_at": "2026-10-14 15:56:02",
+          "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
+        },
+        {
+          "url": "https://jobs.51job.com/shanghai-xhq/171401722.html",
+          "title": "大模型训练",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "company": "壹珈智晟（上海）科技",
+          "location": "上海·徐汇区",
+          "salary": "1.5-2.5万·13薪",
+          "experience": "3年及以上",
+          "education": "本科",
+          "posted_at": "2026-04-02 14:19:37",
           "discovery_channel": "PUBLIC_PAGE_JSON_RESPONSE"
         }
       ],
-      "unique_observed": 15,
+      "unique_observed": 18,
       "coverage": "BOUNDED_DISTINCT_ROLE_LINKS"
     }
   ],
