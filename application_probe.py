@@ -201,6 +201,17 @@ def recent_form(job, prior, api):
                 and norm(prior.get("title")) == norm(job["title"])
                 and 0 <= age_seconds(prior.get("checked_at")) <= 86400)
 
+def browser_cooldown(job, prior):
+    # Do not keep spending public browser capacity on the same known access barrier.
+    # These are retry delays, NOT closure or application eligibility verdicts.
+    delays={"BLOCKED":86400,"AUTH_REQUIRED":86400,"APPLY_CONTROL_ONLY":8*3600,
+            "JD_ONLY":8*3600,"IDENTITY_UNCONFIRMED":4*3600}
+    delay=delays.get(prior.get("status"),0)
+    return bool(delay and prior.get("url")==job.get("url")
+                and norm(prior.get("title"))==norm(job.get("title"))
+                and 0<=age_seconds(prior.get("checked_at"))<delay)
+
+
 def api_get_board(kind, owner):
     from urllib.request import Request, urlopen
     from urllib.parse import quote
@@ -505,7 +516,8 @@ async def run(root, limit, workers):
     changes = root/"feed/ats/changes.json"
     fresh_keys = {j["key"] for j in json.loads(changes.read_text()).get("events", []) if j.get("kind") == "NEW" and j.get("key")} if changes.exists() else set()
     api, api_health = await api_liveness(rows)
-    browser_rows = [j for j in rows if not recent_form(j,prev.get(j["key"],{}),api.get(j["key"]))]
+    after_forms = [j for j in rows if not recent_form(j,prev.get(j["key"],{}),api.get(j["key"]))]
+    browser_rows = [j for j in after_forms if not browser_cooldown(j,prev.get(j["key"],{}))]
     selected = select(browser_rows,prev,limit,fresh_keys)
     async with async_playwright() as p:
         launch = {"headless":True}
@@ -537,7 +549,8 @@ async def run(root, limit, workers):
     target.parent.mkdir(parents=True,exist_ok=True)
     (target.parent/"api-liveness.json").write_text(json.dumps(api_report,ensure_ascii=False,indent=2)+"\n")
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
-            "api_verified":len(api),"api_health":api_health,"browser_skipped_recent_live_form":len(rows)-len(browser_rows),
+            "api_verified":len(api),"api_health":api_health,"browser_skipped_recent_live_form":len(rows)-len(after_forms),
+            "browser_deferred_recent_barrier":len(after_forms)-len(browser_rows),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
             "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
             "selected":len(selected), "incomplete":len(selected)-len(results),
@@ -678,6 +691,15 @@ class Tests(unittest.TestCase):
                           url=self.url.replace("1234","9999"))
             (markets/"SG.json").write_text(json.dumps({"jobs":[ra,eng,intern]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"ra"})
+
+    def test_browser_cooldown_never_blocks_new_or_changed_role(self):
+        job={"key":"role","url":self.url,"title":"AI Engineer"}
+        prior=dict(job,status="AUTH_REQUIRED",checked_at=now())
+        self.assertTrue(browser_cooldown(job,prior))
+        self.assertFalse(browser_cooldown(dict(job,title="Research Engineer"),prior))
+        self.assertFalse(browser_cooldown(job,dict(prior,checked_at="2020-01-01T00:00:00Z")))
+        self.assertFalse(browser_cooldown(job,dict(prior,status="LIVE_FORM")))
+        self.assertFalse(browser_cooldown(job,dict(prior,status="CLOSED_EXPLICIT")))
 
     def test_new_non_ats_roles_prioritize_before_old_checks(self):
         rows = [{"key":"old","market":"SG","title":"AI","url":self.url},
