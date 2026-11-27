@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "purpose": "Public, profile-agnostic discovery and source evidence. Chat owns applicant eligibility and private lifecycle. This catalog describes existing artifacts, not a unified or lossless cross-source event stream.",
+  "sources": [
+    {
+      "id": "freehire",
+      "mode": "event_journal",
+      "index": "feed/index.json",
+      "fast_delta": "feed/candidates.json",
+      "recovery": "feed/coldstart.json",
+      "health": "health.json",
+      "note": "Use retained sequence pages for gaps; coldstart is large; fast delta is latest run only."
+    },
+    {
+      "id": "official-ats",
+      "mode": "current_snapshot",
+      "markets": {
+        "SG": "feed/ats/markets/SG.json",
+        "CN": "feed/ats/markets/CN.json",
+        "MY": "feed/ats/markets/MY.json"
+      },
+      "health": "feed/ats/health.json",
+      "jd_index": "feed/ats/jd/index.json",
+      "note": "Changes file is not durable; retained rows from failed boards need fresh verification."
+    },
+    {
+      "id": "market-api",
+      "mode": "current_snapshot",
+      "markets": {
+        "SG": "feed/market-api/SG.json",
+        "CN": "feed/market-api/CN.json",
+        "MY": "feed/market-api/MY.json"
+      },
+      "health": "feed/market-api/health.json",
+      "note": "API proxy only, skip retained unverified rows for fresh discovery; not employer JD proof."
+    },
+    {
+      "id": "sg-research",
+      "mode": "current_snapshot",
+      "path": "feed/sg-research/current.json",
+      "note": "Partial public portal sample, not full JD proof."
+    },
+    {
+      "id": "cn-native",
+      "mode": "current_snapshot",
+      "health": "feed/cn-native/health.json",
+      "paths": [
+        "feed/cn-native/liepin-raw.json",
+        "feed/cn-native/platform-public.json",
+        "feed/cn-native/jobpro-ai.json",
+        "feed/cn-native/jobpro-agent.json",
+        "feed/cn-native/jobpro-llm.json",
+        "feed/cn-native/jobpro-nlp.json",
+        "feed/cn-native/jobpro-eval.json",
+        "feed/cn-native/jobpro-backend.json",
+        "feed/cn-native/jobpro-swe.json"
+      ],
+      "jd": "feed/cn-native/jobpro-jd.json",
+      "note": "Check health, timestamps and exact identities; raw listings may be stale and repeated."
+    },
+    {
+      "id": "application-evidence",
+      "mode": "evidence_only",
+      "api": "feed/ats/api-liveness.json",
+      "browser": "feed/ats/application-probes.json",
+      "note": "API_LISTED and APPLY_CONTROL_ONLY are not LIVE_FORM or eligibility. Require exact title/URL/ID, freshness, and current usable route for promotion."
+    }
+  ],
+  "contract": {
+    "public_only": true,
+    "private_data": "Never put applicant history, Gmail, CV, identity, pay preferences or candidate decisions here.",
+    "no_false_closures": true,
+    "source_outage": "Unknown, not empty market",
+    "dedupe": "Stable source identity/exact role URL, preserve meaningful requisition query and fragment IDs.",
+    "consumer": "Chat uses exact public evidence + private live Issue/Gmail gates; only job-resources stores applicant decisions."
+  }
+}
