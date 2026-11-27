@@ -34,7 +34,7 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
         depth="MODEL_RESEARCH_OR_EVALUATION" if research_action else "AI_SYSTEM_DEVELOPMENT"
         note("ai_depth",ai_action,grade)
         if research_action: note("ai_depth",research_action,grade)
-    elif conventional and model: depth="AI_PRODUCT_CONTEXT_ONLY";note("ai_depth",model,"TITLE")
+    elif conventional and (model or match(r"\bAI\b|人工智能",t)): depth="AI_PRODUCT_CONTEXT_ONLY";note("ai_depth",model or match(r"\bAI\b|人工智能",t),"TITLE")
     elif title_model: depth="AI_TITLE_ONLY";note("ai_depth",title_model,"TITLE")
     elif research and domain_other: depth="NON_AI_RESEARCH_SIGNAL";note("ai_depth",domain_other,grade)
     # Detect explicit minimum, not arbitrary years in company descriptions.
