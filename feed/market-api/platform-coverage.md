@@ -19,7 +19,7 @@ Native/platform-wide scans are not performed by this Action. All source hits bel
 | CN | 猎聘 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 智联 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 51job | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| CN | Employer ATS / other | 50 | 0 | API_PROXY_ONLY |
+| CN | Employer ATS / other | 53 | 0 | API_PROXY_ONLY |
 
 **Outstanding duties:** SG/MY broad-platform rotations, CN BOSS/牛客/猎聘/智联/51job rotations, SG university/PI research. Separate native-collection runs must report their own independently verified exact IDs; none is credited by this API report.
 
