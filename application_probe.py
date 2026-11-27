@@ -21,7 +21,8 @@ HOSTS = {
     "jobs.ashbyhq.com", "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
     "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
-    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai", "www.liepin.com",
+    "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "malaysia.indeed.com", "my.indeed.com",
+    "my.jobstreet.com", "my.hiredly.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     *FEISHU_HOSTS.values(),
 }
@@ -75,15 +76,18 @@ def identity(url):
     if h == "www.liepin.com":
         m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
         return (h, m[1]) if m else None
-    if h == "sg.indeed.com":
+    if h in {"sg.indeed.com", "malaysia.indeed.com", "my.indeed.com"}:
         key = parse_qs(p.query).get("jk", [""])[0]
-        return (h, key) if re.fullmatch(r"[a-f0-9]{16}", key) else None
-    if h in {"www.linkedin.com", "sg.linkedin.com"}:
+        return ("malaysia.indeed.com" if h == "my.indeed.com" else h, key) if path == "/viewjob" and re.fullmatch(r"[a-f0-9]{16}", key) else None
+    if h in {"www.linkedin.com", "sg.linkedin.com", "my.linkedin.com"}:
         m = re.search(r"/jobs/view/(?:[^/]*-)?(\d+)(?:/|$)", path)
         return ("linkedin", m[1]) if m else None
-    if h == "sg.jobstreet.com":
+    if h in {"sg.jobstreet.com", "my.jobstreet.com"}:
         m = re.search(r"/job/(\d+)(?:/|$)", path)
         return (h, m[1]) if m else None
+    if h == "my.hiredly.com":
+        m = re.fullmatch(r"/jobs/(?:[^/]+/)?[\w-]{7,}", path)
+        return (h, path) if m else None
     if h.endswith(".myworkdayjobs.com"):
         m = re.search(r"/job/[^?]+_([A-Za-z0-9-]+)(?:/|$)", path)
         return (h, m[1].lower()) if m else None
@@ -222,13 +226,13 @@ def load_jobs(root):
     if index.exists():
         for part in json.loads(index.read_text()).get("parts", []):
             rel = part.get("path", "")
-            if not re.fullmatch(r"(?:SG|CN)-[0-9]{3}\.json", rel):
+            if not re.fullmatch(r"(?:SG|CN|MY)-[0-9]{3}\.json", rel):
                 continue
             file = jd_dir/rel
             if file.exists():
                 for item in json.loads(file.read_text()).get("jobs", []):
                     descriptions[(item.get("key"), item.get("url"))] = item.get("description_text", "")
-    for market in ("SG","CN"):
+    for market in ("SG","CN","MY"):
         for p in (root/"feed/ats/markets"/(market+".json"), root/"feed/market-api"/(market+".json")):
             if not p.exists():
                 continue
@@ -308,7 +312,7 @@ def load_jobs(root):
                            "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com", "www.liepin.com"}
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "my.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "my.indeed.com", "malaysia.indeed.com", "my.hiredly.com", "www.liepin.com"}
 
 
 def select(rows, previous, limit, fresh_keys=()):
@@ -324,9 +328,11 @@ def select(rows, previous, limit, fresh_keys=()):
             return []
         sg = sorted((j for j in pool if j.get("market")=="SG"), key=priority)
         cn = sorted((j for j in pool if j.get("market")=="CN"), key=priority)
-        sg_n = min(len(sg), max(1, int(budget*.8)))
-        cn_n = min(len(cn),budget-sg_n)
-        return sg[:sg_n] + cn[:cn_n] + (sg[sg_n:]+cn[cn_n:])[:budget-sg_n-cn_n]
+        my = sorted((j for j in pool if j.get("market")=="MY"), key=priority)
+        my_n = min(len(my), int(budget*.1))
+        sg_n = min(len(sg), max(1, int((budget-my_n)*.8)))
+        cn_n = min(len(cn),budget-my_n-sg_n)
+        return sg[:sg_n] + cn[:cn_n] + my[:my_n] + (sg[sg_n:]+cn[cn_n:]+my[my_n:])[:budget-sg_n-cn_n-my_n]
     direct = [j for j in rows if urlparse(j.get("url","")).hostname not in MARKETPLACE_HOSTS]
     proxy = [j for j in rows if urlparse(j.get("url","")).hostname in MARKETPLACE_HOSTS]
     proxy_cap = min(len(proxy), max(1, int(limit*.15)))
@@ -350,20 +356,29 @@ async def run(root, limit, workers):
             launch["executable_path"] = os.environ["CHROMIUM_EXECUTABLE"]
         browser = await p.chromium.launch(**launch)
         sem = asyncio.Semaphore(workers)
-        results = await asyncio.gather(*(probe(browser,j,sem) for j in selected))
+        tasks = [asyncio.create_task(probe(browser,j,sem)) for j in selected]
+        # Keep completed evidence even if slow or blocked pages exceed the run budget.
+        done, pending = await asyncio.wait(tasks, timeout=350) if tasks else (set(), set())
+        for task in pending:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        completed = [(j, t.result()) for j,t in zip(selected,tasks)
+                     if t in done and not t.cancelled() and t.exception() is None]
+        results = [r for _,r in completed]
         await browser.close()
     current = {}
     for j in rows:
         prior = prev.get(j["key"])
         if prior and prior.get("url")==j["url"]:
             current[j["key"]] = dict(prior, fresh_this_run=False, aliases=j["aliases"])
-    for j,r in zip(selected,results):
+    for j,r in completed:
         current[j["key"]] = dict(r,fresh_this_run=True,aliases=j["aliases"])
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
             "host_counts_this_run": {host: dict(Counter(r["status"] for r in results if urlparse(r["url"]).hostname == host)) for host in sorted({urlparse(r["url"]).hostname for r in results})},
-            "new_ats_attempted":sum(j["key"] in fresh_keys for j in selected),
-            "never_checked_attempted":sum(j["key"] not in prev for j in selected),
+            "selected":len(selected), "incomplete":len(selected)-len(results),
+            "new_ats_attempted":sum(j["key"] in fresh_keys for j,_ in completed),
+            "never_checked_attempted":sum(j["key"] not in prev for j,_ in completed),
             "pending_never_checked":sum(j["key"] not in current for j in rows),
             "market_counts_this_run":dict(Counter(r["market"] for r in results)),
             "note":"LIVE_FORM = public exact-role form seen, not eligibility, sponsorship, prior-application status or submitted application. Older probes must be rechecked.",
@@ -410,6 +425,20 @@ class Tests(unittest.TestCase):
             (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
             (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
+    def test_my_source_and_budget(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            src = root/"feed/market-api"
+            src.mkdir(parents=True)
+            url = "https://my.jobstreet.com/job/95373292"
+            job = {"key":"my","market":"MY","title":"AI Engineer","url":url}
+            (src/"MY.json").write_text(json.dumps({"jobs":[job]}))
+            rows = load_jobs(root)
+            self.assertEqual([j["key"] for j in rows], ["my"])
+            self.assertEqual([j["key"] for j in select(rows,{},10)], ["my"])
+            self.assertEqual(identity(url), ("my.jobstreet.com","95373292"))
 
     def test_fixed_term_research_is_not_dropped(self):
         import tempfile
