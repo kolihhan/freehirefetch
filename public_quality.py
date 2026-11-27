@@ -14,6 +14,7 @@ from urllib.parse import urlsplit
 from application_probe import identity
 from hydrate_cn_jobpro_jd import official_url
 from candidate_snapshot import _atomic_write_text
+from role_tags import tag_role
 
 MARKETS = {"SG","CN","MY"}
 JD_MAX_AGE = timedelta(hours=24)
@@ -122,16 +123,30 @@ def build(rows,now,probes=()):
              "jd_checked_at":jd.get("jd_checked_at") if jd else None,
              "excerpt":clean_text(primary.get("excerpt"))[:600],
              "observations":observations,"application_evidence":routes}
+        # Choose one attributable text observation; never blend conflicting titles.
+        # Full/retained first-party text beats unverified API and excerpts.
+        tag_rows=[x for x in items if norm(x.get("title"))==norm(primary.get("title"))]
+        tag_source=max(tag_rows,key=lambda x:(
+            {"FIRST_PARTY_FULL":4,"FIRST_PARTY_RETAINED":3,"FIRST_PARTY_PARTIAL":2,"THIRD_PARTY_TEXT":1,"EXCERPT":0}.get(x.get("_tag_grade"),-1),
+            len(str(x.get("_tag_text") or ""))))
+        tag_text=clean_text(tag_source.get("_tag_text") or tag_source.get("excerpt"))
+        grade=tag_source.get("_tag_grade") or ("EXCERPT" if tag_text else "TITLE_ONLY")
+        job["role_tags"]=tag_role(job["title"],tag_text,grade,tag_source)
+        job["role_tags"]["source_file"]=tag_source.get("source_file")
+        job["role_tags"]["source"]=tag_source.get("source")
+        job["role_tags"]["source_checked_at"]=tag_source.get("jd_checked_at") or tag_source.get("observed_at")
+        job["role_tags"]["identity_conflict"]=conflict
         # Digest substantive evidence, not run time or mutable shard number.
-        job["content_fingerprint"]=hashlib.sha256(json.dumps({"title":job["title"],"company":job["company"],"locations":locations,"markets":markets,"conflict":conflict,"jd":((jd or {}).get("jd_ref") or {}).get("sha256") if jd and isinstance(jd.get("jd_ref"),dict) else bool(jd),"source_states":sorted({(str(x.get("source")),str(x.get("source_run_status")),str(x.get("discovery_freshness"))) for x in items}),"routes":[(p["source"],p["status"],p["fresh"]) for p in routes],"metadata":sorted({json.dumps({k:x.get(k) for k in ("salary","salary_summary","salary_components","employment_type","experience","education","posted_at","recruit_label")},ensure_ascii=False,sort_keys=True) for x in items})},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+        job["content_fingerprint"]=hashlib.sha256(json.dumps({"title":job["title"],"company":job["company"],"locations":locations,"markets":markets,"conflict":conflict,"jd":((jd or {}).get("jd_ref") or {}).get("sha256") if jd and isinstance(jd.get("jd_ref"),dict) else bool(jd),"source_states":sorted({(str(x.get("source")),str(x.get("source_run_status")),str(x.get("discovery_freshness"))) for x in items}),"routes":[(p["source"],p["status"],p["fresh"]) for p in routes],"role_tags":{k:v for k,v in job["role_tags"].items() if k!="source_checked_at"},"metadata":sorted({json.dumps({k:x.get(k) for k in ("salary","salary_summary","salary_components","employment_type","experience","education","posted_at","recruit_label")},ensure_ascii=False,sort_keys=True) for x in items})},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
         for field in ("company","locations","location_markets"):
             if not job[field]: missing[field]+=1
         jobs.append(job)
-    jobs.sort(key=lambda j:(not j["identity_conflict"],j["fresh_full_jd"],max((o.get("event_seq") or 0 for o in j["observations"]),default=0),j["id"]),reverse=True)
+    jobs.sort(key=lambda j:(not j["identity_conflict"],j["role_tags"]["ai_depth"] in {"MODEL_RESEARCH_OR_EVALUATION","AI_SYSTEM_DEVELOPMENT"},j["fresh_full_jd"],max((o.get("event_seq") or 0 for o in j["observations"]),default=0),j["id"]),reverse=True)
     valid=len(rows)-len(invalid)
+    tag_counts={field:dict(Counter(j["role_tags"][field] for j in jobs)) for field in ("role_family","ai_depth","seniority","degree","employment","text_evidence_grade")}
     return jobs,{"input_observations":len(rows),"valid_observations":valid,"invalid_observations":len(invalid),"invalid_details":invalid,"conflict_details":conflicts,
         "unique_roles":len(jobs),"duplicate_observations":valid-len(jobs),"identity_conflicts":sum(j["identity_conflict"] for j in jobs),
-        "fresh_full_jd":sum(j["fresh_full_jd"] for j in jobs),"unverified_url_roles":sum(j["identity_quality"]=="UNVERIFIED_URL" for j in jobs),"fresh_api_evidence":sum(any(p["source"]=="api" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"fresh_browser_evidence":sum(any(p["source"]=="browser" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"missing_fields":dict(missing),"source_observations":dict(sources)}
+        "fresh_full_jd":sum(j["fresh_full_jd"] for j in jobs),"unverified_url_roles":sum(j["identity_quality"]=="UNVERIFIED_URL" for j in jobs),"fresh_api_evidence":sum(any(p["source"]=="api" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"fresh_browser_evidence":sum(any(p["source"]=="browser" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"missing_fields":dict(missing),"source_observations":dict(sources),"role_tag_counts":tag_counts}
 
 def collect(root):
     rows=[]; health={}; cache={}; run_health={}; probes=[]
@@ -180,15 +195,16 @@ def collect(root):
             add(x,"official-ats",rel,market=market,observed_at=x.get("source_checked_at"),source_run_status=board_status,
                 jd_kind="full_jd" if complete else ("partial_jd" if x.get("evidence")=="full_jd" else x.get("evidence")),jd_checked_at=meta.get("checked_at"),
                 jd_ref={"path":"feed/ats/jd/"+part,"key":x.get("key"),"sha256":hashlib.sha256(description.encode()).hexdigest()} if complete else None,
-                excerpt=x.get("description_excerpt"))
+                excerpt=x.get("description_excerpt"),_tag_text=description if isinstance(description,str) else x.get("description_excerpt"),
+                _tag_grade="FIRST_PARTY_FULL" if complete else "FIRST_PARTY_RETAINED" if x.get("evidence")=="retained_jd" and description else "FIRST_PARTY_PARTIAL" if description else "EXCERPT")
         rel=f"feed/market-api/{market}.json"; d=read(rel)
         for x in d.get("jobs",[]):
             provider=str(x.get("source","")).split(":")[0]
-            add(x,"market-api",rel,market=market,source_run_status=run_health["market_api"].get(market,{}).get(provider,{}).get("status","UNKNOWN"),jd_kind="listing_only",excerpt=x.get("description_excerpt"))
+            add(x,"market-api",rel,market=market,source_run_status=run_health["market_api"].get(market,{}).get(provider,{}).get("status","UNKNOWN"),jd_kind="listing_only",excerpt=x.get("description_excerpt"),_tag_text=x.get("api_description_text") or x.get("description_excerpt"),_tag_grade="THIRD_PARTY_TEXT" if x.get("api_description_text") else "EXCERPT")
     rel="feed/sg-research/current.json"; d=read(rel)
     for group in d.get("sources",[]):
         for x in group.get("jobs",[]):
-            add(x,"sg-research",rel,market="SG",company=group.get("source"),observed_at=d.get("observed_at"),jd_kind="listing_only",excerpt=x.get("page_text_excerpt"))
+            add(x,"sg-research",rel,market="SG",company=group.get("source"),observed_at=d.get("observed_at"),jd_kind="listing_only",excerpt=x.get("page_text_excerpt"),_tag_text=x.get("page_text_excerpt"),_tag_grade="FIRST_PARTY_PARTIAL" if x.get("job_page_verified") else "EXCERPT")
     rel="feed/cn-native/liepin-raw.json"; d=read(rel)
     latest=cn_health.get("liepin",{})
     retained=(timestamp(cn_health.get("checked_at")) is not None and timestamp(d.get("generatedAt")) is not None and timestamp(cn_health["checked_at"])>timestamp(d["generatedAt"]) and latest.get("jobs")==0)
@@ -207,7 +223,7 @@ def collect(root):
     for x in d.get("jobs",[]):
         valid=x.get("full_jd_complete") is True and x.get("description_truncated") is False and bool(x.get("full_jd_text"))
         add(x,"jobpro-detail",rel,market="CN",company=x.get("company_key"),jd_kind="full_jd" if valid else "listing_only",
-            jd_checked_at=x.get("checked_at"),jd_ref={"path":rel,"job_id":x.get("job_id"),"sha256":hashlib.sha256(x["full_jd_text"].encode()).hexdigest()} if valid else None,excerpt=x.get("description_text"))
+            jd_checked_at=x.get("checked_at"),jd_ref={"path":rel,"job_id":x.get("job_id"),"sha256":hashlib.sha256(x["full_jd_text"].encode()).hexdigest()} if valid else None,excerpt=x.get("description_text"),_tag_text=x.get("full_jd_text"),_tag_grade="FIRST_PARTY_FULL" if valid else "FIRST_PARTY_PARTIAL")
     for kind,rel in (("api","feed/ats/api-liveness.json"),("browser","feed/ats/application-probes.json")):
         for item in read(rel).get("jobs",[]):
             if isinstance(item,dict): probes.append({**item,"evidence_source":kind})
