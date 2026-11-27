@@ -57,4 +57,15 @@ class RoleTagTests(unittest.TestCase):
         self.assertEqual(jobs[0]["role_tags"]["degree"],"UNKNOWN")
         self.assertEqual(audit["valid_observations"],2)
 
+    def test_duties_not_qualification_or_employer_branding(self):
+        text="Our company develops LLMs. Responsibilities: Build Android screens. Requirements: Familiarity with building RAG systems."
+        tags=tag_role("Android Engineer - AI Finance Agent",text,"FIRST_PARTY_FULL")
+        self.assertEqual(tags["ai_depth"],"AI_PRODUCT_CONTEXT_ONLY")
+        tags=tag_role("Backend Software Engineer","Responsibilities: Develop LLM agents. Requirements: Python.","FIRST_PARTY_FULL")
+        self.assertEqual(tags["role_family"],"AI_ENGINEERING")
+
+    def test_unknown_title_with_explicit_duties(self):
+        tags=tag_role("Algorithm Specialist","Responsibilities: Develop RAG systems.","FIRST_PARTY_FULL")
+        self.assertEqual(tags["role_family"],"AI_ENGINEERING")
+
 if __name__=="__main__": unittest.main()
