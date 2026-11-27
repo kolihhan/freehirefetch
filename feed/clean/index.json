@@ -1,0 +1,752 @@
+{
+  "input_observations": 1823,
+  "valid_observations": 1823,
+  "invalid_observations": 0,
+  "invalid_details": [],
+  "conflict_details": [
+    {
+      "identity": [
+        "exact",
+        "greenhouse",
+        "okx/7648794003"
+      ],
+      "titles": [
+        "Principal Engineer Agent Infrastructure and Memory Architecture",
+        "Principal Engineer, Agent Infrastructure & Memory Architecture"
+      ],
+      "sources": [
+        "market-api",
+        "official-ats"
+      ]
+    },
+    {
+      "identity": [
+        "exact",
+        "greenhouse",
+        "okx/7675050003"
+      ],
+      "titles": [
+        "Senior / Staff AI Engineer, Computer Vision",
+        "Senior /Staff AI Engineer"
+      ],
+      "sources": [
+        "market-api",
+        "official-ats"
+      ]
+    },
+    {
+      "identity": [
+        "exact",
+        "jobs.ashbyhq.com",
+        "sierra/b37a6f9e-53c7-4c47-beb5-1ab4451f3001"
+      ],
+      "titles": [
+        "Software Engineer Agent Cantonese Speaking",
+        "Software Engineer, Agent (Mandarin Speaking)"
+      ],
+      "sources": [
+        "market-api",
+        "official-ats"
+      ]
+    }
+  ],
+  "unique_roles": 1634,
+  "duplicate_observations": 189,
+  "identity_conflicts": 3,
+  "fresh_full_jd": 241,
+  "unverified_url_roles": 37,
+  "fresh_api_evidence": 173,
+  "fresh_browser_evidence": 628,
+  "missing_fields": {
+    "location_markets": 113,
+    "locations": 17
+  },
+  "source_observations": {
+    "freehire": 33,
+    "official-ats": 398,
+    "market-api": 569,
+    "sg-research": 12,
+    "liepin": 82,
+    "51job": 19,
+    "jobpro-list": 665,
+    "jobpro-detail": 45
+  },
+  "role_tag_counts": {
+    "role_family": {
+      "AI_ENGINEERING": 535,
+      "UNKNOWN": 665,
+      "AI_RESEARCH": 49,
+      "SOFTWARE_ENGINEERING": 278,
+      "RESEARCH_UNSPECIFIED": 49,
+      "NON_TECHNICAL": 50,
+      "OTHER_RESEARCH": 8
+    },
+    "ai_depth": {
+      "AI_SYSTEM_DEVELOPMENT": 290,
+      "MODEL_RESEARCH_OR_EVALUATION": 145,
+      "AI_PRODUCT_CONTEXT_ONLY": 66,
+      "UNKNOWN": 797,
+      "AI_TITLE_ONLY": 278,
+      "NOT_CORE_AI": 50,
+      "NON_AI_RESEARCH_SIGNAL": 8
+    },
+    "seniority": {
+      "SENIOR_TITLE": 447,
+      "UNKNOWN": 1063,
+      "EARLY_CAREER_TITLE": 124
+    },
+    "degree": {
+      "UNKNOWN": 1497,
+      "BACHELOR_MIN_SIGNAL": 88,
+      "MASTER_MIN_SIGNAL": 48,
+      "PHD_REQUIRED_SIGNAL": 1
+    },
+    "employment": {
+      "UNKNOWN": 961,
+      "FULL_TIME_UNSPECIFIED_TERM": 265,
+      "INTERNSHIP": 118,
+      "PERMANENT_SIGNAL": 290
+    },
+    "text_evidence_grade": {
+      "FIRST_PARTY_FULL": 267,
+      "EXCERPT": 58,
+      "THIRD_PARTY_TEXT": 514,
+      "FIRST_PARTY_RETAINED": 113,
+      "FIRST_PARTY_PARTIAL": 29,
+      "TITLE_ONLY": 653
+    }
+  },
+  "version": 1,
+  "generated_at": "2026-11-27T23:33:35.201675+00:00",
+  "file_reads": {
+    "feed/ats/health.json": "FILE_READ",
+    "feed/market-api/health.json": "FILE_READ",
+    "feed/cn-native/health.json": "FILE_READ",
+    "feed/candidates.json": "FILE_READ",
+    "feed/ats/jd/index.json": "FILE_READ",
+    "feed/ats/markets/CN.json": "FILE_READ",
+    "feed/ats/jd/CN-000.json": "FILE_READ",
+    "feed/ats/jd/CN-001.json": "FILE_READ",
+    "feed/ats/jd/CN-002.json": "FILE_READ",
+    "feed/ats/jd/CN-003.json": "FILE_READ",
+    "feed/ats/jd/CN-004.json": "FILE_READ",
+    "feed/ats/jd/CN-005.json": "FILE_READ",
+    "feed/ats/jd/CN-006.json": "FILE_READ",
+    "feed/market-api/CN.json": "FILE_READ",
+    "feed/ats/markets/MY.json": "FILE_READ",
+    "feed/ats/jd/MY-000.json": "FILE_READ",
+    "feed/ats/jd/MY-001.json": "FILE_READ",
+    "feed/ats/jd/MY-002.json": "FILE_READ",
+    "feed/ats/jd/MY-003.json": "FILE_READ",
+    "feed/ats/jd/MY-004.json": "FILE_READ",
+    "feed/ats/jd/MY-005.json": "FILE_READ",
+    "feed/market-api/MY.json": "FILE_READ",
+    "feed/ats/markets/SG.json": "FILE_READ",
+    "feed/ats/jd/SG-000.json": "FILE_READ",
+    "feed/ats/jd/SG-001.json": "FILE_READ",
+    "feed/ats/jd/SG-002.json": "FILE_READ",
+    "feed/ats/jd/SG-003.json": "FILE_READ",
+    "feed/ats/jd/SG-004.json": "FILE_READ",
+    "feed/ats/jd/SG-005.json": "FILE_READ",
+    "feed/ats/jd/SG-006.json": "FILE_READ",
+    "feed/ats/jd/SG-007.json": "FILE_READ",
+    "feed/ats/jd/SG-008.json": "FILE_READ",
+    "feed/ats/jd/SG-009.json": "FILE_READ",
+    "feed/ats/jd/SG-010.json": "FILE_READ",
+    "feed/ats/jd/SG-011.json": "FILE_READ",
+    "feed/ats/jd/SG-012.json": "FILE_READ",
+    "feed/ats/jd/SG-013.json": "FILE_READ",
+    "feed/ats/jd/SG-014.json": "FILE_READ",
+    "feed/ats/jd/SG-015.json": "FILE_READ",
+    "feed/ats/jd/SG-016.json": "FILE_READ",
+    "feed/ats/jd/SG-017.json": "FILE_READ",
+    "feed/ats/jd/SG-018.json": "FILE_READ",
+    "feed/ats/jd/SG-019.json": "FILE_READ",
+    "feed/ats/jd/SG-020.json": "FILE_READ",
+    "feed/ats/jd/SG-021.json": "FILE_READ",
+    "feed/ats/jd/SG-022.json": "FILE_READ",
+    "feed/ats/jd/SG-023.json": "FILE_READ",
+    "feed/market-api/SG.json": "FILE_READ",
+    "feed/sg-research/current.json": "FILE_READ",
+    "feed/cn-native/liepin-raw.json": "FILE_READ",
+    "feed/cn-native/platform-public.json": "FILE_READ",
+    "feed/cn-native/jobpro-ai.json": "FILE_READ",
+    "feed/cn-native/jobpro-agent.json": "FILE_READ",
+    "feed/cn-native/jobpro-llm.json": "FILE_READ",
+    "feed/cn-native/jobpro-nlp.json": "FILE_READ",
+    "feed/cn-native/jobpro-eval.json": "FILE_READ",
+    "feed/cn-native/jobpro-backend.json": "FILE_READ",
+    "feed/cn-native/jobpro-swe.json": "FILE_READ",
+    "feed/cn-native/jobpro-jd.json": "FILE_READ",
+    "feed/ats/api-liveness.json": "FILE_READ",
+    "feed/ats/application-probes.json": "FILE_READ"
+  },
+  "source_run_health": {
+    "ats": {
+      "ashby:abound": {
+        "status": "COMPLETE",
+        "rows_read": 10
+      },
+      "ashby:airwallex": {
+        "status": "COMPLETE",
+        "rows_read": 502
+      },
+      "ashby:ami": {
+        "status": "COMPLETE",
+        "rows_read": 7
+      },
+      "ashby:bjakcareer": {
+        "status": "COMPLETE",
+        "rows_read": 1581
+      },
+      "ashby:clera": {
+        "status": "COMPLETE",
+        "rows_read": 303
+      },
+      "ashby:exa": {
+        "status": "COMPLETE",
+        "rows_read": 73
+      },
+      "ashby:fireworks": {
+        "status": "COMPLETE",
+        "rows_read": 103
+      },
+      "ashby:gen-digital": {
+        "status": "COMPLETE",
+        "rows_read": 88
+      },
+      "ashby:mistral.ai": {
+        "status": "COMPLETE",
+        "rows_read": 268
+      },
+      "ashby:openai": {
+        "status": "COMPLETE",
+        "rows_read": 876
+      },
+      "ashby:sash": {
+        "status": "COMPLETE",
+        "rows_read": 8
+      },
+      "ashby:sierra": {
+        "status": "COMPLETE",
+        "rows_read": 203
+      },
+      "greenhouse:arizeai": {
+        "status": "COMPLETE",
+        "rows_read": 20
+      },
+      "greenhouse:binance": {
+        "status": "COMPLETE",
+        "rows_read": 223
+      },
+      "greenhouse:capco": {
+        "status": "COMPLETE",
+        "rows_read": 710
+      },
+      "greenhouse:heygen": {
+        "status": "COMPLETE",
+        "rows_read": 19
+      },
+      "greenhouse:neweratech": {
+        "status": "COMPLETE",
+        "rows_read": 69
+      },
+      "greenhouse:okx": {
+        "status": "COMPLETE",
+        "rows_read": 387
+      },
+      "greenhouse:simplifynext": {
+        "status": "COMPLETE",
+        "rows_read": 34
+      },
+      "greenhouse:speechify": {
+        "status": "COMPLETE",
+        "rows_read": 738
+      },
+      "greenhouse:stripe": {
+        "status": "COMPLETE",
+        "rows_read": 771
+      },
+      "greenhouse:telnyx54": {
+        "status": "COMPLETE",
+        "rows_read": 58
+      },
+      "greenhouse:temus": {
+        "status": "COMPLETE",
+        "rows_read": 47
+      },
+      "lever:patsnap": {
+        "status": "COMPLETE",
+        "rows_read": 0
+      },
+      "lever:sonarsource": {
+        "status": "COMPLETE",
+        "rows_read": 111
+      },
+      "smartrecruiters:boschgroup": {
+        "status": "COMPLETE",
+        "rows_read": 5177
+      },
+      "smartrecruiters:grab": {
+        "status": "COMPLETE",
+        "rows_read": 449
+      },
+      "smartrecruiters:ncs3": {
+        "status": "COMPLETE",
+        "rows_read": 487
+      },
+      "smartrecruiters:nielseniq": {
+        "status": "COMPLETE",
+        "rows_read": 415
+      },
+      "smartrecruiters:westerndigital": {
+        "status": "COMPLETE",
+        "rows_read": 333
+      },
+      "workday:micron": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:ntu": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:nvidia": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:pwc": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:razer": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:redhat": {
+        "status": "FAILED",
+        "rows_read": 0
+      },
+      "workday:surbanajurong": {
+        "status": "FAILED",
+        "rows_read": 0
+      }
+    },
+    "market_api": {
+      "CN": {
+        "freehire": {
+          "status": "PARTIAL",
+          "successful_pages": 56,
+          "accepted_exact_urls": 70
+        },
+        "aidevboard": {
+          "status": "COMPLETE",
+          "successful_pages": 3,
+          "accepted_exact_urls": 5
+        }
+      },
+      "MY": {
+        "freehire": {
+          "status": "PARTIAL",
+          "successful_pages": 41,
+          "accepted_exact_urls": 124
+        },
+        "aidevboard": {
+          "status": "UNAVAILABLE",
+          "successful_pages": 0,
+          "accepted_exact_urls": 0
+        }
+      },
+      "SG": {
+        "freehire": {
+          "status": "PARTIAL",
+          "successful_pages": 44,
+          "accepted_exact_urls": 346
+        },
+        "aidevboard": {
+          "status": "PARTIAL",
+          "successful_pages": 13,
+          "accepted_exact_urls": 22
+        }
+      }
+    },
+    "cn_native": {
+      "version": 1,
+      "checked_at": "2026-11-27T14:20:53.355854+00:00",
+      "source": "public native Liepin JSON + public job-pro careers",
+      "liepin": {
+        "status": "PARTIAL_COVERAGE",
+        "jobs": 0,
+        "failed_pages": 2,
+        "completed_queries": 0
+      },
+      "jobpro": {
+        "ai": {
+          "jobs": 0,
+          "failed_adapters": 1
+        },
+        "backend": {
+          "jobs": 317,
+          "failed_adapters": 16
+        },
+        "swe": {
+          "jobs": 194,
+          "failed_adapters": 16
+        },
+        "agent": {
+          "jobs": 127,
+          "failed_adapters": 0
+        },
+        "llm": {
+          "jobs": 136,
+          "failed_adapters": 0
+        },
+        "nlp": {
+          "jobs": 71,
+          "failed_adapters": 1
+        },
+        "eval": {
+          "jobs": 109,
+          "failed_adapters": 1
+        }
+      },
+      "coverage": "bounded rotating sample, NOT all China platforms; no applicant decisions"
+    }
+  },
+  "parts": [
+    {
+      "path": "feed/clean/roles-0000.json",
+      "count": 25,
+      "sha256": "52dc85c6c4193a9773d8e542e180ce5d4b37ce1ac605ab2a63a7c4e8dca4db76"
+    },
+    {
+      "path": "feed/clean/roles-0001.json",
+      "count": 25,
+      "sha256": "9985693e64a15403551122d80b2029c3ed8b29379dc4d6e41e560ac85d113c33"
+    },
+    {
+      "path": "feed/clean/roles-0002.json",
+      "count": 25,
+      "sha256": "ac71719b090f7014f0ca9e89b8ec7d73565bc0da3acf945342d28f7c55c161dd"
+    },
+    {
+      "path": "feed/clean/roles-0003.json",
+      "count": 25,
+      "sha256": "70c967aeae27b3954819ab9b61f66ffb20de7cb4c29bda4a480b2118886d6586"
+    },
+    {
+      "path": "feed/clean/roles-0004.json",
+      "count": 25,
+      "sha256": "7558c54ad6fc3aa3da71044c251fbdf307445e4e5af7f5e240b1ae532fa6b970"
+    },
+    {
+      "path": "feed/clean/roles-0005.json",
+      "count": 25,
+      "sha256": "9a2bfdf6d751105e295654a35b75f081fa4502e8be3011cdb70c509aeb6a142e"
+    },
+    {
+      "path": "feed/clean/roles-0006.json",
+      "count": 25,
+      "sha256": "4526c038466b25b30d14b052ef4ac75aaafd0a99165c3ae6137428e081917dc1"
+    },
+    {
+      "path": "feed/clean/roles-0007.json",
+      "count": 25,
+      "sha256": "c0587e29f12ec70b443d34a0b5a6f9d5cfb7ef260d787b5059abf2f6963cd6a5"
+    },
+    {
+      "path": "feed/clean/roles-0008.json",
+      "count": 25,
+      "sha256": "060dcdde8653a90b293e393e91eeb3e6025e8f26350eb3244e5d0727a6d8ec6b"
+    },
+    {
+      "path": "feed/clean/roles-0009.json",
+      "count": 25,
+      "sha256": "b582354f34acc26d5be19a4a87ce6e74cc83fa9bbe4b25ce122d9684bc9006ea"
+    },
+    {
+      "path": "feed/clean/roles-0010.json",
+      "count": 25,
+      "sha256": "15497c0b4c86665a2288eb7325bc755f612a73273f0af05745aa051075c2da2b"
+    },
+    {
+      "path": "feed/clean/roles-0011.json",
+      "count": 25,
+      "sha256": "df09fe075e55320daa41a2e2d0fb48c95d19388db466f9e3da8f2faa5c776a44"
+    },
+    {
+      "path": "feed/clean/roles-0012.json",
+      "count": 25,
+      "sha256": "3e57e17061a1e5bfb63f9a821cf4d41d91bf3548664e3d2e8c1fe61abb99019a"
+    },
+    {
+      "path": "feed/clean/roles-0013.json",
+      "count": 25,
+      "sha256": "b932410ad98ec890ea83466d99084a066718afae085950d64e496337f0acbf20"
+    },
+    {
+      "path": "feed/clean/roles-0014.json",
+      "count": 25,
+      "sha256": "99c6e291e3b10d565d841a43b0e887f562e3a5e1d1ac3eff7649d10c96aad53c"
+    },
+    {
+      "path": "feed/clean/roles-0015.json",
+      "count": 25,
+      "sha256": "226473eeebe230764aaadf4cf41677e3735070df8b097b27a059ac8fffe536d4"
+    },
+    {
+      "path": "feed/clean/roles-0016.json",
+      "count": 25,
+      "sha256": "a9159e26d2500033145a7107be65c94cf1da1ffa599ae6020e2ee1b32ced579b"
+    },
+    {
+      "path": "feed/clean/roles-0017.json",
+      "count": 25,
+      "sha256": "f09a328836983caca7f28904fe102ed45178f9ebcc47b5e702cc6df57b1385dd"
+    },
+    {
+      "path": "feed/clean/roles-0018.json",
+      "count": 25,
+      "sha256": "21e6cbd7024f9ad14b9409def58c1c86a91a1546f347f39734d0f60d1616883f"
+    },
+    {
+      "path": "feed/clean/roles-0019.json",
+      "count": 25,
+      "sha256": "a5dcb1ab7e1a20820e440ad9e5bdfff83d9e45f01196d246069a43c0c8ea2823"
+    },
+    {
+      "path": "feed/clean/roles-0020.json",
+      "count": 25,
+      "sha256": "4bda7e2de9e7e7ba5118ecc9883b9924caeaaa82092445d9a9a3b96b6ba79df1"
+    },
+    {
+      "path": "feed/clean/roles-0021.json",
+      "count": 25,
+      "sha256": "03a17bb9a12b990b60d1d520968d1515ba884eef45f0a61e3f4e55ecbc615580"
+    },
+    {
+      "path": "feed/clean/roles-0022.json",
+      "count": 25,
+      "sha256": "329b4a9673381537f6f57d40c187928effd22d6661550d36daa1aab0716a9187"
+    },
+    {
+      "path": "feed/clean/roles-0023.json",
+      "count": 25,
+      "sha256": "4ee712df8780d828ef89abde20638ad54fdcb6b494f9ee56e13e001e5df6d8e6"
+    },
+    {
+      "path": "feed/clean/roles-0024.json",
+      "count": 25,
+      "sha256": "9c2fb5240b5bcb594873be3ec495ecaf36a8af8b0ff813dd9f6140c24c688608"
+    },
+    {
+      "path": "feed/clean/roles-0025.json",
+      "count": 25,
+      "sha256": "68c4646e2fd4f73ce3f4e51b06718d6ee914a7cf4dfec4eba49de0036d9cb48e"
+    },
+    {
+      "path": "feed/clean/roles-0026.json",
+      "count": 25,
+      "sha256": "91a8560da5c80628a8c539cd53be58ae3fa84f9dc870c71888cf60cf72b9aa9c"
+    },
+    {
+      "path": "feed/clean/roles-0027.json",
+      "count": 25,
+      "sha256": "9599e52d4444ae12f5f93e797bf47fe8a6eac20f5ff5f4d3d5bae85d29b8eb95"
+    },
+    {
+      "path": "feed/clean/roles-0028.json",
+      "count": 25,
+      "sha256": "cc76d2e908516b60706da579c3ca856c737730e3d759da64b481cc6e84b6262f"
+    },
+    {
+      "path": "feed/clean/roles-0029.json",
+      "count": 25,
+      "sha256": "4b78f545dc700fbec370e0605fde9e7857be29e093a1c38222e5cf7ff13c1655"
+    },
+    {
+      "path": "feed/clean/roles-0030.json",
+      "count": 25,
+      "sha256": "5aefb993f070c828ffdaf1794504032376212474a1cf912ba64b162cc1531058"
+    },
+    {
+      "path": "feed/clean/roles-0031.json",
+      "count": 25,
+      "sha256": "528f9925498cab43a5128d37131bfa01df06d779134f28f7924689e1d1f1e486"
+    },
+    {
+      "path": "feed/clean/roles-0032.json",
+      "count": 25,
+      "sha256": "07aec803c3da0748cbb1074b36f3ad4c0685a0d6c6efe80a07e5bf9cd7b256d6"
+    },
+    {
+      "path": "feed/clean/roles-0033.json",
+      "count": 25,
+      "sha256": "d0c62f102f0013316d03dc15084a33676d30d9f33aaeff89429ad79bea17d7f3"
+    },
+    {
+      "path": "feed/clean/roles-0034.json",
+      "count": 25,
+      "sha256": "301307fad6ea7734c846d055df59fa57556aa13f13f94a0d8b6ab27ee3ec8540"
+    },
+    {
+      "path": "feed/clean/roles-0035.json",
+      "count": 25,
+      "sha256": "6f7fbaf8957559a71e5dd80e8d67499636f90d1c80ad4981b3ef9dd12f1bb5b1"
+    },
+    {
+      "path": "feed/clean/roles-0036.json",
+      "count": 25,
+      "sha256": "c2bfed59de3644bb89e0ff0a637086597cff6877b2f87843410bd71fe8491f3d"
+    },
+    {
+      "path": "feed/clean/roles-0037.json",
+      "count": 25,
+      "sha256": "c500a76505d3ddeada037c09332567efbf7efa5c0bbfce5ab2896ef0f7927867"
+    },
+    {
+      "path": "feed/clean/roles-0038.json",
+      "count": 25,
+      "sha256": "ad386f72d14b0eec511db7a1b877ba0522541a7e12e816b2aa1569dcfad6deab"
+    },
+    {
+      "path": "feed/clean/roles-0039.json",
+      "count": 25,
+      "sha256": "1300412520caf6060018d3503984a607d05b7ed4e61613ce3adb501b7aa4d6aa"
+    },
+    {
+      "path": "feed/clean/roles-0040.json",
+      "count": 25,
+      "sha256": "7bc94cab218cd8c0af4416cbbcbb9ef5db7682d8b08f519ff53f9a598538ceeb"
+    },
+    {
+      "path": "feed/clean/roles-0041.json",
+      "count": 25,
+      "sha256": "abee1ae2fe9f9e1eccbd0d99935f67eb12006494e60c684978ffe5eddc3dd67b"
+    },
+    {
+      "path": "feed/clean/roles-0042.json",
+      "count": 25,
+      "sha256": "31f60f768717731a00ac0f7a4ef53b4a530cdf6ec44b3047ee2fb76fcfb1b7d7"
+    },
+    {
+      "path": "feed/clean/roles-0043.json",
+      "count": 25,
+      "sha256": "b54fc8ef8cbebbb3e21167bbdad0a0b07300382276094abd2435d63b670dd074"
+    },
+    {
+      "path": "feed/clean/roles-0044.json",
+      "count": 25,
+      "sha256": "d33dac7ea7e33584c58ef1bf535eb919320c44fa1192748eed3196ff7057a4e4"
+    },
+    {
+      "path": "feed/clean/roles-0045.json",
+      "count": 25,
+      "sha256": "4ec641cba02bd81b6d753b4e016e8fdf460462072ad266fb2ccbc514bac9e5cb"
+    },
+    {
+      "path": "feed/clean/roles-0046.json",
+      "count": 25,
+      "sha256": "deee5033579c1f0f69ef8096bad60bf8620c41c82d255d3514f27c6a3cce46d2"
+    },
+    {
+      "path": "feed/clean/roles-0047.json",
+      "count": 25,
+      "sha256": "241479b4a29d664c5e9a8b65f34c90b28eda5d3e2d72cce7d6f9be51e359b8bd"
+    },
+    {
+      "path": "feed/clean/roles-0048.json",
+      "count": 25,
+      "sha256": "198e8089eaf66c732d7786e8ca2059af81aa0bce43982b6ff24c1dec2635d3c9"
+    },
+    {
+      "path": "feed/clean/roles-0049.json",
+      "count": 25,
+      "sha256": "39fd66ff9288892eeb37c370d23ad174d92a0d2cee4e383882fdc338408e5606"
+    },
+    {
+      "path": "feed/clean/roles-0050.json",
+      "count": 25,
+      "sha256": "9c4d7affa431da5768589c3853d31425a3d39983dedd74a58116e03e8e990f28"
+    },
+    {
+      "path": "feed/clean/roles-0051.json",
+      "count": 25,
+      "sha256": "9453c44a780d45b074ce823370608bfa21515dde813fa20d2d37fb45a4ad9e7e"
+    },
+    {
+      "path": "feed/clean/roles-0052.json",
+      "count": 25,
+      "sha256": "4023b77b212c32926c402e6e7b625a2d8858465c124646d5e52b99fdcbe0795c"
+    },
+    {
+      "path": "feed/clean/roles-0053.json",
+      "count": 25,
+      "sha256": "b5a4d1206190fae72396879bcf2663cebc518898b0f704084f9c8ad34da9aeb2"
+    },
+    {
+      "path": "feed/clean/roles-0054.json",
+      "count": 25,
+      "sha256": "c7e68583c550a388ac809354daae48eac64cafac3d1db6a17b9a3e83b91142f7"
+    },
+    {
+      "path": "feed/clean/roles-0055.json",
+      "count": 25,
+      "sha256": "605d5b5f2854819b159aaa0fc4cd66ab5cb5c1e030d919a3d3db3f4e7882dd2e"
+    },
+    {
+      "path": "feed/clean/roles-0056.json",
+      "count": 25,
+      "sha256": "4581104e2b33f3247c058d220e17d07be22e02f93d081958728402bb15895d01"
+    },
+    {
+      "path": "feed/clean/roles-0057.json",
+      "count": 25,
+      "sha256": "850a254fc11db813c77a2e6a58c7ad92ab003c0f1df16819b921b74ca30e0577"
+    },
+    {
+      "path": "feed/clean/roles-0058.json",
+      "count": 25,
+      "sha256": "77f34a06dedd3a92acc2811f209560327638616eb1590623f2821de9e63dbba5"
+    },
+    {
+      "path": "feed/clean/roles-0059.json",
+      "count": 25,
+      "sha256": "f9d9f5a92a63e47cc73848c489b8c594b63d2495d76e34caf8495f8e35230ef3"
+    },
+    {
+      "path": "feed/clean/roles-0060.json",
+      "count": 25,
+      "sha256": "14c078efcfff16355f8becb23c35fa9bbe694ce6a19f8874fe94bac94e59f1fb"
+    },
+    {
+      "path": "feed/clean/roles-0061.json",
+      "count": 25,
+      "sha256": "91d043ad14deb23bb22c3188ee180f4ae20fa6471f081544361e018909179770"
+    },
+    {
+      "path": "feed/clean/roles-0062.json",
+      "count": 25,
+      "sha256": "9b1c87ab299fdbb6955a317dffab13e081e9e0c5573ebefd974bc84052bce51b"
+    },
+    {
+      "path": "feed/clean/roles-0063.json",
+      "count": 25,
+      "sha256": "388c1c742187ee28bd254444b583a3c5e046012a03fe49c4062b5a65f9ccc84d"
+    },
+    {
+      "path": "feed/clean/roles-0064.json",
+      "count": 25,
+      "sha256": "e67ae8b1417c6fa1b023bcef2fe2165572f00e7c08e2f3a1c04532d92860b0ae"
+    },
+    {
+      "path": "feed/clean/roles-0065.json",
+      "count": 9,
+      "sha256": "21549093b2e376f29116622432eaaa8c500c822ae8c7142ec909ebbec96fb1e4"
+    }
+  ],
+  "snapshot_id": "3bb9917f1dc214a29f8c8b649aa87da92b77cb296a7f1250326e9b9b2a4a80b3",
+  "consumption": "Pin one repository commit for index and shards; dedupe on id + content_fingerprint, never use ordinal shard as a durable cursor.",
+  "projection_seconds": 2.27,
+  "scope": "latest firehose delta + available source snapshots; not a lossless journal, location signals not work authorization, JD references not live routes"
+}
