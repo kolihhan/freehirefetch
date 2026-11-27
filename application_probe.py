@@ -21,7 +21,7 @@ HOSTS = {
     "jobs.ashbyhq.com", "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
     "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
-    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
+    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     *FEISHU_HOSTS.values(),
 }
@@ -63,6 +63,9 @@ def identity(url):
         return (h, m[1]) if m else None
     if h in FEISHU_HOSTS.values():
         m = re.fullmatch(r"/[A-Za-z0-9_-]+/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
+    if h == "www.liepin.com":
+        m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
         return (h, m[1]) if m else None
     if h == "sg.indeed.com":
         key = parse_qs(p.query).get("jk", [""])[0]
@@ -241,6 +244,25 @@ def load_jobs(root):
     # CN native public sources were previously disconnected from browser probes.
     # Retain source metadata; exact employer role identity, not candidate eligibility.
     src = root/"feed/cn-native"
+    liepin = src/"liepin-raw.json"
+    if liepin.exists():
+        for j in json.loads(liepin.read_text()).get("jobs", []):
+            title = str(j.get("title") or "")
+            ident = identity(j.get("url", ""))
+            if not ident or ident[0] != "www.liepin.com" or not CORE.search(title) or HARD_TITLE.search(title) or CONTRACT.search(title):
+                continue
+            if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
+                continue
+            key = "liepin|" + ident[1]
+            url = f"https://www.liepin.com/job/{ident[1]}.shtml"
+            k = ("CN", ident)
+            if k in rows:
+                if key != rows[k]["key"] and key not in rows[k]["aliases"]:
+                    rows[k]["aliases"].append(key)
+                continue
+            rows[k] = {"key":key, "market":"CN", "title":title, "company":j.get("company",""),
+                       "url":url, "location":j.get("location",""), "job_id":ident[1],
+                       "source":"liepin-public-api", "aliases":[], "jd_evidence":"listing_only"}
     detail_file = src/"jobpro-jd.json"
     details = {}
     if detail_file.exists():
@@ -278,7 +300,7 @@ def load_jobs(root):
                            "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com"}
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com", "www.liepin.com"}
 
 
 def select(rows, previous, limit, fresh_keys=()):
