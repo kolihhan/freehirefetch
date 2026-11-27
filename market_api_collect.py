@@ -78,7 +78,7 @@ TITLE = re.compile(
     r"\b(?:AI|ML|LLM|NLP|RAG|agentic|agents?|machine learning|"
     r"applied scientist|research engineer|research assistant|"
     r"research associate|data scientist|retrieval|ranking)\b"
-    r"|人工智能|大模型|智能体|算法|机器学习|检索|研究工程师|自然语言处理|知识图谱|模型后训练", re.I)
+    r"|人工智能|大模型|智能体|算法|机器学习|检索|研究工程师|自然语言处理|知识图谱|模型后训练", re.I | re.ASCII)
 LOCATIONS = {
     "SG": re.compile(r"\bsingapore\b|新加坡", re.I),
     "MY": re.compile(r"\bmalaysia\b|kuala lumpur|petaling jaya|selangor|"
@@ -122,6 +122,8 @@ def platform_family(url):
         return "LinkedIn"
     if host.endswith(".indeed.com"):
         return "Indeed"
+    if host in ("www.liepin.com", "liepin.com"):
+        return "猎聘"
     if host == "my.hiredly.com":
         return "Hiredly"
     if host.endswith(".mycareersfuture.gov.sg"):
