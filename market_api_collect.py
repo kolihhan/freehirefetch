@@ -66,6 +66,9 @@ def canonical(url, market):
 MARKETS = {"SG": "Singapore", "MY": "Malaysia", "CN": "China"}
 QUERIES = ("AI Engineer", "LLM", "Research Engineer")
 CN_EXTRA = ("大模型", "算法工程师")
+# Target distinct language/agent role families; keep the same bounded page budget.
+SG_EXTRA = ("Agent Engineer", "Agentic AI", "NLP", "RAG", "Applied AI",
+            "Generative AI", "Applied Scientist", "Retrieval Engineer")
 TITLE = re.compile(
     r"\b(?:AI|ML|LLM|NLP|RAG|agentic|agents?|machine learning|"
     r"applied scientist|research engineer|research assistant|"
@@ -309,12 +312,14 @@ def collect(market, *, fetch=get_json, max_pages=2):
         raise ValueError("unsupported market or page budget")
     jobs = {}
     reports = {}
-    queries = QUERIES + (CN_EXTRA if market == "CN" else ())
+    queries = QUERIES + (CN_EXTRA if market == "CN" else SG_EXTRA if market == "SG" else ())
     for provider in ("freehire", "aidevboard"):
         successful_pages, errors, windows, seen_urls = 0, [], [], set()
         full_text_fallback_pages = 0
         for q in queries:
             rows_seen, truncated = 0, False
+            before_query = set(seen_urls)
+            previous_urls = set()
             for page in range(1, max_pages+1):
                 try:
                     rows, has_next, converter = request_page(provider,market,q,page,fetch)
@@ -349,6 +354,7 @@ def collect(market, *, fetch=get_json, max_pages=2):
                 truncated = True
             if not windows or windows[-1].get("q") != q:
                 windows.append({"q":q,"rows":rows_seen,"truncated":truncated})
+            windows[-1]["new_exact_urls"] = len(seen_urls - before_query)
             if errors and "HTTPError:HTTP Error 429" in errors[-1]:
                 break
         reports[provider] = {
