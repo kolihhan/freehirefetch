@@ -415,6 +415,31 @@ class Tests(unittest.TestCase):
     def setUp(self):
         self.url="https://job-boards.greenhouse.io/example/jobs/1234"
         self.id=identity(self.url)
+    def test_api_liveness_requires_exact_title_and_role(self):
+        row = {"key":"a","title":"AI Engineer","market":"SG","url":self.url}
+        listed = {"id":1234,"title":"AI Engineer","absolute_url":self.url}
+        self.assertEqual(api_match(row,[listed],"greenhouse")["status"],"API_LISTED")
+        self.assertIsNone(api_match(row,[dict(listed,title="Different role")],"greenhouse"))
+        self.assertIsNone(api_match(row,[dict(listed,id=4321,absolute_url=self.url.replace("1234","4321"))],"greenhouse"))
+
+    def test_api_does_not_replace_browser_form_evidence(self):
+        url = "https://jobs.ashbyhq.com/example/02234e0a-e1fc-4b23-b3e6-513200e4ff80"
+        row = {"key":"a","title":"AI Engineer","market":"SG","url":url}
+        item = {"title":"AI Engineer","jobUrl":url,"applyUrl":url+"/application","isListed":False}
+        match = api_match(row,[item],"ashby")
+        self.assertEqual(match["status"],"API_DIRECT_LINK")
+        self.assertEqual(match["apply_url"],url+"/application")
+        self.assertNotEqual(match["status"],"LIVE_FORM")
+        recent = {"url":url,"title":"AI Engineer","status":"LIVE_FORM","checked_at":now()}
+        self.assertTrue(recent_form(row,recent,match))
+        self.assertFalse(recent_form(row,dict(recent,status="APPLY_CONTROL_ONLY"),match))
+        self.assertFalse(recent_form(row,dict(recent,checked_at="2020-01-01T00:00:00+00:00"),match))
+
+    def test_api_board_groups_exact_supported_paths(self):
+        self.assertEqual(api_board(self.url),("greenhouse","example"))
+        self.assertIsNone(api_board("https://job-boards.greenhouse.io/example"))
+        self.assertIsNone(api_board("https://www.liepin.com/job/1982484575.shtml"))
+
     def test_classification(self):
         c=lambda body="", fields=(), controls=(), url=self.url, code=200, title=True: classify(self.id,url,code,body,title,fields,controls)
         self.assertEqual(c(fields=["email","name","resume"]),"LIVE_FORM")
