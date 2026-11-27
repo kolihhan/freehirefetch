@@ -12,6 +12,8 @@ on:
       - 'test_market_api_collect.py'
       - 'sg_research_collect.py'
       - 'test_sg_research_collect.py'
+      - 'cn_platform_collect.py'
+      - 'test_cn_platform_collect.py'
       - 'ats_boards.json'
       - '.github/workflows/ats-discovery.yml'
   pull_request:
@@ -23,6 +25,8 @@ on:
       - 'test_market_api_collect.py'
       - 'sg_research_collect.py'
       - 'test_sg_research_collect.py'
+      - 'cn_platform_collect.py'
+      - 'test_cn_platform_collect.py'
       - 'ats_boards.json'
       - '.github/workflows/ats-discovery.yml'
   schedule:
@@ -50,7 +54,7 @@ jobs:
         run: |
           mkdir -p feed/ats
           set +e
-          python -m unittest -v test_ats_discovery test_market_api_collect test_collect_devglobal_source test_sg_research_collect > /tmp/ats-tests.txt 2>&1
+          python -m unittest -v test_ats_discovery test_market_api_collect test_collect_devglobal_source test_sg_research_collect test_cn_platform_collect > /tmp/ats-tests.txt 2>&1
           code=$?
           cat /tmp/ats-tests.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -105,6 +109,7 @@ jobs:
           python -m pip install playwright==1.65.2
           python -m playwright install --with-deps chromium
           python application_probe.py --self-test
+          timeout 120s python cn_platform_collect.py || echo "::warning::CN native platform source sample incomplete"
           timeout 420s python application_probe.py --limit 150 --workers 10
       - name: Upload fresh collection and browser evidence
         if: always()
@@ -117,6 +122,7 @@ jobs:
             feed/ats/changes.json
             feed/ats/application-probes.json
             feed/ats/api-liveness.json
+            feed/cn-native/platform-public.json
             feed/market-api/health.json
             feed/sg-research/current.json
           if-no-files-found: warn
@@ -128,6 +134,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A feed/ats feed/market-api feed/devglobal
           if [ -d feed/sg-research ]; then git add -A feed/sg-research; fi
+          if [ -f feed/cn-native/platform-public.json ]; then git add feed/cn-native/platform-public.json; fi
           if git diff --cached --quiet; then
             echo "No new/changed public ATS evidence."
           else
