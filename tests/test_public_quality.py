@@ -95,5 +95,18 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(jobs[0]["identity_quality"],"UNVERIFIED_URL")
         self.assertTrue(jobs[0]["content_fingerprint"])
 
+    def test_jd_shard_relocation_does_not_change_content_fingerprint(self):
+        row=dict(source="official-ats",title="AI Engineer",url="https://jobs.ashbyhq.com/example/12345678-1234-1234-1234-123456789abc",
+                 company="Example",jd_kind="full_jd",jd_checked_at=NOW.isoformat(),
+                 jd_ref={"path":"feed/ats/jd/SG-000.json","sha256":"same"})
+        a,_=build([row],NOW)
+        b,_=build([dict(row,jd_ref={"path":"feed/ats/jd/SG-001.json","sha256":"same"})],NOW)
+        self.assertEqual(a[0]["content_fingerprint"],b[0]["content_fingerprint"])
+
+    def test_published_api_evidence_is_parseable(self):
+        path=Path(__file__).resolve().parents[1]/"feed/ats/api-liveness.json"
+        if path.exists():
+            self.assertIsInstance(json.loads(path.read_text())["jobs"],list)
+
 if __name__=="__main__":
     unittest.main()
