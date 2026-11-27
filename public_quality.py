@@ -32,6 +32,7 @@ def clean_text(value):
     if isinstance(value,list): value="; ".join(str(x) for x in value)
     parser=Text()
     parser.feed(str(value or ""))
+    parser.close()
     return " ".join(" ".join(parser.parts).split())
 
 def timestamp(value):
