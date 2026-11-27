@@ -1,113 +1,103 @@
 {
   "version": 1,
-  "run_at": "2026-11-27T12:48:17+00:00",
-  "eligible_public_urls": 690,
+  "run_at": "2026-11-27T13:08:42+00:00",
+  "eligible_public_urls": 694,
   "attempted": 150,
+  "api_verified": 171,
+  "api_health": {
+    "boards_attempted": 16,
+    "boards_deferred": 12,
+    "errors": {
+      "ashby/openai": "ValueError"
+    }
+  },
+  "browser_skipped_recent_live_form": 34,
   "counts_this_run": {
-    "APPLY_CONTROL_ONLY": 43,
-    "AUTH_REQUIRED": 57,
-    "NOT_FOUND_HTTP": 4,
-    "IDENTITY_UNCONFIRMED": 4,
-    "LIVE_FORM": 7,
-    "JD_ONLY": 18,
-    "UNKNOWN_ERROR": 1,
-    "CLOSED_EXPLICIT": 1,
-    "BLOCKED": 15
+    "APPLY_CONTROL_ONLY": 81,
+    "AUTH_REQUIRED": 26,
+    "IDENTITY_UNCONFIRMED": 3,
+    "CLOSED_EXPLICIT": 3,
+    "JD_ONLY": 22,
+    "LIVE_FORM": 1,
+    "BLOCKED": 12,
+    "NOT_FOUND_HTTP": 2
   },
   "host_counts_this_run": {
-    "accenture.wd103.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 2
-    },
-    "cadence.wd1.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
-    },
-    "campus-talent.alibaba.com": {
+    "01ai.jobs.feishu.cn": {
       "JD_ONLY": 1
     },
-    "careers.sutd.edu.sg": {
-      "AUTH_REQUIRED": 2
+    "agirobot.jobs.feishu.cn": {
+      "JD_ONLY": 1
     },
-    "cat.wd5.myworkdayjobs.com": {
+    "averis.wd3.myworkdayjobs.com": {
       "AUTH_REQUIRED": 1
     },
-    "charleskeith.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
-    },
-    "dbs.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 2
-    },
-    "dyson.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
-    },
-    "evonik.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
+    "cq6qe6bvfr6.jobs.feishu.cn": {
+      "JD_ONLY": 1
     },
     "job-boards.greenhouse.io": {
-      "LIVE_FORM": 3
+      "LIVE_FORM": 1
     },
     "jobs.ashbyhq.com": {
-      "NOT_FOUND_HTTP": 2,
-      "APPLY_CONTROL_ONLY": 22,
-      "IDENTITY_UNCONFIRMED": 1
+      "APPLY_CONTROL_ONLY": 46
     },
     "jobs.bytedance.com": {
-      "JD_ONLY": 7,
-      "UNKNOWN_ERROR": 1
-    },
-    "jobs.lever.co": {
-      "LIVE_FORM": 4
+      "JD_ONLY": 10
     },
     "jobs.smartrecruiters.com": {
-      "APPLY_CONTROL_ONLY": 20
+      "APPLY_CONTROL_ONLY": 30
     },
-    "johnsonelectric.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
-    },
-    "lseg.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 1
+    "join.qq.com": {
+      "APPLY_CONTROL_ONLY": 1
     },
     "micron.wd1.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 5
-    },
-    "my.jobstreet.com": {
-      "BLOCKED": 2
-    },
-    "nio.jobs.feishu.cn": {
-      "CLOSED_EXPLICIT": 1
-    },
-    "ntu.wd3.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 36,
-      "IDENTITY_UNCONFIRMED": 2
-    },
-    "sg.jobstreet.com": {
-      "BLOCKED": 10
-    },
-    "shell.wd3.myworkdayjobs.com": {
+      "AUTH_REQUIRED": 13,
       "IDENTITY_UNCONFIRMED": 1
     },
+    "my.jobstreet.com": {
+      "BLOCKED": 1
+    },
+    "nio.jobs.feishu.cn": {
+      "CLOSED_EXPLICIT": 3,
+      "JD_ONLY": 4
+    },
+    "ntu.wd3.myworkdayjobs.com": {
+      "IDENTITY_UNCONFIRMED": 1,
+      "AUTH_REQUIRED": 3
+    },
+    "razer.wd3.myworkdayjobs.com": {
+      "AUTH_REQUIRED": 4
+    },
+    "redhat.wd5.myworkdayjobs.com": {
+      "AUTH_REQUIRED": 3
+    },
+    "sg.jobstreet.com": {
+      "BLOCKED": 9
+    },
+    "surbanajurong.wd3.myworkdayjobs.com": {
+      "AUTH_REQUIRED": 1
+    },
     "tencent.wd1.myworkdayjobs.com": {
+      "IDENTITY_UNCONFIRMED": 1,
       "AUTH_REQUIRED": 1
     },
     "vrfi1sk8a0.jobs.feishu.cn": {
-      "JD_ONLY": 6
+      "JD_ONLY": 1
     },
     "www.liepin.com": {
       "JD_ONLY": 4
     },
     "www.linkedin.com": {
+      "APPLY_CONTROL_ONLY": 4,
       "NOT_FOUND_HTTP": 2,
-      "BLOCKED": 3,
-      "APPLY_CONTROL_ONLY": 1
-    },
-    "zoom.wd5.myworkdayjobs.com": {
-      "AUTH_REQUIRED": 2
+      "BLOCKED": 2
     }
   },
   "selected": 150,
   "incomplete": 0,
-  "new_ats_attempted": 1,
-  "never_checked_attempted": 84,
-  "pending_never_checked": 230,
+  "new_ats_attempted": 4,
+  "never_checked_attempted": 62,
+  "pending_never_checked": 172,
   "market_counts_this_run": {
     "SG": 108,
     "CN": 28,
@@ -265,7 +255,7 @@
       "company": "Sierra",
       "title": "Strategist, Agent Development (Cantonese Speaking)",
       "url": "https://jobs.ashbyhq.com/Sierra/ab15547e-5c50-48a8-a560-f56c7bdad587",
-      "checked_at": "2026-11-27T12:06:38+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "source": "aidevboard:public-api:SG",
       "location": "Singapore",
@@ -286,7 +276,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -295,9 +285,10 @@
       "company": "Airwallex",
       "title": "Lead AI Engineer",
       "url": "https://jobs.ashbyhq.com/airwallex/02234e0a-e1fc-4b23-b3e6-513200e4ff80",
-      "checked_at": "2026-11-27T12:27:38+00:00",
+      "checked_at": "2026-11-27T13:07:38+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/02234e0a-e1fc-4b23-b3e6-513200e4ff80",
       "http_status": 200,
       "title_match": true,
@@ -315,7 +306,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -324,9 +315,10 @@
       "company": "Airwallex",
       "title": "Senior Data Scientist, Analytics (Lending)",
       "url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:54+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc",
       "http_status": 200,
       "title_match": true,
@@ -344,7 +336,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -353,9 +345,10 @@
       "company": "Airwallex",
       "title": "Senior Data Engineer, Knowledge Platform",
       "url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-      "checked_at": "2026-11-27T12:27:51+00:00",
+      "checked_at": "2026-11-27T13:07:52+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
       "http_status": 200,
       "title_match": true,
@@ -373,7 +366,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -382,9 +375,10 @@
       "company": "Airwallex",
       "title": "Senior Data Scientist, Analytics (Risk & Payments)",
       "url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:54+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5",
       "http_status": 200,
       "title_match": true,
@@ -402,7 +396,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -411,9 +405,10 @@
       "company": "Airwallex",
       "title": "Senior Data Scientist, Anaytics (Risk & Compliance)",
       "url": "https://jobs.ashbyhq.com/airwallex/70f6500b-5b70-485e-88b0-9ab77d739a7e",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:55+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/70f6500b-5b70-485e-88b0-9ab77d739a7e",
       "http_status": 200,
       "title_match": true,
@@ -431,7 +426,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -440,9 +435,10 @@
       "company": "Airwallex",
       "title": "Senior Software Engineer, Machine Learning Platform",
       "url": "https://jobs.ashbyhq.com/airwallex/89fccb81-c8cc-4769-be0c-9ed078e1a03b",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:58+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/89fccb81-c8cc-4769-be0c-9ed078e1a03b",
       "http_status": 200,
       "title_match": true,
@@ -460,7 +456,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -469,9 +465,10 @@
       "company": "Airwallex",
       "title": "Engineering Lead, Full Stack, Growth Team",
       "url": "https://jobs.ashbyhq.com/airwallex/96a870c7-9a25-4e8a-8b4d-7ae5456e7475",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:38+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/96a870c7-9a25-4e8a-8b4d-7ae5456e7475",
       "http_status": 200,
       "title_match": true,
@@ -489,7 +486,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -498,9 +495,10 @@
       "company": "Airwallex",
       "title": "Senior Data Scientist, Algorithm (Lending & Onboarding)",
       "url": "https://jobs.ashbyhq.com/airwallex/9a620994-db83-4dca-b9bd-0e5c792cf2f3",
-      "checked_at": "2026-11-27T12:27:53+00:00",
+      "checked_at": "2026-11-27T13:07:52+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/9a620994-db83-4dca-b9bd-0e5c792cf2f3",
       "http_status": 200,
       "title_match": true,
@@ -518,7 +516,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -527,9 +525,10 @@
       "company": "Airwallex",
       "title": "Senior Mobile Engineer (iOS), Global Payments",
       "url": "https://jobs.ashbyhq.com/airwallex/a06a8ae0-1328-424a-ae5f-e0bfaa5dbf1a",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:57+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/a06a8ae0-1328-424a-ae5f-e0bfaa5dbf1a",
       "http_status": 200,
       "title_match": true,
@@ -547,7 +546,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -556,9 +555,10 @@
       "company": "Airwallex",
       "title": "Senior Software Engineer, Risk",
       "url": "https://jobs.ashbyhq.com/airwallex/a532b09a-bfdc-4537-8bb7-d1c35f5dc0bc",
-      "checked_at": "2026-11-27T12:27:55+00:00",
+      "checked_at": "2026-11-27T13:07:58+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/a532b09a-bfdc-4537-8bb7-d1c35f5dc0bc",
       "http_status": 200,
       "title_match": true,
@@ -576,7 +576,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -585,9 +585,10 @@
       "company": "Airwallex",
       "title": "Senior Data Scientist, Analytics (Regulatory Reporting)",
       "url": "https://jobs.ashbyhq.com/airwallex/c54f9e87-56f0-4bb1-9dce-fbf3b0b7060c",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:54+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/c54f9e87-56f0-4bb1-9dce-fbf3b0b7060c",
       "http_status": 200,
       "title_match": true,
@@ -605,7 +606,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -614,9 +615,10 @@
       "company": "Airwallex",
       "title": "Senior AI Engineer (Risk & Payments)",
       "url": "https://jobs.ashbyhq.com/airwallex/c7070452-6ec6-443c-8015-db339403634a",
-      "checked_at": "2026-11-27T12:27:50+00:00",
+      "checked_at": "2026-11-27T13:07:51+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/c7070452-6ec6-443c-8015-db339403634a",
       "http_status": 200,
       "title_match": true,
@@ -634,7 +636,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -643,9 +645,10 @@
       "company": "Airwallex",
       "title": "Software Engineer, Risk",
       "url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45",
-      "checked_at": "2026-11-27T12:27:58+00:00",
+      "checked_at": "2026-11-27T13:08:00+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45",
       "http_status": 200,
       "title_match": true,
@@ -663,7 +666,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -672,9 +675,10 @@
       "company": "Airwallex",
       "title": "Senior Software Engineer, Backend - Regulatory Reporting",
       "url": "https://jobs.ashbyhq.com/airwallex/dcd0eab6-0f75-432c-87a6-0f7fe9c4d34c",
-      "checked_at": "2026-11-27T12:27:54+00:00",
+      "checked_at": "2026-11-27T13:07:58+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/dcd0eab6-0f75-432c-87a6-0f7fe9c4d34c",
       "http_status": 200,
       "title_match": true,
@@ -692,7 +696,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -701,9 +705,10 @@
       "company": "Airwallex",
       "title": "Senior AI Engineer",
       "url": "https://jobs.ashbyhq.com/airwallex/f5c945c9-dc25-4b35-a6bd-ae2fef539727",
-      "checked_at": "2026-11-27T12:27:46+00:00",
+      "checked_at": "2026-11-27T13:07:50+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "SG - Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/airwallex/f5c945c9-dc25-4b35-a6bd-ae2fef539727",
       "http_status": 200,
       "title_match": true,
@@ -721,7 +726,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1029,7 +1034,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1038,9 +1043,10 @@
       "company": "BJAK",
       "title": "Applied AI Engineer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/08e32dad-a253-4391-9e61-c7b04a4a4343",
-      "checked_at": "2026-11-27T12:06:51+00:00",
+      "checked_at": "2026-11-27T13:07:30+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/08e32dad-a253-4391-9e61-c7b04a4a4343",
       "http_status": 200,
       "title_match": true,
@@ -1058,7 +1064,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1154,9 +1160,10 @@
       "company": "BJAK",
       "title": "Android Software Engineer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/12d6d4e5-38a1-422b-ad1a-3485b14c2ae5",
-      "checked_at": "2026-11-27T12:06:47+00:00",
+      "checked_at": "2026-11-27T13:07:28+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/12d6d4e5-38a1-422b-ad1a-3485b14c2ae5",
       "http_status": 200,
       "title_match": true,
@@ -1174,7 +1181,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1183,9 +1190,10 @@
       "company": "BJAK",
       "title": "Mobile Engineer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/19f2dfe6-8762-41ce-9ada-281d1d814b05",
-      "checked_at": "2026-11-27T12:27:40+00:00",
+      "checked_at": "2026-11-27T13:07:42+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/19f2dfe6-8762-41ce-9ada-281d1d814b05",
       "http_status": 200,
       "title_match": true,
@@ -1203,7 +1211,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1212,9 +1220,10 @@
       "company": "BJAK",
       "title": "iOS Developer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/202a9c8b-2ad0-4baa-b001-dc7b0371d87b",
-      "checked_at": "2026-11-27T12:27:38+00:00",
+      "checked_at": "2026-11-27T13:07:38+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/202a9c8b-2ad0-4baa-b001-dc7b0371d87b",
       "http_status": 200,
       "title_match": true,
@@ -1232,7 +1241,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1299,9 +1308,10 @@
       "company": "BJAK",
       "title": "Mobile Developer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/3a13117a-5ce5-45a5-8a0a-c7a60a1eb4f2",
-      "checked_at": "2026-11-27T12:27:40+00:00",
+      "checked_at": "2026-11-27T13:07:41+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/3a13117a-5ce5-45a5-8a0a-c7a60a1eb4f2",
       "http_status": 200,
       "title_match": true,
@@ -1319,7 +1329,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1328,9 +1338,10 @@
       "company": "BJAK",
       "title": "Mobile Application Developer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/41fae14b-3d6b-4ae3-b384-3d442cfc4322",
-      "checked_at": "2026-11-27T12:27:40+00:00",
+      "checked_at": "2026-11-27T13:07:41+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/41fae14b-3d6b-4ae3-b384-3d442cfc4322",
       "http_status": 200,
       "title_match": true,
@@ -1348,7 +1359,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1378,7 +1389,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1408,6 +1419,36 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "bjakcareer|ashby|4e5ef9a0-abf2-43c1-a0db-881b1e17111f",
+      "market": "MY",
+      "company": "BJAK",
+      "title": "Mobile Engineer - AI Finance Agent",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/4e5ef9a0-abf2-43c1-a0db-881b1e17111f",
+      "checked_at": "2026-11-27T13:08:17+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Malaysia",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.ashbyhq.com/bjakcareer/4e5ef9a0-abf2-43c1-a0db-881b1e17111f",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply for this Job",
+        "Apply for this Job"
+      ],
+      "apply_url_observed": "https://jobs.ashbyhq.com/bjakcareer/4e5ef9a0-abf2-43c1-a0db-881b1e17111f/application",
+      "apply_page": {
+        "status": "JD_ONLY",
+        "final_url": "https://jobs.ashbyhq.com/bjakcareer/4e5ef9a0-abf2-43c1-a0db-881b1e17111f/application",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
       "fresh_this_run": true,
       "aliases": []
     },
@@ -1417,9 +1458,10 @@
       "company": "BJAK",
       "title": "Android Developer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130",
-      "checked_at": "2026-11-27T12:06:47+00:00",
+      "checked_at": "2026-11-27T13:07:28+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130",
       "http_status": 200,
       "title_match": true,
@@ -1437,7 +1479,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1467,7 +1509,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1500,6 +1542,36 @@
       "aliases": []
     },
     {
+      "key": "bjakcareer|ashby|a2c2f411-35ea-4de1-a29a-cef4b1d64c8b",
+      "market": "MY",
+      "company": "BJAK",
+      "title": "Mobile Developer - AI Finance Agent",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/a2c2f411-35ea-4de1-a29a-cef4b1d64c8b",
+      "checked_at": "2026-11-27T13:08:17+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Malaysia",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.ashbyhq.com/bjakcareer/a2c2f411-35ea-4de1-a29a-cef4b1d64c8b",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply for this Job",
+        "Apply for this Job"
+      ],
+      "apply_url_observed": "https://jobs.ashbyhq.com/bjakcareer/a2c2f411-35ea-4de1-a29a-cef4b1d64c8b/application",
+      "apply_page": {
+        "status": "JD_ONLY",
+        "final_url": "https://jobs.ashbyhq.com/bjakcareer/a2c2f411-35ea-4de1-a29a-cef4b1d64c8b/application",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "bjakcareer|ashby|ac4d7333-a269-4ca3-be5e-57e01d1b8982",
       "market": "MY",
       "company": "BJAK",
@@ -1526,7 +1598,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1556,6 +1628,36 @@
         "apply_controls": []
       },
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "bjakcareer|ashby|cb89e7b4-f745-47f6-97f9-b57a54abfaf9",
+      "market": "MY",
+      "company": "BJAK",
+      "title": "Mobile Application Developer - AI Finance Agent",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/cb89e7b4-f745-47f6-97f9-b57a54abfaf9",
+      "checked_at": "2026-11-27T13:08:16+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Malaysia",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.ashbyhq.com/bjakcareer/cb89e7b4-f745-47f6-97f9-b57a54abfaf9",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply for this Job",
+        "Apply for this Job"
+      ],
+      "apply_url_observed": "https://jobs.ashbyhq.com/bjakcareer/cb89e7b4-f745-47f6-97f9-b57a54abfaf9/application",
+      "apply_page": {
+        "status": "JD_ONLY",
+        "final_url": "https://jobs.ashbyhq.com/bjakcareer/cb89e7b4-f745-47f6-97f9-b57a54abfaf9/application",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1593,9 +1695,10 @@
       "company": "BJAK",
       "title": "Backend Software Engineer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf",
-      "checked_at": "2026-11-27T12:06:52+00:00",
+      "checked_at": "2026-11-27T13:07:33+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf",
       "http_status": 200,
       "title_match": true,
@@ -1613,7 +1716,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1643,7 +1746,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1673,7 +1776,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -1682,9 +1785,10 @@
       "company": "BJAK",
       "title": "Full Stack Software Engineer - AI Finance Agent",
       "url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-      "checked_at": "2026-11-27T12:27:38+00:00",
+      "checked_at": "2026-11-27T13:07:38+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
       "http_status": 200,
       "title_match": true,
@@ -1702,7 +1806,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1740,9 +1844,10 @@
       "company": "BJAK",
       "title": "Applied AI Engineer",
       "url": "https://jobs.ashbyhq.com/bjakcareer/f9882272-1379-4e75-8c3f-296893a2fdbe",
-      "checked_at": "2026-11-27T12:06:49+00:00",
+      "checked_at": "2026-11-27T13:07:29+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/bjakcareer/f9882272-1379-4e75-8c3f-296893a2fdbe",
       "http_status": 200,
       "title_match": true,
@@ -1760,7 +1865,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -1985,9 +2090,10 @@
       "company": "Clera",
       "title": "Research Engineer, QC Automation",
       "url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44",
-      "checked_at": "2026-11-27T12:27:43+00:00",
+      "checked_at": "2026-11-27T13:07:43+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44",
       "http_status": 200,
       "title_match": true,
@@ -2005,7 +2111,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2014,9 +2120,10 @@
       "company": "Clera",
       "title": "Forward Deployed Research Engineer",
       "url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7",
-      "checked_at": "2026-11-27T12:27:42+00:00",
+      "checked_at": "2026-11-27T13:07:42+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7",
       "http_status": 200,
       "title_match": true,
@@ -2034,7 +2141,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2043,9 +2150,10 @@
       "company": "Clera",
       "title": "Research Engineer, Synthetic Data",
       "url": "https://jobs.ashbyhq.com/Clera/c15663b0-8b46-485e-9ee2-0c5d8a04c0b2",
-      "checked_at": "2026-11-27T12:27:43+00:00",
+      "checked_at": "2026-11-27T13:07:43+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/c15663b0-8b46-485e-9ee2-0c5d8a04c0b2",
       "http_status": 200,
       "title_match": true,
@@ -2063,7 +2171,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2072,9 +2180,10 @@
       "company": "Clera",
       "title": "Lead Research Engineer, Data Quality",
       "url": "https://jobs.ashbyhq.com/Clera/cb906336-ad3f-4b5d-9b71-8d668415af1b",
-      "checked_at": "2026-11-27T12:06:51+00:00",
+      "checked_at": "2026-11-27T13:07:33+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/cb906336-ad3f-4b5d-9b71-8d668415af1b",
       "http_status": 200,
       "title_match": true,
@@ -2092,7 +2201,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2101,9 +2210,10 @@
       "company": "Clera",
       "title": "Research Engineer, Privacy and Anonymization",
       "url": "https://jobs.ashbyhq.com/Clera/d905d8d7-569f-44a2-954f-a593d819fe33",
-      "checked_at": "2026-11-27T12:06:51+00:00",
+      "checked_at": "2026-11-27T13:07:33+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/d905d8d7-569f-44a2-954f-a593d819fe33",
       "http_status": 200,
       "title_match": true,
@@ -2121,7 +2231,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2130,9 +2240,10 @@
       "company": "Clera",
       "title": "Research Engineer, Benchmarks",
       "url": "https://jobs.ashbyhq.com/Clera/ffd92178-e138-478d-93db-25a8c631873b",
-      "checked_at": "2026-11-27T12:27:43+00:00",
+      "checked_at": "2026-11-27T13:07:43+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Clera/ffd92178-e138-478d-93db-25a8c631873b",
       "http_status": 200,
       "title_match": true,
@@ -2150,7 +2261,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2244,7 +2355,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2273,7 +2384,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2332,6 +2443,24 @@
         "apply_controls": []
       },
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-agent-architectnew-bybit-g6vhrdrg",
+      "market": "MY",
+      "company": "BYBIT",
+      "title": "AI Agent ArchitectNew",
+      "url": "https://my.jobstreet.com/job/95888816",
+      "checked_at": "2026-11-27T13:08:34+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:MY",
+      "location": "Kuala Lumpur",
+      "final_url": "https://my.jobstreet.com/job/95888816",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2408,6 +2537,24 @@
         "Apply"
       ],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-agent-engineer-oppstar-berhad-63uf2nr4",
+      "market": "MY",
+      "company": "Oppstar Berhad",
+      "title": "AI Agent Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4491916224",
+      "checked_at": "2026-11-27T13:08:34+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:MY",
+      "location": "Penang, Malaysia",
+      "final_url": "https://www.linkedin.com/",
+      "http_status": 429,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -2562,7 +2709,7 @@
         ],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2580,7 +2727,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2598,7 +2745,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2616,7 +2763,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2664,7 +2811,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2731,7 +2878,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2749,7 +2896,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2798,7 +2945,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2827,7 +2974,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2880,7 +3027,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2945,7 +3092,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2963,7 +3110,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -2992,7 +3139,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3039,7 +3186,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3075,7 +3222,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3391,7 +3538,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3463,7 +3610,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3523,7 +3670,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3559,7 +3706,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3675,6 +3822,24 @@
       "aliases": []
     },
     {
+      "key": "freehire|ai-forward-deployed-engineer-bee-network-technology-pte-ltd-rtgiegrj",
+      "market": "SG",
+      "company": "Bee Network Technology Pte. Ltd.",
+      "title": "AI Forward Deployed Engineer",
+      "url": "https://sg.jobstreet.com/job/96090147",
+      "checked_at": "2026-11-27T13:08:21+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Central Region",
+      "final_url": "https://sg.jobstreet.com/job/96090147",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "freehire|ai-infrastructure-lead-llm-inference-platform-token-factory-gateway-search-vkodf2ve",
       "market": "SG",
       "company": "Gateway Search",
@@ -3690,6 +3855,42 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-machine-learning-engineer-graduate-search-2026-start-phd-bytedance-icn2jsxd",
+      "market": "SG",
+      "company": "ByteDance",
+      "title": "AI Machine Learning Engineer Graduate (Search) - 2026 Start (PhD)",
+      "url": "https://sg.jobstreet.com/job/95043900",
+      "checked_at": "2026-11-27T13:08:21+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://sg.jobstreet.com/job/95043900",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-machine-learning-engineer-tiktok-search-tiktok-w3ntdcts",
+      "market": "SG",
+      "company": "TikTok",
+      "title": "AI Machine Learning Engineer, TikTok Search",
+      "url": "https://sg.jobstreet.com/job/91770850",
+      "checked_at": "2026-11-27T13:08:21+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://sg.jobstreet.com/job/91770850",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -3712,6 +3913,26 @@
         "I'm interested"
       ],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-ml-research-engineer-robotics-perception-sginnovate-2zlqyv5c",
+      "market": "SG",
+      "company": "SGInnovate",
+      "title": "AI/ML Research Engineer - Robotics Perception",
+      "url": "https://www.linkedin.com/jobs/view/4462910802",
+      "checked_at": "2026-11-27T13:08:23+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore, Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4462910802",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -3742,6 +3963,24 @@
         "apply_controls": []
       },
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-platform-engineer-azure-cognizant-vr4bqz3b",
+      "market": "SG",
+      "company": "Cognizant",
+      "title": "AI Platform Engineer (Azure)",
+      "url": "https://sg.jobstreet.com/job/96004062",
+      "checked_at": "2026-11-27T13:08:22+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "West Region",
+      "final_url": "https://sg.jobstreet.com/job/96004062",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -3818,7 +4057,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3854,7 +4093,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -3894,6 +4133,26 @@
         "I'm interested",
         "I'm interested"
       ],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-search-algorithm-engineer-beijing-foreign-enterprise-management-consultants-co-ltd-hmek33fh",
+      "market": "SG",
+      "company": "Beijing Foreign Enterprise Management Consultants Co.,Ltd.",
+      "title": "AI Search Algorithm Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4492289606",
+      "checked_at": "2026-11-27T13:08:22+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore, Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4492289606",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -3929,6 +4188,24 @@
         "apply_controls": []
       },
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ai-software-engineer-the-ice-base-cmx5ed4n",
+      "market": "SG",
+      "company": "The ICE Base",
+      "title": "AI Software Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4493742855",
+      "checked_at": "2026-11-27T13:08:22+00:00",
+      "status": "NOT_FOUND_HTTP",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore, Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4493742855",
+      "http_status": 404,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -3975,7 +4252,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4005,7 +4282,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4057,7 +4334,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4079,7 +4356,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4239,7 +4516,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4268,7 +4545,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4298,7 +4575,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4328,7 +4605,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4358,7 +4635,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4377,6 +4654,42 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|applied-ai-product-engineer-russell-tobin-rpkedtl2",
+      "market": "SG",
+      "company": "Russell Tobin",
+      "title": "Applied AI Product Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4478637874",
+      "checked_at": "2026-11-27T13:08:24+00:00",
+      "status": "NOT_FOUND_HTTP",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4478637874",
+      "http_status": 404,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|applied-ml-ai-engineer-nestria-ntaioeuz",
+      "market": "SG",
+      "company": "Nestria",
+      "title": "Applied ML / AI Engineer",
+      "url": "https://sg.jobstreet.com/job/93250277",
+      "checked_at": "2026-11-27T13:08:24+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://sg.jobstreet.com/job/93250277",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -4406,7 +4719,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4427,6 +4740,60 @@
         "Apply for this Job",
         "Apply for this Job"
       ],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|artificial-intelligence-engineer-ai-engineer-ust-global-vug7b2ev",
+      "market": "SG",
+      "company": "UST Global",
+      "title": "Artificial Intelligence Engineer (AI Engineer)",
+      "url": "https://sg.jobstreet.com/job/95285389",
+      "checked_at": "2026-11-27T13:08:26+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://sg.jobstreet.com/job/95285389",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|artificial-intelligence-engineer-ai-fullerton-health-u72yc6jn",
+      "market": "SG",
+      "company": "Fullerton Health",
+      "title": "Artificial Intelligence Engineer (AI)",
+      "url": "https://www.linkedin.com/jobs/view/4492119503",
+      "checked_at": "2026-11-27T13:08:29+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore, Singapore",
+      "final_url": "https://www.linkedin.com/",
+      "http_status": 429,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|assoc-snr-assoc-agentic-ai-engineer-risk-technology-risk-management-group-dbs-bank-yuia5fqb",
+      "market": "SG",
+      "company": "DBS Bank",
+      "title": "Assoc/Snr Assoc, Agentic AI Engineer, Risk Technology, Risk Management Group",
+      "url": "https://sg.jobstreet.com/job/95988387",
+      "checked_at": "2026-11-27T13:08:29+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Central Region",
+      "final_url": "https://sg.jobstreet.com/job/95988387",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -4456,7 +4823,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4485,6 +4852,26 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|azure-ai-engineer-dexian-asia-pacific-mqdv6s7n",
+      "market": "SG",
+      "company": "Dexian Asia Pacific",
+      "title": "Azure AI Engineer",
+      "url": "https://www.linkedin.com/jobs/view/4492146481",
+      "checked_at": "2026-11-27T13:08:29+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4492146481",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -4504,6 +4891,62 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|blockchain-expert-applied-ai-genai-ust-global-o27itcq7",
+      "market": "SG",
+      "company": "UST Global",
+      "title": "Blockchain Expert - Applied AI & GenAI",
+      "url": "https://sg.jobstreet.com/job/95528765",
+      "checked_at": "2026-11-27T13:08:30+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore",
+      "final_url": "https://sg.jobstreet.com/job/95528765",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|contract-ai-engineer-full-stack-developer-24-months-infineon-technologies-s3ghwno6",
+      "market": "SG",
+      "company": "Infineon Technologies",
+      "title": "Contract AI Engineer [Full Stack Developer] (24 months)",
+      "url": "https://sg.jobstreet.com/job/95923213",
+      "checked_at": "2026-11-27T13:08:30+00:00",
+      "status": "BLOCKED",
+      "source": "freehire:public-api:SG",
+      "location": "Kallang, Central Region",
+      "final_url": "https://sg.jobstreet.com/job/95923213",
+      "http_status": 403,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|control-systems-research-engineer-all-levels-liteon-singapore-l2uolrk7",
+      "market": "SG",
+      "company": "LITEON SINGAPORE",
+      "title": "Control Systems Research Engineer (All Levels)",
+      "url": "https://www.linkedin.com/jobs/view/4429841369",
+      "checked_at": "2026-11-27T13:08:31+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:SG",
+      "location": "Singapore, Singapore",
+      "final_url": "https://www.linkedin.com/jobs/view/4429841369",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -4547,7 +4990,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4565,7 +5008,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4583,7 +5026,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4630,7 +5073,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4659,7 +5102,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4706,7 +5149,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4735,6 +5178,50 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|gong-ye-shu-ju-ji-aizhi-neng-ti-chan-pin-jia-gou-shi-bci-bosch-group-kj43tx4j",
+      "market": "CN",
+      "company": "Bosch Group",
+      "title": "工业数据及AI智能体产品架构师_BCI",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000148187800--ai-bci",
+      "checked_at": "2026-11-27T13:08:03+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:CN",
+      "location": "Suzhou, Jiangsu, cn",
+      "final_url": "https://jobs.smartrecruiters.com/BoschGroup/744000148187800--ai-bci",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "freehire|ji-suan-ji-shi-jue-gong-cheng-shi-aijia-gou-bmg-bosch-group-dgx7ufws",
+      "market": "CN",
+      "company": "Bosch Group",
+      "title": "计算机视觉工程师 (AI架构)_BMG",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000147728165--ai-bmg",
+      "checked_at": "2026-11-27T13:08:14+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "freehire:public-api:CN",
+      "location": "Suzhou, Jiangsu, cn",
+      "final_url": "https://jobs.smartrecruiters.com/BoschGroup/744000147728165--ai-bmg",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -4787,7 +5274,7 @@
         ],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4809,7 +5296,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4839,7 +5326,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -4868,7 +5355,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5027,6 +5514,35 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "freehire|machine-learning-engineer-averis-yangmcim",
+      "market": "MY",
+      "company": "averis",
+      "title": "Machine Learning Engineer",
+      "url": "https://averis.wd3.myworkdayjobs.com/Averis/job/Kuala-Lumpur/Machine-Learning-Engineer_R198668-1",
+      "checked_at": "2026-11-27T13:08:20+00:00",
+      "status": "AUTH_REQUIRED",
+      "source": "freehire:public-api:MY",
+      "location": "Kuala Lumpur",
+      "final_url": "https://averis.wd3.myworkdayjobs.com/Averis/job/Kuala-Lumpur/Machine-Learning-Engineer_R198668-1",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
+      "apply_url_observed": "https://averis.wd3.myworkdayjobs.com/Averis/job/Kuala-Lumpur/Machine-Learning-Engineer_R198668-1/apply",
+      "apply_page": {
+        "status": "AUTH_REQUIRED",
+        "final_url": "https://averis.wd3.myworkdayjobs.com/Averis/job/Kuala-Lumpur/Machine-Learning-Engineer_R198668-1/apply",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
       "fresh_this_run": true,
       "aliases": []
     },
@@ -5056,7 +5572,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5085,7 +5601,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5114,7 +5630,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5143,7 +5659,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5173,7 +5689,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5203,7 +5719,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5232,7 +5748,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5261,7 +5777,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5290,7 +5806,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5319,7 +5835,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5348,7 +5864,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5377,7 +5893,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5397,7 +5913,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5426,7 +5942,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5455,7 +5971,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5484,7 +6000,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5513,7 +6029,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5542,7 +6058,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5571,7 +6087,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5600,7 +6116,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5629,7 +6145,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5658,7 +6174,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5687,7 +6203,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5716,7 +6232,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5745,7 +6261,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5774,7 +6290,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5803,7 +6319,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5832,7 +6348,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5861,7 +6377,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5890,7 +6406,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5960,7 +6476,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -5990,7 +6506,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6019,7 +6535,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6048,7 +6564,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6068,7 +6584,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6133,7 +6649,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6169,7 +6685,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6187,7 +6703,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6211,7 +6727,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6245,7 +6761,7 @@
         ],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6274,7 +6790,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6370,7 +6886,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6399,7 +6915,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6428,7 +6944,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6457,7 +6973,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6491,7 +7007,7 @@
         ],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6513,7 +7029,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6543,7 +7059,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6592,7 +7108,7 @@
       "company": "Tencent",
       "title": "Tencent Cloud – AI & LLM Solution Architect",
       "url": "https://tencent.wd1.myworkdayjobs.com/OA_Huoshui_Platform/job/United-Kingdom-London/Tencent-Cloud---AI---LLM-Solution-Architect_R108081",
-      "checked_at": "2026-11-27T12:06:40+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "IDENTITY_UNCONFIRMED",
       "source": "freehire:public-api:SG",
       "location": "United Kingdom-London",
@@ -6603,7 +7119,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -6612,7 +7128,7 @@
       "company": "Tencent",
       "title": "Tencent Cloud – AI & LLM Solution Architecture Leader",
       "url": "https://tencent.wd1.myworkdayjobs.com/Tencent_Careers/job/Singapore-CapitaSky/Tencent-Cloud---AI---LLM-Solution-Architecture-Leader_R108088-1",
-      "checked_at": "2026-11-27T12:06:40+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "AUTH_REQUIRED",
       "source": "freehire:public-api:SG",
       "location": "Singapore-CapitaSky",
@@ -6632,7 +7148,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -6680,10 +7196,70 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": [
         "freehire|machine-learning-engineer-moneylion-gen-digital-inc-fz6fgzwq"
       ]
+    },
+    {
+      "key": "gen-digital|ashby|66ad3973-3d0d-467d-a5ed-35d867457b11",
+      "market": "MY",
+      "company": "Gen Digital / MoneyLion",
+      "title": "MLOps Engineer - MoneyLion",
+      "url": "https://jobs.ashbyhq.com/gen-digital/66ad3973-3d0d-467d-a5ed-35d867457b11",
+      "checked_at": "2026-11-27T13:08:14+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "MYS - Kuala Lumpur",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.ashbyhq.com/gen-digital/66ad3973-3d0d-467d-a5ed-35d867457b11",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply for this Job",
+        "Apply for this Job"
+      ],
+      "apply_url_observed": "https://jobs.ashbyhq.com/gen-digital/66ad3973-3d0d-467d-a5ed-35d867457b11/application",
+      "apply_page": {
+        "status": "JD_ONLY",
+        "final_url": "https://jobs.ashbyhq.com/gen-digital/66ad3973-3d0d-467d-a5ed-35d867457b11/application",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "gen-digital|ashby|a16b51c8-05c2-46f6-920a-93326ce839a7",
+      "market": "MY",
+      "company": "Gen Digital / MoneyLion",
+      "title": "Senior Data Scientist",
+      "url": "https://jobs.ashbyhq.com/gen-digital/a16b51c8-05c2-46f6-920a-93326ce839a7",
+      "checked_at": "2026-11-27T13:08:18+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "MYS - Kuala Lumpur",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.ashbyhq.com/gen-digital/a16b51c8-05c2-46f6-920a-93326ce839a7",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply for this Job",
+        "Apply for this Job"
+      ],
+      "apply_url_observed": "https://jobs.ashbyhq.com/gen-digital/a16b51c8-05c2-46f6-920a-93326ce839a7/application",
+      "apply_page": {
+        "status": "JD_ONLY",
+        "final_url": "https://jobs.ashbyhq.com/gen-digital/a16b51c8-05c2-46f6-920a-93326ce839a7/application",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
+      "fresh_this_run": true,
+      "aliases": []
     },
     {
       "key": "gen-digital|ashby|c35bae67-de6c-45b7-b116-4c30a8c6ac73",
@@ -6712,7 +7288,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": [
         "freehire|ai-applied-scientist-gen-digital-z4mryrrf"
       ]
@@ -6744,6 +7320,28 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "grab|smartrecruiters|744000141078449",
+      "market": "SG",
+      "company": "Grab",
+      "title": "Lead AI Analytics Engineer, Trust & Safety",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000141078449",
+      "checked_at": "2026-11-27T13:07:20+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/Grab/744000141078449",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -6766,7 +7364,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6788,7 +7386,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6810,7 +7408,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6832,6 +7430,28 @@
         "I'm interested",
         "I'm interested"
       ],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "grab|smartrecruiters|744000156930279",
+      "market": "MY",
+      "company": "Grab",
+      "title": "Senior Data Scientist (Analytics)",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000156930279",
+      "checked_at": "2026-11-27T13:08:21+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Petaling Jaya, my",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/Grab/744000156930279",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -6841,9 +7461,10 @@
       "company": "Grab",
       "title": "Senior Machine Learning Engineer - Trust Platform",
       "url": "https://jobs.smartrecruiters.com/Grab/744000156939949",
-      "checked_at": "2026-11-27T12:06:37+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000156939949",
       "http_status": 200,
       "title_match": true,
@@ -6853,7 +7474,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -6875,7 +7496,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -6897,6 +7518,28 @@
         "I'm interested",
         "I'm interested"
       ],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "grab|smartrecruiters|744000159601623",
+      "market": "MY",
+      "company": "Grab",
+      "title": "People Research Scientist, People Analytics",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000159601623",
+      "checked_at": "2026-11-27T13:08:20+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Petaling Jaya, my",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/Grab/744000159601623",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -6906,9 +7549,10 @@
       "company": "Grab",
       "title": "Senior Machine Learning Engineer (Fulfilment)",
       "url": "https://jobs.smartrecruiters.com/Grab/744000160902078",
-      "checked_at": "2026-11-27T12:06:37+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000160902078",
       "http_status": 200,
       "title_match": true,
@@ -6918,7 +7562,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -6927,9 +7571,10 @@
       "company": "Grab",
       "title": "Lead Data Scientist, People Analytics",
       "url": "https://jobs.smartrecruiters.com/Grab/744000161019099",
-      "checked_at": "2026-11-27T12:27:39+00:00",
+      "checked_at": "2026-11-27T13:07:41+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000161019099",
       "http_status": 200,
       "title_match": true,
@@ -6939,7 +7584,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -6961,6 +7606,28 @@
         "I'm interested",
         "I'm interested"
       ],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "grab|smartrecruiters|744000161020474",
+      "market": "MY",
+      "company": "Grab",
+      "title": "Senior Data Scientist (Trust & Fraud)",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000161020474",
+      "checked_at": "2026-11-27T13:08:21+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Petaling Jaya, my",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/Grab/744000161020474",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
       "fresh_this_run": true,
       "aliases": []
     },
@@ -6970,9 +7637,10 @@
       "company": "Grab",
       "title": "Data Scientist, Ads and Demand Optimization (Contract)",
       "url": "https://jobs.smartrecruiters.com/Grab/744000161228180",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:37+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000161228180",
       "http_status": 200,
       "title_match": true,
@@ -6982,8 +7650,32 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
+    },
+    {
+      "key": "grab|smartrecruiters|744000162227339",
+      "market": "MY",
+      "company": "Grab",
+      "title": "Senior Machine Learning Engineer (GrabMart)",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000162227339",
+      "checked_at": "2026-11-27T13:08:19+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Petaling Jaya, my",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/Grab/744000162227339",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
+      "fresh_this_run": true,
+      "aliases": [
+        "freehire|senior-machine-learning-engineer-grabmart-grab-gyhs3om6"
+      ]
     },
     {
       "key": "grab|smartrecruiters|744000162429629",
@@ -7004,7 +7696,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7026,7 +7718,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7035,9 +7727,10 @@
       "company": "Grab",
       "title": "Data Scientist (Analytics), Financial Services - Payments",
       "url": "https://jobs.smartrecruiters.com/Grab/744000162688899",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:37+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000162688899",
       "http_status": 200,
       "title_match": true,
@@ -7047,7 +7740,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -7056,9 +7749,10 @@
       "company": "Grab",
       "title": "Data Scientist (Analytics), Financial Services - Lending",
       "url": "https://jobs.smartrecruiters.com/Grab/744000162688904",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:36+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.smartrecruiters.com/Grab/744000162688904",
       "http_status": 200,
       "title_match": true,
@@ -7068,7 +7762,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -7097,6 +7791,28 @@
       ]
     },
     {
+      "key": "jobpro|agibot|7657507612519483702",
+      "market": "CN",
+      "company": "agibot",
+      "title": "语音大模型后端工程师",
+      "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7657507612519483702/detail",
+      "checked_at": "2026-11-27T13:08:14+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "上海",
+      "recruit_label": "全职 / 社招",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7657507612519483702/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|alibaba|199907720043",
       "market": "CN",
       "company": "alibaba",
@@ -7115,7 +7831,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7207,6 +7923,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|baichuan|7516826526512679180",
+      "market": "CN",
+      "company": "baichuan",
+      "title": "算法工程师-Posting Training + Agent",
+      "url": "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7516826526512679180/detail",
+      "checked_at": "2026-11-27T13:08:13+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7516826526512679180/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|baichuan|7532028189323118875",
       "market": "CN",
       "company": "baichuan",
@@ -7273,6 +8011,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|bytedance|7451896642992965896",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "算法工程师-大模型数据",
+      "url": "https://jobs.bytedance.com/experienced/position/7451896642992965896/detail",
+      "checked_at": "2026-11-27T13:08:13+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7451896642992965896/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|bytedance|7470448201491237138",
       "market": "CN",
       "company": "bytedance",
@@ -7291,7 +8051,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7383,6 +8143,72 @@
       "aliases": []
     },
     {
+      "key": "jobpro|bytedance|7579103047949158709",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "大模型训练系统工程师-Data AML",
+      "url": "https://jobs.bytedance.com/experienced/position/7579103047949158709/detail",
+      "checked_at": "2026-11-27T13:08:03+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "杭州",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7579103047949158709/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|bytedance|7579103608538368309",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "大模型训练系统工程师-火山方舟",
+      "url": "https://jobs.bytedance.com/experienced/position/7579103608538368309/detail",
+      "checked_at": "2026-11-27T13:08:03+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "上海",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7579103608538368309/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|bytedance|7586588704963234053",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "算法工程师-大模型数据",
+      "url": "https://jobs.bytedance.com/experienced/position/7586588704963234053/detail",
+      "checked_at": "2026-11-27T13:08:13+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "上海",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7586588704963234053/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|bytedance|7586939878525929781",
       "market": "CN",
       "company": "bytedance",
@@ -7467,7 +8293,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7489,7 +8315,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7529,7 +8355,7 @@
       "jd_evidence": "listing_only",
       "jd_checked_at": "",
       "error": "TimeoutError",
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7574,6 +8400,50 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|bytedance|7628896431759231285",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "抖音多业务场景的大模型训练与应用-抖音AI",
+      "url": "https://jobs.bytedance.com/campus/position/7628896431759231285/detail",
+      "checked_at": "2026-11-27T13:08:04+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "杭州",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/campus/position/7628896431759231285/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|bytedance|7628896904629324037",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "抖音多业务场景的大模型训练与应用-抖音AI",
+      "url": "https://jobs.bytedance.com/campus/position/7628896904629324037/detail",
+      "checked_at": "2026-11-27T13:08:05+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/campus/position/7628896904629324037/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -7709,6 +8579,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|bytedance|7636751351460186421",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "模型训练-大模型安全群组",
+      "url": "https://jobs.bytedance.com/experienced/position/7636751351460186421/detail",
+      "checked_at": "2026-11-27T13:08:10+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "成都",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7636751351460186421/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|bytedance|7651517511770818869",
       "market": "CN",
       "company": "bytedance",
@@ -7771,7 +8663,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7819,6 +8711,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|bytedance|7668349794238679349",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "广告创意Agent后端开发工程师 - 国际化广告创意与品牌",
+      "url": "https://jobs.bytedance.com/campus/position/7668349794238679349/detail",
+      "checked_at": "2026-11-27T13:08:04+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "上海 / 北京 / 杭州",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/campus/position/7668349794238679349/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|bytedance|7668351902195009845",
       "market": "CN",
       "company": "bytedance",
@@ -7841,6 +8755,50 @@
       "aliases": []
     },
     {
+      "key": "jobpro|bytedance|7683442468374022405",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "机器人BSP驱动软件工程师 - Seed大模型人才校招",
+      "url": "https://jobs.bytedance.com/campus/position/7683442468374022405/detail",
+      "checked_at": "2026-11-27T13:08:05+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/campus/position/7683442468374022405/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|bytedance|7683856769831700789",
+      "market": "CN",
+      "company": "bytedance",
+      "title": "模型训练-大模型安全群组",
+      "url": "https://jobs.bytedance.com/experienced/position/7683856769831700789/detail",
+      "checked_at": "2026-11-27T13:08:12+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "成都",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://jobs.bytedance.com/experienced/position/7683856769831700789/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|bytedance|7688601498905217285",
       "market": "CN",
       "company": "bytedance",
@@ -7859,7 +8817,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7881,7 +8839,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -7903,7 +8861,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8083,6 +9041,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|minimax|7485710014515939595",
+      "market": "CN",
+      "company": "minimax",
+      "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测",
+      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
+      "checked_at": "2026-11-27T13:08:02+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京 / 上海",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|minimax|7494586225161046282",
       "market": "CN",
       "company": "minimax",
@@ -8233,7 +9213,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8431,7 +9411,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8475,7 +9455,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8497,7 +9477,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8541,7 +9521,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8585,7 +9565,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8677,6 +9657,50 @@
       "aliases": []
     },
     {
+      "key": "jobpro|nio|7611360959575968019",
+      "market": "CN",
+      "company": "nio",
+      "title": "算法工程师-大模型数据方向",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7611360959575968019/detail",
+      "checked_at": "2026-11-27T13:08:13+00:00",
+      "status": "CLOSED_EXPLICIT",
+      "source": "jobpro-public-employer",
+      "location": "上海",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7611360959575968019/detail",
+      "http_status": 200,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7641183648330762537",
+      "market": "CN",
+      "company": "nio",
+      "title": "大语言模型后训练/Agentic算法工程师",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7641183648330762537/detail",
+      "checked_at": "2026-11-27T13:08:03+00:00",
+      "status": "CLOSED_EXPLICIT",
+      "source": "jobpro-public-employer",
+      "location": "上海 / 北京",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7641183648330762537/detail",
+      "http_status": 200,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "jobpro|nio|7652565813685438771",
       "market": "CN",
       "company": "nio",
@@ -8695,7 +9719,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -8718,6 +9742,94 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7673027003827144986",
+      "market": "CN",
+      "company": "nio",
+      "title": "校招-Agentic AI安全应用工程师（Cyber Security方向）",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7673027003827144986/detail",
+      "checked_at": "2026-11-27T13:08:06+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "上海",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7673027003827144986/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7673028737668090153",
+      "market": "CN",
+      "company": "nio",
+      "title": "校招-Agent应用开发工程师（用户移动）",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7673028737668090153/detail",
+      "checked_at": "2026-11-27T13:08:06+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "合肥 / 武汉",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7673028737668090153/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7673028746206677267",
+      "market": "CN",
+      "company": "nio",
+      "title": "校招-Agent应用开发工程师（社区）",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7673028746206677267/detail",
+      "checked_at": "2026-11-27T13:08:09+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "合肥 / 武汉 / 上海 / 北京",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7673028746206677267/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7673028746206972179",
+      "market": "CN",
+      "company": "nio",
+      "title": "校招-Agent应用开发工程师（资源服务）",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7673028746206972179/detail",
+      "checked_at": "2026-11-27T13:08:10+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "合肥 / 武汉 / 上海 / 北京",
+      "recruit_label": "正式",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7673028746206972179/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -8784,6 +9896,28 @@
       "visible_field_types": [],
       "apply_controls": [],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|nio|7680871162125240602",
+      "market": "CN",
+      "company": "nio",
+      "title": "大模型训练框架工程师",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7680871162125240602/detail",
+      "checked_at": "2026-11-27T13:08:02+00:00",
+      "status": "CLOSED_EXPLICIT",
+      "source": "jobpro-public-employer",
+      "location": "深圳 / 合肥 / 上海",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://nio.jobs.feishu.cn/campus/position/7680871162125240602/detail",
+      "http_status": 200,
+      "title_match": false,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -8878,6 +10012,30 @@
         "投递简历"
       ],
       "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "jobpro|tencent|1309860403001884672",
+      "market": "CN",
+      "company": "tencent",
+      "title": "腾讯云-MaaS大模型推理成本优化与智能路由关键技术研究",
+      "url": "https://join.qq.com/post_detail.html?postid=1309860403001884672",
+      "checked_at": "2026-11-27T13:08:14+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "深圳总部 北京 上海 杭州",
+      "recruit_label": "应届毕业生 青云计划",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://join.qq.com/post_detail.html?postid=1309860403001884672",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "投递简历"
+      ],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -8991,6 +10149,28 @@
       "aliases": []
     },
     {
+      "key": "jobpro|zerooneai|7704245572266117418",
+      "market": "CN",
+      "company": "zerooneai",
+      "title": "算法工程师（大模型 Agent 方向）- 校园招聘",
+      "url": "https://01ai.jobs.feishu.cn/index/position/7704245572266117418/detail",
+      "checked_at": "2026-11-27T13:08:13+00:00",
+      "status": "JD_ONLY",
+      "source": "jobpro-public-employer",
+      "location": "北京 / 杭州",
+      "recruit_label": "全职",
+      "batch_name": "",
+      "jd_evidence": "listing_only",
+      "jd_checked_at": "",
+      "final_url": "https://01ai.jobs.feishu.cn/index/position/7704245572266117418/detail",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
       "key": "liepin|1982206799",
       "market": "CN",
       "company": "patsnap",
@@ -9002,6 +10182,25 @@
       "location": "上海-徐汇区",
       "jd_evidence": "listing_only",
       "final_url": "https://www.liepin.com/job/1982206799.shtml",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "liepin|1982718315",
+      "market": "CN",
+      "company": "得物",
+      "title": "Agent开发-二本科技",
+      "url": "https://www.liepin.com/job/1982718315.shtml",
+      "checked_at": "2026-11-27T13:08:32+00:00",
+      "status": "JD_ONLY",
+      "source": "liepin-public-api",
+      "location": "上海-杨浦区",
+      "jd_evidence": "listing_only",
+      "final_url": "https://www.liepin.com/job/1982718315.shtml",
       "http_status": 200,
       "title_match": true,
       "visible_field_types": [],
@@ -9044,7 +10243,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9059,6 +10258,63 @@
       "location": "上海-浦东新区",
       "jd_evidence": "listing_only",
       "final_url": "https://www.liepin.com/job/1985459087.shtml",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "liepin|1986292989",
+      "market": "CN",
+      "company": "商飞智能",
+      "title": "Agent开发工程师",
+      "url": "https://www.liepin.com/job/1986292989.shtml",
+      "checked_at": "2026-11-27T13:08:32+00:00",
+      "status": "JD_ONLY",
+      "source": "liepin-public-api",
+      "location": "上海-浦东新区",
+      "jd_evidence": "listing_only",
+      "final_url": "https://www.liepin.com/job/1986292989.shtml",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "liepin|1986613565",
+      "market": "CN",
+      "company": "惠每移健(北京)科技有限公司",
+      "title": "AI Agent",
+      "url": "https://www.liepin.com/job/1986613565.shtml",
+      "checked_at": "2026-11-27T13:08:34+00:00",
+      "status": "JD_ONLY",
+      "source": "liepin-public-api",
+      "location": "上海-徐汇区",
+      "jd_evidence": "listing_only",
+      "final_url": "https://www.liepin.com/job/1986613565.shtml",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "liepin|1986726133",
+      "market": "CN",
+      "company": "中之杰科技",
+      "title": "Agent开发工程师",
+      "url": "https://www.liepin.com/job/1986726133.shtml",
+      "checked_at": "2026-11-27T13:08:32+00:00",
+      "status": "JD_ONLY",
+      "source": "liepin-public-api",
+      "location": "上海-浦东新区",
+      "jd_evidence": "listing_only",
+      "final_url": "https://www.liepin.com/job/1986726133.shtml",
       "http_status": 200,
       "title_match": true,
       "visible_field_types": [],
@@ -9082,7 +10338,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9129,7 +10385,7 @@
       "company": "Micron",
       "title": "AI Engineer, SMAI",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Engineer--SMAI_JR111138",
-      "checked_at": "2026-11-27T12:06:46+00:00",
+      "checked_at": "2026-11-27T13:07:27+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Engineer--SMAI_JR111138",
@@ -9148,7 +10404,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|ai-engineer-smai-micron-technology-syclz5d4"
       ]
@@ -9159,7 +10415,7 @@
       "company": "Micron",
       "title": "AI Reimagination Engineer",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112145",
-      "checked_at": "2026-11-27T12:06:46+00:00",
+      "checked_at": "2026-11-27T13:07:28+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112145",
@@ -9178,7 +10434,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9187,7 +10443,7 @@
       "company": "Micron",
       "title": "AI Reimagination Engineer",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112149",
-      "checked_at": "2026-11-27T12:06:46+00:00",
+      "checked_at": "2026-11-27T13:07:28+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112149",
@@ -9206,7 +10462,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9215,7 +10471,7 @@
       "company": "Micron",
       "title": "AI Reimagination Engineer",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112154",
-      "checked_at": "2026-11-27T12:06:46+00:00",
+      "checked_at": "2026-11-27T13:07:28+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/AI-Reimagination-Engineer_JR112154",
@@ -9234,7 +10490,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9243,7 +10499,7 @@
       "company": "Micron",
       "title": "DATA SCIENTIST, SMAI",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR109738",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:37+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR109738",
@@ -9262,7 +10518,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9271,7 +10527,7 @@
       "company": "Micron",
       "title": "DATA SCIENTIST",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR110548",
-      "checked_at": "2026-11-27T12:06:53+00:00",
+      "checked_at": "2026-11-27T13:07:34+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR110548",
@@ -9290,7 +10546,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9299,7 +10555,7 @@
       "company": "Micron",
       "title": "DATA SCIENTIST",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR110960",
-      "checked_at": "2026-11-27T12:06:54+00:00",
+      "checked_at": "2026-11-27T13:07:35+00:00",
       "status": "IDENTITY_UNCONFIRMED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR110960",
@@ -9307,7 +10563,7 @@
       "title_match": false,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9316,7 +10572,7 @@
       "company": "Micron",
       "title": "DATA SCIENTIST",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR115642",
-      "checked_at": "2026-11-27T12:06:54+00:00",
+      "checked_at": "2026-11-27T13:07:36+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/DATA-SCIENTIST_JR115642",
@@ -9335,7 +10591,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9344,7 +10600,7 @@
       "company": "Micron",
       "title": "Data Scientist, SMAI (FE Planning)",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Data-Scientist--SMAI--FE-Planning-_JR114960",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:38+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Data-Scientist--SMAI--FE-Planning-_JR114960",
@@ -9363,7 +10619,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9372,7 +10628,7 @@
       "company": "Micron",
       "title": "Data Scientist",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Data-Scientist_JR111151",
-      "checked_at": "2026-11-27T12:27:37+00:00",
+      "checked_at": "2026-11-27T13:07:36+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Data-Scientist_JR111151",
@@ -9391,7 +10647,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9400,7 +10656,7 @@
       "company": "Micron",
       "title": "SR AI Engineer , SMAI",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Full-Stack-AI-Engineer--IPAI--SMAI_JR106129",
-      "checked_at": "2026-11-27T12:06:38+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Full-Stack-AI-Engineer--IPAI--SMAI_JR106129",
@@ -9419,7 +10675,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9428,7 +10684,7 @@
       "company": "Micron",
       "title": "SMAI Senior Data Scientist",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/SMAI-Senior-Data-Scientist_JR112607",
-      "checked_at": "2026-11-27T12:06:38+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/SMAI-Senior-Data-Scientist_JR112607",
@@ -9447,7 +10703,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9475,7 +10731,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9503,7 +10759,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9531,7 +10787,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9540,7 +10796,7 @@
       "company": "Micron",
       "title": "Senior Data Scientist, Global Operations Intelligence, SMAI",
       "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Staff-Data-Scientist--Global-Operations-Intelligence--SMAI_JR105229",
-      "checked_at": "2026-11-27T12:06:36+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Fab 10A, Singapore",
       "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/Staff-Data-Scientist--Global-Operations-Intelligence--SMAI_JR105229",
@@ -9559,7 +10815,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9587,7 +10843,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9615,6 +10871,34 @@
         "visible_field_types": [],
         "apply_controls": []
       },
+      "fresh_this_run": false,
+      "aliases": []
+    },
+    {
+      "key": "micron|workday|/job/Penang-Malaysia---Grande/Senior-Data-Scientist_JR114375",
+      "market": "MY",
+      "company": "Micron",
+      "title": "Senior Data Scientist",
+      "url": "https://micron.wd1.myworkdayjobs.com/External/job/Penang-Malaysia---Grande/Senior-Data-Scientist_JR114375",
+      "checked_at": "2026-11-27T13:08:20+00:00",
+      "status": "AUTH_REQUIRED",
+      "location": "Penang, Malaysia - Grande",
+      "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Penang-Malaysia---Grande/Senior-Data-Scientist_JR114375",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "Apply"
+      ],
+      "apply_url_observed": "https://micron.wd1.myworkdayjobs.com/External/job/Penang-Malaysia---Grande/Senior-Data-Scientist_JR114375/apply",
+      "apply_page": {
+        "status": "AUTH_REQUIRED",
+        "final_url": "https://micron.wd1.myworkdayjobs.com/External/job/Penang-Malaysia---Grande/Senior-Data-Scientist_JR114375/apply",
+        "http_status": 200,
+        "title_match": true,
+        "visible_field_types": [],
+        "apply_controls": []
+      },
       "fresh_this_run": true,
       "aliases": []
     },
@@ -9624,9 +10908,10 @@
       "company": "Mistral AI",
       "title": "Research Engineer, Robotics",
       "url": "https://jobs.ashbyhq.com/mistral.ai/50656710-0001-42b0-8571-2880492b1233",
-      "checked_at": "2026-11-27T12:06:53+00:00",
+      "checked_at": "2026-11-27T13:07:35+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/mistral.ai/50656710-0001-42b0-8571-2880492b1233",
       "http_status": 200,
       "title_match": true,
@@ -9644,7 +10929,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "aidevboard|5c72d9ed-a88b-46e2-bde7-8a3d7afaadb3"
       ]
@@ -9668,7 +10953,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": [
         "freehire|senior-ai-engineer-contact-centre-ncs3-27p2civc"
       ]
@@ -9679,9 +10964,10 @@
       "company": "NCS",
       "title": "#EG Platform AI Engineer",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001031326",
-      "checked_at": "2026-11-27T12:27:58+00:00",
+      "checked_at": "2026-11-27T13:08:02+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001031326",
       "http_status": 200,
       "title_match": true,
@@ -9691,7 +10977,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9700,9 +10986,10 @@
       "company": "NCS",
       "title": "#EG AI Engineer",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001031349",
-      "checked_at": "2026-11-27T12:06:42+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001031349",
       "http_status": 200,
       "title_match": true,
@@ -9712,7 +10999,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-engineer-ncs3-2mkoitk3"
       ]
@@ -9736,7 +11023,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -9745,9 +11032,10 @@
       "company": "NCS",
       "title": "#EG AI Engineer (Autonomous Network)",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001140237",
-      "checked_at": "2026-11-27T12:06:42+00:00",
+      "checked_at": "2026-11-27T13:07:23+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001140237",
       "http_status": 200,
       "title_match": true,
@@ -9757,7 +11045,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-engineer-autonomous-network-ncs3-luo5ozta"
       ]
@@ -9789,9 +11077,10 @@
       "company": "NCS",
       "title": "#EG Machine Learning Engineer",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001174513",
-      "checked_at": "2026-11-27T12:27:58+00:00",
+      "checked_at": "2026-11-27T13:08:01+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001174513",
       "http_status": 200,
       "title_match": true,
@@ -9801,7 +11090,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9810,9 +11099,10 @@
       "company": "NCS",
       "title": "#EG Agentic AI Engineer (AI Tech Lead)",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001176114",
-      "checked_at": "2026-11-27T12:27:58+00:00",
+      "checked_at": "2026-11-27T13:08:01+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001176114",
       "http_status": 200,
       "title_match": true,
@@ -9822,7 +11112,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-agentic-ai-engineer-ai-tech-lead-ncs3-5yp44e54"
       ]
@@ -9833,9 +11123,10 @@
       "company": "NCS",
       "title": "#EG Junior Data Scientist",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001242822",
-      "checked_at": "2026-11-27T12:27:58+00:00",
+      "checked_at": "2026-11-27T13:08:01+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001242822",
       "http_status": 200,
       "title_match": true,
@@ -9845,7 +11136,29 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "ncs3|smartrecruiters|6000000001337877",
+      "market": "SG",
+      "company": "NCS",
+      "title": "#EG Cloud Engineer / Architect – AI Infrastructure",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001337877",
+      "checked_at": "2026-11-27T13:07:20+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001337877",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9854,9 +11167,10 @@
       "company": "NCS",
       "title": "#EG Data Scientist",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001338612",
-      "checked_at": "2026-11-27T12:06:44+00:00",
+      "checked_at": "2026-11-27T13:07:25+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001338612",
       "http_status": 200,
       "title_match": true,
@@ -9866,7 +11180,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -9875,9 +11189,10 @@
       "company": "NCS",
       "title": "#EG AI / LLM Specialist",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001339954",
-      "checked_at": "2026-11-27T12:06:41+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001339954",
       "http_status": 200,
       "title_match": true,
@@ -9887,7 +11202,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-llm-specialist-ncs3-t2imhl7t"
       ]
@@ -9898,9 +11213,10 @@
       "company": "NCS",
       "title": "#EG AI Developer (Agentic AI Systems)",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001374512",
-      "checked_at": "2026-11-27T12:06:41+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001374512",
       "http_status": 200,
       "title_match": true,
@@ -9910,7 +11226,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-developer-agentic-ai-systems-ncs3-4qr6kgh3"
       ]
@@ -9921,9 +11237,10 @@
       "company": "NCS",
       "title": "#EG Junior Data Scientist",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001418925",
-      "checked_at": "2026-11-27T12:06:44+00:00",
+      "checked_at": "2026-11-27T13:07:27+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001418925",
       "http_status": 200,
       "title_match": true,
@@ -9933,7 +11250,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-junior-data-scientist-ncs3-fdkw2xyz"
       ]
@@ -9944,9 +11261,10 @@
       "company": "NCS",
       "title": "#EG AI Engineer",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001474348",
-      "checked_at": "2026-11-27T12:06:42+00:00",
+      "checked_at": "2026-11-27T13:07:21+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001474348",
       "http_status": 200,
       "title_match": true,
@@ -9956,10 +11274,54 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-engineer-ncs3-e3jhvkvf"
       ]
+    },
+    {
+      "key": "ncs3|smartrecruiters|6000000001474382",
+      "market": "SG",
+      "company": "NCS",
+      "title": "#EG Full Stack Developer (AI-Enabled)",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001474382",
+      "checked_at": "2026-11-27T13:07:20+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001474382",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "ncs3|smartrecruiters|6000000001495687",
+      "market": "SG",
+      "company": "NCS",
+      "title": "#EG Fullstack Developer – AI Applications",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001495687",
+      "checked_at": "2026-11-27T13:07:20+00:00",
+      "status": "APPLY_CONTROL_ONLY",
+      "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001495687",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [],
+      "apply_controls": [
+        "I'm interested",
+        "I'm interested",
+        "I'm interested"
+      ],
+      "fresh_this_run": true,
+      "aliases": []
     },
     {
       "key": "ncs3|smartrecruiters|6000000001497996",
@@ -9990,9 +11352,10 @@
       "company": "NCS",
       "title": "#EG AI Engineer (Contact Centre)",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001500810",
-      "checked_at": "2026-11-27T12:06:43+00:00",
+      "checked_at": "2026-11-27T13:07:24+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001500810",
       "http_status": 200,
       "title_match": true,
@@ -10002,7 +11365,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|eg-ai-engineer-contact-centre-ncs3-hqy232aa"
       ]
@@ -10013,9 +11376,10 @@
       "company": "NCS",
       "title": "Senior LLM / Multimodal AI Engineer",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085",
-      "checked_at": "2026-11-27T12:06:36+00:00",
+      "checked_at": "2026-11-27T13:07:20+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085",
       "http_status": 200,
       "title_match": true,
@@ -10025,7 +11389,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|senior-llm-multimodal-ai-engineer-ncs3-govhzbwg"
       ]
@@ -10049,7 +11413,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -10058,9 +11422,10 @@
       "company": "NCS",
       "title": "#EG AI Engineer (Min 2 years of professional experience)",
       "url": "https://jobs.smartrecruiters.com/NCS3/6000000001605663",
-      "checked_at": "2026-11-27T12:06:43+00:00",
+      "checked_at": "2026-11-27T13:07:25+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore, sg",
+      "jd_checked_at": "2026-11-27T12:25:31+00:00",
       "final_url": "https://jobs.smartrecruiters.com/NCS3/6000000001605663",
       "http_status": 200,
       "title_match": true,
@@ -10070,7 +11435,31 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
+      "aliases": []
+    },
+    {
+      "key": "neweratech|greenhouse|8870366002",
+      "market": "MY",
+      "company": "New Era Technology",
+      "title": "Senior AI Engineer / AI Engineer",
+      "url": "https://job-boards.greenhouse.io/neweratech/jobs/8870366002",
+      "checked_at": "2026-11-27T13:08:20+00:00",
+      "status": "LIVE_FORM",
+      "location": "Kuala Lumpur, Malaysia",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
+      "final_url": "https://job-boards.greenhouse.io/neweratech/jobs/8870366002",
+      "http_status": 200,
+      "title_match": true,
+      "visible_field_types": [
+        "email",
+        "name",
+        "resume"
+      ],
+      "apply_controls": [
+        "Apply"
+      ],
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10092,7 +11481,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": [
         "freehire|machine-learning-engineer-nielseniq-hjomf6oo"
       ]
@@ -10116,7 +11505,7 @@
         "I'm interested",
         "I'm interested"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": [
         "freehire|machine-learning-engineer-nielseniq-jk3oadxi"
       ]
@@ -10127,7 +11516,7 @@
       "company": "NTU Singapore",
       "title": "Research Assistant/Associate, AI in Medicine",
       "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Assistant-Associate--AI-in-Medicine_R00026501",
-      "checked_at": "2026-11-27T12:27:44+00:00",
+      "checked_at": "2026-11-27T13:07:44+00:00",
       "status": "AUTH_REQUIRED",
       "location": "NTU Main Campus, Singapore",
       "final_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Assistant-Associate--AI-in-Medicine_R00026501",
@@ -10146,7 +11535,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10155,7 +11544,7 @@
       "company": "NTU Singapore",
       "title": "Research Associate (Fault-Zone Analysis in Bedrock)",
       "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Associate--Fault-Zone-Analysis-in-Bedrock-_R00026512",
-      "checked_at": "2026-11-27T12:27:44+00:00",
+      "checked_at": "2026-11-27T13:07:45+00:00",
       "status": "AUTH_REQUIRED",
       "location": "NTU Main Campus, Singapore",
       "final_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Associate--Fault-Zone-Analysis-in-Bedrock-_R00026512",
@@ -10174,7 +11563,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10202,7 +11591,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -10211,7 +11600,7 @@
       "company": "NTU Singapore",
       "title": "Research Assistant (Signal Processing and Machine Learning)",
       "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Fellow--Signal-Processing-and-Machine-Learning-_R00026363",
-      "checked_at": "2026-11-27T12:27:43+00:00",
+      "checked_at": "2026-11-27T13:07:42+00:00",
       "status": "IDENTITY_UNCONFIRMED",
       "location": "NTU Main Campus, Singapore",
       "final_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Fellow--Signal-Processing-and-Machine-Learning-_R00026363",
@@ -10221,7 +11610,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10230,7 +11619,7 @@
       "company": "NTU Singapore",
       "title": "Research Fellow (Trustworthy Machine Learning for Earth Observation)",
       "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Fellow--Trustworthy-Machine-Learning-for-Earth-Observation-_R00026510",
-      "checked_at": "2026-11-27T12:27:46+00:00",
+      "checked_at": "2026-11-27T13:07:50+00:00",
       "status": "AUTH_REQUIRED",
       "location": "NTU Main Campus, Singapore",
       "final_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Fellow--Trustworthy-Machine-Learning-for-Earth-Observation-_R00026510",
@@ -10249,7 +11638,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10379,7 +11768,7 @@
       "apply_controls": [
         "Apply"
       ],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -10388,9 +11777,10 @@
       "company": "OpenAI",
       "title": "Applied AI Engineer, Codex",
       "url": "https://jobs.ashbyhq.com/openai/02ec1893-17df-420c-8d19-48eca8edd884",
-      "checked_at": "2026-11-27T12:06:51+00:00",
+      "checked_at": "2026-11-27T13:07:31+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/openai/02ec1893-17df-420c-8d19-48eca8edd884",
       "http_status": 200,
       "title_match": true,
@@ -10408,7 +11798,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|applied-ai-engineer-codex-openai-n66rofk7"
       ]
@@ -10419,9 +11809,10 @@
       "company": "OpenAI",
       "title": "Applied AI Engineer, Cyber",
       "url": "https://jobs.ashbyhq.com/openai/29f15e50-1611-4256-afad-03b7df0b7aa7",
-      "checked_at": "2026-11-27T12:06:52+00:00",
+      "checked_at": "2026-11-27T13:07:33+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/openai/29f15e50-1611-4256-afad-03b7df0b7aa7",
       "http_status": 200,
       "title_match": true,
@@ -10439,7 +11830,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|applied-ai-engineer-cyber-openai-yi2qen2p"
       ]
@@ -10450,9 +11841,10 @@
       "company": "OpenAI",
       "title": "Applied AI Engineer, Startups (Mandarin-speaking)",
       "url": "https://jobs.ashbyhq.com/openai/502fcf97-75b2-4e54-9957-a29cee8eb1ca",
-      "checked_at": "2026-11-27T12:06:52+00:00",
+      "checked_at": "2026-11-27T13:07:33+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/openai/502fcf97-75b2-4e54-9957-a29cee8eb1ca",
       "http_status": 200,
       "title_match": true,
@@ -10470,7 +11862,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|applied-ai-engineer-startups-mandarin-speaking-openai-ivsuzx22"
       ]
@@ -10481,9 +11873,10 @@
       "company": "OpenAI",
       "title": "Applied AI Engineer",
       "url": "https://jobs.ashbyhq.com/openai/8acfba11-707e-4d8e-a860-88643fae24ba",
-      "checked_at": "2026-11-27T12:06:50+00:00",
+      "checked_at": "2026-11-27T13:07:29+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/openai/8acfba11-707e-4d8e-a860-88643fae24ba",
       "http_status": 200,
       "title_match": true,
@@ -10501,7 +11894,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10510,9 +11903,10 @@
       "company": "OpenAI",
       "title": "Applied AI Architect",
       "url": "https://jobs.ashbyhq.com/openai/b8fbe6d1-6363-4366-8484-de32cf4d1410",
-      "checked_at": "2026-11-27T12:06:48+00:00",
+      "checked_at": "2026-11-27T13:07:29+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/openai/b8fbe6d1-6363-4366-8484-de32cf4d1410",
       "http_status": 200,
       "title_match": true,
@@ -10530,7 +11924,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10539,7 +11933,7 @@
       "company": "Razer",
       "title": "Senior Data Scientist",
       "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/AI-Data-Scientist_JR2025005484",
-      "checked_at": "2026-11-27T12:27:44+00:00",
+      "checked_at": "2026-11-27T13:07:45+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
       "final_url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/AI-Data-Scientist_JR2025005484",
@@ -10558,7 +11952,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10567,9 +11961,10 @@
       "company": "Razer",
       "title": "Senior AI Engineer (Applied)",
       "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-AI-Engineer--Applied-_JR2026007067",
-      "checked_at": "2026-11-27T12:27:44+00:00",
+      "checked_at": "2026-11-27T13:07:45+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
+      "jd_checked_at": "",
       "final_url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-AI-Engineer--Applied-_JR2026007067",
       "http_status": 200,
       "title_match": true,
@@ -10586,7 +11981,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|senior-ai-engineer-applied-razer-vhrrntuf"
       ]
@@ -10597,9 +11992,10 @@
       "company": "Razer",
       "title": "Senior Data Scientist (Generative AI)",
       "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
-      "checked_at": "2026-11-27T12:27:45+00:00",
+      "checked_at": "2026-11-27T13:07:50+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
+      "jd_checked_at": "",
       "final_url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
       "http_status": 200,
       "title_match": true,
@@ -10616,7 +12012,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|senior-data-scientist-generative-ai-razer-wjnfyoja"
       ]
@@ -10627,7 +12023,7 @@
       "company": "Razer",
       "title": "Senior Data Scientist",
       "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist_JR2025006712",
-      "checked_at": "2026-11-27T12:27:45+00:00",
+      "checked_at": "2026-11-27T13:07:45+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
       "final_url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist_JR2025006712",
@@ -10646,7 +12042,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10655,9 +12051,10 @@
       "company": "Red Hat",
       "title": "AI/ML Engineer",
       "url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/AI-ML-Engineer_R-058068-1",
-      "checked_at": "2026-11-27T12:06:43+00:00",
+      "checked_at": "2026-11-27T13:07:23+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/AI-ML-Engineer_R-058068-1",
       "http_status": 200,
       "title_match": true,
@@ -10674,7 +12071,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10683,9 +12080,10 @@
       "company": "Red Hat",
       "title": "AI/ML Customer Engineer",
       "url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/AI-ML-Engineer_R-058593-1",
-      "checked_at": "2026-11-27T12:06:43+00:00",
+      "checked_at": "2026-11-27T13:07:23+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/AI-ML-Engineer_R-058593-1",
       "http_status": 200,
       "title_match": true,
@@ -10702,7 +12100,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10711,9 +12109,10 @@
       "company": "Red Hat",
       "title": "Senior AI/ML Engineer",
       "url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/Senior-AI-Consultant--APAC-AI-COE_R-058067-2",
-      "checked_at": "2026-11-27T12:06:43+00:00",
+      "checked_at": "2026-11-27T13:07:23+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T12:43:34+00:00",
       "final_url": "https://redhat.wd5.myworkdayjobs.com/Jobs/job/Singapore/Senior-AI-Consultant--APAC-AI-COE_R-058067-2",
       "http_status": 200,
       "title_match": true,
@@ -10730,7 +12129,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": []
     },
     {
@@ -10748,7 +12147,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -10766,7 +12165,7 @@
       "title_match": true,
       "visible_field_types": [],
       "apply_controls": [],
-      "fresh_this_run": true,
+      "fresh_this_run": false,
       "aliases": []
     },
     {
@@ -10775,9 +12174,10 @@
       "company": "Sierra",
       "title": "Software Engineer, Agent",
       "url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb",
-      "checked_at": "2026-11-27T12:27:56+00:00",
+      "checked_at": "2026-11-27T13:07:59+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb",
       "http_status": 200,
       "title_match": true,
@@ -10795,7 +12195,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "aidevboard|5aaa4f9d-0ea8-4807-83fb-8c2d058a6d7f"
       ]
@@ -10806,9 +12206,10 @@
       "company": "Sierra",
       "title": "Software Engineer, Agent (New Grad 2027)",
       "url": "https://jobs.ashbyhq.com/Sierra/79953d72-60d4-43e0-8c8c-6eccda422dce",
-      "checked_at": "2026-11-27T12:27:57+00:00",
+      "checked_at": "2026-11-27T13:08:00+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Sierra/79953d72-60d4-43e0-8c8c-6eccda422dce",
       "http_status": 200,
       "title_match": true,
@@ -10826,7 +12227,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|software-engineer-agent-new-grad-2027-sierra-sr6nmtqx"
       ]
@@ -10837,9 +12238,10 @@
       "company": "Sierra",
       "title": "Software Engineer, Agent (Mandarin Speaking)",
       "url": "https://jobs.ashbyhq.com/Sierra/b37a6f9e-53c7-4c47-beb5-1ab4451f3001",
-      "checked_at": "2026-11-27T12:27:57+00:00",
+      "checked_at": "2026-11-27T13:07:59+00:00",
       "status": "APPLY_CONTROL_ONLY",
       "location": "Singapore",
+      "jd_checked_at": "2026-11-27T13:04:12+00:00",
       "final_url": "https://jobs.ashbyhq.com/Sierra/b37a6f9e-53c7-4c47-beb5-1ab4451f3001",
       "http_status": 200,
       "title_match": true,
@@ -10857,7 +12259,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|software-engineer-agent-cantonese-speaking-sierra-szl423uc"
       ]
@@ -10974,7 +12376,7 @@
       "company": "Surbana Jurong",
       "title": "AI Engineer",
       "url": "https://surbanajurong.wd3.myworkdayjobs.com/SJ_Careers/job/Singapore/AI-Engineer_JR119182",
-      "checked_at": "2026-11-27T12:27:44+00:00",
+      "checked_at": "2026-11-27T13:07:45+00:00",
       "status": "AUTH_REQUIRED",
       "location": "Singapore",
       "final_url": "https://surbanajurong.wd3.myworkdayjobs.com/SJ_Careers/job/Singapore/AI-Engineer_JR119182",
@@ -10993,7 +12395,7 @@
         "visible_field_types": [],
         "apply_controls": []
       },
-      "fresh_this_run": false,
+      "fresh_this_run": true,
       "aliases": [
         "freehire|ai-engineer-surbanajurong-bbdrnprk"
       ]
