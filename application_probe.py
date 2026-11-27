@@ -25,6 +25,8 @@ HOSTS = {
     "my.jobstreet.com", "my.hiredly.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     "careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg",
+    "www.zhipin.com", "m.zhipin.com", "www.nowcoder.com", "www.zhaopin.com", "sou.zhaopin.com",
+    "we.51job.com", "jobs.51job.com",
     *FEISHU_HOSTS.values(),
 }
 CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
@@ -77,6 +79,18 @@ def identity(url):
     if h in {"careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg"}:
         m = re.search(r"/job/.+/(\d{2,12})(?:-[A-Za-z_]+)?$", path)
         return (h, m[1]) if m else None
+    if h in {"www.zhipin.com", "m.zhipin.com"}:
+        m = re.fullmatch(r"/job_detail/([A-Za-z0-9_~-]{8,100})\.html",path)
+        return ("zhipin.com",m[1]) if m else None
+    if h == "www.nowcoder.com":
+        m = re.fullmatch(r"/jobs/detail/(\d{4,16})",path)
+        return (h,m[1]) if m else None
+    if h == "www.zhaopin.com":
+        m = re.fullmatch(r"/jobdetail/([A-Za-z0-9]{12,80})\.htm",path)
+        return (h,m[1]) if m else None
+    if h == "jobs.51job.com":
+        m = re.fullmatch(r"/[A-Za-z0-9_/-]+/(\d{6,16})\.html",path)
+        return (h,m[1]) if m else None
     if h == "www.liepin.com":
         m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
         return (h, m[1]) if m else None
@@ -392,6 +406,20 @@ def load_jobs(root):
             rows[k] = {"key":key, "market":"CN", "title":title, "company":j.get("company",""),
                        "url":url, "location":j.get("location",""), "job_id":ident[1],
                        "source":"liepin-public-api", "aliases":[], "jd_evidence":"listing_only"}
+    platform_file = src/"platform-public.json"
+    if platform_file.exists():
+        for group in json.loads(platform_file.read_text()).get("sources",[]):
+            for job in group.get("jobs",[]):
+                url, title = job.get("url",""), job.get("title","")
+                ident = identity(url)
+                if not ident or ident[0] not in {"zhipin.com","www.nowcoder.com","www.zhaopin.com","jobs.51job.com"} or not CORE.search(title) or HARD_TITLE.search(title) or excluded_contract(title):
+                    continue
+                k = ("CN",ident)
+                if k not in rows:
+                    rows[k] = {"key":"native-cn|"+"|".join(ident),"market":"CN","title":title,
+                               "url":url,"source":group.get("source",""),"company":"","location":"",
+                               "job_id":ident[1],"aliases":[],"jd_evidence":"listing_only",
+                               "discovery_freshness":job.get("discovery_freshness","OBSERVED_THIS_RUN")}
     detail_file = src/"jobpro-jd.json"
     details = {}
     if detail_file.exists():
@@ -429,7 +457,7 @@ def load_jobs(root):
                            "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-MARKETPLACE_HOSTS = {"sg.jobstreet.com", "my.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "my.indeed.com", "malaysia.indeed.com", "my.hiredly.com", "www.liepin.com"}
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "my.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "my.indeed.com", "malaysia.indeed.com", "my.hiredly.com", "www.liepin.com", "www.zhipin.com", "m.zhipin.com", "www.nowcoder.com", "www.zhaopin.com", "jobs.51job.com"}
 
 
 def select(rows, previous, limit, fresh_keys=()):
@@ -519,6 +547,15 @@ class Tests(unittest.TestCase):
     def setUp(self):
         self.url="https://job-boards.greenhouse.io/example/jobs/1234"
         self.id=identity(self.url)
+    def test_cn_platform_exact_role_paths(self):
+        self.assertEqual(identity("https://www.nowcoder.com/jobs/detail/457568"),("www.nowcoder.com","457568"))
+        self.assertEqual(identity("https://www.zhaopin.com/jobdetail/CC466267010J40873443311.htm"),("www.zhaopin.com","CC466267010J40873443311"))
+        self.assertEqual(identity("https://www.zhipin.com/job_detail/abc123def456.html"),("zhipin.com","abc123def456"))
+        self.assertEqual(identity("https://jobs.51job.com/shenzhen/12345678.html"),("jobs.51job.com","12345678"))
+        self.assertIsNone(identity("https://www.zhipin.com/zhaopin/abc123"))
+        self.assertIsNone(identity("https://www.nowcoder.com/jobs"))
+        self.assertIsNone(identity("https://www.zhaopin.com.evil.example/jobdetail/CC466267010J40873443311.htm"))
+
     def test_api_liveness_requires_exact_title_and_role(self):
         row = {"key":"a","title":"AI Engineer","market":"SG","url":self.url}
         listed = {"id":1234,"title":"AI Engineer","absolute_url":self.url}
