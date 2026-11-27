@@ -190,6 +190,29 @@ class FreeJobAPIContractTests(unittest.TestCase):
                             for host,q in pages))
         self.assertEqual(len(result["jobs"]),1)
 
+    def test_sg_specialized_query_recovers_unique_agent_role(self):
+        calls = []
+        agent_url = "https://sg.jobstreet.com/job/96012345"
+        def fake(url):
+            p = urlparse(url)
+            params = parse_qs(p.query)
+            query = params["q"][0]
+            calls.append((p.hostname, query))
+            if p.hostname == "freehire.me":
+                rows = [FREEHIRE]
+                if query == "Agent Engineer":
+                    rows = [dict(FREEHIRE, title="Agent Engineer",
+                                 public_slug="unique-agent", url=agent_url)]
+                return {"data": rows, "meta": {"total": 1, "limit": 50, "offset": 0}}
+            return {"jobs": [], "has_next": False, "total": 0}
+        result = api.collect("SG", fetch=fake, max_pages=1)
+        self.assertEqual({j["url"] for j in result["jobs"]}, {URL, agent_url})
+        windows = {w["q"]: w for w in result["providers"]["freehire"]["queries"]}
+        self.assertEqual(windows["Agent Engineer"]["new_exact_urls"], 1)
+        self.assertEqual(windows["LLM"]["new_exact_urls"], 0)
+        self.assertIn(("freehire.me", "Retrieval Engineer"), calls)
+        self.assertEqual(result["providers"]["freehire"]["status"], "COMPLETE")
+
     def test_ignored_country_filter_is_not_accepted(self):
         def ignored(url):
             if "freehire.me" in url:
