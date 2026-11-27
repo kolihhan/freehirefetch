@@ -338,16 +338,18 @@ def collect(market, *, fetch=get_json, max_pages=2):
                     if provider == "freehire" and converter is normalize_freehire:
                         full_text_fallback_pages += 1
                     rows_seen += len(rows)
-                    signatures = set()
+                    # Raw IDs avoid declaring a repeated page merely because
+                    # different pages have the same eligible subset.
+                    signatures = {str(row.get("public_slug") or row.get("id") or row.get("url") or row.get("apply_url") or json.dumps(row, sort_keys=True))
+                                  for row in rows if isinstance(row, dict)}
+                    if page > 1 and signatures and signatures.issubset(previous_urls):
+                        raise ValueError("repeated API page")
+                    previous_urls.update(signatures)
                     for row in rows:
                         cand = converter(row,market)
                         if cand:
-                            signatures.add(cand["url"])
                             jobs.setdefault(cand["url"], cand)
                             seen_urls.add(cand["url"])
-                    if page > 1 and signatures and signatures.issubset(previous_urls):
-                        raise ValueError("repeated API page")
-                    previous_urls = signatures
                     if not has_next:
                         break
                     if page == max_pages:
@@ -418,7 +420,7 @@ def run(out_dir, *, fetch=get_json, max_pages=2):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--out-dir",type=Path,required=True)
-    p.add_argument("--max-pages",type=int,choices=(1,2,3),default=2)
+    p.add_argument("--max-pages",type=int,choices=range(1,11),default=3)
     args=p.parse_args()
     run(args.out_dir,max_pages=args.max_pages)
 
