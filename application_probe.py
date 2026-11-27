@@ -21,11 +21,11 @@ HOSTS = {
     "jobs.ashbyhq.com", "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
     "boards.greenhouse.io", "boards.eu.greenhouse.io", "jobs.lever.co",
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
-    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai",
+    "sg.linkedin.com", "sg.indeed.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     *FEISHU_HOSTS.values(),
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
 CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
@@ -63,6 +63,9 @@ def identity(url):
         return (h, m[1]) if m else None
     if h in FEISHU_HOSTS.values():
         m = re.fullmatch(r"/[A-Za-z0-9_-]+/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
+    if h == "www.liepin.com":
+        m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
         return (h, m[1]) if m else None
     if h == "sg.indeed.com":
         key = parse_qs(p.query).get("jk", [""])[0]
@@ -241,6 +244,25 @@ def load_jobs(root):
     # CN native public sources were previously disconnected from browser probes.
     # Retain source metadata; exact employer role identity, not candidate eligibility.
     src = root/"feed/cn-native"
+    liepin = src/"liepin-raw.json"
+    if liepin.exists():
+        for j in json.loads(liepin.read_text()).get("jobs", []):
+            title = str(j.get("title") or "")
+            ident = identity(j.get("url", ""))
+            if not ident or ident[0] != "www.liepin.com" or not CORE.search(title) or HARD_TITLE.search(title) or CONTRACT.search(title):
+                continue
+            if re.search(r"产品经理|销售|运营|设计师|客户成功", title):
+                continue
+            key = "liepin|" + ident[1]
+            url = f"https://www.liepin.com/job/{ident[1]}.shtml"
+            k = ("CN", ident)
+            if k in rows:
+                if key != rows[k]["key"] and key not in rows[k]["aliases"]:
+                    rows[k]["aliases"].append(key)
+                continue
+            rows[k] = {"key":key, "market":"CN", "title":title, "company":j.get("company",""),
+                       "url":url, "location":j.get("location",""), "job_id":ident[1],
+                       "source":"liepin-public-api", "aliases":[], "jd_evidence":"listing_only"}
     detail_file = src/"jobpro-jd.json"
     details = {}
     if detail_file.exists():
@@ -278,7 +300,7 @@ def load_jobs(root):
                            "jd_checked_at":detail.get("checked_at","") if matched else ""}
     return list(rows.values())
 
-MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com"}
+MARKETPLACE_HOSTS = {"sg.jobstreet.com", "www.linkedin.com", "sg.linkedin.com", "sg.indeed.com", "www.liepin.com"}
 
 
 def select(rows, previous, limit, fresh_keys=()):
@@ -386,6 +408,32 @@ class Tests(unittest.TestCase):
         self.assertEqual(3,sum(j["key"].startswith("proxy") for j in picked))
         self.assertIn("99",[j["key"] for j in picked])
         self.assertEqual(3,len(select(proxy,{},20)))
+
+    def test_core_matches_mixed_chinese_english_titles(self):
+        for title in ("Agent开发工程师", "LLM研发工程师", "RAG工程师", "智能体开发"):
+            self.assertIsNotNone(CORE.search(title), title)
+        for title in ("Management", "Reagent Specialist"):
+            self.assertIsNone(CORE.search(title), title)
+
+    def test_liepin_source_reuses_exact_url_and_marketplace_budget(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            src = root/"feed/cn-native"
+            src.mkdir(parents=True)
+            url = "https://www.liepin.com/job/1982484575.shtml"
+            role = {"sourceId":"82484575", "title":"AI Agent开发工程师",
+                    "company":"Example", "location":"上海", "url":url}
+            (src/"liepin-raw.json").write_text(json.dumps({"jobs":[
+                role, dict(role, title="AI Agent 实习生", url=url.replace("4575","4576")),
+                dict(role, url="https://www.liepin.com/career/1982484575"),
+                dict(role, url=url+"?utm_source=test")]}))
+            rows = load_jobs(root)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["market"],"CN")
+            self.assertEqual(rows[0]["url"],url)
+            self.assertEqual(identity(url),("www.liepin.com","1982484575"))
+            self.assertIn("www.liepin.com", MARKETPLACE_HOSTS)
 
     def test_native_source_keeps_exact_roles_and_verified_jd(self):
         import tempfile
