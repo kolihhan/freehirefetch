@@ -23,13 +23,13 @@ HOSTS = {
     "jobs.smartrecruiters.com", "sg.jobstreet.com", "www.linkedin.com",
     "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "malaysia.indeed.com", "my.indeed.com",
     "my.jobstreet.com", "my.hiredly.com", "abnormal.ai", "www.liepin.com",
-    "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
+    "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com", "zhaopin.meituan.com", "job.xiaohongshu.com", "talent.antgroup.com",
     "careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg",
     "www.zhipin.com", "m.zhipin.com", "www.nowcoder.com", "www.zhaopin.com", "sou.zhaopin.com",
     "we.51job.com", "jobs.51job.com",
     *FEISHU_HOSTS.values(),
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测|AI(?:全栈|应用|研发|算法|工程|平台|系统)|人工智能|机器学习", re.I | re.ASCII)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
 RESEARCH_ROLE = re.compile(r"\bresearch (?:assistant|associate|engineer|officer|scientist|fellow)\b|研究助理|研究工程师|研究员", re.I | re.ASCII)
@@ -64,6 +64,15 @@ def identity(url):
     p = urlparse(url)
     path = unquote(p.path).rstrip("/")
     h = p.hostname
+    if h == "zhaopin.meituan.com":
+        ids = parse_qs(p.query).get("jobUnionId", [])
+        return (h,ids[0]) if path=="/web/position/detail" and len(ids)==1 and re.fullmatch(r"\d{10,20}",ids[0]) else None
+    if h == "job.xiaohongshu.com":
+        m = re.fullmatch(r"/(?:campus|social)/position/(\d{4,10})",path)
+        return (h,m[1]) if m else None
+    if h == "talent.antgroup.com":
+        ids = parse_qs(p.query).get("positionId", [])
+        return (h,ids[0]) if path=="/off-campus-position" and len(ids)==1 and re.fullmatch(r"\d{10,20}",ids[0]) else None
     if h == "join.qq.com":
         ids = parse_qs(p.query).get("postid", [])
         return (h, ids[0]) if path == "/post_detail.html" and len(ids) == 1 and re.fullmatch(r"\d{10,20}", ids[0]) else None
@@ -417,7 +426,8 @@ def load_jobs(root):
                 k = ("CN",ident)
                 if k not in rows:
                     rows[k] = {"key":"native-cn|"+"|".join(ident),"market":"CN","title":title,
-                               "url":url,"source":group.get("source",""),"company":"","location":"",
+                               "url":url,"source":group.get("source",""),"company":job.get("company",""),"location":job.get("location",""),
+                               "salary":job.get("salary",""),"experience":job.get("experience",""),"education":job.get("education",""),"posted_at":job.get("posted_at",""),
                                "job_id":ident[1],"aliases":[],"jd_evidence":"listing_only",
                                "discovery_freshness":job.get("discovery_freshness","OBSERVED_THIS_RUN")}
     detail_file = src/"jobpro-jd.json"
@@ -426,7 +436,7 @@ def load_jobs(root):
         for d in json.loads(detail_file.read_text()).get("jobs", []):
             if d.get("full_jd_complete") is True and not d.get("description_truncated") and d.get("full_jd_text"):
                 details[(d.get("company_key"),str(d.get("job_id")),d.get("url"))] = d
-    for name in ("agent","llm","ai","backend","swe"):
+    for name in ("agent","llm","ai","backend","swe","nlp","eval"):
         p = src/f"jobpro-{name}.json"
         if not p.exists():
             continue
@@ -547,6 +557,16 @@ class Tests(unittest.TestCase):
     def setUp(self):
         self.url="https://job-boards.greenhouse.io/example/jobs/1234"
         self.id=identity(self.url)
+    def test_cn_official_employer_paths(self):
+        for url, expected in (
+            ("https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697320043",("zhaopin.meituan.com","4697320043")),
+            ("https://job.xiaohongshu.com/campus/position/22903",("job.xiaohongshu.com","22903")),
+            ("https://talent.antgroup.com/off-campus-position?positionId=260908011960948",("talent.antgroup.com","260908011960948")),
+        ):
+            self.assertEqual(identity(url),expected)
+        self.assertIsNone(identity("https://talent.antgroup.com/off-campus-position"))
+        self.assertTrue(CORE.search("AI全栈工程师"))
+
     def test_cn_platform_exact_role_paths(self):
         self.assertEqual(identity("https://www.nowcoder.com/jobs/detail/457568"),("www.nowcoder.com","457568"))
         self.assertEqual(identity("https://www.zhaopin.com/jobdetail/CC466267010J40873443311.htm"),("www.zhaopin.com","CC466267010J40873443311"))
