@@ -24,6 +24,7 @@ HOSTS = {
     "sg.linkedin.com", "my.linkedin.com", "sg.indeed.com", "malaysia.indeed.com", "my.indeed.com",
     "my.jobstreet.com", "my.hiredly.com", "abnormal.ai", "www.liepin.com",
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
+    "careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg",
     *FEISHU_HOSTS.values(),
 }
 CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate|officer|scientist|fellow)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
@@ -72,6 +73,9 @@ def identity(url):
         return (h, m[1]) if m else None
     if h in FEISHU_HOSTS.values():
         m = re.fullmatch(r"/[A-Za-z0-9_-]+/position/(\d{10,20})/detail", path)
+        return (h, m[1]) if m else None
+    if h in {"careers.sutd.edu.sg", "careers.nus.edu.sg", "careers.a-star.edu.sg"}:
+        m = re.search(r"/job/.+/(\d{2,12})(?:-[A-Za-z_]+)?$", path)
         return (h, m[1]) if m else None
     if h == "www.liepin.com":
         m = re.fullmatch(r"/job/(\d{5,16})\.shtml", path)
@@ -253,6 +257,24 @@ def load_jobs(root):
                     rows[k] = dict(j, aliases=[])
                 elif j["key"] != rows[k]["key"]:
                     rows[k]["aliases"].append(j["key"])
+    research = root/"feed/sg-research/current.json"
+    if research.exists():
+        report = json.loads(research.read_text())
+        for source in report.get("sources", []):
+            for job in source.get("jobs", []):
+                url = job.get("url", "")
+                ident = identity(url)
+                title = job.get("title", "")
+                if (not ident or not job.get("job_page_verified") or not job.get("apply_control_seen")
+                        or not job.get("technical_signals") or HARD_TITLE.search(title)):
+                    continue
+                k = ("SG", ident)
+                if k not in rows:
+                    rows[k] = {"key": "sg-research|" + "|".join(ident), "market":"SG",
+                               "title":title, "company":source.get("source",""), "url":url,
+                               "source":"sg-research-public-portal", "aliases":[],
+                               "job_id":job.get("requisition",""), "jd_evidence":"listing_only",
+                               "source_checked_at":report.get("observed_at","")}
     # CN native public sources were previously disconnected from browser probes.
     # Retain source metadata; exact employer role identity, not candidate eligibility.
     src = root/"feed/cn-native"
@@ -425,6 +447,22 @@ class Tests(unittest.TestCase):
             (jd/"index.json").write_text(json.dumps({"parts":[{"path":"SG-000.json"}]}))
             (jd/"SG-000.json").write_text(json.dumps({"jobs":[dict(role,description_text="LLM, RAG and retrieval")]}))
             self.assertEqual({j["key"] for j in load_jobs(root)}, {"backend","ra"})
+
+    def test_research_portal_source_is_integrated(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root/"feed/sg-research"
+            source.mkdir(parents=True)
+            url = "https://careers.nus.edu.sg/job/Singapore-Research-Associate/123456/"
+            role = {"title":"Research Associate","url":url,"requisition":"123",
+                    "job_page_verified":True,"apply_control_seen":True,"technical_signals":["llm"]}
+            (source/"current.json").write_text(json.dumps({"sources":[{"source":"NUS Research","jobs":[role]}]}))
+            rows = load_jobs(root)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["url"],url)
+            self.assertEqual(rows[0]["market"],"SG")
+            self.assertEqual(rows[0]["jd_evidence"],"listing_only")
 
     def test_my_source_and_budget(self):
         import tempfile
