@@ -36,6 +36,15 @@ class JDProducerTests(unittest.TestCase):
         self.assertIsNone(jd.official_url("meituan", {"post_id":"4933015251",
             "apply_url":"https://zhaopin.meituan.com.evil.example/web/position/detail?jobUnionId=4933015251"}))
 
+    def test_exact_xiaohongshu_and_ant_routes(self):
+        for company, uid, url in (
+            ("xiaohongshu","22903","https://job.xiaohongshu.com/campus/position/22903"),
+            ("antgroup","260908011960948","https://talent.antgroup.com/off-campus-position?positionId=260908011960948"),
+        ):
+            self.assertEqual(jd.official_url(company,{"post_id":uid,"apply_url":url}),url)
+            self.assertIsNone(jd.official_url(company,{"post_id":"999999999999","apply_url":url}))
+        self.assertIsNone(jd.official_url("antgroup",{"post_id":"260908011960948","apply_url":"https://talent.antgroup.com/off-campus-position"}))
+
     def test_exact_official_url_and_no_query_id_collapse(self):
         self.assertEqual(jd.official_url("tencent", TENCENT), TENCENT["apply_url"])
         self.assertEqual(jd.official_url("bytedance", BYTE), BYTE["apply_url"])

@@ -264,6 +264,21 @@ class FreeJobAPIContractTests(unittest.TestCase):
                 api.run(Path(d),fetch=outage,max_pages=1)
             self.assertTrue((Path(d)/"health.json").exists())
 
+    def test_cn_proxy_marketplaces_are_exact_and_not_native_coverage(self):
+        cases = {
+            "https://www.zhipin.com/job_detail/abc123def456.html": "BOSS直聘",
+            "https://www.nowcoder.com/jobs/detail/457568": "牛客",
+            "https://www.zhaopin.com/jobdetail/CC466267010J40873443311.htm": "智联",
+            "https://jobs.51job.com/shenzhen/12345678.html": "51job",
+        }
+        for url, platform in cases.items():
+            with self.subTest(platform=platform):
+                self.assertEqual(api.canonical_apply(url+"?tracking=1","CN"),url)
+                self.assertEqual(api.platform_family(url),platform)
+                self.assertIsNone(api.canonical_apply(url,"SG"))
+        self.assertIsNone(api.canonical_apply("https://www.zhipin.com/web/geek/job?query=LLM","CN"))
+        self.assertIsNone(api.canonical_apply("https://www.nowcoder.com/jobs","CN"))
+
     def test_mixed_language_cn_roles_and_liepin_attribution(self):
         url = "https://www.liepin.com/job/1982484575.shtml"
         for title in ("Agent开发工程师", "LLM研发工程师", "RAG工程师"):

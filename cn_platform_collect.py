@@ -41,6 +41,36 @@ def extract(links, domain):
         found[ident] = {"url":canonical,"title":title,"discovery_freshness":"OBSERVED_THIS_RUN"}
     return found
 
+def extract_51job_json(payload):
+    if not isinstance(payload,dict):
+        return {}
+    body = payload.get("resultbody")
+    block = body.get("job") if isinstance(body,dict) else None
+    items = block.get("items") if isinstance(block,dict) else None
+    if not isinstance(items,list):
+        return {}
+    found = {}
+    for item in items:
+        if not isinstance(item,dict):
+            continue
+        url = item.get("jobHref") or ""
+        ident = identity(url)
+        if not ident or ident[0]!="jobs.51job.com" or ident[1]!=str(item.get("jobId") or ""):
+            continue
+        hits = extract([{"url":url,"title":item.get("jobName") or ""}],"51job.com")
+        if ident not in hits:
+            continue
+        row = hits[ident]
+        row.update({"company":str(item.get("companyName") or "")[:150],
+                    "location":str(item.get("jobAreaString") or "")[:100],
+                    "salary":str(item.get("provideSalaryString") or "")[:100],
+                    "experience":str(item.get("workYearString") or "")[:100],
+                    "education":str(item.get("degreeString") or "")[:100],
+                    "posted_at":str(item.get("issueDateString") or "")[:50],
+                    "discovery_channel":"PUBLIC_PAGE_JSON_RESPONSE"})
+        found[ident]=row
+    return found
+
 async def collect_source(browser, source, spec):
     domain, base, page_key, params = spec
     report = {"source":source,"query":params.get("query") or params.get("keyword") or params.get("kw"),"pages":[],"jobs":[]}
@@ -54,8 +84,31 @@ async def collect_source(browser, source, spec):
             await route.continue_()
     await page.route("**/*",guard)
     seen = {}
+    # Observe only responses produced by ordinary public page navigation.
+    # Never replay requests, use hidden credentials or continue past a challenge.
+    pending = []
+    async def capture(response):
+        try:
+            p = urlparse(response.url)
+            if p.scheme!="https" or p.hostname!="we.51job.com" or p.path!="/api/job/search-pc" or response.status!=200:
+                return {}
+            headers = response.headers
+            if "json" not in headers.get("content-type","").lower():
+                return {}
+            size = headers.get("content-length")
+            if size and int(size)>3_000_000:
+                return {}
+            raw = await response.body()
+            return extract_51job_json(json.loads(raw)) if len(raw)<=3_000_000 else {}
+        except Exception:
+            return {}
+    def response_seen(response):
+        if source=="51job":
+            pending.append(asyncio.create_task(capture(response)))
+    page.on("response",response_seen)
     try:
         for n in (1,2):
+            pending.clear()
             url = base+urlencode(dict(params,**{page_key:n}))
             item = {"page":n,"url":url,"status":"UNKNOWN"}
             try:
@@ -81,6 +134,16 @@ async def collect_source(browser, source, spec):
                     break
                 links = await page.locator("a[href]").evaluate_all("""els => els.filter(e=>e.getClientRects().length).map(e=>({url:e.href,title:e.innerText.trim()}))""")
                 rows = extract(links,domain)
+                structured = {}
+                if source=="51job" and pending:
+                    done, waiting = await asyncio.wait(pending,timeout=3)
+                    for task in done:
+                        structured.update(task.result())
+                    for task in waiting:
+                        task.cancel()
+                    await asyncio.gather(*waiting,return_exceptions=True)
+                rows.update(structured)
+                item["structured_role_links"] = len(structured)
                 item["role_links"] = len(rows)
                 item["new_links"] = len(rows.keys()-seen.keys())
                 item["status"] = "ROLE_LINKS_ONLY" if rows else "NO_EXACT_ROLE_LINKS"
@@ -95,6 +158,11 @@ async def collect_source(browser, source, spec):
                 report["pages"].append(item)
                 break
     finally:
+        page.remove_listener("response",response_seen)
+        for task in pending:
+            if not task.done():
+                task.cancel()
+        await asyncio.gather(*pending,return_exceptions=True)
         await context.close()
     report["jobs"] = list(seen.values())
     report["unique_observed"] = len(seen)

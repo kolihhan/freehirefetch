@@ -25,7 +25,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 14
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,7 +48,7 @@ jobs:
       - name: Fetch public employer careers via pinned job-pro
         shell: bash
         run: |
-          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师' 'agent:Agent' 'llm:大模型'; do
+          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师' 'agent:Agent' 'llm:大模型' 'nlp:自然语言处理' 'eval:模型评测'; do
             name="${spec%%:*}"
             query="${spec#*:}"
             # The all-50-company AI query exceeded the 75s job timeout and
@@ -67,6 +67,11 @@ jobs:
             elif [[ "$name" == "llm" ]]; then
               scope=social
               companies=(--companies bytedance,alibaba,baichuan,minimax,iflytek,zerooneai,meituan,trip,nio)
+            elif [[ "$name" == "nlp" || "$name" == "eval" ]]; then
+              # Narrow independent searches on companies with observed official routes.
+              # Keep campus and social jobs; never claim exhaustive coverage.
+              scope=all
+              companies=(--companies tencent,bytedance,xiaohongshu,antgroup,baichuan,minimax,zerooneai,meituan)
             fi
             if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
                 --scope "$scope" "${companies[@]}" --limit 20 --timeout 12000 --compact \
@@ -97,7 +102,7 @@ jobs:
           quality=liepin.get('meta',{}).get('runQuality','UNKNOWN')
           failed=liepin.get('failedPages') or []
           reports={}
-          for name in ('ai','backend','swe','agent','llm'):
+          for name in ('ai','backend','swe','agent','llm','nlp','eval'):
               doc=json.loads((src/f'jobpro-{name}.json').read_text())
               if not isinstance(doc,dict) or not isinstance(doc.get('results'),list):
                   raise ValueError('Invalid published employer public API JSON: '+name)
