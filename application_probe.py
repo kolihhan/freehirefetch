@@ -535,7 +535,7 @@ async def run(root, limit, workers):
                   "jobs":[dict(api[j["key"]],key=j["key"],market=j["market"],url=j["url"],title=j["title"]) for j in rows if j["key"] in api],
                   "note":"Official listing evidence only; absence from a bounded API response is not closure; never LIVE_FORM."}
     target.parent.mkdir(parents=True,exist_ok=True)
-    (target.parent/"api-liveness.json").write_text(json.dumps(api_report,ensure_ascii=False,indent=2)+"\\n")
+    (target.parent/"api-liveness.json").write_text(json.dumps(api_report,ensure_ascii=False,indent=2)+"\n")
     report={"version":1,"run_at":now(),"eligible_public_urls":len(rows),"attempted":len(results),
             "api_verified":len(api),"api_health":api_health,"browser_skipped_recent_live_form":len(rows)-len(browser_rows),
             "counts_this_run":dict(Counter(r["status"] for r in results)),
