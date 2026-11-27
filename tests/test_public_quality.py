@@ -1,6 +1,9 @@
 import unittest
 from datetime import datetime, timezone
-from public_quality import build, clean_text
+from public_quality import build, clean_text, collect
+from tempfile import TemporaryDirectory
+from pathlib import Path
+import json
 
 NOW = datetime(2026,11,28,tzinfo=timezone.utc)
 
@@ -51,6 +54,44 @@ class QualityTests(unittest.TestCase):
               for i in ("1","2")]
         jobs,_=build(rows,NOW)
         self.assertEqual(len(jobs),2)
+
+    def test_route_evidence_is_exact_title_and_time_bound(self):
+        url="https://jobs.ashbyhq.com/example/12345678-1234-1234-1234-123456789abc"
+        row=dict(source="official-ats",url=url,title="AI Engineer",company="Example",market="SG")
+        probes=[dict(url=url,title="AI Engineer",status="API_LISTED",checked_at=NOW.isoformat(),evidence_source="api"),
+                dict(url=url,title="Other Engineer",status="LIVE_FORM",checked_at=NOW.isoformat(),evidence_source="browser")]
+        jobs,audit=build([row],NOW,probes)
+        self.assertEqual([p["status"] for p in jobs[0]["application_evidence"]],["API_LISTED"])
+        self.assertEqual(audit["fresh_browser_evidence"],0)
+        self.assertEqual(audit["fresh_api_evidence"],1)
+
+    def test_source_health_and_missing_body_not_mistaken_for_fresh_jd(self):
+        url="https://jobs.ashbyhq.com/example/12345678-1234-1234-1234-123456789abc"
+        item=dict(key="example|ashby|123",url=url,title="AI Engineer",company="Example",evidence="full_jd")
+        with TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            def put(rel,obj):
+                path=root/rel; path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_text(json.dumps(obj))
+            put("feed/ats/markets/SG.json",{"jobs":[item]})
+            put("feed/ats/jd/index.json",{"jobs":[dict(item,part="SG-000.json",description_truncated=False,checked_at=NOW.isoformat())]})
+            put("feed/ats/health.json",{"boards":{"ashby:example":{"status":"FAILED"}}})
+            put("feed/cn-native/health.json",{"checked_at":NOW.isoformat(),"liepin":{"status":"PARTIAL_COVERAGE","jobs":0}})
+            put("feed/cn-native/liepin-raw.json",{"generatedAt":"2026-11-27T00:00:00Z","jobs":[dict(url="https://www.liepin.com/job/12345678.shtml",title="Engineer",company="Example")]})
+            rows,reads,health,probes=collect(root)
+            jobs,audit=build(rows,NOW,probes)
+            self.assertEqual(audit["fresh_full_jd"],0)
+            self.assertEqual(health["ats"]["ashby:example"]["status"],"FAILED")
+            self.assertEqual(next(x for x in rows if x["source"]=="liepin")["discovery_freshness"],"RETAINED_UNVERIFIED")
+            self.assertEqual(reads["feed/ats/markets/SG.json"],"FILE_READ")
+
+    def test_invalid_and_conflicting_records_are_diagnosable(self):
+        rows=[dict(source="example",title="Engineer",url="not a url"),
+              dict(source="example",title="Engineer",url="https://example.com/jobs")]
+        jobs,audit=build(rows,NOW)
+        self.assertEqual(audit["invalid_details"][0]["reason"],"INVALID_URL")
+        self.assertEqual(jobs[0]["identity_quality"],"UNVERIFIED_URL")
+        self.assertTrue(jobs[0]["content_fingerprint"])
 
 if __name__=="__main__":
     unittest.main()
