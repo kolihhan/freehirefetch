@@ -10,24 +10,34 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     metadata=metadata or {}
     t=str(title or "")
     body=str(text or "")
+    # A qualification or employer intro is not evidence of day-to-day AI work.
+    duty_heading=re.search(r"(?:岗位职责|工作职责|职位描述|Responsibilities|What you.ll do|Key Responsibilities)\s*[:：/]?",body,re.I)
+    if duty_heading:
+        duty_tail=body[duty_heading.end():]
+        requirements_heading=re.search(r"(?:任职要求|岗位要求|Qualifications|Requirements|What we.re looking for|Minimum Qualifications)\s*[:：/]?",duty_tail,re.I)
+        duties=duty_tail[:requirements_heading.start()] if requirements_heading else duty_tail
+    else:
+        duties=body
     ev=[]
     def note(field,m,origin):
         if m: ev.append({"field":field,"quote":m.group(0)[:180],"origin":origin})
-    nontech=match(r"\b(?:sales|account executive|marketing manager|product manager|recruiter|business development|talent acquisition|customer success)\b|销售|产品经理|商务拓展|招聘专员|运营专员",t)
+    nontech=match(r"\b(?:sales|account executive|marketing manager|product manager|recruiter|business development|talent acquisition|customer success)\b|销售|产品经理|商务拓展|招聘专员|运营专员|数据运营|市场营销",t)
     research=match(r"\b(?:research(?:er| (?:engineer|assistant|associate|scientist|fellow|officer))|applied scientist)\b|研究员|研究科学家|研究助理|研究工程师|算法研究",t)
     model=match(r"\b(?:LLMs?|NLP|RAG|agentic|AI agents?|generative AI|genAI|machine learning|AI engineer|AI scientist|model evaluation|AI research|ML engineer|deep learning)\b|大模型|智能体|自然语言处理|模型评测|AI(?:应用|算法|研发|工程)|机器学习",t)
-    conventional=match(r"\b(?:software engineer|backend|back.end|full.stack|frontend|front.end|mobile|android|iOS|QA|test engineer|devops|data engineer)\b|后端|前端|全栈|客户端|测试开发|软件开发|数据工程",t)
+    conventional=match(r"\b(?:software engineer|backend|back.end|full.stack|frontend|front.end|mobile|android|iOS|QA|test engineer|devops|data engineer)\b|后端|前端|全栈|客户端|测试开发|软件开发|数据工程|软件工程师|\b(?:developer|programmer|software development engineer|systems engineer|SRE)\b",t)
     domain_other=match(r"\b(?:textile|chemistry|chemical synthesis|materials characterization|photonics|wet lab|knitted fabrics)\b|纺织|材料表征|化学合成",body)
     # Require an action and a concrete AI object; mere company/product names are not enough.
-    ai_action=match(r"\b(?:build|develop|implement|design|train|fine.tune|evaluate|optimize|optimise|deploy|integrate|research)\w*\b[^.;。]{0,100}\b(?:LLMs?|language models?|RAG|retrieval.augmented generation|AI agents?|agentic (?:systems?|workflows?)|machine learning (?:models?|algorithms?|systems?)|NLP models?|model evaluation|reward models?)\b|(?:研发|开发|构建|设计|训练|微调|评测|优化|部署)[^。；\n]{0,45}(?:大模型|智能体|模型评测|自然语言处理|检索增强|机器学习模型)",body)
-    research_action=match(r"\b(?:pre.training|post.training|reinforcement learning|fine.tuning|model architecture|reward modeling|model evaluation|benchmark design|training data)\b|预训练|后训练|强化学习|模型结构|模型评测|基准评测|奖励模型",body)
+    ai_action=match(r"\b(?:build|develop|implement|design|train|fine.tune|evaluate|optimize|optimise|deploy|integrate|research)\w*\b[^.;。]{0,100}\b(?:LLMs?|language models?|RAG|retrieval.augmented generation|AI agents?|agentic (?:systems?|workflows?)|machine learning (?:models?|algorithms?|systems?)|NLP models?|model evaluation|reward models?)\b|(?:研发|开发|构建|设计|训练|微调|评测|优化|部署)[^。；\n]{0,45}(?:大模型|智能体|模型评测|自然语言处理|检索增强|机器学习模型)",duties)
+    research_action=match(r"\b(?:pre.training|post.training|reinforcement learning|fine.tuning|model architecture|reward modeling|model evaluation|benchmark design|training data)\b|预训练|后训练|强化学习|模型结构|模型评测|基准评测|奖励模型",duties)
     title_model=match(r"\b(?:LLM|NLP|RAG|machine learning|AI agent|AI engineer|research scientist|model evaluation)\b|大模型|智能体|模型评测|自然语言",t)
     family="UNKNOWN"
     if nontech: family="NON_TECHNICAL";note("role_family",nontech,"TITLE")
     elif research and (model or ai_action): family="AI_RESEARCH";note("role_family",research,"TITLE")
     elif research: family="OTHER_RESEARCH" if domain_other else "RESEARCH_UNSPECIFIED";note("role_family",research,"TITLE")
+    elif conventional and ai_action: family="AI_ENGINEERING";note("role_family",ai_action,grade)
     elif conventional: family="SOFTWARE_ENGINEERING";note("role_family",conventional,"TITLE")
     elif model: family="AI_ENGINEERING";note("role_family",model,"TITLE")
+    elif ai_action: family="AI_ENGINEERING";note("role_family",ai_action,grade)
     depth="UNKNOWN"
     if nontech: depth="NOT_CORE_AI"
     elif ai_action:
@@ -36,6 +46,7 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
         if research_action: note("ai_depth",research_action,grade)
     elif conventional and (model or match(r"\bAI\b|人工智能",t)): depth="AI_PRODUCT_CONTEXT_ONLY";note("ai_depth",model or match(r"\bAI\b|人工智能",t),"TITLE")
     elif title_model: depth="AI_TITLE_ONLY";note("ai_depth",title_model,"TITLE")
+    elif model: depth="AI_TITLE_ONLY";note("ai_depth",model,"TITLE")
     elif research and domain_other: depth="NON_AI_RESEARCH_SIGNAL";note("ai_depth",domain_other,grade)
     # Detect explicit minimum, not arbitrary years in company descriptions.
     exp=[]
@@ -63,10 +74,12 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     cohorts=sorted(set(re.findall(r"(?<!\d)(20[2-4]\d)\s*届",t+" "+em)))
     phd=match(r"\b(?:Ph\.?\s*D\.?|doctorate|doctoral degree)\s*(?:is\s+)?(?:required|mandatory|essential)\b|\b(?:must (?:have|hold)|required to hold)\s+(?:a\s+)?(?:Ph\.?\s*D\.?|doctorate)\b|(?:须|必须|要求)(?:具备|具有|为)?博士(?:学历|学位|毕业生)|博士毕业生加入|(?:仅限|限)博士|博士及以上",body)
     phd_pref=match(r"\b(?:Ph\.?\s*D\.?|doctorate)\s*(?:is\s+)?(?:preferred|a plus)\b|博士优先",body)
+    # Alternatives are not PhD-only. Explicit preferred PhD remains a separate signal.
+    if phd and match(r"硕士(?:研究生)?(?:或|及|和|/|、)博士|master.s[^.;]{0,25}(?:or|/)\s*(?:Ph\.?\s*D\.?|doctorate)",body): phd=None
     masters=match(r"硕士(?:研究生)?及以上|硕士以上|硕士学位及以上|\b(?:master.s|master) degree (?:or higher|or above|required)\b",body)
     bachelors=match(r"本科及以上|本科以上|\bbachelor.s degree (?:or higher|or above|required)\b",body)
     degree="UNKNOWN"
-    if phd and not phd_pref: degree="PHD_REQUIRED_SIGNAL";note("degree",phd,grade)
+    if phd: degree="PHD_REQUIRED_SIGNAL";note("degree",phd,grade)
     elif masters: degree="MASTER_MIN_SIGNAL";note("degree",masters,grade)
     elif bachelors: degree="BACHELOR_MIN_SIGNAL";note("degree",bachelors,grade)
     if phd_pref: note("degree_preferred",phd_pref,grade)
