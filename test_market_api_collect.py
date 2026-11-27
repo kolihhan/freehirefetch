@@ -264,6 +264,16 @@ class FreeJobAPIContractTests(unittest.TestCase):
                 api.run(Path(d),fetch=outage,max_pages=1)
             self.assertTrue((Path(d)/"health.json").exists())
 
+    def test_mixed_language_cn_roles_and_liepin_attribution(self):
+        url = "https://www.liepin.com/job/1982484575.shtml"
+        for title in ("Agent开发工程师", "LLM研发工程师", "RAG工程师"):
+            row = dict(FREEHIRE, title=title, countries=["CN"], location="上海", url=url)
+            job = api.normalize_freehire(row, "CN")
+            self.assertIsNotNone(job, title)
+            self.assertEqual(job["source_platform"], "猎聘")
+        self.assertFalse(api.TITLE.search("Reagent Specialist"))
+        self.assertFalse(api.TITLE.search("Management"))
+
     def test_chinese_native_language_role_preserved(self):
         cn=dict(FREEHIRE,public_slug="cn",title="大模型算法工程师",
                 countries=["CN"],location="北京，中国")
