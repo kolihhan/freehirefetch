@@ -8,6 +8,8 @@ on:
       - 'ats_discovery.py'
       - 'application_probe.py'
       - 'test_ats_discovery.py'
+      - 'market_api_collect.py'
+      - 'test_market_api_collect.py'
       - 'ats_boards.json'
       - '.github/workflows/ats-discovery.yml'
   pull_request:
@@ -15,6 +17,8 @@ on:
       - 'ats_discovery.py'
       - 'application_probe.py'
       - 'test_ats_discovery.py'
+      - 'market_api_collect.py'
+      - 'test_market_api_collect.py'
       - 'ats_boards.json'
       - '.github/workflows/ats-discovery.yml'
   schedule:
