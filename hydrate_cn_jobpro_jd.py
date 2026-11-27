@@ -35,7 +35,7 @@ FEISHU_HOSTS = {"nio": "nio.jobs.feishu.cn",
 # Titles such as "embedded software engineer" are not NLP/Agent vacancies.
 # Require explicit AI/NLP/agent/retrieval relevance before expensive JD hydration.
 SIGNALS = re.compile(
-    r"AI|LLM|NLP|RAG|Agent|人工智能|大模型|机器学习|生成式|"
+    r"(?<![A-Za-z])(?:AI|LLMs?|NLP|RAG|Agents?|Agentic)(?![A-Za-z])|人工智能|大模型|机器学习|生成式|"
     r"智能体|模型评测|算法评测|语义检索|知识图谱|自然语言|深度学习", re.I)
 
 
@@ -106,8 +106,17 @@ def substantive_ai_priority(title: str) -> int:
     return score
 
 
+def technical_detail_target(title: str) -> bool:
+    """Spend detail budget on technical source evidence, not AI-branded sales.
+    All raw listings remain public, including these lower priority categories.
+    """
+    return bool(SIGNALS.search(title) and not re.search(
+        r"销售|产品经理|客户成功|商务拓展|数据运营|市场营销|实习|\b(?:sales|product manager|account executive|recruiter|internship|intern)\b", title, re.I))
+
+
 def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: int = 6,
-                      history: dict | None = None, now: str | None = None) -> list[dict]:
+                      history: dict | None = None, now: str | None = None,
+                      technical_only: bool = False) -> list[dict]:
     if limit < 1 or per_company < 1:
         raise ValueError("positive limits required")
     seen: set[tuple[str, str]] = set()
@@ -123,7 +132,7 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
                 title = str(pos.get("title") or "")
                 url = official_url(company, pos)
                 uid = str(pos.get("post_id") or "")
-                if not url or not SIGNALS.search(title) or (company, uid) in seen:
+                if not url or not SIGNALS.search(title) or (company, uid) in seen or (technical_only and not technical_detail_target(title)):
                     continue
                 seen.add((company, uid))
                 groups[company].append({
@@ -229,6 +238,7 @@ def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
         "full_jd_text": full, "full_jd_complete": True,
         "description_truncated": False,
         "source": "jobpro-public-employer-detail",
+        "location": item.get("work_cities") or "",
     }
 
 
@@ -252,7 +262,7 @@ def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10,
                if clock - parse_time(record.get("attempted_at")) < RETENTION}
     # Enumerate every exact supported current identity, even when its JD is cached.
     observed = choose_candidates(documents, limit=100000, per_company=100000, now=when)
-    candidates = choose_candidates(documents, limit=limit, history=history, now=when)
+    candidates = choose_candidates(documents, limit=limit, history=history, now=when, technical_only=True)
     output = {"version": 1, "source": "jobpro-public-employer-detail",
               "checked_at": when, "attempted": 0, "failed": 0,
               "jobs": [], "failures": [],
@@ -294,6 +304,11 @@ def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10,
     output["cached_verified"] = len(output["jobs"]) - output["newly_verified"]
     output["observed_distinct"] = len(observed)
     output["not_currently_verified"] = len(observed) - len(output["jobs"])
+    technical = {identity(x) for x in observed if technical_detail_target(x["title"])}
+    verified = {identity(x) for x in output["jobs"]}
+    output["technical_observed_distinct"] = len(technical)
+    output["technical_verified"] = len(technical & verified)
+    output["technical_pending"] = len(technical - verified)
     output["coverage"] = "PARTIAL" if output["not_currently_verified"] else "OBSERVED_BATCH_VERIFIED"
     output["state"] = {"version": 1, "records": history}
     return output
