@@ -423,6 +423,32 @@ class ATSFeedTests(unittest.TestCase):
 
 
 
+    def test_detail_hydration_rotates_away_from_previously_attempted_role(self):
+        roles = [
+            {"id": "a", "title": "AI Engineer", "location": "Singapore", "description": "",
+             "jd_attempted_at": "2026-11-26T00:00:00Z"},
+            {"id": "b", "title": "AI Engineer", "location": "Singapore", "description": ""},
+        ]
+        with patch.object(ats, "request_json", return_value={
+            "jobAd": {"sections": {"jobDescription": {"text": "Build RAG systems"}}}
+        }) as req:
+            self.assertEqual(1, ats.enrich_listed_details(SG, roles, limit=1))
+        self.assertTrue(req.call_args.args[0].endswith("/b"))
+        self.assertTrue(roles[1]["jd_attempted_at"])
+
+    def test_retained_jd_keeps_original_evidence_time(self):
+        first = "2026-11-26T00:00:00Z"
+        second = "2026-11-27T00:00:00Z"
+        raw = row()
+        old = ats.normalize(MY, raw, first)
+        new = ats.normalize(MY, dict(raw, description=""), second, old)
+        self.assertEqual(new["description_text"], old["description_text"])
+        self.assertEqual(new["evidence"], "retained_jd")
+        self.assertEqual(new["jd_checked_at"], first)
+        self.assertEqual(new["source_checked_at"], second)
+        moved = ats.normalize(MY, dict(raw, description="", title="AI Engineer"), second, old)
+        self.assertEqual(moved["evidence"], "listing_only")
+
     def test_compact_market_index_matches_global_public_candidates(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
