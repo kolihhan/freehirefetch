@@ -331,15 +331,20 @@ def market_for(location: str, board: dict) -> str | None:
 
 
 
-def detail_due(record: dict, clock: str) -> bool:
+def detail_age(record: dict, clock: str) -> timedelta | None:
     try:
         now = datetime.fromisoformat(clock.replace("Z", "+00:00"))
         last = datetime.fromisoformat(str(record.get("attempted_at") or "").replace("Z", "+00:00"))
         age = now-last
-        ttl = DETAIL_SUCCESS_TTL if record.get("status")=="OK" else DETAIL_FAILURE_TTL
-        return not timedelta(0)<=age<ttl
+        return age if age>=timedelta(0) else None
     except (ValueError,TypeError):
-        return True
+        return None
+
+
+def detail_due(record: dict, clock: str) -> bool:
+    age = detail_age(record,clock)
+    ttl = DETAIL_SUCCESS_TTL if record.get("status")=="OK" else DETAIL_FAILURE_TTL
+    return age is None or age>=ttl
 
 
 def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10, clock: str | None = None, metrics: dict | None = None) -> int:
@@ -422,6 +427,7 @@ def enrich_listed_details(board: dict, rows: list[dict], *, limit: int = 10, clo
             # A temporarily restricted detail API is a documented listing-only lead.
             continue
     metrics["failed"] = metrics["attempted"]-enriched
+    metrics["deferred_budget"] = len(due)-metrics["attempted"]
     return enriched
 
 
@@ -533,7 +539,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     statuses = {}
     previous_health = read_json(target / "health.json", {"boards": {}}).get("boards", {})
     attempts = read_json(target / "detail-attempts.json", {"records": {}}).get("records", {})
-    attempts = {k:v for k,v in attempts.items() if isinstance(v,dict) and (not detail_due(v,clock) or k in old_by)}
+    attempts = {k:v for k,v in attempts.items() if isinstance(v,dict) and (age:=detail_age(v,clock)) is not None and age<timedelta(days=30)}
     seen_board_ids = set()
     for board in config:
         board_id = str(board.get("ats", "unknown")) + ":" + str(board.get("slug", "unknown")).lower()
