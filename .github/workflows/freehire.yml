@@ -1,11 +1,6 @@
 name: FreeHire Ingestion
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'public_quality.py'
-      - '.github/workflows/freehire.yml'
   workflow_dispatch:
     inputs:
       mode:
