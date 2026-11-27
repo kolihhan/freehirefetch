@@ -25,7 +25,7 @@ HOSTS = {
     "join.qq.com", "jobs.bytedance.com", "campus-talent.alibaba.com",
     *FEISHU_HOSTS.values(),
 }
-CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I)
+CORE = re.compile(r"\b(llm|nlp|rag|agentic|agents?|retrieval|generative ai|genai|machine learning|ai (?:software |application |research |systems? |platform )?engineer|research (?:engineer|assistant|associate)|data scientist|applied ai|ai developer|ml engineer)\b|大模型|智能体|自然语言|检索|模型评测", re.I | re.ASCII)
 HARD_TITLE = re.compile(r"\b(intern(ship)?|principal|staff|director|head of|manager|vice president|chief)\b|实习|派遣", re.I)
 CONTRACT = re.compile(r"\b(?:fixed[- ]term|temporary|[1-9][0-9]*[- ](?:year|month)[- ]contract|contract role|contract position)\b|劳务派遣|短期合同", re.I)
 CLOSED = re.compile(r"(?:this (?:job|position|vacancy|posting) (?:is|has been) (?:closed|filled|removed|expired|no longer available)|(?:no longer accepting|not currently accepting) applications|this job is no longer accepting applications|job posting not found|this job has expired|该职位已下线|职位已关闭|职位已过期)", re.I)
@@ -408,6 +408,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(3,sum(j["key"].startswith("proxy") for j in picked))
         self.assertIn("99",[j["key"] for j in picked])
         self.assertEqual(3,len(select(proxy,{},20)))
+
+    def test_core_matches_mixed_chinese_english_titles(self):
+        for title in ("Agent开发工程师", "LLM研发工程师", "RAG工程师", "智能体开发"):
+            self.assertIsNotNone(CORE.search(title), title)
+        for title in ("Management", "Reagent Specialist"):
+            self.assertIsNone(CORE.search(title), title)
 
     def test_liepin_source_reuses_exact_url_and_marketplace_budget(self):
         import tempfile
