@@ -274,6 +274,33 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertFalse(api.TITLE.search("Reagent Specialist"))
         self.assertFalse(api.TITLE.search("Management"))
 
+    def test_partial_provider_refresh_preserves_unseen_roles_as_stale(self):
+        old_url = "https://jobs.lever.co/exampleai/12345678-1234-1234-1234-123456789abc"
+        old = api.normalize_aidevboard(dict(AIDEV, id="old", apply_url=old_url), "SG")
+        def partial(url):
+            if "aidevboard.com" in url:
+                raise OSError("provider unavailable")
+            return fake_api(url)
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"SG.json").write_text(json.dumps({"market":"SG","jobs":[old]}))
+            api.run(root, fetch=partial, max_pages=1)
+            jobs = json.loads((root/"SG.json").read_text())["jobs"]
+            by_url = {j["url"]:j for j in jobs}
+            self.assertEqual(set(by_url), {old_url, URL})
+            self.assertEqual(by_url[old_url]["discovery_freshness"], "RETAINED_UNVERIFIED")
+            self.assertEqual(by_url[URL]["discovery_freshness"], "OBSERVED_THIS_RUN")
+
+    def test_complete_provider_refresh_can_remove_absent_roles(self):
+        old_url = "https://jobs.lever.co/exampleai/12345678-1234-1234-1234-123456789abc"
+        old = api.normalize_aidevboard(dict(AIDEV, id="old", apply_url=old_url), "SG")
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root/"SG.json").write_text(json.dumps({"market":"SG","jobs":[old]}))
+            api.run(root, fetch=fake_api, max_pages=1)
+            jobs = json.loads((root/"SG.json").read_text())["jobs"]
+            self.assertEqual([j["url"] for j in jobs], [URL])
+
     def test_chinese_native_language_role_preserved(self):
         cn=dict(FREEHIRE,public_slug="cn",title="大模型算法工程师",
                 countries=["CN"],location="北京，中国")
