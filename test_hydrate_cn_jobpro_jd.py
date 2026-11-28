@@ -155,6 +155,31 @@ class JDProducerTests(unittest.TestCase):
         c = jd.hydrate(data, detail_fetch=bad, limit=6, history=b["state"]["records"], now="2026-11-25T12:00:00Z")
         self.assertEqual(c["attempted"], 6)
 
+    def test_due_verified_detail_not_starved_by_unread_backlog(self):
+        positions = [{**TENCENT, "post_id": str(1282707398326592512 + i),
+                      "apply_url": "https://join.qq.com/post_detail.html?postid=" + str(1282707398326592512 + i)}
+                     for i in range(10)]
+        data = [{"results": [{"company": "tencent", "positions": positions}]}]
+        prior = positions[-1]
+        history = {"tencent|" + prior["post_id"]: {
+            "url": prior["apply_url"], "title": prior["title"],
+            "status": "OK", "attempted_at": "2026-11-25T00:00:00Z"}}
+        rows = jd.choose_candidates(data, limit=4, per_company=12, history=history,
+                                    now="2026-11-26T01:00:00Z")
+        self.assertEqual(len(rows), 4)
+        self.assertIn(prior["post_id"], {row["post_id"] for row in rows})
+        self.assertEqual(len({row["post_id"] for row in rows}), 4)
+
+    def test_expanded_per_company_budget_is_used_without_duplicate_calls(self):
+        positions = [{**TENCENT, "post_id": str(1282707398326592512 + i),
+                      "apply_url": "https://join.qq.com/post_detail.html?postid=" + str(1282707398326592512 + i)}
+                     for i in range(15)]
+        data = [{"results": [{"company": "tencent", "positions": positions}]}]
+        report = jd.hydrate(data, detail_fetch=lambda *args: {"ok": False},
+                            limit=48, per_company=12, now="2026-11-26T01:00:00Z")
+        self.assertEqual(report["attempted"], 12)
+        self.assertEqual(len({row["job_id"] for row in report["failures"]}), 12)
+
     def test_cache_preserves_original_timestamp_and_failed_refresh_is_not_live(self):
         data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
         detail = {"ok": True, **TENCENT, "description": "Agent RAG engineering. " * 12,
