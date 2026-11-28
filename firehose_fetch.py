@@ -38,6 +38,12 @@ BROAD_CATEGORIES = tuple(
     for shard in SG_CATEGORY_SHARDS
     for category in shard
 )
+# Isolate China's AI/data roles from the broad 10k search window.
+# Preserve the rest of the engineering taxonomy in a second window.
+CN_CATEGORY_SHARDS = (
+    SG_CATEGORY_SHARDS[1],
+    tuple(c for c in BROAD_CATEGORIES if c not in SG_CATEGORY_SHARDS[1]),
+)
 BOOTSTRAP_EMIT_DAYS = 30
 
 AI_CANDIDATE_MIN_SCORE = candidate_snapshot.AI_CANDIDATE_MIN_SCORE
@@ -159,7 +165,7 @@ def _run_with_candidate_snapshot(
 
 def configure_worker() -> None:
     worker.DEFAULT_CATEGORIES = BROAD_CATEGORIES
-    worker.MARKET_CATEGORY_SHARDS = {"SG": SG_CATEGORY_SHARDS}
+    worker.MARKET_CATEGORY_SHARDS = {"SG": SG_CATEGORY_SHARDS, "CN": CN_CATEGORY_SHARDS}
     worker.BOOTSTRAP_EMIT_DAYS = BOOTSTRAP_EMIT_DAYS
     worker.fetch_market = _capturing_fetch_market
     worker.run = _run_with_candidate_snapshot
