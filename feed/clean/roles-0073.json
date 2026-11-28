@@ -2,78 +2,6 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:2e678ba7dca48f8c30737ac3",
-      "title": "大模型资源采购经理",
-      "company": "某知名公司",
-      "url": "https://www.liepin.com/a/82188005.shtml",
-      "locations": [
-        "深圳"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "UNVERIFIED_URL",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/a/82188005.shtml",
-          "observed_at": "2026-11-28T05:20:26.871Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-20",
-          "salary": "20-30k",
-          "experience": "3-5年",
-          "education": "本科",
-          "location": "深圳",
-          "company": "某知名公司",
-          "title": "大模型资源采购经理"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T05:20:26.871Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "afe7ba2e3b7eda232c3a499430efb58d829ef52156363b1e124d57c2679ef622"
-    },
-    {
       "id": "job:2e44bf1099d9c0bf94e38625",
       "title": "校招（车队专项）-软件算法工程师（智能底盘方向）",
       "company": "nio",
@@ -1868,6 +1796,86 @@
         "identity_conflict": false
       },
       "content_fingerprint": "61fe2ffca25b789db9ceb3be4db53a5fb459445ded3f274a6201c30b1c967a6d"
+    },
+    {
+      "id": "job:28be5535fbf8628216cc2e09",
+      "title": "Research Engineer (Robotics)",
+      "company": "Ntu",
+      "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Robotics-_R00024680",
+      "locations": [
+        "NTU Main Campus, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Hyundai-NTU-A*STAR Corporate Lab is an advanced R&D facility specializing in development of world leading automotive technologies. We are looking for a Research Engineer to support the research in Hyundai-NTU Corp Lab, specific",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Robotics-_R00024680",
+          "key": "freehire|research-engineer-robotics-ntu-xdwmu74h",
+          "job_id": "research-engineer-robotics-ntu-xdwmu74h",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "NTU Main Campus, Singapore",
+          "company": "Ntu",
+          "title": "Research Engineer (Robotics)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T14:20:39+00:00",
+          "fresh": true,
+          "apply_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Robotics-_R00024680/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "RESEARCH_UNSPECIFIED",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          4
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Research Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "at least 4 years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "b080a56432100c2ccd22faab2f10abebe94d154fa95c75c01b4ad73ce8c0240b"
     }
   ]
 }

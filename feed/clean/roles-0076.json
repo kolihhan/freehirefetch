@@ -2,136 +2,6 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:1fb34afbe492cb0410ba1abe",
-      "title": "#EG AI Engineer",
-      "company": "NCS",
-      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001474348",
-      "locations": [
-        "Singapore, sg"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "This role sits within NCS AI Central's (AIC) Forward Deployed Engineering (FDE) model — the combined capability that takes AI solutions from proof-of-concept through to hardened production systems. As AI Engineer, you design and run rapid e",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001474348",
-          "key": "ncs3|smartrecruiters|6000000001474348",
-          "job_id": "6000000001474348",
-          "observed_at": "2026-11-28T05:50:40+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T12:25:31+00:00",
-          "posted_at": "2026-10-09T01:39:52.798Z",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
-          "apply_url": "",
-          "location": "Singapore, sg",
-          "company": "NCS",
-          "title": "#EG AI Engineer"
-        },
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001474348--eg-ai-engineer",
-          "key": "freehire|eg-ai-engineer-ncs3-e3jhvkvf",
-          "job_id": "eg-ai-engineer-ncs3-e3jhvkvf",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, sg",
-          "company": "ncs3",
-          "title": "#EG AI Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-28T05:50:40+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-28T05:36:17+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          4,
-          6
-        ],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "6+ years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "4+ years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "4–5 years of hands-on experience",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T12:25:31+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ad0304118fe1039fddd7df5737907b55799ab7460fe5dd9903f699acf4517930"
-    },
-    {
       "id": "job:1f698b543ba007d619117377",
       "title": "FDE",
       "company": "zerooneai",
@@ -1280,8 +1150,8 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
+        "role_family": "NON_TECHNICAL",
+        "ai_depth": "NOT_CORE_AI",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -1291,6 +1161,11 @@
         "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "TITLE_ONLY",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "生态运营",
+            "origin": "TITLE"
+          },
           {
             "field": "employment",
             "quote": "实习",
@@ -1303,7 +1178,7 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "54c95bcebeca4f537d6c61364330920a23610cc12df5e313f319cc9c86adbd33"
+      "content_fingerprint": "115df9473ed7a460361e10d5bf2bb594bb1d664de16863505714f60b2acebfaf"
     },
     {
       "id": "job:1c193bee13f764c960c2521a",
@@ -1932,6 +1807,78 @@
         "identity_conflict": false
       },
       "content_fingerprint": "5cb4370a6da9923d82cf54badaf68bc5aaf091e90b30f7f0cd7fb60152a2a601"
+    },
+    {
+      "id": "job:198e88501c83cfeaedbe1c2e",
+      "title": "IT经理（构建企业AI大模型）",
+      "company": "某深圳电子/半导体/集成电路公司",
+      "url": "https://www.liepin.com/a/81423935.shtml",
+      "locations": [
+        "深圳"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "UNVERIFIED_URL",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "liepin",
+          "source_file": "feed/cn-native/liepin-raw.json",
+          "market": "CN",
+          "url": "https://www.liepin.com/a/81423935.shtml",
+          "observed_at": "2026-11-28T05:20:26.871Z",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "jd_kind": "listing_only",
+          "posted_at": "2026-11-04",
+          "salary": "28-55k",
+          "experience": "5-7年",
+          "education": "学历不限",
+          "location": "深圳",
+          "company": "某深圳电子/半导体/集成电路公司",
+          "title": "IT经理（构建企业AI大模型）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/liepin-raw.json",
+        "retained_jd_ref": null,
+        "source": "liepin",
+        "source_checked_at": "2026-11-28T05:20:26.871Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0adae6e7d1636aea6c6ca125709acecee878952ef65611eb8296c94c480eb6bc"
     }
   ]
 }

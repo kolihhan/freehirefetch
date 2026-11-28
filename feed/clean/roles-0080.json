@@ -446,8 +446,8 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
+        "role_family": "NON_TECHNICAL",
+        "ai_depth": "NOT_CORE_AI",
         "seniority": "EARLY_CAREER_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -457,6 +457,11 @@
         "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "TITLE_ONLY",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "产品运营",
+            "origin": "TITLE"
+          },
           {
             "field": "seniority",
             "quote": "校招",
@@ -469,7 +474,7 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "520b8fdbc72c1abf00dedc4d3f685de3dff37d8e9bd09b252a7731e522e66075"
+      "content_fingerprint": "57b2a88befeb0f2c24ef64cc3baad4cebc2800661ae79067c93165fd5cb0b0b6"
     },
     {
       "id": "job:097c1e0841b2210c1b2c93b3",

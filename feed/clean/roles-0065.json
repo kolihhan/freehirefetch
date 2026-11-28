@@ -2,456 +2,6 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:5592e27c534134eeed9430aa",
-      "title": "大模型算法深圳",
-      "company": "某知名公司",
-      "url": "https://www.liepin.com/a/81561387.shtml",
-      "locations": [
-        "深圳"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "UNVERIFIED_URL",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/a/81561387.shtml",
-          "observed_at": "2026-11-28T05:20:26.871Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-26",
-          "salary": "30-60k·15薪",
-          "experience": "3-5年",
-          "education": "本科",
-          "location": "深圳",
-          "company": "某知名公司",
-          "title": "大模型算法深圳"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T05:20:26.871Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "eb1ba1f2dc4eedb23ee4379aa7ef623629f980317c7b661b1a291ea3b5a395dc"
-    },
-    {
-      "id": "job:55301426ffd5734b4d8392a3",
-      "title": "Data Scientist",
-      "company": "CMC Global",
-      "url": "https://sg.jobstreet.com/job/96022851",
-      "locations": [
-        "Raffles Place, Central Region"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Salary: $6,000 – $7,500 per month We are looking for a Data Scientist to support across 4-5 product squads working with government agencies to redesign workflows and build AI-enabled solutions. You will work on problems involving l",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/96022851",
-          "key": "freehire|data-scientist-cmc-global-azlpzudy",
-          "job_id": "data-scientist-cmc-global-azlpzudy",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Raffles Place, Central Region",
-          "company": "CMC Global",
-          "title": "Data Scientist"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T14:21:48+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "113ca15c0494d76227034fea70ba2c3f274bced446953589592f4477e20c14a5"
-    },
-    {
-      "id": "job:54cf1cbae708add415106a2a",
-      "title": "Agentic AI Engineer / Specialist",
-      "company": "Golden Agri-Resources",
-      "url": "https://sg.jobstreet.com/job/93498892",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Job Description • Design, develop, and deploy AI agents, co-pilots, and multi-agent systems for business automation and intelligent workflows. • Translate business requirements into scalable AI-driven s",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/93498892",
-          "key": "freehire|agentic-ai-engineer-specialist-golden-agri-resources-swr3ybp3",
-          "job_id": "agentic-ai-engineer-specialist-golden-agri-resources-swr3ybp3",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "Golden Agri-Resources",
-          "title": "Agentic AI Engineer / Specialist"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T12:07:08+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "9c4a7132702fa3c5244586e99d61754e25953dd2d8aeaa571c12c7e5071d015f"
-    },
-    {
-      "id": "job:549a0c86c02195f62ac01c25",
-      "title": "情感大模型算法工程师",
-      "company": "上海德智普类脑智能科技",
-      "url": "https://jobs.51job.com/shanghai-xhq/173662455.html",
-      "locations": [
-        "上海·徐汇区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "51job",
-          "source_file": "feed/cn-native/platform-public.json",
-          "market": "CN",
-          "url": "https://jobs.51job.com/shanghai-xhq/173662455.html",
-          "observed_at": "2026-11-27T22:21:01+00:00",
-          "discovery_freshness": "RETAINED_UNVERIFIED",
-          "source_run_status": "NATIVE_COVERAGE_UNPROVEN",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-09-15 19:07:26",
-          "salary": "2-3万·15薪",
-          "experience": "3年及以上",
-          "education": "硕士",
-          "location": "上海·徐汇区",
-          "company": "上海德智普类脑智能科技",
-          "title": "情感大模型算法工程师"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/platform-public.json",
-        "retained_jd_ref": null,
-        "source": "51job",
-        "source_checked_at": "2026-11-27T22:21:01+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ea883820b523b640d2c5d05057d1d98289c5436464c4e19090c44f6a48517905"
-    },
-    {
-      "id": "job:547cc04e112f365fb0031b20",
-      "title": "#EG Presales Consultant (Cloud, Agentic AI)",
-      "company": "NCS Group",
-      "url": "https://sg.jobstreet.com/job/95350695",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Company Description NCS is a leading AI Tech Services company. With a 15,000-strong team across the Asia Pacific, NCS scales its platforms and capabilities to provide clients with greater agility an",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95350695",
-          "key": "freehire|eg-presales-consultant-cloud-agentic-ai-ncs-group-hqxlvkuh",
-          "job_id": "eg-presales-consultant-cloud-agentic-ai-ncs-group-hqxlvkuh",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "NCS Group",
-          "title": "#EG Presales Consultant (Cloud, Agentic AI)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T12:07:03+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "66dce60094be90ac08d754b8378c0908106ccbf54d24f9bc77eff20e1558dafc"
-    },
-    {
-      "id": "job:540371d5cd6e158bdf38c783",
-      "title": "AI Agent Engineer - TikTok LIVE (Singapore)",
-      "company": "TikTok",
-      "url": "https://sg.jobstreet.com/job/91295557",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Responsibilities Team Introduction We are the core team responsible for the performance experience of TikTok LIVE, dedicated to safeguarding and continuously enhancing the end-to-end experience for billions of u",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/91295557",
-          "key": "freehire|ai-agent-engineer-tiktok-live-singapore-tiktok-ydcmboln",
-          "job_id": "ai-agent-engineer-tiktok-live-singapore-tiktok-ydcmboln",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "TikTok",
-          "title": "AI Agent Engineer - TikTok LIVE (Singapore)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T12:07:12+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Agent",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Agent",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "f72beb27f52e0bf8713487db6311590c75ff678691beaf368e909ad039ae4e09"
-    },
-    {
       "id": "job:53fffcabe72f62355ea29fc3",
       "title": "AI后端工程师（AI Backend Engineer）",
       "company": "香港大学经管学院深圳校区",
@@ -522,6 +72,70 @@
         "identity_conflict": false
       },
       "content_fingerprint": "48eeb24d20f08b249b7391be4e3d0dddd9677a3500746146e88ae90a8f7f5b76"
+    },
+    {
+      "id": "job:53853f6e81c557ad4ea8710c",
+      "title": "Senior AI Solutions Engineer (MNC)",
+      "company": "Michael Page",
+      "url": "https://my.jobstreet.com/job/95637094",
+      "locations": [
+        "Selangor"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Salary: $180k - $230k p.a. As a Senior AI Solution Engineer, you will play a key role in designing, developing, and delivering enterprise AI solutions across document intelligence and computer vision domains. Working closely with c",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/95637094",
+          "key": "freehire|senior-ai-solutions-engineer-mnc-michael-page-bzvcl3xj",
+          "job_id": "senior-ai-solutions-engineer-mnc-michael-page-bzvcl3xj",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Selangor",
+          "company": "Michael Page",
+          "title": "Senior AI Solutions Engineer (MNC)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "3b83c71c5117786a10b95623af1508b9bf98b7726f8f1542a70709b50222cea8"
     },
     {
       "id": "job:537e957da7e9d54291616b12",
@@ -976,6 +590,82 @@
         "identity_conflict": false
       },
       "content_fingerprint": "933e587161d4dcab7091da0973dbb033f42de102ead954a1fb11b59638cb7ee2"
+    },
+    {
+      "id": "job:5134cdbe9a5d311658889565",
+      "title": "AI Scientist (Document AI) – SAP Labs East Asia Singapore",
+      "company": "SAP",
+      "url": "https://sg.jobstreet.com/job/96054197",
+      "locations": [
+        "Pasir Panjang, Central Region"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "What you'll bring You are building your career in applied AI, with a solid foundation in machine learning and a drive to ship solutions that matter. You learn quickly, work well within cross-functional teams, and",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/96054197",
+          "key": "freehire|ai-scientist-document-ai-sap-labs-east-asia-singapore-sap-vq7b3i6v",
+          "job_id": "ai-scientist-document-ai-sap-labs-east-asia-singapore-sap-vq7b3i6v",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Pasir Panjang, Central Region",
+          "company": "SAP",
+          "title": "AI Scientist (Document AI) – SAP Labs East Asia Singapore"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T12:28:12+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Scientist",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Scientist",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "65dc881b9d2600c53876a56ebd123eaf4901f31f8fca4d7fb31b681fe91a5574"
     },
     {
       "id": "job:512366bea81cc0ea3acfab81",
@@ -1817,6 +1507,304 @@
         "identity_conflict": false
       },
       "content_fingerprint": "0baefd0453bbaf17b73cb880f31e638f8d5c921d3460beb4f1821851ff044a5a"
+    },
+    {
+      "id": "job:4f4f24a6b17c4845f1333644",
+      "title": "多模态评测算法工程师-Seed大模型人才校招",
+      "company": "bytedance",
+      "url": "https://jobs.bytedance.com/campus/position/7622204336257534261/detail",
+      "locations": [
+        "北京"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://jobs.bytedance.com/campus/position/7622204336257534261/detail",
+          "job_id": "7622204336257534261",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "正式",
+          "apply_url": "https://jobs.bytedance.com/campus/position/7622204336257534261/detail",
+          "location": "北京",
+          "company": "bytedance",
+          "title": "多模态评测算法工程师-Seed大模型人才校招"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-27T22:21:12+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "employment",
+            "quote": "正式",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "校招",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-eval.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "5aba23a82c7a66632d2601ecd2b7fdb828ff4a7e8530cbae19f2908b33b18b34"
+    },
+    {
+      "id": "job:4f3e1a6139b4756e88d601e3",
+      "title": "Speech and Audio Research Engineer",
+      "company": "Beijing Foreign Enterprise Management Consultants Co.,Ltd.",
+      "url": "https://www.linkedin.com/jobs/view/4482431087",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "On behalf of Huawei, a world-renowned information and communication technology company, we are seeking passionate and talented individuals to join our team as Speech and Audio Research Engineer",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4482431087",
+          "key": "freehire|speech-and-audio-research-engineer-beijing-foreign-enterprise-management-consultants-co-ltd-6rv757zu",
+          "job_id": "speech-and-audio-research-engineer-beijing-foreign-enterprise-management-consultants-co-ltd-6rv757zu",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "Beijing Foreign Enterprise Management Consultants Co.,Ltd.",
+          "title": "Speech and Audio Research Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-28T05:37:02+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "RESEARCH_UNSPECIFIED",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Research Engineer",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "ed18364e07f975e981c0420a8d79a0a019df652f7b81d042af7c7c2e0e8c1db9"
+    },
+    {
+      "id": "job:4f3b175a88edaad3aacf0e88",
+      "title": "AI Product Engineer",
+      "company": "YTL AI Labs",
+      "url": "https://www.linkedin.com/jobs/view/4480007687",
+      "locations": [
+        "Federal Territory of Kuala Lumpur, Malaysia"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "About Us At YTL AI Labs, we build sovereign AI models that perform on par with the world’s best- while staying grounded in local needs, values, and context. Our flagship model, Ilmu , is",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://www.linkedin.com/jobs/view/4480007687",
+          "key": "freehire|ai-product-engineer-ytl-ai-labs-mru7qm2e",
+          "job_id": "ai-product-engineer-ytl-ai-labs-mru7qm2e",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Federal Territory of Kuala Lumpur, Malaysia",
+          "company": "YTL AI Labs",
+          "title": "AI Product Engineer"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "2+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "7d458c929680446444f38f60ce067c7546bb4b7a4c93dfa9768fd84b52259f4e"
+    },
+    {
+      "id": "job:4ecc80c22e8dc6243cf59bba",
+      "title": "【28/29届】国际化PE后端实习生（有转正机会）",
+      "company": "xiaohongshu",
+      "url": "https://job.xiaohongshu.com/campus/position/20617",
+      "locations": [
+        "深圳市，北京市，上海市"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-backend.json",
+          "market": "CN",
+          "url": "https://job.xiaohongshu.com/campus/position/20617",
+          "job_id": "20617",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "后端开发",
+          "apply_url": "https://job.xiaohongshu.com/campus/position/20617",
+          "location": "深圳市，北京市，上海市",
+          "company": "xiaohongshu",
+          "title": "【28/29届】国际化PE后端实习生（有转正机会）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "INTERNSHIP",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "后端",
+            "origin": "TITLE"
+          },
+          {
+            "field": "employment",
+            "quote": "实习",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-backend.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "c33de22d71cb95e24f918b6dfe811cb35c0076e4f7191b05728118169fffd831"
     }
   ]
 }

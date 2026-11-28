@@ -1384,7 +1384,7 @@
         "experience_min_mentions": [
           1
         ],
-        "employment": "UNKNOWN",
+        "employment": "CONTRACT_SIGNAL",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_RETAINED",
@@ -1398,6 +1398,11 @@
             "field": "experience_min_mentions",
             "quote": "at least 1 year",
             "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "employment",
+            "quote": "contract",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
@@ -1406,7 +1411,7 @@
         "source_checked_at": "2026-11-27T13:04:12+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "994849425ec37a3830ee0b92e00445bf7ea60a2c821efc8abb9ba084f4ccadf1"
+      "content_fingerprint": "d8f332fa690d90cfa1114772226a08e12509925721208881368f71e6eddb27be"
     },
     {
       "id": "job:018e3c356c61f66aa7dd898b",

@@ -2,78 +2,6 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:198e88501c83cfeaedbe1c2e",
-      "title": "IT经理（构建企业AI大模型）",
-      "company": "某深圳电子/半导体/集成电路公司",
-      "url": "https://www.liepin.com/a/81423935.shtml",
-      "locations": [
-        "深圳"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "UNVERIFIED_URL",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/a/81423935.shtml",
-          "observed_at": "2026-11-28T05:20:26.871Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-04",
-          "salary": "28-55k",
-          "experience": "5-7年",
-          "education": "学历不限",
-          "location": "深圳",
-          "company": "某深圳电子/半导体/集成电路公司",
-          "title": "IT经理（构建企业AI大模型）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T05:20:26.871Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "0adae6e7d1636aea6c6ca125709acecee878952ef65611eb8296c94c480eb6bc"
-    },
-    {
       "id": "job:1972571dae0d0538d96ef3ef",
       "title": "Senior AI Engineer",
       "company": "R Systems",
@@ -1876,6 +1804,64 @@
         "identity_conflict": false
       },
       "content_fingerprint": "c9d338f4935ef2b17667994c9dcd7c462b94df022fc49e068f119a74acff8856"
+    },
+    {
+      "id": "job:13aeac46442d0acbd4c07810",
+      "title": "Gen AI Product Analyst",
+      "company": "HCLTech",
+      "url": "https://www.linkedin.com/jobs/view/4478838749",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "We are seeking a Gen AI Product Analyst to bridge business needs with technical delivery for AI-driven products in the pharma/biosciences domain . You will partner closely with stakeholders, le",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4478838749",
+          "key": "freehire|gen-ai-product-analyst-hcltech-4y6veax6",
+          "job_id": "gen-ai-product-analyst-hcltech-4y6veax6",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "HCLTech",
+          "title": "Gen AI Product Analyst"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "bc629fe294f28384499110e02ddaefc71ab34a9bbe7e3e2faa8760f57a0aed9c"
     }
   ]
 }
