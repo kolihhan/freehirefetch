@@ -193,6 +193,21 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertEqual(window["rows"], 400)
         self.assertTrue(window["truncated"])
 
+    def test_freehire_short_nonterminal_page_does_not_skip_remaining_rows(self):
+        calls = []
+        def fake(url):
+            params = parse_qs(urlparse(url).query)
+            if urlparse(url).hostname == "freehire.me":
+                calls.append(int(params["offset"][0]))
+                return {"data": [FREEHIRE], "meta": {"total": 51}}
+            return {"jobs": [], "has_next": False}
+        result = api.collect("SG", fetch=fake, max_pages=2)
+        self.assertEqual(result["providers"]["freehire"]["status"], "PARTIAL")
+        self.assertEqual(len(result["jobs"]), 1)
+        self.assertTrue(all(offset == 0 for offset in calls))
+        self.assertTrue(any("short" in error.lower()
+                            for error in result["providers"]["freehire"]["errors"]))
+
     def test_api_pagination_and_partial_failure_are_explicit(self):
         pages=[]
         def paged(url):
