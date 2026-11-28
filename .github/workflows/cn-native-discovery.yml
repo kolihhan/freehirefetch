@@ -18,7 +18,8 @@ on:
       - 'test_hydrate_cn_jobpro_jd.py'
       - '.github/workflows/cn-native-discovery.yml'
   schedule:
-    - cron: '05 1,4,7,10,13,16,19,22 * * *'
+    - cron: '05 1,13 * * *'
+    - cron: '05 4,7,10,16,19,22 * * *'
 permissions:
   contents: write
 
@@ -161,3 +162,50 @@ jobs:
           name: cn-native-public-source
           path: feed/cn-native/
           retention-days: 7
+
+  # Use two existing collection ticks; keep legacy recovery until acceptance.
+  # Read upstream data only. Do not cache, publish or redistribute the JD corpus.
+  jobradar:
+    if: github.event_name != 'schedule' || github.event.schedule == '05 1,13 * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install upstream client and validate source snapshot
+        run: |
+          python -m pip --disable-pip-version-check install jobsearchradar==2.3.10
+          jobradar update
+          jobradar doctor
+      - name: Read bounded distinct CN job links
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          seen = set()
+          for lane in ('social', 'campus'):
+              for q in ('大模型', 'Agent', 'NLP', 'RAG', '模型评测'):
+                  data = json.loads(subprocess.check_output(
+                      ['jobradar', 'search', '--keyword', q, '--type', lane, '--limit', '20'],
+                      text=True, timeout=90))
+                  items = data.get('results')
+                  if not isinstance(items, list) or not data.get('data_as_of'):
+                      raise ValueError('Invalid Job Radar search response')
+                  for row in items:
+                      uid = str(row.get('id') or '')
+                      url = row.get('url')
+                      if not uid or not isinstance(url, str) or not url.startswith('https://') or uid in seen:
+                          continue
+                      seen.add(uid)
+                      fields = ('id','company','title','url','cities','recruit_type','grad_year',
+                                'degree_min','availability','last_seen','source_stale','job_stale','url_scope')
+                      print('JOBRADAR_ROW '+json.dumps({k:row.get(k) for k in fields}, ensure_ascii=False))
+                  print('JOBRADAR_QUERY '+json.dumps({'lane':lane,'q':q,'data_as_of':data['data_as_of'],
+                       'returned':len(items),'stale':data.get('stale')}, ensure_ascii=False))
+          print('JOBRADAR_HEALTH '+json.dumps({'unique_source_ids':len(seen),'coverage':'BOUNDED_QUERY',
+               'queries':10,'per_query_limit':20,'application_verified':False}))
+          if not seen:
+              raise SystemExit('No valid job links returned; source acceptance failed')
+          PY
