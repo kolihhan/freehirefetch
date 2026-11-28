@@ -696,7 +696,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: 
 
 # Discover new public boards from exact role links already observed by collectors.
 # Only documented HTTPS ATS hosts are accepted; never follow arbitrary seed URLs.
-DISCOVERED_BOARD_LIMIT = 3
+DISCOVERED_BOARD_LIMIT = 8  # 48 bounded probes/day at six scheduled runs
 _DISCOVERY_HOSTS = {
     "job-boards.greenhouse.io": "greenhouse",
     "boards.greenhouse.io": "greenhouse",
@@ -756,8 +756,16 @@ def discover_boards(root, configured, clock, limit=DISCOVERED_BOARD_LIMIT):
             loc = plain(row.get("location"))
             if not any(pattern.search(loc) for pattern in REGIONS.values()):
                 continue
-            url = row.get("source_url") or row.get("url")
-            seed = board_seed(url)
+            # Aggregators may retain their own redirect in source_url while
+            # url/apply_url carries the exact public employer role. Only
+            # allowlisted exact ATS routes may become a board seed.
+            url = None
+            seed = None
+            for candidate_url in (row.get("source_url"), row.get("url"), row.get("apply_url")):
+                candidate_seed = board_seed(candidate_url)
+                if candidate_seed:
+                    url, seed = candidate_url, candidate_seed
+                    break
             if not seed:
                 continue
             kind, slug = seed
