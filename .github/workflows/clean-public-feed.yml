@@ -1,0 +1,61 @@
+name: Refresh Clean Public Feed
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["FreeHire Ingestion", "FreeHire Cold Start", "ATS Discovery and Application Evidence", "CN Native Public Discovery", "Public ATS Playwright Liveness"]
+    types: [completed]
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'public_quality.py'
+      - 'role_tags.py'
+      - '.github/workflows/clean-public-feed.yml'
+      - 'publish_clean_feed.sh'
+  pull_request:
+    paths:
+      - 'public_quality.py'
+      - 'role_tags.py'
+      - '.github/workflows/clean-public-feed.yml'
+      - 'publish_clean_feed.sh'
+      - '.github/workflows/freehire.yml'
+      - 'tests/test_clean_publication.py'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          bash -n publish_clean_feed.sh
+          python -m unittest discover -s tests -p test_clean_publication.py -v
+          python public_quality.py
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    concurrency:
+      group: clean-public-feed-main
+      cancel-in-progress: false
+    steps:
+      # Never download or execute artifacts from an upstream run. Read only
+      # the latest trusted default-branch public source state.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: bash publish_clean_feed.sh
