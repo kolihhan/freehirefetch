@@ -8,6 +8,7 @@ on:
       - 'ats_discovery.py'
       - 'application_probe.py'
       - 'test_ats_discovery.py'
+      - 'tests/test_board_discovery.py'
       - 'market_api_collect.py'
       - 'test_market_api_collect.py'
       - 'sg_research_collect.py'
@@ -21,6 +22,7 @@ on:
       - 'ats_discovery.py'
       - 'application_probe.py'
       - 'test_ats_discovery.py'
+      - 'tests/test_board_discovery.py'
       - 'market_api_collect.py'
       - 'test_market_api_collect.py'
       - 'sg_research_collect.py'
@@ -56,6 +58,9 @@ jobs:
           set +e
           python -m unittest -v test_ats_discovery test_market_api_collect test_collect_devglobal_source test_sg_research_collect test_cn_platform_collect > /tmp/ats-tests.txt 2>&1
           code=$?
+          python -m unittest discover -s tests -p test_board_discovery.py -v >> /tmp/ats-tests.txt 2>&1
+          board_code=$?
+          if [ "$code" = 0 ]; then code=$board_code; fi
           cat /tmp/ats-tests.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           export TEST_EXIT=$code
@@ -111,23 +116,8 @@ jobs:
           python application_probe.py --self-test
           timeout 120s python cn_platform_collect.py || echo "::warning::CN native platform source sample incomplete"
           timeout 420s python application_probe.py --limit 150 --workers 10
-      - name: Upload fresh collection and browser evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: fresh-ats-application-evidence
-          path: |
-            feed/ats/health.json
-            feed/ats/ci-health.json
-            feed/ats/changes.json
-            feed/ats/application-probes.json
-            feed/ats/api-liveness.json
-            feed/cn-native/platform-public.json
-            feed/market-api/health.json
-            feed/sg-research/current.json
-          if-no-files-found: warn
       - name: Commit public source feed changes only
-        if: github.ref == 'refs/heads/main' && steps.tests.outputs.exit_code == '0'
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && steps.tests.outputs.exit_code == '0' }}
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -142,6 +132,22 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+      - name: Upload fresh collection and browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fresh-ats-application-evidence
+          path: |
+            feed/ats/health.json
+            feed/ats/discovered-boards.json
+            feed/ats/ci-health.json
+            feed/ats/changes.json
+            feed/ats/application-probes.json
+            feed/ats/api-liveness.json
+            feed/cn-native/platform-public.json
+            feed/market-api/health.json
+            feed/sg-research/current.json
+          if-no-files-found: warn
       - name: Fail visibly on tests or incomplete board
         if: steps.tests.outputs.exit_code != '0' || steps.fetch.outputs.exit_code != '0' || steps.probe.outcome == 'failure'
         run: |
