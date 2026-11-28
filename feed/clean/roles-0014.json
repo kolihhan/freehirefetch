@@ -2,12 +2,12 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:1a6786e4587e7c9e90e2cfb8",
-      "title": "Senior Data Scientist (Generative AI)",
-      "company": "Razer",
-      "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
+      "id": "job:468b13c4f5fd1942a0b0b831",
+      "title": "Member of Technical Staff, Agentic AI Architect",
+      "company": "Micron",
+      "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/MTS---Machine-Learning_JR112274",
       "locations": [
-        "Singapore"
+        "Fab 10A, Singapore"
       ],
       "observed_markets": [
         "SG"
@@ -27,10 +27,10 @@
           "source": "official-ats",
           "source_file": "feed/ats/markets/SG.json",
           "market": "SG",
-          "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
-          "key": "razer|workday|/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
-          "job_id": "/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
-          "observed_at": "2026-11-27T13:04:12+00:00",
+          "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/MTS---Machine-Learning_JR112274",
+          "key": "micron|workday|/job/Fab-10A-Singapore/MTS---Machine-Learning_JR112274",
+          "job_id": "/job/Fab-10A-Singapore/MTS---Machine-Learning_JR112274",
+          "observed_at": "2026-11-25T10:23:29+00:00",
           "discovery_freshness": "RETAINED_UNVERIFIED",
           "source_run_status": "PAUSED_POLICY",
           "jd_kind": "listing_only",
@@ -39,43 +39,34 @@
           "salary_components": [],
           "employment_type": "",
           "apply_url": "",
-          "location": "Singapore",
-          "company": "Razer",
-          "title": "Senior Data Scientist (Generative AI)"
+          "location": "Fab 10A, Singapore",
+          "company": "Micron",
+          "title": "Member of Technical Staff, Agentic AI Architect"
         },
         {
           "source": "market-api",
           "source_file": "feed/market-api/SG.json",
           "market": "SG",
-          "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987",
-          "key": "freehire|senior-data-scientist-generative-ai-razer-wjnfyoja",
-          "job_id": "senior-data-scientist-generative-ai-razer-wjnfyoja",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "url": "https://micron.wd1.myworkdayjobs.com/External/job/Fab-10A-Singapore/MTS---Machine-Learning_JR112274",
+          "key": "freehire|member-of-technical-staff-agentic-ai-architect-micron-technology-motoruos",
+          "job_id": "member-of-technical-staff-agentic-ai-architect-micron-technology-motoruos",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "Razer",
-          "title": "Senior Data Scientist (Generative AI)"
+          "location": "Fab 10A, Singapore",
+          "company": "Micron Technology",
+          "title": "Member of Technical Staff, Agentic AI Architect"
         }
       ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "AUTH_REQUIRED",
-          "checked_at": "2026-11-27T17:16:10+00:00",
-          "fresh": true,
-          "apply_url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/Senior-Data-Scientist--Generative-AI-_JR2026006987/apply",
-          "title_match": true
-        }
-      ],
+      "application_evidence": [],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
+        "phd_preferred_signal": true,
         "experience_min_mentions": [
-          2
+          8
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
@@ -84,23 +75,28 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Generative AI",
+            "quote": "Agentic",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "Build and extend RAG",
+            "quote": "Design and develop autonomous AI Agents",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "2+ years",
+            "quote": "8+ years",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "seniority",
-            "quote": "Senior",
+            "quote": "Staff",
             "origin": "TITLE_OR_METADATA"
+          },
+          {
+            "field": "degree_preferred",
+            "quote": "Ph.D. is a plus",
+            "origin": "THIRD_PARTY_TEXT"
           }
         ],
         "source_file": "feed/market-api/SG.json",
@@ -109,14 +105,25 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "19d50428aa5bdebc7382c3fae25fbf6ad160c2b28126122ba1c29b895ec48096",
-      "duplicate_review": []
+      "content_fingerprint": "15609e92e860dc6a3dd4d8fc4016219659d01180daac74a69c66c96e3ffe6793",
+      "duplicate_review": [
+        {
+          "status": "POSSIBLE_DUPLICATE_REVIEW",
+          "method": "same_normalized_title_market_and_jd_4gram_containment",
+          "shared_4grams": 1038,
+          "containment": 1.0,
+          "other_id": "job:eae220ff8ea0f83dae0953b4",
+          "other_company": "Micron Semiconductors",
+          "other_url": "https://sg.jobstreet.com/job/96046291",
+          "other_title": "Member of Technical Staff, Agentic AI Architect"
+        }
+      ]
     },
     {
-      "id": "job:1a32a67d12a2015ae03ba514",
-      "title": "AI Consultant",
+      "id": "job:45f5c8243bf4732b13b8741a",
+      "title": "#EG Senior AI Data Engineer",
       "company": "NCS",
-      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516108",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001497912",
       "locations": [
         "Singapore, sg"
       ],
@@ -132,35 +139,66 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Role Summary You are an autonomous AI Consultant, responsible for creating the harness for designing and building the AI harness, agent framework, and reusable engineering components required to operate a modern data platform based on Apach",
+      "excerpt": "Role Summary You are an autonomous AI Engineer, responsible for creating the harness for designing and building the AI harness, agent framework, and reusable engineering components required to operate a modern data platform based on Apache",
       "observations": [
         {
           "source": "official-ats",
           "source_file": "feed/ats/markets/SG.json",
           "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516108",
-          "key": "ncs3|smartrecruiters|6000000001516108",
-          "job_id": "6000000001516108",
-          "observed_at": "2026-11-28T09:23:26+00:00",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001497912",
+          "key": "ncs3|smartrecruiters|6000000001497912",
+          "job_id": "6000000001497912",
+          "observed_at": "2026-11-28T10:21:56+00:00",
           "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T14:17:27+00:00",
-          "posted_at": "2026-10-23T02:45:31.920Z",
+          "jd_checked_at": "2026-11-28T05:50:40+00:00",
+          "posted_at": "2026-10-19T01:23:56.973Z",
           "salary_summary": "",
           "salary_components": [],
           "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
           "apply_url": "",
           "location": "Singapore, sg",
           "company": "NCS",
-          "title": "AI Consultant"
+          "title": "#EG Senior AI Data Engineer"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001497912--eg-senior-ai-data-engineer",
+          "key": "freehire|eg-senior-ai-data-engineer-ncs3-zplpp6lz",
+          "job_id": "eg-senior-ai-data-engineer-ncs3-zplpp6lz",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, sg",
+          "company": "ncs3",
+          "title": "#EG Senior AI Data Engineer"
         }
       ],
-      "application_evidence": [],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T10:21:56+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:54:04+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
@@ -183,249 +221,6 @@
             "field": "employment",
             "quote": "permanent",
             "origin": "METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T14:17:27+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "166e9eab54d40e4e491b1307d6c2636bd285a2f5fe28b24c14e69b78e83903a2",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:1972db1bd0b612175d6633b1",
-      "title": "Machine Learning Engineer Project Intern（TikTok Search）- 2026 Start（BS/MS）",
-      "company": "TikTok",
-      "url": "https://sg.jobstreet.com/job/90729885",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Responsibilities About the team Our Search Team is responsible for building and owning TikTok's search engine which provides our users the best search experience. On the TikTok Search Team, you’ll have the opportunit",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/90729885",
-          "key": "freehire|machine-learning-engineer-project-intern-tiktok-search-2026-start-bs-ms-tiktok-tgtkdg7d",
-          "job_id": "machine-learning-engineer-project-intern-tiktok-search-2026-start-bs-ms-tiktok-tgtkdg7d",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "TikTok",
-          "title": "Machine Learning Engineer Project Intern（TikTok Search）- 2026 Start（BS/MS）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Machine Learning",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "research and development of international short video search engines, using cutting-edge machine learning algorithms",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "employment",
-            "quote": "Intern",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "Bachelor's degree or above",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "0f40171c8d221968c6b61fcbf56be332b7123a00870c55ad6617c76125cb96a3",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:1857e8358081b79dc38f313a",
-      "title": "GenAI Application Engineer (LLM / RAG / Agentic AI)",
-      "company": "D L Resources Pte Ltd",
-      "url": "https://sg.jobstreet.com/job/95727468",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Client: Bank Sector Client Located In Singapore LLM / RAG / Agentic AI / LangGraph / LangChain Role Overview We are looking for a Senior GenAI Application Engineer </",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95727468",
-          "key": "freehire|genai-application-engineer-llm-rag-agentic-ai-d-l-resources-pte-ltd-qz3espja",
-          "job_id": "genai-application-engineer-llm-rag-agentic-ai-d-l-resources-pte-ltd-qz3espja",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "D L Resources Pte Ltd",
-          "title": "GenAI Application Engineer (LLM / RAG / Agentic AI)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T10:07:34+00:00",
-          "fresh": false,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          6
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "GenAI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Design, develop and enhance production-grade GenAI / LLM",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "6+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2e7cd1430c86318e3351bcc2f3d809faa1d836e3b51c08a23121975d3c150b86",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:178736734d8a35d0db413b09",
-      "title": "Senior Manager - AI Engineer",
-      "company": "Zurich Insurance Group",
-      "url": "https://my.jobstreet.com/job/94902341",
-      "locations": [
-        "Kuala Lumpur"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Objectives of the role Design, develop, and deploy production-ready AI solutions that integrate seamlessly into enterprise applications and business workflows. Build scalable AI p",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/MY.json",
-          "market": "MY",
-          "url": "https://my.jobstreet.com/job/94902341",
-          "key": "freehire|senior-manager-ai-engineer-zurich-insurance-group-xqdbxcs6",
-          "job_id": "senior-manager-ai-engineer-zurich-insurance-group-xqdbxcs6",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Kuala Lumpur",
-          "company": "Zurich Insurance Group",
-          "title": "Senior Manager - AI Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Design and build autonomous and semi-autonomous AI agent",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "seniority",
@@ -433,57 +228,70 @@
             "origin": "TITLE_OR_METADATA"
           }
         ],
-        "source_file": "feed/market-api/MY.json",
+        "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:50:40+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "f04bf9753818b8dec43cc546755404127934fe3e2658ff6b71b6f46582371857",
+      "content_fingerprint": "64d3fba04b178b4748e1518d584685f129a4915a18fc50dc488791ec084eaccb",
       "duplicate_review": []
     },
     {
-      "id": "job:16c5b080271e0322579bb012",
-      "title": "AI Engineer / AI Lead, APAC",
-      "company": "BGC Group",
-      "url": "https://www.linkedin.com/jobs/view/4493730201",
+      "id": "job:44ecac57d304c6df6e8d5790",
+      "title": "Senior Data Scientist (Trust & Fraud)",
+      "company": "Grab",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000161020474",
       "locations": [
-        "Singapore, Singapore"
+        "Petaling Jaya, my"
       ],
       "observed_markets": [
-        "SG"
+        "MY"
       ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
       "identity_conflict": false,
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "About Us: BGC Group Headquartered in London and New York, BGC Group (NASDAQ: BGC) is a leading global brokerage firm providing integrated voice and elec",
+      "excerpt": "Get to Know Our Team We are architects of trust. Our mission: shield Grab ecosystem from evolving fraud and safety threats by turning massive datasets into applicable intelligence. From deploying sequence-based models for payment risk to ap",
       "observations": [
         {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4493730201",
-          "key": "freehire|ai-engineer-ai-lead-apac-bgc-group-rigldp3d",
-          "job_id": "ai-engineer-ai-lead-apac-bgc-group-rigldp3d",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "BGC Group",
-          "title": "AI Engineer / AI Lead, APAC"
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/MY.json",
+          "market": "MY",
+          "url": "https://jobs.smartrecruiters.com/Grab/744000161020474",
+          "key": "grab|smartrecruiters|744000161020474",
+          "job_id": "744000161020474",
+          "observed_at": "2026-11-28T10:21:56+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-27T17:12:11+00:00",
+          "posted_at": "2026-11-11T03:16:03.263Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Petaling Jaya, my",
+          "company": "Grab",
+          "title": "Senior Data Scientist (Trust & Fraud)"
         }
       ],
       "application_evidence": [
         {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T10:21:56+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
           "source": "browser",
           "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-28T09:27:45+00:00",
+          "checked_at": "2026-11-28T05:55:25+00:00",
           "fresh": true,
           "apply_url": null,
           "title_match": true
@@ -496,7 +304,104 @@
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [
-          5
+          3
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "developing and deploying machine learning models",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "developing and deploying machine learning models",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "at least 3 years",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/MY.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T17:12:11+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0a1e8a29cdd583ed1b527c87d1ec6f3947584d77261f27721144f494f3554edb",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:44210fba26d61efe63891960",
+      "title": "CS03 - Lead Software Engineer (AI Products)",
+      "company": "FPT Software",
+      "url": "https://sg.jobstreet.com/job/95971443",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Job Responsibilities Develop full-stack, reactive web applications for deployment on desktop or cloud platforms such as AWS, Microsoft Azure or GCP. Work with UX/UI designers to develop",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95971443",
+          "key": "freehire|cs03-lead-software-engineer-ai-products-fpt-software-umilsnvu",
+          "job_id": "cs03-lead-software-engineer-ai-products-fpt-software-umilsnvu",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "FPT Software",
+          "title": "CS03 - Lead Software Engineer (AI Products)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T14:21:47+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          3,
+          6
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
@@ -505,17 +410,22 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
+            "quote": "Integrate Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG",
+            "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "ai_depth",
-            "quote": "Build and maintain solutions leveraging Generative AI, LLMs, RAG",
+            "quote": "Integrate Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "5+ years",
+            "quote": "min. 3 years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "More than 6 years of relevant experience",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
@@ -530,14 +440,84 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "fdf1f63efa079f3c55c2f630090b429a93ca5ec3ae3af6f2ead75082b152db26",
+      "content_fingerprint": "7472386f4e9e68bc18822cb36c729ea80093963dec70517ad032f7376d868b90",
       "duplicate_review": []
     },
     {
-      "id": "job:15f91b852362bf2a7728b90d",
-      "title": "Senior GenAI Engineer (LangGraph / RAG / Agentic AI) – Leading Bank, 12 Months",
-      "company": "A-IT Software Services",
-      "url": "https://sg.jobstreet.com/job/95881477",
+      "id": "job:43b145272f9dd954abae8d5b",
+      "title": "Software Engineer (Agentic AI), AI Automation",
+      "company": "Mintel (M) Consulting Sdn Bhd",
+      "url": "https://my.jobstreet.com/job/94957518",
+      "locations": [
+        "Kuala Lumpur City Centre, Kuala Lumpur"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "We’re looking for a Software Engineer (Agentic AI) to join our AI Automation team, building production-grade applications that help internal users automate routine execution and focus on more complex, high-va",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/94957518",
+          "key": "freehire|software-engineer-agentic-ai-ai-automation-mintel-m-consulting-sdn-bhd-s4fq2pdg",
+          "job_id": "software-engineer-agentic-ai-ai-automation-mintel-m-consulting-sdn-bhd-s4fq2pdg",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Kuala Lumpur City Centre, Kuala Lumpur",
+          "company": "Mintel (M) Consulting Sdn Bhd",
+          "title": "Software Engineer (Agentic AI), AI Automation"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "building production applications that incorporate Agentic AI and LLM",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "building production applications that incorporate Agentic AI and LLM",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f8e79e09228bdf59621b790d58571190e89c7d5572e321572d4c5446aaed99fb",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:42e7526c33d50adaee6c0c3e",
+      "title": "AI Engineer",
+      "company": "Helius Technologies",
+      "url": "https://sg.jobstreet.com/job/96056101",
       "locations": [
         "Central Region"
       ],
@@ -551,28 +531,28 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Salary: $10,000 – $12,000 per month Job Highlights Build real GenAI apps that are used across a leading bank, not just demos Hands-on work with LangGraph, LangChain, RAG, agentic workfl",
+      "excerpt": "Salary: $7,500 – $8,000 per month AI Engineer Job Type: 1-year renewable contract Job Summary We are looking for a highly skilled AI Engineer with strong hands-on",
       "observations": [
         {
           "source": "market-api",
           "source_file": "feed/market-api/SG.json",
           "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95881477",
-          "key": "freehire|senior-genai-engineer-langgraph-rag-agentic-ai-leading-bank-12-months-a-it-software-services-ckjoftto",
-          "job_id": "senior-genai-engineer-langgraph-rag-agentic-ai-leading-bank-12-months-a-it-software-services-ckjoftto",
+          "url": "https://sg.jobstreet.com/job/96056101",
+          "key": "freehire|ai-engineer-helius-technologies-a4nwzkcy",
+          "job_id": "ai-engineer-helius-technologies-a4nwzkcy",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "location": "Central Region",
-          "company": "A-IT Software Services",
-          "title": "Senior GenAI Engineer (LangGraph / RAG / Agentic AI) – Leading Bank, 12 Months"
+          "company": "Helius Technologies",
+          "title": "AI Engineer"
         }
       ],
       "application_evidence": [
         {
           "source": "browser",
           "status": "BLOCKED",
-          "checked_at": "2026-11-27T22:22:40+00:00",
+          "checked_at": "2026-11-28T05:55:25+00:00",
           "fresh": true,
           "apply_url": null,
           "title_match": false
@@ -580,13 +560,11 @@
       ],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          6
-        ],
+        "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
@@ -594,23 +572,18 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "GenAI",
+            "quote": "AI Engineer",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "Design, build and improve GenAI applications using LangGraph, LangChain or similar frameworks Build agentic workflows",
+            "quote": "Build and optimize Retrieval-Augmented Generation (RAG",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
-            "field": "experience_min_mentions",
-            "quote": "At least 6 years",
+            "field": "ai_depth",
+            "quote": "fine-tuning",
             "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/market-api/SG.json",
@@ -619,14 +592,14 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "5e5331a0774271bdb4b13966fcf8be5c7779551d019f4b98de5de3a70a3096a7",
+      "content_fingerprint": "16739b01ea0c8de0c4c554301c8ebeb9a7ae7aea117abc650c48efc6f2df6a14",
       "duplicate_review": []
     },
     {
-      "id": "job:14449adf1aceb935bde914b7",
-      "title": "Senior AI Cybersecurity Engineer",
-      "company": "GovTech Singapore",
-      "url": "https://www.linkedin.com/jobs/view/4489093726",
+      "id": "job:427e62067efca24600339675",
+      "title": "AI Researcher",
+      "company": "Reejig",
+      "url": "https://sg.jobstreet.com/job/91743413",
       "locations": [
         "Singapore"
       ],
@@ -642,37 +615,28 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "About Us We are the Cyber Security Group (CSG) of the Government Technology Agency of Singapore (GovTech). CSG safeguards the Government's ICT systems and digital services, so that citizens and businesse",
+      "excerpt": "Reejig is the Work Operating System for the AI powered enterprise. We give companies a complete, validated view of their work by mapping every role, task, skill, and workflow. With this intelligence, we redesign how work sho",
       "observations": [
         {
           "source": "market-api",
           "source_file": "feed/market-api/SG.json",
           "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4489093726",
-          "key": "freehire|senior-ai-cybersecurity-engineer-govtech-singapore-5lkb5xul",
-          "job_id": "senior-ai-cybersecurity-engineer-govtech-singapore-5lkb5xul",
+          "url": "https://sg.jobstreet.com/job/91743413",
+          "key": "freehire|ai-researcher-reejig-iykwf7le",
+          "job_id": "ai-researcher-reejig-iykwf7le",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "location": "Singapore",
-          "company": "GovTech Singapore",
-          "title": "Senior AI Cybersecurity Engineer"
+          "company": "Reejig",
+          "title": "AI Researcher"
         }
       ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T22:22:33+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
+      "application_evidence": [],
       "role_tags": {
-        "role_family": "AI_ENGINEERING",
+        "role_family": "AI_RESEARCH",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
+        "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [
@@ -685,22 +649,552 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "building AI agents",
-            "origin": "THIRD_PARTY_TEXT"
+            "quote": "Researcher",
+            "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "building AI agents",
+            "quote": "Design and build reliable, reproducible data and LLM pipelines for ingestion, enrichment, retrieval (RAG",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "At least 5 years",
+            "quote": "5+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e6f5e89cc947cfd74eb4221d10a1d0da4b2793478f9fd72753dfda04f7057241",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:423f3ab8fbf616b837765616",
+      "title": "AI Development Engineer (MCP & Agent) AI开发工程师（MCP与智能体方向）",
+      "company": "UA PICTURES SDN.BHD.",
+      "url": "https://my.jobstreet.com/job/95662916",
+      "locations": [
+        "Penang"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Salary: RM 10,000 – RM 13,000 per month About the role AI Development Engineer (MCP & Agent Direction) is responsible for engineering generative AI capabilities into film and animation production workflow",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/95662916",
+          "key": "freehire|ai-development-engineer-mcp-agent-aikai-fa-gong-cheng-shi-mcpyu-zhi-neng-ti-fang-xiang-ua-pictures-sdn-bhd-mwlc3z4y",
+          "job_id": "ai-development-engineer-mcp-agent-aikai-fa-gong-cheng-shi-mcpyu-zhi-neng-ti-fang-xiang-ua-pictures-sdn-bhd-mwlc3z4y",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Penang",
+          "company": "UA PICTURES SDN.BHD.",
+          "title": "AI Development Engineer (MCP & Agent) AI开发工程师（MCP与智能体方向）"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-28T05:55:37+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1,
+          3
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "智能体",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "implement Orchestrator-Worker, Fan-out/Fan-in, tool calling, structured output, RAG",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
-            "field": "seniority",
-            "quote": "Senior",
+            "field": "ai_depth",
+            "quote": "training data",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "3+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "1+ year",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "degree",
+            "quote": "Bachelor's degree or above",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0010835015ca470f97a10b53ab5d09a8be6b18b8a63d308637f217108ba2cd44",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:421b6adb8b2bf876d2c8d039",
+      "title": "Research Engineer (Machine Learning)",
+      "company": "Ntu",
+      "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Machine-Learning-_R00022966",
+      "locations": [
+        "NTU Main Campus, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "We are seeking a Research Engineer to design, implement, and integrate Visual-Language Models (VLMs) into autonomous mobile robots platform. The role focuses on enabling high-level semantic reasoning, perception–language grounding, and d",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Machine-Learning-_R00022966",
+          "key": "freehire|research-engineer-machine-learning-ntu-7mmj653r",
+          "job_id": "research-engineer-machine-learning-ntu-7mmj653r",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "NTU Main Campus, Singapore",
+          "company": "Ntu",
+          "title": "Research Engineer (Machine Learning)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T14:20:39+00:00",
+          "fresh": true,
+          "apply_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer--Machine-Learning-_R00022966/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_RESEARCH",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Research Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Design, implement, and integrate Visual-Language Models",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "53f2cc1cf3cbf60be03c5c2cdc87a0173c6cde6b97a8cf00f8bf6ce1a47f4c27",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:4219e8df14d9104274c31e31",
+      "title": "Machine Learning & AI Engineering",
+      "company": "Zoom",
+      "url": "https://zoom.wd5.myworkdayjobs.com/cn/job/Hangzhou-CHN/AI-Engineer_R19318",
+      "locations": [
+        "Hangzhou (CHN)"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "岗位职责： 1.参与研发多智能体协同框架，构建具备任务推理、规划与执行能力的自主代理系统，保障复杂环境下的可靠协调； 2.参与智能助手、智能客服、售前导购等场景的技术攻关，设计可解释的Agent行为决策机制； 3.协同产品、算法、工程团队完成系统集成，推动AI能力在Zoom生态中的创新落地。 4.将大型语言模型（LLM）和Agentic AI框架应用于实际生产场景，从根本上改变人们在工作和日常生活中的沟",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://zoom.wd5.myworkdayjobs.com/cn/job/Hangzhou-CHN/AI-Engineer_R19318",
+          "key": "freehire|machine-learning-ai-engineering-zoom-ca2sapfo",
+          "job_id": "machine-learning-ai-engineering-zoom-ca2sapfo",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Hangzhou (CHN)",
+          "company": "Zoom",
+          "title": "Machine Learning & AI Engineering"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T12:47:40+00:00",
+          "fresh": true,
+          "apply_url": "https://zoom.wd5.myworkdayjobs.com/cn/job/Hangzhou-CHN/AI-Engineer_R19318/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "研发多智能体",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "degree",
+            "quote": "硕士及以上",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "9c5a572a658fbd75d054f242ed2e78cf8fff20c0ccdb2d8d2eebd82892f45850",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:4160a9383143b0949f44c81f",
+      "title": "Agentic AI Specialist (Based in Malaysia)",
+      "company": "Abeam Consulting",
+      "url": "https://my.jobstreet.com/job/95296083",
+      "locations": [
+        "Kuala Lumpur"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "About Us ABeam Consulting is a global professional services company that specializes in delivering business transformation and technology solutions to clients across a wide range of industries. With a global",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/95296083",
+          "key": "freehire|agentic-ai-specialist-based-in-malaysia-abeam-consulting-vedm62bd",
+          "job_id": "agentic-ai-specialist-based-in-malaysia-abeam-consulting-vedm62bd",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Kuala Lumpur",
+          "company": "Abeam Consulting",
+          "title": "Agentic AI Specialist (Based in Malaysia)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T12:48:09+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Agentic",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "design goal-driven agentic workflows, incorporating AI agents",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "1–2 years of hands-on experience",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "fc25242fece84cd62f2264848042b52f4b8e7d97ed19f64b4850bb0d70b700fc",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:407be5dba9d821eacf0da7f1",
+      "title": "数据挖掘工程师（大模型方向）_XC",
+      "company": "Bosch",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000094324585",
+      "locations": [
+        "Shanghai, Shanghai, cn"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "构建下一代 智能数据挖掘平台 ，以大模型为核心驱动力，通过文本搜索、图像搜索、多模态理解等方式，实现大规模自动驾驶数据的智能发现与价值提炼。负责设计与实现基于 Qwen / CLIP / EVA / BLIP 等多模态模型 的语义搜索与向量检索方案，支持感知难例挖掘、仿真场景检索、标签一致性分析等任务，推动数据生产与模型训练的智能化。 主要职责 负责构建 文本 / 图像 / 多模态搜索系统 ，实现语义级别的数据检索； 基于 Qwen / CLIP / EVA / BLIP /",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000094324585",
+          "key": "boschgroup|smartrecruiters|744000094324585",
+          "job_id": "744000094324585",
+          "observed_at": "2026-11-28T10:21:56+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-27T14:17:27+00:00",
+          "posted_at": "2025-11-19T02:07:56.229Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Shanghai, Shanghai, cn",
+          "company": "Bosch",
+          "title": "数据挖掘工程师（大模型方向）_XC"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T10:21:56+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T22:22:32+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "构建下一代 智能数据挖掘平台 ，以大模型",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "FIRST_PARTY_RETAINED"
+          }
+        ],
+        "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T14:17:27+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "6ae482106542c62c2d827bbc3fc1e83ca587c4f4bfcff6e8ecf7d586d33e5c43",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:4007c92d07e6187725631e6e",
+      "title": "AI Engineer Intern",
+      "company": "Razer",
+      "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/AI-Engineer-Intern_JR2026006947",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Joining Razer will place you on a global mission to revolutionize the way the world games. Razer is a place to do great work , offering you the opportunity to make an impact globally while working across a global team located acros",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://razer.wd3.myworkdayjobs.com/Careers/job/Singapore/AI-Engineer-Intern_JR2026006947",
+          "key": "freehire|ai-engineer-intern-razer-ve4w6tmo",
+          "job_id": "ai-engineer-intern-razer-ve4w6tmo",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "Razer",
+          "title": "AI Engineer Intern"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "INTERNSHIP",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "building and improving autonomous and semi-autonomous AI agents",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "fine-tuning",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "employment",
+            "quote": "Intern",
             "origin": "TITLE_OR_METADATA"
           }
         ],
@@ -710,52 +1204,138 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "4bad9d14638cad237d759eb772b29e786d58e701ba2c25052f958f19422b0efb",
+      "content_fingerprint": "683dadfcef87057d0ee1cbff3c60da12c3b0c343c872dc1252f4839ea54c3dbe",
       "duplicate_review": []
     },
     {
-      "id": "job:13951e793d5a2371cc0638aa",
-      "title": "AI Engineer",
-      "company": "Ideals Recruitment",
-      "url": "https://sg.jobstreet.com/job/95749616",
+      "id": "job:3feb9363284201c2adf426de",
+      "title": "AI Agentic Solutions Engineer",
+      "company": "Lavu Tech Solutions",
+      "url": "https://my.jobstreet.com/job/95632639",
       "locations": [
-        "North-East Region"
+        "Bayan Lepas, Penang"
       ],
       "observed_markets": [
-        "SG"
+        "MY"
       ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Salary: $6,000 – $7,000 per month Basic up to $7000 + Bonus + Allowances Working location: North-East Region of Singapore Working days - Mon – Fri, Nor",
+      "excerpt": "AI Agentic Solutions Engineer / LLM Orchestration Developer This is for Chatbot project 1) Strong Python development experience. 2) Hands-on experience with at least one (LangGraph, CrewAI, AutoGen, Semantic Kernel)",
       "observations": [
         {
           "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95749616",
-          "key": "freehire|ai-engineer-ideals-recruitment-f33hsanu",
-          "job_id": "ai-engineer-ideals-recruitment-f33hsanu",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/95632639",
+          "key": "freehire|ai-agentic-solutions-engineer-lavu-tech-solutions-soqomwly",
+          "job_id": "ai-agentic-solutions-engineer-lavu-tech-solutions-soqomwly",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "location": "North-East Region",
-          "company": "Ideals Recruitment",
-          "title": "AI Engineer"
+          "location": "Bayan Lepas, Penang",
+          "company": "Lavu Tech Solutions",
+          "title": "AI Agentic Solutions Engineer"
         }
       ],
       "application_evidence": [
         {
           "source": "browser",
           "status": "BLOCKED",
-          "checked_at": "2026-11-28T05:55:26+00:00",
+          "checked_at": "2026-11-27T17:16:55+00:00",
           "fresh": true,
           "apply_url": null,
           "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Agentic",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "design, develop, and deploy enterprise-grade Generative AI solutions leveraging Large Language Models (LLMs",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "model evaluation",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "233f9e5a1baa62a03a6cadd73fdd4c0d6265b50a96ef4431f8e1f264ad4be5c2",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:3f181c0db58339284663d796",
+      "title": "Tech Expert/Backend Engineer - Global Live (LLM)",
+      "company": "TikTok",
+      "url": "https://www.linkedin.com/jobs/view/4487330154",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Responsibilities We are seeking highly skilled and experienced experts to join our TikTok Live Architecture team. TikTok Live is a world-wide leader in live streaming, which occupies more than 50% of the mark",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4487330154",
+          "key": "freehire|tech-expert-backend-engineer-global-live-llm-tiktok-twsv6kf4",
+          "job_id": "tech-expert-backend-engineer-global-live-llm-tiktok-twsv6kf4",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "TikTok",
+          "title": "Tech Expert/Backend Engineer - Global Live (LLM)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:37:08+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
         }
       ],
       "role_tags": {
@@ -774,17 +1354,17 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
+            "quote": "design architecture to apply LLM",
+            "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "ai_depth",
-            "quote": "Design and develop AI agents, multi-agent systems, and LLM",
+            "quote": "design architecture to apply LLM",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "Minimum 2 years",
+            "quote": "at least 2 years",
             "origin": "THIRD_PARTY_TEXT"
           }
         ],
@@ -794,184 +1374,16 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "9b6dbb9d1e1db6c18ac966c56823786050c04bec0b33122890c08ac25b43c1b9",
+      "content_fingerprint": "ce537ad35708d07519f8cc94d6ff8c7b3b591ebdaff8123859185a2c05a20aaf",
       "duplicate_review": []
     },
     {
-      "id": "job:124cd69f3efe707eabafb33d",
-      "title": "Forward Deployed AI Engineer",
-      "company": "Accenture",
-      "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Singapore/Forward-Deployed-AI-Engineer_R00338247",
+      "id": "job:3ee9b75f75ca75eb38c11fe7",
+      "title": "AI Engineer – Design Automation",
+      "company": "Realtek",
+      "url": "https://sg.jobstreet.com/job/95529278",
       "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "About the Role We are expanding our agentic delivery capability within the Health and Public Services portfolio and are looking for a Forward Deployed AI Engineer to join the team. This is a hands-on, client-facing role focused on",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Singapore/Forward-Deployed-AI-Engineer_R00338247",
-          "key": "freehire|forward-deployed-ai-engineer-accenture-2643qmlm",
-          "job_id": "forward-deployed-ai-engineer-accenture-2643qmlm",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "Accenture",
-          "title": "Forward Deployed AI Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "AUTH_REQUIRED",
-          "checked_at": "2026-11-27T14:20:23+00:00",
-          "fresh": true,
-          "apply_url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Singapore/Forward-Deployed-AI-Engineer_R00338247/apply",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          8
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Design, build, and deploy agentic systems",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "8+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "5573ccebad49d995a1ac2e9e1c46d6dba3e4da497f044767c2a870c19a122eae",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:11a1e82cdbcca9d6e1a160ef",
-      "title": "Senior AI Solution Architect – GenAI, RAG & Machine Learning",
-      "company": "HTC Global Services",
-      "url": "https://my.jobstreet.com/job/95961821",
-      "locations": [
-        "Kuala Lumpur"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Salary: RM 18,000 – RM 25,000 per month Job Overview We are looking for an experienced AI Solution Architect to design and deliver enterprise AI solutions involving machine learning, Generative AI, Retrieval-",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/MY.json",
-          "market": "MY",
-          "url": "https://my.jobstreet.com/job/95961821",
-          "key": "freehire|senior-ai-solution-architect-genai-rag-machine-learning-htc-global-services-i5logjup",
-          "job_id": "senior-ai-solution-architect-genai-rag-machine-learning-htc-global-services-i5logjup",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Kuala Lumpur",
-          "company": "HTC Global Services",
-          "title": "Senior AI Solution Architect – GenAI, RAG & Machine Learning"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          8
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "GenAI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Design end-to-end AI solution architectures covering machine learning, Generative AI, LLMs, RAG and AI agent",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "8–12 years of experience",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/MY.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "73e48f79bbe18132e858ee366aeeb3378c9c03dbf8ba6aec8d2a586dd5b3abcd",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:1198d9f0d0c1d3ff3d0defea",
-      "title": "CTO - Enterprise Ai - Singapore",
-      "company": "Swordfish Search Pty Ltd",
-      "url": "https://sg.jobstreet.com/job/96093596",
-      "locations": [
-        "Central Region"
+        "West Region"
       ],
       "observed_markets": [
         "SG"
@@ -983,105 +1395,28 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Our client is a rapidly expanding global AI technology business transforming how enterprises engage with customers and automate complex business processes through intelligent, agentic AI solutions. With significant investment and",
+      "excerpt": "Description: To develop and support research on multi-agent systems. Initial focus will be on dataset curation and managing fine-tuning workflows, with opportunity to grow into broader system development, prototyp",
       "observations": [
         {
           "source": "market-api",
           "source_file": "feed/market-api/SG.json",
           "market": "SG",
-          "url": "https://sg.jobstreet.com/job/96093596",
-          "key": "freehire|cto-enterprise-ai-singapore-swordfish-search-pty-ltd-vgbsq56y",
-          "job_id": "cto-enterprise-ai-singapore-swordfish-search-pty-ltd-vgbsq56y",
+          "url": "https://sg.jobstreet.com/job/95529278",
+          "key": "freehire|ai-engineer-design-automation-realtek-ahprgo45",
+          "job_id": "ai-engineer-design-automation-realtek-ahprgo45",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "location": "Central Region",
-          "company": "Swordfish Search Pty Ltd",
-          "title": "CTO - Enterprise Ai - Singapore"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          8
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "deployment of intelligent AI agents",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "deployment of intelligent AI agents",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "8+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "bda5e815adf4eb2fa3c933daef36162db721df70f67123baf4c065b4344e28a6",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0fdd8530e2e04bdf9afe6478",
-      "title": "Senior AI Software Engineer",
-      "company": "The ICE Base",
-      "url": "https://www.linkedin.com/jobs/view/4490281349",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Position: Senior AI Software Engineer Client: Information Technology & Software Development Location : Singapore Experience : 3–6 years",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4490281349",
-          "key": "freehire|senior-ai-software-engineer-the-ice-base-sg2jbmze",
-          "job_id": "senior-ai-software-engineer-the-ice-base-sg2jbmze",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "The ICE Base",
-          "title": "Senior AI Software Engineer"
+          "location": "West Region",
+          "company": "Realtek",
+          "title": "AI Engineer – Design Automation"
         }
       ],
       "application_evidence": [
         {
           "source": "browser",
-          "status": "NOT_FOUND_HTTP",
-          "checked_at": "2026-11-27T22:22:37+00:00",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T12:48:04+00:00",
           "fresh": true,
           "apply_url": null,
           "title_match": false
@@ -1089,164 +1424,7 @@
       ],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Integrate Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Integrate Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "minimum of 3 years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "48307fa4e74d95f08ecad3ebb6117a87a93bea4d8b57d4b9fe31fe41e3e60ccd",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0ef5f077243b296a0dcc51be",
-      "title": "Software Engineer (AI)",
-      "company": "ScienTec Consulting",
-      "url": "https://sg.jobstreet.com/job/95768889",
-      "locations": [
-        "Central Region"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Salary: SGD 6500 - 10000 per month We’re seeking a Software Engineer (AI) to design and develop secure, scalable digital solutions incorporating modern technologies and AI capabilities. You’ll collaborate with an experienced e",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95768889",
-          "key": "freehire|software-engineer-ai-scientec-consulting-irdpqopy",
-          "job_id": "software-engineer-ai-scientec-consulting-irdpqopy",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Central Region",
-          "company": "ScienTec Consulting",
-          "title": "Software Engineer (AI)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          4
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "build features using LLMs, Retrieval-Augmented Generation (RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "build features using LLMs, Retrieval-Augmented Generation (RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "Min. 4 years",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "09b28c031137de8a9dec4d2edc77559a926323d576725e2542dec00bddabd1c0",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0e2210b513d20f26e6032136",
-      "title": "AI Engineer (Solution)",
-      "company": "MaiStorage",
-      "url": "https://my.jobstreet.com/job/95662622",
-      "locations": [
-        "Bandar Puteri Puchong, Selangor"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "We are looking for a versatile and results-driven Full Stack AI Engineer to design, build, and deploy intelligent business applications. In this role, you will bridge the gap between core AI capabilities and production-ready software—lev",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/MY.json",
-          "market": "MY",
-          "url": "https://my.jobstreet.com/job/95662622",
-          "key": "freehire|ai-engineer-solution-maistorage-lruzaywt",
-          "job_id": "ai-engineer-solution-maistorage-lruzaywt",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Bandar Puteri Puchong, Selangor",
-          "company": "MaiStorage",
-          "title": "AI Engineer (Solution)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -1263,8 +1441,88 @@
           },
           {
             "field": "ai_depth",
-            "quote": "Develop and configure autonomous AI agents",
+            "quote": "training and evaluation - Manage and execute fine-tuning pipelines for large language models",
             "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "fine-tuning",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "ee839ae7762f95b253e7a648226e6db7dcdd5391f4aa39df09fbb38aeeb833c9",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:3ea9d2e77565e3103707ac87",
+      "title": "Junior Data Scientist (fresh graduates are encouraged to apply)",
+      "company": "EY",
+      "url": "https://www.linkedin.com/jobs/view/4486585515",
+      "locations": [
+        "WP. Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "At EY, we’re all in to shape your future with confidence. We’ll help you succeed in a globally connected powerhouse of diverse teams and take your career wherever you want it to go. Join EY",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://www.linkedin.com/jobs/view/4486585515",
+          "key": "freehire|junior-data-scientist-fresh-graduates-are-encouraged-to-apply-ey-reuudcff",
+          "job_id": "junior-data-scientist-fresh-graduates-are-encouraged-to-apply-ey-reuudcff",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "WP. Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+          "company": "EY",
+          "title": "Junior Data Scientist (fresh graduates are encouraged to apply)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "design of multi-agent AI systems (LLM, Prompt engineering, RAG",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "design of multi-agent AI systems (LLM, Prompt engineering, RAG",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "seniority",
+            "quote": "Junior",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/market-api/MY.json",
@@ -1273,217 +1531,14 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "774c33c6a8b50848666c5f7c5e1339cf67efa2c9a574436851eb87ef700dd99e",
+      "content_fingerprint": "0f32e19172423831267df9554478479e39693d355a7129ed93ce393a98f0a1a5",
       "duplicate_review": []
     },
     {
-      "id": "job:0dd3ff4fa6383af11eb7cc9c",
-      "title": "TikTok Shop - LLM Operations Specialist, Content Safety",
-      "company": "TikTok",
-      "url": "https://sg.jobstreet.com/job/95414290",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Responsibilities The Global E-Commerce Governance and Experience (GNE) team helps build a safe and trusted environment for businesses, creators, and communities. We develop policies that support responsible part",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95414290",
-          "key": "freehire|tiktok-shop-llm-operations-specialist-content-safety-tiktok-e2f34tm6",
-          "job_id": "tiktok-shop-llm-operations-specialist-content-safety-tiktok-e2f34tm6",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "TikTok",
-          "title": "TikTok Shop - LLM Operations Specialist, Content Safety"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-28T05:37:09+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          1
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "LLM",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Implement existing solutions across specific business verticals and ensure the effectiveness of LLM",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "At least 1 year",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "degree",
-            "quote": "Bachelor’s degree or above",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "4da4e1551acec82e9aef42011e4d7e70ea899c802ee5fc3b44e034367c37cf4d",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0dbb795c73a7c3ac2d85fc04",
-      "title": "Senior LLM / Multimodal AI Engineer",
-      "company": "NCS Group",
-      "url": "https://sg.jobstreet.com/job/95464721",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Company Description NCS is a leading AI Tech Services company. With a 15,000-strong team across the Asia Pacific, NCS scales its platforms and capabilities to provide clients with greater agility a",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95464721",
-          "key": "freehire|senior-llm-multimodal-ai-engineer-ncs-group-bpmpspxz",
-          "job_id": "senior-llm-multimodal-ai-engineer-ncs-group-bpmpspxz",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "NCS Group",
-          "title": "Senior LLM / Multimodal AI Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-28T05:37:04+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          4
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "LLM",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "train, evaluate, and deploy large-scale Vision-Language Models (VLMs) and Large Language Models (LLMs",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Pre-Training",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "4+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "4+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "e20a153bcd942093f36039d1a1a517c021661fde7de2e3b2b1bd04e6737c1035",
-      "duplicate_review": [
-        {
-          "status": "POSSIBLE_DUPLICATE_REVIEW",
-          "method": "same_normalized_title_market_and_jd_4gram_containment",
-          "shared_4grams": 712,
-          "containment": 0.9861,
-          "other_id": "job:f62ca87f4ae6a2ee284b901f",
-          "other_company": "NCS",
-          "other_url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085",
-          "other_title": "Senior LLM / Multimodal AI Engineer"
-        }
-      ]
-    },
-    {
-      "id": "job:0cb296ad83957addfbb4354f",
-      "title": "#EG Fullstack Developer – AI Applications",
+      "id": "job:3caaafcb07c880b278bda4ad",
+      "title": "#EG AI Developer (Agentic AI Systems)",
       "company": "NCS",
-      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001495687",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001374512",
       "locations": [
         "Singapore, sg"
       ],
@@ -1499,35 +1554,49 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "This role sits within NCS AI Central's (AIC) Forward Deployed Engineering (FDE) model — the combined capability that takes AI solutions from proof-of-concept through to hardened production systems. As Fullstack Developer, you build both the",
+      "excerpt": "We are looking for an AI Developer to play a key role in building our agentic reasoning engines. You will own the intelligent layer of our bespoke enterprise system, ensuring our AI agents are reliable, secure, and capable of solving comple",
       "observations": [
         {
           "source": "official-ats",
           "source_file": "feed/ats/markets/SG.json",
           "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001495687",
-          "key": "ncs3|smartrecruiters|6000000001495687",
-          "job_id": "6000000001495687",
-          "observed_at": "2026-11-28T09:23:26+00:00",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001374512",
+          "key": "ncs3|smartrecruiters|6000000001374512",
+          "job_id": "6000000001374512",
+          "observed_at": "2026-11-28T10:21:56+00:00",
           "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T13:04:12+00:00",
-          "posted_at": "2026-10-16T09:27:18.937Z",
+          "jd_checked_at": "2026-11-28T09:23:26+00:00",
+          "posted_at": "2026-09-03T06:26:44.071Z",
           "salary_summary": "",
           "salary_components": [],
           "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
           "apply_url": "",
           "location": "Singapore, sg",
           "company": "NCS",
-          "title": "#EG Fullstack Developer – AI Applications"
+          "title": "#EG AI Developer (Agentic AI Systems)"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001374512--eg-ai-developer-agentic-ai-systems-",
+          "key": "freehire|eg-ai-developer-agentic-ai-systems-ncs3-4qr6kgh3",
+          "job_id": "eg-ai-developer-agentic-ai-systems-ncs3-4qr6kgh3",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, sg",
+          "company": "ncs3",
+          "title": "#EG AI Developer (Agentic AI Systems)"
         }
       ],
       "application_evidence": [
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-28T09:23:26+00:00",
+          "checked_at": "2026-11-28T10:21:56+00:00",
           "fresh": true,
           "apply_url": "",
           "title_match": null
@@ -1535,7 +1604,7 @@
         {
           "source": "browser",
           "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-28T05:36:16+00:00",
+          "checked_at": "2026-11-28T05:36:17+00:00",
           "fresh": true,
           "apply_url": null,
           "title_match": true
@@ -1548,8 +1617,7 @@
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [
-          2,
-          5
+          2
         ],
         "employment": "PERMANENT_SIGNAL",
         "graduation_cohorts": [],
@@ -1558,27 +1626,17 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "building lightweight RAG",
+            "quote": "developing sophisticated RAG",
             "origin": "FIRST_PARTY_RETAINED"
           },
           {
             "field": "ai_depth",
-            "quote": "building lightweight RAG",
+            "quote": "developing sophisticated RAG",
             "origin": "FIRST_PARTY_RETAINED"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "at least 2 years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "2–4 years of relevant experience",
+            "quote": "2–5 years of experience",
             "origin": "FIRST_PARTY_RETAINED"
           },
           {
@@ -1590,17 +1648,456 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T13:04:12+00:00",
+        "source_checked_at": "2026-11-28T09:23:26+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "1bafd2c86369e414d1b2ff9f3793fe1236f8ee81a1bcad9ecc0f005455fcb0d2",
+      "content_fingerprint": "46e3a638a50b6ccfed5854743e9a26c1183d9f25d5ee66c8e2207d5fe3613e49",
       "duplicate_review": []
     },
     {
-      "id": "job:0bf2c53e10e7cc983b779f64",
-      "title": "AI Engineer",
-      "company": "SleekFlow",
-      "url": "https://www.linkedin.com/jobs/view/4487119588",
+      "id": "job:3bb640fc9a4c208f4c765fb1",
+      "title": "Machine Learning Engineer Graduate（TikTok Search） - 2027 Start",
+      "company": "TikTok",
+      "url": "https://sg.jobstreet.com/job/93721430",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Responsibilities Team Introduction Our Search Team is responsible for building and owning our search engine which provides our users the best search experience. On the Search Team, you'll have the opportunity to b",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/93721430",
+          "key": "freehire|machine-learning-engineer-graduate-tiktok-search-2027-start-tiktok-cqnd276r",
+          "job_id": "machine-learning-engineer-graduate-tiktok-search-2027-start-tiktok-cqnd276r",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "TikTok",
+          "title": "Machine Learning Engineer Graduate（TikTok Search） - 2027 Start"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T17:16:43+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "building a full stack search engine system based on advanced AI and machine learning models",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "seniority",
+            "quote": "Graduate",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "516362d89f088c1d016c7da30d5e6408260b5c75e4475cc3f455979e3d97d371",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:3a58028b9b4a190fc614b9c4",
+      "title": "AI Engineer - LLM & AI Agent",
+      "company": "Success IT",
+      "url": "https://sg.jobstreet.com/job/95583071",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Job Responsibilities Design, develop, and improve LLM-based applications, RAG systems, AI assistants, and agentic AI solutions for product and enterprise use cases. Develop proactive and interactive AI",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95583071",
+          "key": "freehire|ai-engineer-llm-ai-agent-success-it-m6z63tow",
+          "job_id": "ai-engineer-llm-ai-agent-success-it-m6z63tow",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "Success IT",
+          "title": "AI Engineer - LLM & AI Agent"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-28T05:55:34+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Design, develop, and improve LLM-based applications, RAG",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "At least 2 years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "degree",
+            "quote": "Bachelor’s degree or above",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "86bf53bd04b0e3c231dfa529096bb6b409d8b667082402abf38bc2079732862c",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:39d02725c17a580a26a06e83",
+      "title": "大数据及智能体AI产品架构师_BCI",
+      "company": "Bosch Group",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000140416271--ai-bci",
+      "locations": [
+        "Suzhou, Jiangsu, cn"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "【职位概述】 作为工业制造领域的大数据与AI产品架构师，负责设计面向高端/离散/流程制造企业的 数据智能底座 及 AI 应用产品 。深入理解工业场景，构建从设备数据采集、数据治理到AI算法模型落地的端到端技术架构，并主导 工业智能体（ Industrial Agent",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000140416271--ai-bci",
+          "key": "freehire|da-shu-ju-ji-zhi-neng-ti-aichan-pin-jia-gou-shi-bci-bosch-group-vboanqqz",
+          "job_id": "da-shu-ju-ji-zhi-neng-ti-aichan-pin-jia-gou-shi-bci-bosch-group-vboanqqz",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Suzhou, Jiangsu, cn",
+          "company": "Bosch Group",
+          "title": "大数据及智能体AI产品架构师_BCI"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:55:11+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "智能体",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "设计： 负责工业智能体",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "强化学习",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "seniority",
+            "quote": "架构师",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "992e283f6ae00f1c9777979877414737e3a0856f24c1f3c656f1e6640b60fbd0",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:39010190a7ee9975c9ac4726",
+      "title": "Principal/Senior Software Engineer, Mobile, CEX",
+      "company": "OKX",
+      "url": "https://job-boards.greenhouse.io/okx/jobs/7768121003",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "OKX will be prioritising applicants who have a current right to work in Singapore, and do not require OKX's sponsorship of a visa.",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/okx/jobs/7768121003",
+          "key": "okx|greenhouse|7768121003",
+          "job_id": "7768121003",
+          "observed_at": "2026-11-28T10:21:56+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "partial_jd",
+          "jd_checked_at": "2026-11-28T10:21:56+00:00",
+          "posted_at": "2026-10-06T23:37:01-04:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Singapore, Singapore",
+          "company": "OKX",
+          "title": "Principal/Senior Software Engineer, Mobile, CEX"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_PARTIAL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "development experience — Solid understanding of LLM fundamentals, Prompt Engineering, RAG",
+            "origin": "FIRST_PARTY_PARTIAL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "development experience — Solid understanding of LLM fundamentals, Prompt Engineering, RAG",
+            "origin": "FIRST_PARTY_PARTIAL"
+          },
+          {
+            "field": "seniority",
+            "quote": "Principal",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T10:21:56+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "821d1842bf485a29be46ccd9763725bfa6a87d2a2f3475e3c5ac0aeb446e611d",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:382e671839e09e712061de60",
+      "title": "AICS-Engineering Manager – AI Engineering & LLM Systems",
+      "company": "ASUS",
+      "url": "https://www.linkedin.com/jobs/view/4474654602",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "About ASUS Intelligent Cloud Service (AICS) AICS builds Healthcare AI solutions that improve clinical workflows through large language models, agentic AI, and modern AI engineering. We",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4474654602",
+          "key": "freehire|aics-engineering-manager-ai-engineering-llm-systems-asus-4ba4tobj",
+          "job_id": "aics-engineering-manager-ai-engineering-llm-systems-asus-4ba4tobj",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "ASUS",
+          "title": "AICS-Engineering Manager – AI Engineering & LLM Systems"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          3,
+          8
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "LLM",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "design, development, and deployment of production LLM",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "model evaluation",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "8+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "3+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "seniority",
+            "quote": "Manager",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "635a24b8f22a7cadd481ffcadf290e78c4af98f2599981d28bf698b886e7e581",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:37d73c6af3abc37c6e3197a7",
+      "title": "AI/ML Specialist",
+      "company": "Etiqa Insurance and Takaful",
+      "url": "https://www.linkedin.com/jobs/view/4484804362",
       "locations": [
         "Federal Territory of Kuala Lumpur, Malaysia"
       ],
@@ -1616,537 +2113,24 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "About SleekFlow SleekFlow is an AI Suite for Revenue-Driving Conversations. We are trusted by over 2,000 enterprises globally. But we are more than just a SaaS company; we are an AI-native movement redef",
+      "excerpt": "The Machine Learning/AI Specialist develops and implements AI-driven solutions that transform raw data into actionable insights and decision-support tools for business and operational stakeholders. The role works closely with",
       "observations": [
         {
           "source": "market-api",
           "source_file": "feed/market-api/MY.json",
           "market": "MY",
-          "url": "https://www.linkedin.com/jobs/view/4487119588",
-          "key": "freehire|ai-engineer-sleekflow-myelgqgz",
-          "job_id": "ai-engineer-sleekflow-myelgqgz",
+          "url": "https://www.linkedin.com/jobs/view/4484804362",
+          "key": "freehire|ai-ml-specialist-etiqa-insurance-and-takaful-dcroelfu",
+          "job_id": "ai-ml-specialist-etiqa-insurance-and-takaful-dcroelfu",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "location": "Federal Territory of Kuala Lumpur, Malaysia",
-          "company": "SleekFlow",
-          "title": "AI Engineer"
+          "company": "Etiqa Insurance and Takaful",
+          "title": "AI/ML Specialist"
         }
       ],
       "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Develop and scale RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/MY.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "7f24b86a51b42278d9f9a337f58b253160f0e4073bd3b7e71feeeab2620e4d3e",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0bf29c05310814d7b8168ed0",
-      "title": "AI Engineer",
-      "company": "CARECAM PTE. LTD.",
-      "url": "https://sg.jobstreet.com/job/95979697",
-      "locations": [
-        "Central Region"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Salary: $5,000 – $7,500 per month Company Description CareCam is a Singapore-based MedTech Startup bringing objective functional assessment into routine care. Founded in 2022 as an A*STAR spin-off, the compan",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95979697",
-          "key": "freehire|ai-engineer-carecam-pte-ltd-3237li7u",
-          "job_id": "ai-engineer-carecam-pte-ltd-3237li7u",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Central Region",
-          "company": "CARECAM PTE. LTD.",
-          "title": "AI Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-28T05:37:09+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "train and refine 2D/3D models of human movement, and build retrieval-augmented generation (RAG",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ff610acabe2e48e4b478d5b93c858f74e88999390dd96670dd3b70a06e9a4ed0",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0b2189603205e52cdb933c71",
-      "title": "AI Computing Architecture Researcher",
-      "company": "Beijing Foreign Enterprise Management Consultants Co.,Ltd.",
-      "url": "https://www.linkedin.com/jobs/view/4493957952",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "On behalf of Huawei, a world-renowned information and communication technology company, we are seeking passionate and talented individuals to join our team as AI Computing Architecture Researcher. <",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4493957952",
-          "key": "freehire|ai-computing-architecture-researcher-beijing-foreign-enterprise-management-consultants-co-ltd-tlliuz35",
-          "job_id": "ai-computing-architecture-researcher-beijing-foreign-enterprise-management-consultants-co-ltd-tlliuz35",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "Beijing Foreign Enterprise Management Consultants Co.,Ltd.",
-          "title": "AI Computing Architecture Researcher"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": true,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Researcher",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Design and optimize AI computing architectures and platforms for LLM",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "degree_preferred",
-            "quote": "PhD preferred",
-            "origin": "THIRD_PARTY_TEXT"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "645a52a67c1f508a7f765b28a1ed0bbe52138d0f8ea1eb48392595b1e610aff3",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:09ec89d3701dd0a5861fb329",
-      "title": "Product Lead, Agentic AI Platform - Industrial IoT",
-      "company": "Hyphen Partners",
-      "url": "https://www.linkedin.com/jobs/view/4490571092",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "A global industrial IoT company building AI-native platforms is looking for a senior product leader to define and drive the vision for its AI Agent Workbench, a core platform enabling internal engineering teams and enterprise",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4490571092",
-          "key": "freehire|product-lead-agentic-ai-platform-industrial-iot-hyphen-partners-b7ebkwvt",
-          "job_id": "product-lead-agentic-ai-platform-industrial-iot-hyphen-partners-b7ebkwvt",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "Hyphen Partners",
-          "title": "Product Lead, Agentic AI Platform - Industrial IoT"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:49+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          10
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "building AI-native platforms is looking for a senior product leader to define and drive the vision for its AI Agent",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "10+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Lead",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "5620e69c010cc4f3f0f81cb5de641be806f334b831d52baee108a83d47d634e6",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:099c052e3e2c631d7b0f5e7e",
-      "title": "AI算法工程",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1282707395466077186",
-      "locations": [
-        "深圳总部 北京 上海 广州"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-ai.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1282707395466077186",
-          "job_id": "1282707395466077186",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "jd_checked_at": "2026-11-27T04:01:19.053019Z",
-          "retained_jd_ref": {
-            "path": "feed/cn-native/jobpro-jd-state.json",
-            "record_key": "tencent|1282707395466077186",
-            "sha256": "f0a7da3669c020bf539edb71a0d3008e2a717274635a22c580b6cd6fb3ae2f2f"
-          },
-          "recruit_label": "应届毕业生",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1282707395466077186",
-          "location": "深圳总部 北京 上海 广州",
-          "company": "tencent",
-          "title": "AI算法工程"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-28T05:36:50+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI算法",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "设计并优化 AI 算法方案（如模型微调、检索增强",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "seniority",
-            "quote": "应届",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd-state.json",
-        "retained_jd_ref": {
-          "path": "feed/cn-native/jobpro-jd-state.json",
-          "record_key": "tencent|1282707395466077186",
-          "sha256": "f0a7da3669c020bf539edb71a0d3008e2a717274635a22c580b6cd6fb3ae2f2f"
-        },
-        "source": "jobpro-list",
-        "source_checked_at": "2026-11-27T04:01:19.053019Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "5cdbcc72dda8f64b62d76fe9cd50c2c0bfb9130799dd53115461bd8d123d1de1",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:097e32372fea960e058ae4a7",
-      "title": "Senior AI Engineer",
-      "company": "PERSOL Outsourcing",
-      "url": "https://www.linkedin.com/jobs/view/4489271112",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Responsibilities • Build customer-facing AI applications powered by leading LLMs such as Claude, GPT, Llama, Mistral, and other foundation models • Architect and optimize advanced RAG, Hybrid RAG, Agentic RAG, and Graph",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4489271112",
-          "key": "freehire|senior-ai-engineer-persol-outsourcing-o62sjd6v",
-          "job_id": "senior-ai-engineer-persol-outsourcing-o62sjd6v",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "PERSOL Outsourcing",
-          "title": "Senior AI Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "NOT_FOUND_HTTP",
-          "checked_at": "2026-11-27T22:22:34+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Build customer-facing AI applications powered by leading LLMs",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "fine-tuning",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2857bd0666137a936d8f815959970d81587dc9ba5c00ac56ac48329d9631675f",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:096191b8a089152a72d304c8",
-      "title": "AI Software Engineer",
-      "company": "The ICE Base",
-      "url": "https://www.linkedin.com/jobs/view/4493742855",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Role : AI Software Engineer Employment Type: Full-Time Permanent Our client is looking for AI Software Engineers in Singapore to build intelligent, prod",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4493742855",
-          "key": "freehire|ai-software-engineer-the-ice-base-cmx5ed4n",
-          "job_id": "ai-software-engineer-the-ice-base-cmx5ed4n",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "The ICE Base",
-          "title": "AI Software Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "NOT_FOUND_HTTP",
-          "checked_at": "2026-11-27T13:08:22+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
@@ -2163,17 +2147,96 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Integrate Generative AI, LLMs, RAG",
+            "quote": "Build, optimize, and evaluate AI/ML models, including Computer Vision and Retrieval-Augmented Generation",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "ai_depth",
-            "quote": "Integrate Generative AI, LLMs, RAG",
+            "quote": "Build, optimize, and evaluate AI/ML models, including Computer Vision and Retrieval-Augmented Generation",
             "origin": "THIRD_PARTY_TEXT"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "At least 3 years",
+            "quote": "Minimum 3 years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "a4f65e10817d1854a8d2d1870e5e26176cc63a61d59825df00e806603a1e634d",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:374ae4d385a5aa5e044532ec",
+      "title": "Research Engineer I (Computer Science / Artificial Intelligence / Software Engineering / Information Systems)",
+      "company": "Ntu",
+      "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer-I--Computer-Science---Artificial-Intelligence---Software-Engineering---Information-Systems-_R00026053",
+      "locations": [
+        "NTU Main Campus, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "ATMRI at NTU is seeking a Research Engineer I to join the Digital ATCO Assistant project. The role focuses on developing intelligent assistants for air traffic management by integrating LLMs, Retrieval-Augmented Generation, AI agents, op",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer-I--Computer-Science---Artificial-Intelligence---Software-Engineering---Information-Systems-_R00026053",
+          "key": "freehire|research-engineer-i-computer-science-artificial-intelligence-software-engineering-information-systems-ntu-zxbo7lg4",
+          "job_id": "research-engineer-i-computer-science-artificial-intelligence-software-engineering-information-systems-ntu-zxbo7lg4",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "NTU Main Campus, Singapore",
+          "company": "Ntu",
+          "title": "Research Engineer I (Computer Science / Artificial Intelligence / Software Engineering / Information Systems)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T14:20:41+00:00",
+          "fresh": true,
+          "apply_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Engineer-I--Computer-Science---Artificial-Intelligence---Software-Engineering---Information-Systems-_R00026053/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_RESEARCH",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Research Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Build end-to-end systems that combine LLMs, Retrieval-Augmented Generation, AI agents",
             "origin": "THIRD_PARTY_TEXT"
           }
         ],
@@ -2183,7 +2246,7 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "f42e9bbdaa1a4a19e41c0f2fb037d513c64d845eca7579838f0c3797830f05b8",
+      "content_fingerprint": "24cc2676e7bc5b54b5bd3569e9810bc3c828dec80c05a2c21155781c26af1e00",
       "duplicate_review": []
     }
   ]

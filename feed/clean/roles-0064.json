@@ -2,1220 +2,12 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:44822d5149ddd011ecf20074",
-      "title": "运营开发",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
-      "locations": [
-        "深圳总部 北京 上海 广州"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-backend.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
-          "job_id": "1283126506864059392",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "应届毕业生",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
-          "location": "深圳总部 北京 上海 广州",
-          "company": "tencent",
-          "title": "运营开发"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "seniority",
-            "quote": "应届",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-backend.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "84670ee205d8b038b0d1e07e29fd77a4a53987b67158c8e4608d165111340cd1",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:4447643f005817c1ca32a6df",
-      "title": "Senior Data Scientist (Analytics), Financial Services",
-      "company": "Grab",
-      "url": "https://jobs.smartrecruiters.com/Grab/744000162429629",
-      "locations": [
-        "Singapore, sg"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Get to Know the Team The Financial Services (FS) Analytics team is the analytics and data function for Grab Financial Services which includes the Digibanks — GXS Bank (Singapore) and GX Bank (Malaysia). You will be part of the Save & Spend",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/Grab/744000162429629",
-          "key": "grab|smartrecruiters|744000162429629",
-          "job_id": "744000162429629",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T17:12:11+00:00",
-          "posted_at": "2026-11-19T03:12:42.878Z",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
-          "apply_url": "",
-          "location": "Singapore, sg",
-          "company": "Grab",
-          "title": "Senior Data Scientist (Analytics), Financial Services"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-28T09:23:26+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-28T05:36:12+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          4
-        ],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "experience_min_mentions",
-            "quote": "at least 4 years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T17:12:11+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "719d923df443cccf6dbffbebcc266e909c2fb458654dc9a25500df918665ef0c",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:44284d2f85373708a0d3552a",
-      "title": "Machine Learning Engineer Graduate (Global E-Commerce) - 2027 Start (PhD)",
-      "company": "TikTok",
-      "url": "https://sg.jobstreet.com/job/93721505",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Responsibilities About the Team The E-commerce Algorithm Team powers TikTok Shop's intelligent commerce ecosystem, connecting users with quality products and sellers through personalized recommendations, search, live",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://sg.jobstreet.com/job/93721505",
-          "key": "freehire|machine-learning-engineer-graduate-global-e-commerce-2027-start-phd-tiktok-ypwxpzae",
-          "job_id": "machine-learning-engineer-graduate-global-e-commerce-2027-start-phd-tiktok-ypwxpzae",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "TikTok",
-          "title": "Machine Learning Engineer Graduate (Global E-Commerce) - 2027 Start (PhD)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "BLOCKED",
-          "checked_at": "2026-11-27T17:16:42+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": false
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "PHD_TITLE_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Machine Learning",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Machine Learning",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Graduate",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "(PhD)",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ed86943f71429d898b2ad2b54ea985346bb052080b80020e71b6d7a5596eaa69",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:43e88fba2687a19683637081",
-      "title": "多任务学习算法工程师-XC",
-      "company": "Bosch",
-      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000033774495",
-      "locations": [
-        "Shanghai, Shanghai, cn"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "负责行车/泊车场景下多任务学习算法的研发与优化，包括动态/静态感知等模型的联合训练； 设计高效的多任务训练框架，提高任务间的协同效率和模型性能； 研究多任务学习中的损失平衡、任务冲突解决等关键问题，提升模型的稳定性和泛化能力； 基于真实驾驶数据和仿真数据进行模型训练、调优及部署； 跟踪最新的多任务学习、深度学习和自动驾驶领域的研究进展，应用于实际业务场景； 支持相关团队解决训练中的技术问题，并推动算法在自动驾驶系统中的落地应用。 熟悉多任务学习的基本原理和相关技术（如共享参数",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/CN.json",
-          "market": "CN",
-          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000033774495",
-          "key": "boschgroup|smartrecruiters|744000033774495",
-          "job_id": "744000033774495",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T13:04:12+00:00",
-          "posted_at": "2024-12-28T05:21:43.004Z",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
-          "apply_url": "",
-          "location": "Shanghai, Shanghai, cn",
-          "company": "Bosch",
-          "title": "多任务学习算法工程师-XC"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "MASTER_MIN_SIGNAL",
-        "phd_preferred_signal": true,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "硕士及以上",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "degree_preferred",
-            "quote": "博士优先",
-            "origin": "FIRST_PARTY_RETAINED"
-          }
-        ],
-        "source_file": "feed/ats/markets/CN.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T13:04:12+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "8ee2386a2081b194b2b076b0002100f0b692ed6322a71d329177206085e0c5e8",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:43d8cbad47d4f47e3ded2d42",
-      "title": "【共创】机器人C++软件工程师",
-      "company": "agibot",
-      "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
-      "locations": [
-        "上海"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-swe.json",
-          "market": "CN",
-          "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
-          "job_id": "7655218235272579379",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职 / 社招",
-          "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
-          "location": "上海",
-          "company": "agibot",
-          "title": "【共创】机器人C++软件工程师"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "软件工程师",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-swe.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "9a699a1ba7e907c8c3e72511372cb2ac387622a265266bff30f6a969bc7faad2",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:43620458caed88aa4b4193cc",
-      "title": "训练框架实习生-多模态生成方向-2028 届",
-      "company": "minimax",
-      "url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7705247320660887844/detail",
-      "locations": [
-        "上海 / 北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7705247320660887844/detail",
-          "job_id": "7705247320660887844",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "实习",
-          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7705247320660887844/detail",
-          "location": "上海 / 北京",
-          "company": "minimax",
-          "title": "训练框架实习生-多模态生成方向-2028 届"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [
-          "2028"
-        ],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "实习",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-eval.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "4bc92c8496b08238451b72e00e219fb15d6cc3ee6257cb2305e7d05d8644c0aa",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:430a0d5000984b28398fbcbf",
-      "title": "安全合规与治理工程师",
-      "company": "ogroup",
-      "url": "https://job-boards.greenhouse.io/ogroup/jobs/7990965003",
-      "locations": [
-        "深圳"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "岗位简介 这不是一个传统的 GRC 职位。我们的安全技术治理办公室正在寻找一位既具备资深合规专家治理判断力，又兼具前线工程师执行力的专业人才——能通过落地解决方案解决问题，具备自主应对模糊局面的能力，并兼具初创公司的推进节奏与受监管金融机构的严谨标准。 您将独立主导复杂的跨部门工作流（协调工程、法务、产品与财务团队），同时管理外部审计师与监管机构。具备优秀的中英文书面及口头沟通能力将是巨大优势。我们欢迎能够熟练运用",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/CN.json",
-          "market": "CN",
-          "url": "https://job-boards.greenhouse.io/ogroup/jobs/7990965003",
-          "key": "ogroup|greenhouse|7990965003",
-          "job_id": "7990965003",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "partial_jd",
-          "jd_checked_at": "2026-11-28T09:23:26+00:00",
-          "posted_at": "2026-11-23T01:14:19-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "深圳",
-          "company": "ogroup",
-          "title": "安全合规与治理工程师"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_PARTIAL",
-        "evidence": [],
-        "source_file": "feed/ats/markets/CN.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-28T09:23:26+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "de307e086e1859165ee5d0760764578282eaaab8a0addabaad886c3c84486f1a",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:43027920aa4bb7ee1ec545bf",
-      "title": "D&T Generative AI Intern (non-Technical)",
-      "company": "The HEINEKEN Company",
-      "url": "https://www.linkedin.com/jobs/view/4486957227",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "At HEINEKEN, we believe in pushing the boundaries of what's possible with technology. As a Generative AI Intern, you'll be immersed in a culture of innovation and experimentation, working on exciting projects that have the pot",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4486957227",
-          "key": "freehire|d-t-generative-ai-intern-non-technical-the-heineken-company-yxl5yvhu",
-          "job_id": "d-t-generative-ai-intern-non-technical-the-heineken-company-yxl5yvhu",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "The HEINEKEN Company",
-          "title": "D&T Generative AI Intern (non-Technical)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Generative AI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Generative AI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "employment",
-            "quote": "Intern",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "f14af1cb4e458ca36e1f4f61ec4d4828f383571ebefe6d8d7fa854c9e339360f",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:42f27c09d4fb31ff73bd1104",
-      "title": "Staff Data Engineer, Finance Data Platform",
-      "company": "OKX",
-      "url": "https://job-boards.greenhouse.io/okx/jobs/7765811003",
-      "locations": [
-        "Hong Kong, Hong Kong SAR; Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/okx/jobs/7765811003",
-          "key": "okx|greenhouse|7765811003",
-          "job_id": "7765811003",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "partial_jd",
-          "jd_checked_at": "2026-11-28T09:23:26+00:00",
-          "posted_at": "2026-10-23T01:05:46-04:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Hong Kong, Hong Kong SAR; Singapore, Singapore",
-          "company": "OKX",
-          "title": "Staff Data Engineer, Finance Data Platform"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3,
-          6
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_PARTIAL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Data Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "6+ years",
-            "origin": "FIRST_PARTY_PARTIAL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "at least 3 years",
-            "origin": "FIRST_PARTY_PARTIAL"
-          },
-          {
-            "field": "seniority",
-            "quote": "Staff",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-28T09:23:26+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "fbe7000ebed44811ee2471f57d88da0d613427b8dc0d1b5eebeec3cebceeef38",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:42e484277a9454c7978eb71a",
-      "title": "行政",
-      "company": "合肥钮派网络科技有限公司",
-      "url": "https://www.liepin.com/job/1966227321.shtml",
-      "locations": [
-        "合肥-瑶海区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/job/1966227321.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2024-04-13",
-          "salary": "7-11k",
-          "experience": "1年以下",
-          "education": "本科",
-          "location": "合肥-瑶海区",
-          "company": "合肥钮派网络科技有限公司",
-          "title": "行政"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "cb3b76201d1c1ad01155b6325a45ef6caa0764e72a59ba1564c04917fa5a770c",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:42e251cc93e7dc410361a45c",
-      "title": "腾讯视频-影视工业Benchmark研究",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1231829074687944707",
-      "locations": [
-        "深圳总部 北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1231829074687944707",
-          "job_id": "1231829074687944707",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "实习生 青云计划",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1231829074687944707",
-          "location": "深圳总部 北京",
-          "company": "tencent",
-          "title": "腾讯视频-影视工业Benchmark研究"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "实习",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-eval.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2d4148b3c41a63b7666ec37c138a89833488974f185b428025fe0b76e91f6a5f",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:429186ef32b9f8aa4feb169e",
-      "title": "大模型搜索广告算法工程师-国际化搜索广告",
-      "company": "bytedance",
-      "url": "https://jobs.bytedance.com/experienced/position/7588119785084143877/detail",
-      "locations": [
-        "北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/experienced/position/7588119785084143877/detail",
-          "job_id": "7588119785084143877",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/experienced/position/7588119785084143877/detail",
-          "location": "北京",
-          "company": "bytedance",
-          "title": "大模型搜索广告算法工程师-国际化搜索广告"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-28T09:27:04+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "employment",
-            "quote": "正式",
-            "origin": "METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-llm.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "461fc7928972d3837dcdb8f4d6f1e037ab8b212a79b576060588e51b4b9653c7",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:42804d7f89f0840d2d638dc9",
-      "title": "混元基座模型-强化学习算法研究&强推理能力优化",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1274481034578500699",
-      "locations": [
-        "北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-nlp.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1274481034578500699",
-          "job_id": "1274481034578500699",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "应届毕业生 青云计划",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1274481034578500699",
-          "location": "北京",
-          "company": "tencent",
-          "title": "混元基座模型-强化学习算法研究&强推理能力优化"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "RESEARCH_UNSPECIFIED",
-        "ai_depth": "UNKNOWN",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "算法研究",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "应届",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-nlp.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "e9ef0451c3d7c72af61b8e1fedbf54ee2ab7797330b791b9a43c3f8b7f9b86c0",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:4211ec882c97944224573b57",
-      "title": "AI Agent 产品经理",
+      "id": "job:62aa284e3f50355e025e85bb",
+      "title": "行政中台岗（AI Native）",
       "company": "meituan",
-      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4613923553",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697326837",
       "locations": [
-        "北京市 / 上海市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-agent.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4613923553",
-          "job_id": "4613923553",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "社招",
-          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4613923553&jobShareType=1&highlightType=social",
-          "location": "北京市 / 上海市",
-          "company": "meituan",
-          "title": "AI Agent 产品经理"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "NON_TECHNICAL",
-        "ai_depth": "NOT_CORE_AI",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "产品经理",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-agent.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "af807914e94d44d7bb14424c3bd286748776951bb013ae0c3fb11f46a89e8b15",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:420372e474d15f998201a057",
-      "title": "大模型与智能体行业销售专家",
-      "company": "zerooneai",
-      "url": "https://01ai.jobs.feishu.cn/index/position/7654790601955019051/detail",
-      "locations": [
-        "济南"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7654790601955019051/detail",
-          "job_id": "7654790601955019051",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "jd_checked_at": "2026-11-26T09:19:23.419929Z",
-          "retained_jd_ref": {
-            "path": "feed/cn-native/jobpro-jd-state.json",
-            "record_key": "zerooneai|7654790601955019051",
-            "sha256": "7e86a9618ca2617060e7f1416e7199fc837ad52e4a80ca9ba9f401ebab1605a9"
-          },
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7654790601955019051/detail",
-          "location": "济南",
-          "company": "zerooneai",
-          "title": "大模型与智能体行业销售专家"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "NON_TECHNICAL",
-        "ai_depth": "NOT_CORE_AI",
-        "seniority": "SENIOR_TITLE",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "销售",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "专家",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "本科及以上",
-            "origin": "FIRST_PARTY_RETAINED"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd-state.json",
-        "retained_jd_ref": {
-          "path": "feed/cn-native/jobpro-jd-state.json",
-          "record_key": "zerooneai|7654790601955019051",
-          "sha256": "7e86a9618ca2617060e7f1416e7199fc837ad52e4a80ca9ba9f401ebab1605a9"
-        },
-        "source": "jobpro-list",
-        "source_checked_at": "2026-11-26T09:19:23.419929Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "d4049eb3c719b03549a5fd89d7d283d9dd3e1ffac3c1bf552acb60362d0f9e9b",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:41f8e8c62282a256e4d1217c",
-      "title": "校招-软件算法工程师（智能底盘方向）",
-      "company": "nio",
-      "url": "https://nio.jobs.feishu.cn/campus/position/7673027342272416046/detail",
-      "locations": [
-        "上海"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-swe.json",
-          "market": "CN",
-          "url": "https://nio.jobs.feishu.cn/campus/position/7673027342272416046/detail",
-          "job_id": "7673027342272416046",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://nio.jobs.feishu.cn/campus/position/7673027342272416046/detail",
-          "location": "上海",
-          "company": "nio",
-          "title": "校招-软件算法工程师（智能底盘方向）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "正式",
-            "origin": "METADATA"
-          },
-          {
-            "field": "seniority",
-            "quote": "校招",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-swe.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "9e9b822a39d2cea7d084365f20a16c5978610d22b80fc700bb0c32a15cdad716",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:41ab0801262bc795ba433b54",
-      "title": "AI SRE",
-      "company": "alibaba",
-      "url": "https://campus-talent.alibaba.com/campus/position/199907820042",
-      "locations": [
-        "北京 / 广州 / 杭州"
+        "北京市"
       ],
       "observed_markets": [
         "CN"
@@ -1235,28 +27,168 @@
           "source": "jobpro-list",
           "source_file": "feed/cn-native/jobpro-ai.json",
           "market": "CN",
-          "url": "https://campus-talent.alibaba.com/campus/position/199907820042",
-          "job_id": "199907820042",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697326837",
+          "job_id": "4697326837",
           "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "listing_only",
-          "jd_checked_at": "2026-11-26T19:29:37.858704Z",
-          "retained_jd_ref": {
-            "path": "feed/cn-native/jobpro-jd-state.json",
-            "record_key": "alibaba|199907820042",
-            "sha256": "fed0ff6b1ddf9c6d47f596495f2e2057455ae51386a46964fcbf2f139d00f0d7"
-          },
-          "recruit_label": "freshman",
-          "apply_url": "https://campus-talent.alibaba.com/campus/position/199907820042",
-          "location": "北京 / 广州 / 杭州",
-          "company": "alibaba",
-          "title": "AI SRE"
+          "recruit_label": "校招",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697326837&jobShareType=1&highlightType=campus",
+          "location": "北京市",
+          "company": "meituan",
+          "title": "行政中台岗（AI Native）"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "校招",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-ai.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "7ea4833c273c4501a06370b6e703c51379fade9efb2240afa9a6867510b73777",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:627b906ef2e93af1e8788e53",
+      "title": "Senior Data Scientist",
+      "company": "rhb",
+      "url": "https://rhb.wd102.myworkdayjobs.com/RHBExternalCareerSite/job/Kuala-Lumpur/Senior-Data-Scientist_JR005782",
+      "locations": [
+        "Kuala Lumpur"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Develop insights from data patterns to support decision-making and drive implementation Utilize advanced machine learning tools for model building to drive use cases To provide consolidated overview and revenue track",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://rhb.wd102.myworkdayjobs.com/RHBExternalCareerSite/job/Kuala-Lumpur/Senior-Data-Scientist_JR005782",
+          "key": "freehire|senior-data-scientist-rhb-jea5vrjz",
+          "job_id": "senior-data-scientist-rhb-jea5vrjz",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Kuala Lumpur",
+          "company": "rhb",
+          "title": "Senior Data Scientist"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-28T10:26:56+00:00",
+          "fresh": true,
+          "apply_url": "https://rhb.wd102.myworkdayjobs.com/RHBExternalCareerSite/job/Kuala-Lumpur/Senior-Data-Scientist_JR005782/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/MY.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "473077592ccf6b5458ca536868fc2ffcd280db34a75a281eb70aa2ad749db9d7",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:62663a6882d08b8c5f88e2ae",
+      "title": "AI Engineer",
+      "company": "Jabil",
+      "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Wuxi/AI-Engineer_J2461057",
+      "locations": [
+        "Wuxi"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "At Jabil (NYSE: JBL), we are proud to be a trusted partner for the world's top brands, offering comprehensive engineering, supply chain, and manufacturing solutions. With 60 years of experience across industries and a vast network of ov",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Wuxi/AI-Engineer_J2461057",
+          "key": "freehire|ai-engineer-jabil-znekmsyp",
+          "job_id": "ai-engineer-jabil-znekmsyp",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Wuxi",
+          "company": "Jabil",
+          "title": "AI Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-28T05:55:01+00:00",
+          "fresh": true,
+          "apply_url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Wuxi/AI-Engineer_J2461057/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -1264,39 +196,411 @@
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "SRE",
+            "quote": "AI Engineer",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "AI",
+            "quote": "AI Engineer",
             "origin": "TITLE"
           }
         ],
-        "source_file": "feed/cn-native/jobpro-jd-state.json",
-        "retained_jd_ref": {
-          "path": "feed/cn-native/jobpro-jd-state.json",
-          "record_key": "alibaba|199907820042",
-          "sha256": "fed0ff6b1ddf9c6d47f596495f2e2057455ae51386a46964fcbf2f139d00f0d7"
-        },
-        "source": "jobpro-list",
-        "source_checked_at": "2026-11-26T19:29:37.858704Z",
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "5e91f09eedf0dc4606ee0390530d5240a7beda15d5a1a1152a8b60d3c4e97807",
+      "content_fingerprint": "a71fd16bf0a5b1732bd2ec6fc347a262473fcc6fad594d4a860b5514469339bf",
       "duplicate_review": []
     },
     {
-      "id": "job:41576f67f33bffd9a4686dca",
-      "title": "AI产品经理（豆包大模型方向） - 火山方舟",
-      "company": "bytedance",
-      "url": "https://jobs.bytedance.com/campus/position/7667576106895689989/detail",
+      "id": "job:620f5f78d712641482c54da6",
+      "title": "Agentic AI Engineer (Digital Bank)",
+      "company": "Hyphen Partners",
+      "url": "https://www.linkedin.com/jobs/view/4490835261",
       "locations": [
-        "北京 / 上海 / 杭州"
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Our client is a fast-growing digital bank that is hiring an Agentic AI Enginee r to build a next-generation digital banking platform with AI at its core through its next phase of growth. You w",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4490835261",
+          "key": "freehire|agentic-ai-engineer-digital-bank-hyphen-partners-6feuanhq",
+          "job_id": "agentic-ai-engineer-digital-bank-hyphen-partners-6feuanhq",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "Hyphen Partners",
+          "title": "Agentic AI Engineer (Digital Bank)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-28T09:27:49+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          5
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Agentic",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "Min 5 years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "b8b053525bb719261655b9aafd8df91e166d1a390a48a6541958c14bd98f6abc",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:61c0ac8ba1adc81c8eb60aa9",
+      "title": "AI Product Engineer Industrial AI",
+      "company": "Evonik",
+      "url": "https://evonik.wd3.myworkdayjobs.com/External_Careers/job/Singapore---Int-Business-Park/AI-Product-Engineer-Industrial-AI_R51133",
+      "locations": [
+        "Singapore - Int. Business Park"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "What we offer At Evonik, you’re part of a global chemical company working in many sectors that go beyond chemistry. From lipids for tomorrow’s medicines, biosurfactants for green detergents, additives f",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://evonik.wd3.myworkdayjobs.com/External_Careers/job/Singapore---Int-Business-Park/AI-Product-Engineer-Industrial-AI_R51133",
+          "key": "freehire|ai-product-engineer-industrial-ai-evonik-5qz7tn64",
+          "job_id": "ai-product-engineer-industrial-ai-evonik-5qz7tn64",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore - Int. Business Park",
+          "company": "Evonik",
+          "title": "AI Product Engineer Industrial AI"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "IDENTITY_UNCONFIRMED",
+          "checked_at": "2026-11-28T10:25:36+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0764ef7957f9d3e4c0087dffe46d35050c3924f4849f51bfb9b326f9f80a9ee1",
+      "duplicate_review": [
+        {
+          "status": "POSSIBLE_DUPLICATE_REVIEW",
+          "method": "same_normalized_title_market_and_jd_4gram_containment",
+          "shared_4grams": 459,
+          "containment": 0.9808,
+          "other_id": "job:3567f1f8f9294728cdbdb101",
+          "other_company": "Evonik Methionine",
+          "other_url": "https://sg.jobstreet.com/job/94991457",
+          "other_title": "AI Product Engineer Industrial AI"
+        }
+      ]
+    },
+    {
+      "id": "job:6183c3ef48f68508077f7fdd",
+      "title": "泊车感知模型算法工程师_XC",
+      "company": "Bosch",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000119041451",
+      "locations": [
+        "Shanghai, Shanghai, cn"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "参与泊车感知模型的设计、开发与优化，基于深度学习框架构建高效、准确的感知模型，实现对车辆周围环境（包括车位、障碍物、行人等）的精确识别与定位； 负责数据处理与分析，收集、标注泊车相关数据，对数据进行预处理和增强以提高模型训练效果，深入分析模型性能指标，根据实际情况优化模型结构和训练策略； 跟踪前沿技术，研究并引入新的算法和技术，提升泊车感知模型的性能和竞争力，参与团队技术交流和分享，推动团队整体技术水平提升； 负责解决模型开发和部署过程中的技术问题，对模型进行持续的维护和升级",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000119041451",
+          "key": "boschgroup|smartrecruiters|744000119041451",
+          "job_id": "744000119041451",
+          "observed_at": "2026-11-28T10:21:56+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-27T17:12:11+00:00",
+          "posted_at": "2026-04-07T07:34:41.703Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Shanghai, Shanghai, cn",
+          "company": "Bosch",
+          "title": "泊车感知模型算法工程师_XC"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T17:12:11+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "bc36eafa661c97880077399cf553190dafe0d68418bdc035713c58df3e5845f9",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:6168679410bda3ca58276620",
+      "title": "Director of AI",
+      "company": "FUNREALM INTERACTIVE PTE. LTD.",
+      "url": "https://sg.jobstreet.com/job/95660995",
+      "locations": [
+        "Punggol, North-East Region"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Company Overview FunRealm Interactive is a digital entertainment company specializing in developing and publishing mobile games. We create engaging gaming experiences that entertain players worldwide by combining",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95660995",
+          "key": "freehire|director-of-ai-funrealm-interactive-pte-ltd-maq2v5sc",
+          "job_id": "director-of-ai-funrealm-interactive-pte-ltd-maq2v5sc",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Punggol, North-East Region",
+          "company": "FUNREALM INTERACTIVE PTE. LTD.",
+          "title": "Director of AI"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Director",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "77d7c3f2a9181b5c4556fd4c60e6eaaa739b98abec0f128a8ce0a86b7bd771c5",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:61229dfbc073d65a22b7f0ef",
+      "title": "大模型算法工程师-预训练-日常实习",
+      "company": "minimax",
+      "url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7674978198362605875/detail",
+      "locations": [
+        "北京 / 上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7674978198362605875/detail",
+          "job_id": "7674978198362605875",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "实习",
+          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/379481/position/7674978198362605875/detail",
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "大模型算法工程师-预训练-日常实习"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "INTERNSHIP",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "employment",
+            "quote": "实习",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-eval.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "63894e0346af80788d2854fc5ce279f738ede8997058cd8b67fc7953a8ae045c",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:60c5a134e876dbcb79a8975c",
+      "title": "高级C++软件工程师（算法框架）",
+      "company": "agibot",
+      "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7649580354572126505/detail",
+      "locations": [
+        "深圳"
       ],
       "observed_markets": [
         "CN"
@@ -1316,40 +620,40 @@
           "source": "jobpro-list",
           "source_file": "feed/cn-native/jobpro-swe.json",
           "market": "CN",
-          "url": "https://jobs.bytedance.com/campus/position/7667576106895689989/detail",
-          "job_id": "7667576106895689989",
+          "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7649580354572126505/detail",
+          "job_id": "7649580354572126505",
           "discovery_freshness": "UNKNOWN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/campus/position/7667576106895689989/detail",
-          "location": "北京 / 上海 / 杭州",
-          "company": "bytedance",
-          "title": "AI产品经理（豆包大模型方向） - 火山方舟"
+          "recruit_label": "全职 / 社招",
+          "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7649580354572126505/detail",
+          "location": "深圳",
+          "company": "agibot",
+          "title": "高级C++软件工程师（算法框架）"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "NON_TECHNICAL",
-        "ai_depth": "NOT_CORE_AI",
-        "seniority": "UNKNOWN",
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "TITLE_ONLY",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "产品经理",
+            "quote": "软件工程师",
             "origin": "TITLE"
           },
           {
-            "field": "employment",
-            "quote": "正式",
-            "origin": "METADATA"
+            "field": "seniority",
+            "quote": "高级",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/cn-native/jobpro-swe.json",
@@ -1358,42 +662,44 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "8848b487cc98295ff15c97ee4100568d9f22fc6c939dda95e7a6024787729c31",
+      "content_fingerprint": "d43fddcb61646ff03a056d6cd0011f8fcf45e74892cee73230105d94b2417e07",
       "duplicate_review": []
     },
     {
-      "id": "job:4154e56e1041565562eac8e6",
-      "title": "AI & Automation Manager",
-      "company": "Mitsubishi Electric",
-      "url": "https://sg.jobstreet.com/job/95994188",
+      "id": "job:60c3cc04f051a38230d18a13",
+      "title": "Senior AI R&D Efficiency Architect",
+      "company": "Baidu, Inc.",
+      "url": "https://www.linkedin.com/jobs/view/4487695328",
       "locations": [
-        "Tiong Bahru, Central Region"
+        "Singapore, Singapore"
       ],
       "observed_markets": [
         "SG"
       ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Summary of Job: Lead the organisation's enterprise-wide AI and automation initiatives, driving digital transformation through intelligent automation, Generative AI, Agentic AI and digital workflow solutions. The r",
+      "excerpt": "Responsibilities AI Engineering Operating System Construction : Define division-wide AI-consumable standards (R&D workflows, PRD templates, LLM I/O specifications, design tokens)",
       "observations": [
         {
           "source": "market-api",
           "source_file": "feed/market-api/SG.json",
           "market": "SG",
-          "url": "https://sg.jobstreet.com/job/95994188",
-          "key": "freehire|ai-automation-manager-mitsubishi-electric-57rph4c3",
-          "job_id": "ai-automation-manager-mitsubishi-electric-57rph4c3",
+          "url": "https://www.linkedin.com/jobs/view/4487695328",
+          "key": "freehire|senior-ai-r-d-efficiency-architect-baidu-inc-3bgkcbeg",
+          "job_id": "senior-ai-r-d-efficiency-architect-baidu-inc-3bgkcbeg",
           "discovery_freshness": "OBSERVED_THIS_RUN",
           "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "location": "Tiong Bahru, Central Region",
-          "company": "Mitsubishi Electric",
-          "title": "AI & Automation Manager"
+          "location": "Singapore, Singapore",
+          "company": "Baidu, Inc.",
+          "title": "Senior AI R&D Efficiency Architect"
         }
       ],
       "application_evidence": [],
@@ -1411,7 +717,7 @@
         "evidence": [
           {
             "field": "seniority",
-            "quote": "Manager",
+            "quote": "Senior",
             "origin": "TITLE_OR_METADATA"
           }
         ],
@@ -1421,47 +727,44 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "20b8a1b39d84b0b0ddb361e0829632fedc0fe0c2c9111e4a876484d1b6dd9e29",
+      "content_fingerprint": "44c457262c9458482c7d1b4153b47ec10f07568218ca778845c1a2dbc0b3d4fc",
       "duplicate_review": []
     },
     {
-      "id": "job:414885079c167ef4edefe524",
-      "title": "AI应用开发工程师（LLM / Agent / RAG方向）",
-      "company": "某深圳计算机软件公司",
-      "url": "https://www.liepin.com/a/81726041.shtml",
+      "id": "job:60737a942d0bd59640095817",
+      "title": "Specialist, Web Development (.NET, SQL, Agentic AI)",
+      "company": "DKSH",
+      "url": "https://my.jobstreet.com/job/95695765",
       "locations": [
-        "深圳"
+        "Kuala Lumpur"
       ],
       "observed_markets": [
-        "CN"
+        "MY"
       ],
       "location_markets": [
-        "CN"
+        "MY"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
-      "identity_quality": "UNVERIFIED_URL",
+      "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "",
+      "excerpt": "About the role As a Specialist, Web Development (.NET Developer), you will join our Group Technical Delivery – Technical Solution team within CSSC. We are seeking a passionate and skilled professional proficient in",
       "observations": [
         {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/a/81726041.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "source": "market-api",
+          "source_file": "feed/market-api/MY.json",
+          "market": "MY",
+          "url": "https://my.jobstreet.com/job/95695765",
+          "key": "freehire|specialist-web-development-net-sql-agentic-ai-dksh-bmup2lzh",
+          "job_id": "specialist-web-development-net-sql-agentic-ai-dksh-bmup2lzh",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "posted_at": "2026-11-28",
-          "salary": "25-50k",
-          "experience": "3-8年",
-          "education": "统招本科",
-          "location": "深圳",
-          "company": "某深圳计算机软件公司",
-          "title": "AI应用开发工程师（LLM / Agent / RAG方向）"
+          "location": "Kuala Lumpur",
+          "company": "DKSH",
+          "title": "Specialist, Web Development (.NET, SQL, Agentic AI)"
         }
       ],
       "application_evidence": [],
@@ -1475,41 +778,41 @@
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI应用",
+            "quote": "Agentic",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "LLM",
+            "quote": "Agentic",
             "origin": "TITLE"
           }
         ],
-        "source_file": "feed/cn-native/liepin-raw.json",
+        "source_file": "feed/market-api/MY.json",
         "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
+        "source": "market-api",
+        "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "0776e6d9d152b16907d7925608d87863dccf6d08c0c5ee1ef087402d5b3e24bd",
+      "content_fingerprint": "9f86c5a97df4bceadbe0d3c9ad0d1897304a47d087261db0ce71894bdfbb2852",
       "duplicate_review": []
     },
     {
-      "id": "job:4133bf59587d1dde92e05238",
-      "title": "#EG AI Delivery Project Manager / Scrum Master",
-      "company": "NCS",
-      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001338216",
+      "id": "job:603f3671de384851dcb5cde1",
+      "title": "Senior AI Engineer – Palantir Foundry and AIP Forward Deployed Engineer",
+      "company": "NVIDIA",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714",
       "locations": [
-        "Singapore, sg"
+        "China, Shenzhen"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -1517,220 +820,102 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "This role sits within NCS AI Central's (AIC) Forward Deployed Engineering (FDE) model — the combined capability that takes AI solutions from proof-of-concept through to hardened production systems. As AI Delivery Project Manager / Scrum Mas",
+      "excerpt": "",
       "observations": [
         {
           "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001338216",
-          "key": "ncs3|smartrecruiters|6000000001338216",
-          "job_id": "6000000001338216",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T12:43:34+00:00",
-          "posted_at": "2026-08-21T03:09:28.230Z",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714",
+          "key": "nvidia|workday|/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714",
+          "job_id": "/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PAUSED_POLICY",
+          "jd_kind": "listing_only",
+          "posted_at": "Posted 14 Days Ago",
           "salary_summary": "",
           "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "employment_type": "",
           "apply_url": "",
-          "location": "Singapore, sg",
-          "company": "NCS",
-          "title": "#EG AI Delivery Project Manager / Scrum Master"
+          "location": "China, Shenzhen",
+          "company": "NVIDIA",
+          "title": "Senior AI Engineer – Palantir Foundry and AIP Forward Deployed Engineer"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714",
+          "key": "freehire|senior-ai-engineer-palantir-foundry-and-aip-forward-deployed-engineer-nvidia-bjmzjezq",
+          "job_id": "senior-ai-engineer-palantir-foundry-and-aip-forward-deployed-engineer-nvidia-bjmzjezq",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "China, Shenzhen",
+          "company": "NVIDIA",
+          "title": "Senior AI Engineer – Palantir Foundry and AIP Forward Deployed Engineer"
         }
       ],
-      "application_evidence": [],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T12:28:00+00:00",
+          "fresh": true,
+          "apply_url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/China-Shenzhen/Senior-AI-Engineer---Palantir-Foundry-and-AIP-Forward-Deployed-Engineer_JR2021714/apply",
+          "title_match": true
+        }
+      ],
       "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
         "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [
-          1,
-          3,
-          7
+          12
         ],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "experience_min_mentions",
-            "quote": "at least 1 year",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "7+ years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "3+ years",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "at least 1 year",
-            "origin": "FIRST_PARTY_RETAINED"
-          },
-          {
-            "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          },
-          {
-            "field": "seniority",
-            "quote": "Manager",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T12:43:34+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "3f4d0d6e99c25e5ab1140af9a529f15c11ff55888f806df8b01f1b942f09ff4e",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:40bf9e50641f3727881fedad",
-      "title": "档案管理",
-      "company": "广州市芝威贸易商行",
-      "url": "https://www.liepin.com/job/1965810041.shtml",
-      "locations": [
-        "苏州-工业园区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/job/1965810041.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2024-03-27",
-          "salary": "7-10k",
-          "experience": "经验不限",
-          "education": "大专",
-          "location": "苏州-工业园区",
-          "company": "广州市芝威贸易商行",
-          "title": "档案管理"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "26fee681e13ab059a9bb05b0ef05a403cc7f617ef5aa5adfae5e5e180a1f595e",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:40a0edbe443f1b4a4f2b54cc",
-      "title": "数据平台开发工程师/专家",
-      "company": "agibot",
-      "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7688239470466205979/detail",
-      "locations": [
-        "上海"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-backend.json",
-          "market": "CN",
-          "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7688239470466205979/detail",
-          "job_id": "7688239470466205979",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职 / 社招",
-          "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7688239470466205979/detail",
-          "location": "上海",
-          "company": "agibot",
-          "title": "数据平台开发工程师/专家"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
         "evidence": [
           {
+            "field": "role_family",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "12+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
             "field": "seniority",
-            "quote": "专家",
+            "quote": "Senior",
             "origin": "TITLE_OR_METADATA"
           }
         ],
-        "source_file": "feed/cn-native/jobpro-backend.json",
+        "source_file": "feed/market-api/CN.json",
         "retained_jd_ref": null,
-        "source": "jobpro-list",
+        "source": "market-api",
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "35bf25aa148521510494ee91c710655925f07beea39c29c1114b3d7dc6090397",
+      "content_fingerprint": "f9f61ad0bf10f44f06123164744f23f4d2d84ab18889c5f8d01128529db0efd1",
       "duplicate_review": []
     },
     {
-      "id": "job:409cd89f195197bcec4a1008",
-      "title": "战略投资高级经理",
-      "company": "baichuan",
-      "url": "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7698670707114658111/detail",
+      "id": "job:5fc901cb631fd91bb7b96faa",
+      "title": "Agent技术研发工程师-豆包",
+      "company": "bytedance",
+      "url": "https://jobs.bytedance.com/experienced/position/7634035021791725829/detail",
       "locations": [
         "北京"
       ],
@@ -1750,18 +935,93 @@
       "observations": [
         {
           "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
+          "source_file": "feed/cn-native/jobpro-agent.json",
           "market": "CN",
-          "url": "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7698670707114658111/detail",
-          "job_id": "7698670707114658111",
+          "url": "https://jobs.bytedance.com/experienced/position/7634035021791725829/detail",
+          "job_id": "7634035021791725829",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "正式",
+          "apply_url": "https://jobs.bytedance.com/experienced/position/7634035021791725829/detail",
+          "location": "北京",
+          "company": "bytedance",
+          "title": "Agent技术研发工程师-豆包"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-28T09:27:12+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "employment",
+            "quote": "正式",
+            "origin": "METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-agent.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "6e7345701aa5d8c1d0be6a9742e94b7dd8b2a6c264474b57cb83ac919d96499c",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5f893f6f7e1cb4193c52e038",
+      "title": "数据平台与数据资产负责人（Data Platform & Data Assets Lead）",
+      "company": "zerooneai",
+      "url": "https://01ai.jobs.feishu.cn/index/position/7711694531750136114/detail",
+      "locations": [
+        "北京"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-agent.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7711694531750136114/detail",
+          "job_id": "7711694531750136114",
           "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "listing_only",
           "recruit_label": "全职",
-          "apply_url": "https://cq6qe6bvfr6.jobs.feishu.cn/baichuanzhaopin/position/7698670707114658111/detail",
+          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7711694531750136114/detail",
           "location": "北京",
-          "company": "baichuan",
-          "title": "战略投资高级经理"
+          "company": "zerooneai",
+          "title": "数据平台与数据资产负责人（Data Platform & Data Assets Lead）"
         }
       ],
       "application_evidence": [],
@@ -1779,24 +1039,267 @@
         "evidence": [
           {
             "field": "seniority",
-            "quote": "高级",
+            "quote": "负责人",
             "origin": "TITLE_OR_METADATA"
           }
         ],
-        "source_file": "feed/cn-native/jobpro-llm.json",
+        "source_file": "feed/cn-native/jobpro-agent.json",
         "retained_jd_ref": null,
         "source": "jobpro-list",
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "13b8db313d3d5e5b9e185e9e62c1e7926adc34bf9ad90699d7bbff897135a49e",
+      "content_fingerprint": "11e090777f1eeb1d83c4d1e3c577cc3b205b386cbdf058f664bdd572b49f0400",
       "duplicate_review": []
     },
     {
-      "id": "job:409a4f21937341901bd3529e",
-      "title": "Vehicle Motion Control System Algorithm Engineer/车辆运动学控制系统算法工程师_ITK",
-      "company": "Bosch",
-      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000128324330",
+      "id": "job:5f6d4f631c2c379254060cbf",
+      "title": "Staff Engineer-Exchange Middle Platform",
+      "company": "ogroup",
+      "url": "https://job-boards.greenhouse.io/ogroup/jobs/7665190003",
+      "locations": [
+        "深圳"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://job-boards.greenhouse.io/ogroup/jobs/7665190003",
+          "key": "ogroup|greenhouse|7665190003",
+          "job_id": "7665190003",
+          "observed_at": "2026-11-28T09:23:26+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "DEFERRED_ROTATION",
+          "jd_kind": "partial_jd",
+          "jd_checked_at": "2026-11-28T09:23:26+00:00",
+          "posted_at": "2026-08-07T05:33:08-04:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "深圳",
+          "company": "ogroup",
+          "title": "Staff Engineer-Exchange Middle Platform"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_PARTIAL",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Staff",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T09:23:26+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "27891bf0d69f6b23748893e5d475eb801c6b3087d5a931167a735cac16bd3d1d",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5f4df1cff75435c28b1aaeec",
+      "title": "AI Agent 产品专家（C 端金融）",
+      "company": "北京必来屋网络科技有限公司",
+      "url": "https://www.liepin.com/job/1985314189.shtml",
+      "locations": [
+        "深圳-南山区"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "liepin",
+          "source_file": "feed/cn-native/liepin-raw.json",
+          "market": "CN",
+          "url": "https://www.liepin.com/job/1985314189.shtml",
+          "observed_at": "2026-11-28T08:47:08.251Z",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "jd_kind": "listing_only",
+          "posted_at": "2026-11-23",
+          "salary": "70-100k",
+          "experience": "5-10年",
+          "education": "本科",
+          "location": "深圳-南山区",
+          "company": "北京必来屋网络科技有限公司",
+          "title": "AI Agent 产品专家（C 端金融）"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-28T10:27:14+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "专家",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/liepin-raw.json",
+        "retained_jd_ref": null,
+        "source": "liepin",
+        "source_checked_at": "2026-11-28T08:47:08.251Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "b328ee5b4e0caf88fce6dc9d5d7e04a7dec9862109368bc5962b982a8145f448",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5eef5647bcbf584a8b1cf57f",
+      "title": "#EG Senior / AI Management Consultant, AI Natives",
+      "company": "NCS",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001500689",
+      "locations": [
+        "Singapore, sg"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "ABOUT AI CENTRAL AI Central (AIC) is NCS’s enterprise AI capability spine — responsible for building, productising, and deploying AI capabilities and reusable assets across regulated and mission-critical sectors. We work at the intersection",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001500689",
+          "key": "ncs3|smartrecruiters|6000000001500689",
+          "job_id": "6000000001500689",
+          "observed_at": "2026-11-28T10:21:56+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-28T05:50:40+00:00",
+          "posted_at": "2026-10-19T05:56:56.322Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Singapore, sg",
+          "company": "NCS",
+          "title": "#EG Senior / AI Management Consultant, AI Natives"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "2–6 years of relevant experience",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:50:40+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "51d570a20c484ff826c444cf09c60c34d9f3645fa3b2713464add11cdff0af51",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5ec490f9e12076e3c4b76269",
+      "title": "Software Systems Engineer with AI Focus_PS",
+      "company": "Bosch Group",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000136172648-software-systems-engineer-with-ai-focus-ps",
       "locations": [
         "Wuxi, Jiangsu, cn"
       ],
@@ -1810,28 +1313,418 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "负责车辆运动学控制系统软件架构设计以及和自动驾驶、底盘控制、扭矩控制的系统接口定义 Responsible for vehicle motion control system software architecture design and define interface with ADAS, Chassis and powertrain system. 负责VDC车辆横向控制、车辆动态控制和扭矩分配软件开发 Responsible system integration a",
+      "excerpt": "Responsible for functional safety development for cross domain controller, especially on SOC infrastructure safety concept; Responsible for HW monitoring requirement analysis and designing solutions and the respective tests",
       "observations": [
         {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/CN.json",
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
           "market": "CN",
-          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000128324330",
-          "key": "boschgroup|smartrecruiters|744000128324330",
-          "job_id": "744000128324330",
-          "observed_at": "2026-11-28T09:23:26+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-27T13:04:12+00:00",
-          "posted_at": "2026-05-26T02:30:41.211Z",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
-          "apply_url": "",
+          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000136172648-software-systems-engineer-with-ai-focus-ps",
+          "key": "freehire|software-systems-engineer-with-ai-focus-ps-bosch-group-yaej6nhq",
+          "job_id": "software-systems-engineer-with-ai-focus-ps-bosch-group-yaej6nhq",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
           "location": "Wuxi, Jiangsu, cn",
-          "company": "Bosch",
-          "title": "Vehicle Motion Control System Algorithm Engineer/车辆运动学控制系统算法工程师_ITK"
+          "company": "Bosch Group",
+          "title": "Software Systems Engineer with AI Focus_PS"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Systems Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "1-3 years experience",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f43f58b248fbae9611e2eee5298557f3801d003162dbbf437cfa6635b2482ed6",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5eae7cd1e8811796d62a6550",
+      "title": "Contract AI Engineer [Full Stack Developer] (24 months)",
+      "company": "Infineon Technologies",
+      "url": "https://sg.jobstreet.com/job/95923213",
+      "locations": [
+        "Kallang, Central Region"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Your role Key responsibilities in your new role The AI Engineer will serve as a technical expert in the fields of AIML , NLP , GenAI & deeper understanding an",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95923213",
+          "key": "freehire|contract-ai-engineer-full-stack-developer-24-months-infineon-technologies-s3ghwno6",
+          "job_id": "contract-ai-engineer-full-stack-developer-24-months-infineon-technologies-s3ghwno6",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Kallang, Central Region",
+          "company": "Infineon Technologies",
+          "title": "Contract AI Engineer [Full Stack Developer] (24 months)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T13:08:30+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1,
+          3
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Full Stack",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "Minimum of 1 years",
+            "origin": "THIRD_PARTY_TEXT"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "3+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e4872640bd1a645589863a6d7349cf1f9321dd8fbd652d2946ce6262fbbf0725",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5e92dbdf11c5d1426d103b60",
+      "title": "Generative AI (GenAI) Lead",
+      "company": "Capgemini",
+      "url": "https://sg.jobstreet.com/job/95814084",
+      "locations": [
+        "Marina South, Central Region"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "This Gen AI Lead position demands a visionary and experienced leader capable of spearheading the strategy, development, and deployment of Generative AI (GenAI) initiatives across an entire region. The Lead will drive innovation, foster c",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95814084",
+          "key": "freehire|generative-ai-genai-lead-capgemini-igatwpwr",
+          "job_id": "generative-ai-genai-lead-capgemini-igatwpwr",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Marina South, Central Region",
+          "company": "Capgemini",
+          "title": "Generative AI (GenAI) Lead"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T14:21:52+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Generative AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Generative AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "Lead",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "65edee6e14e7d32e66e9c08b79959e093c7c1d99a9575d64ea454a93ae83aae7",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5e7cbc9ecbb88355c32a9618",
+      "title": "AI Runtime Engineer",
+      "company": "Caterpillar Inc.",
+      "url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers/job/Wuxi-Jiangsu/AI-Runtime-Engineer_R0000403202",
+      "locations": [
+        "Wuxi, Jiangsu"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Career Area: Technology, Digital and Data Job Description: Your Work Shapes the World at Caterpillar Inc. When you join Caterpillar, you're joining a global team who cares",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers/job/Wuxi-Jiangsu/AI-Runtime-Engineer_R0000403202",
+          "key": "freehire|ai-runtime-engineer-caterpillar-inc-yl5r5wo4",
+          "job_id": "ai-runtime-engineer-caterpillar-inc-yl5r5wo4",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Wuxi, Jiangsu",
+          "company": "Caterpillar Inc.",
+          "title": "AI Runtime Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-27T14:21:36+00:00",
+          "fresh": true,
+          "apply_url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers/job/Wuxi-Jiangsu/AI-Runtime-Engineer_R0000403202/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "degree",
+            "quote": "硕士及以上",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "2358ee05255269a9ef2175fd88008b25a2ad24852520aca0f4c63319fb442413",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5e37757b33fa8c4cd5fbe938",
+      "title": "AI Agent Intern-Process AI",
+      "company": "ABB",
+      "url": "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Shanghai-Shanghai-China/AI-Agent-Intern-Process-AI_JR00053864-1",
+      "locations": [
+        "Shanghai, Shanghai, China"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "At ABB, we help industries outrun - leaner and cleaner. Here, progress is an expectation - for you, your team, and the world. As a global market leader, we’ll give you what you need to make it happen. It won’t always be easy, growing tak",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Shanghai-Shanghai-China/AI-Agent-Intern-Process-AI_JR00053864-1",
+          "key": "freehire|ai-agent-intern-process-ai-abb-w5dpqia2",
+          "job_id": "ai-agent-intern-process-ai-abb-w5dpqia2",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Shanghai, Shanghai, China",
+          "company": "ABB",
+          "title": "AI Agent Intern-Process AI"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "INTERNSHIP",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "employment",
+            "quote": "Intern",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "da7ae2f811aa6f2b37f3e9140a8fa61a774f14c4e3911d5f22d0d163d1244c49",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5e074d67ee116f307c8bf003",
+      "title": "AI 设计实习生（模型训练、评测等工作）",
+      "company": "meituan",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4132050002",
+      "locations": [
+        "北京市"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4132050002",
+          "job_id": "4132050002",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "实习",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4132050002&jobShareType=1&highlightType=campus",
+          "location": "北京市",
+          "company": "meituan",
+          "title": "AI 设计实习生（模型训练、评测等工作）"
         }
       ],
       "application_evidence": [],
@@ -1839,32 +1732,178 @@
         "role_family": "UNKNOWN",
         "ai_depth": "UNKNOWN",
         "seniority": "UNKNOWN",
-        "degree": "BACHELOR_MIN_SIGNAL",
+        "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
+        "employment": "INTERNSHIP",
         "graduation_cohorts": [],
         "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "text_evidence_grade": "TITLE_ONLY",
         "evidence": [
           {
             "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "本科以上",
-            "origin": "FIRST_PARTY_RETAINED"
+            "quote": "实习",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
-        "source_file": "feed/ats/markets/CN.json",
+        "source_file": "feed/cn-native/jobpro-eval.json",
         "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T13:04:12+00:00",
+        "source": "jobpro-list",
+        "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "382d6fe3c819577e00245b7b7564f82ae3129f216c258a0b0c5d3c3e8b647da9",
+      "content_fingerprint": "881165f3e19590a27352ec07286abe7dde0b299ca1a384334c66b2f3f08e02e1",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5de321870c9b6b0a91a60ba3",
+      "title": "Sr. Staff Product Marketing Engineer- MCU (AI datacenter infrastructure)",
+      "company": "Renesas Electronics",
+      "url": "https://jobs.smartrecruiters.com/RenesasElectronics/744000151307519-sr-staff-product-marketing-engineer-mcu-ai-datacenter-infrastructure-",
+      "locations": [
+        "Beijing, Beijing, cn"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "This is a Senior Staff Product Marketing Manager role in Renesas’ Application-Specific MCU team within the Embedded Processing Product Group. AI workloads are driving higher rack power, tighter thermal limits, richer telemetry, and great",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://jobs.smartrecruiters.com/RenesasElectronics/744000151307519-sr-staff-product-marketing-engineer-mcu-ai-datacenter-infrastructure-",
+          "key": "freehire|sr-staff-product-marketing-engineer-mcu-ai-datacenter-infrastructure-renesas-electronics-ftyrydtm",
+          "job_id": "sr-staff-product-marketing-engineer-mcu-ai-datacenter-infrastructure-renesas-electronics-ftyrydtm",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Beijing, Beijing, cn",
+          "company": "Renesas Electronics",
+          "title": "Sr. Staff Product Marketing Engineer- MCU  (AI datacenter infrastructure)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Sr",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "895de57ec988c5ecbcd74e88b71dc7d38b4e5feb66bba3b42683d4b0ca722f62",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:5d7c2d45bdbe2350b2722248",
+      "title": "Machine Learning Engineer - AI Agent Platform",
+      "company": "Counterpunch A Virtuos Studio",
+      "url": "https://sg.jobstreet.com/job/95562699",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "PLAY, GROW and WIN To be a part of Virtuos means to be a creator. At Virtuos, we harness the latest technologies to make games better and more immersive than ever before. That is why we pride ou",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/95562699",
+          "key": "freehire|machine-learning-engineer-ai-agent-platform-counterpunch-a-virtuos-studio-pbdx2ahg",
+          "job_id": "machine-learning-engineer-ai-agent-platform-counterpunch-a-virtuos-studio-pbdx2ahg",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "Counterpunch A Virtuos Studio",
+          "title": "Machine Learning Engineer - AI Agent Platform"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T17:16:41+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          5
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "5+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "d50cbe3ead288390ef109a0e2b3bc236c224db7b06e81d93c1710654c611ba75",
       "duplicate_review": []
     }
   ]
