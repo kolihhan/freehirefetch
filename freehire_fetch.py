@@ -323,13 +323,14 @@ def classify_events(jobs: list[dict], seen: dict, now_iso: str, bootstrap: bool)
         elif previous.get("fingerprint") != fingerprint:
             kind = "CHANGED"
 
-        if kind is not None:
-            next_seen[identity] = {
-                "fingerprint": fingerprint,
-                "last_seen": now_iso,
-                "public_slug": job.get("public_slug"),
-                "market": job.get("market") or job.get("country") or job.get("countries"),
-            }
+        # Refresh observation time even when no content event is emitted.
+        # Otherwise unchanged active jobs can age out after a partial scan.
+        next_seen[identity] = {
+            "fingerprint": fingerprint,
+            "last_seen": now_iso,
+            "public_slug": job.get("public_slug"),
+            "market": job.get("market") or job.get("country") or job.get("countries"),
+        }
 
         if hard_drop or kind is None:
             continue
