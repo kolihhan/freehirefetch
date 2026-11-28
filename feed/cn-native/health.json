@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-11-27T23:59:58.104696+00:00",
+  "checked_at": "2026-11-28T05:04:01.165804+00:00",
   "source": "public native Liepin JSON + public job-pro careers",
   "liepin": {
     "status": "PARTIAL_COVERAGE",
@@ -10,32 +10,53 @@
   },
   "jobpro": {
     "ai": {
-      "jobs": 140,
-      "failed_adapters": 1
+      "jobs": 120,
+      "failed_adapters": 2,
+      "status": "PARTIAL",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "backend": {
-      "jobs": 347,
-      "failed_adapters": 16
+      "jobs": 327,
+      "failed_adapters": 16,
+      "status": "PARTIAL",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "swe": {
       "jobs": 207,
-      "failed_adapters": 15
+      "failed_adapters": 16,
+      "status": "PARTIAL",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "agent": {
       "jobs": 127,
-      "failed_adapters": 0
+      "failed_adapters": 0,
+      "status": "COMPLETE",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "llm": {
       "jobs": 136,
-      "failed_adapters": 0
+      "failed_adapters": 0,
+      "status": "COMPLETE",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "nlp": {
-      "jobs": 91,
-      "failed_adapters": 0
+      "jobs": 71,
+      "failed_adapters": 1,
+      "status": "PARTIAL",
+      "retained_previous": false,
+      "retained_jobs": 0
     },
     "eval": {
       "jobs": 109,
-      "failed_adapters": 1
+      "failed_adapters": 1,
+      "status": "PARTIAL",
+      "retained_previous": false,
+      "retained_jobs": 0
     }
   },
   "coverage": "bounded rotating sample, NOT all China platforms; no applicant decisions"
