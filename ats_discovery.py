@@ -519,7 +519,7 @@ def board_deadline(seconds: int = MAX_BOARD_SECONDS):
         signal.signal(signal.SIGALRM, prior_handler)
 
 
-def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: dict | None = None) -> dict:
+def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: dict | None = None, paused_ats: set[str] | None = None) -> dict:
     clock = clock or datetime.now(timezone.utc).isoformat(timespec="seconds")
     target = root / "feed" / "ats"
     old = read_json(target / "current.json", {"version": 1, "jobs": []})
@@ -547,6 +547,11 @@ def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: 
             raise ValueError("Duplicate board " + board_id)
         seen_board_ids.add(board_id)
         prior_status = previous_health.get(board_id, {})
+        if board.get("ats") in (paused_ats or set()):
+            statuses[board_id] = {"status": "PAUSED_POLICY", "rows_read": 0,
+                                  "reason": "Source temporarily paused; previous records retained",
+                                  "last_status": prior_status.get("status")}
+            continue
         if board.get("ats") == "workday" and cooldown_active(prior_status.get("retry_after_until"), clock):
             statuses[board_id] = dict(prior_status, status="DEFERRED_RATE_LIMIT",
                                       error="Workday Retry-After cooldown; retained previous records")
@@ -660,7 +665,10 @@ def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: 
         {key: value for key, value in event.items() if key != "description_text"}
         for event in events
     ]}
-    health = {"version": 1, "boards": statuses, "complete": all(x["status"] == "COMPLETE" for x in statuses.values())}
+    health = {"version": 1, "boards": statuses,
+              "complete": all(x["status"] in ("COMPLETE", "PAUSED_POLICY") for x in statuses.values()),
+              "coverage_scope": "active attempted boards only",
+              "paused_boards": sum(x["status"] == "PAUSED_POLICY" for x in statuses.values())}
     if discovery is not None:
         for key in discovery["selected"]:
             status = statuses.get(key, {})
@@ -688,7 +696,7 @@ def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: 
     write_if_changed(target / "detail-attempts.json", {"version":1,"records":attempts})
     print(json.dumps({"boards": len(statuses), "status": health["complete"], "jobs": len(new_by),
                       "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "REMOVED_FROM_FEED")},
-                      "failures": [k for k, v in statuses.items() if v["status"] not in ("COMPLETE", "DEFERRED_ROTATION")],
+                      "failures": [k for k, v in statuses.items() if v["status"] not in ("COMPLETE", "DEFERRED_ROTATION", "PAUSED_POLICY")],
                       "rotation_deferred": sum(v["status"] == "DEFERRED_ROTATION" for v in statuses.values())}))
     return {"health": health, "events": events, "jobs": len(new_by)}
 
