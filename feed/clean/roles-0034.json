@@ -75,7 +75,8 @@
         "source_checked_at": "2026-11-27T12:43:34+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "15ec38e068ceed6cca14011aee3dbe8bda8d9451ff0332f48a8829349e8e54c2"
+      "content_fingerprint": "15ec38e068ceed6cca14011aee3dbe8bda8d9451ff0332f48a8829349e8e54c2",
+      "duplicate_review": []
     },
     {
       "id": "job:d9eb9046926291fdf6b72908",
@@ -150,7 +151,8 @@
         "source_checked_at": "2026-11-26T00:07:30.093287Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "f5cc66d6447990cf8f256142d7216d71c0f9cde63919f078fa552dca174be62e"
+      "content_fingerprint": "f5cc66d6447990cf8f256142d7216d71c0f9cde63919f078fa552dca174be62e",
+      "duplicate_review": []
     },
     {
       "id": "job:d9e7929756856d1a36dd4773",
@@ -225,7 +227,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "159767ca2d81f6c0df6e36e06eb61a65f61d13315cdc5b47d8b42101f2ae2edb"
+      "content_fingerprint": "159767ca2d81f6c0df6e36e06eb61a65f61d13315cdc5b47d8b42101f2ae2edb",
+      "duplicate_review": []
     },
     {
       "id": "job:d9e1f17aca0b9b6c2b62bd71",
@@ -290,7 +293,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "0e2aa3306bc82d359e24d45aa4207f2aa4a1a8931a7cac9db9aa49fe7ef4de9e"
+      "content_fingerprint": "0e2aa3306bc82d359e24d45aa4207f2aa4a1a8931a7cac9db9aa49fe7ef4de9e",
+      "duplicate_review": []
     },
     {
       "id": "job:d99d613816b0086fed75feaa",
@@ -369,7 +373,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "823e4bf43d4882c8b3e76093c6d78dc57673eaeb676b8c2eb247e8b5997f3a0b"
+      "content_fingerprint": "823e4bf43d4882c8b3e76093c6d78dc57673eaeb676b8c2eb247e8b5997f3a0b",
+      "duplicate_review": []
     },
     {
       "id": "job:d9967965b40769cfc8f734e1",
@@ -441,7 +446,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "58115c7bacdce945e277d1a64194b42248b927c6734829a7e8c981c6a0ad4013"
+      "content_fingerprint": "58115c7bacdce945e277d1a64194b42248b927c6734829a7e8c981c6a0ad4013",
+      "duplicate_review": []
     },
     {
       "id": "job:d9604aad1cb31fde837f1182",
@@ -500,7 +506,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "cceb0778ea878df0218324685d62f7a5b253cfd7074bf799965d0c56f6a40bb6"
+      "content_fingerprint": "cceb0778ea878df0218324685d62f7a5b253cfd7074bf799965d0c56f6a40bb6",
+      "duplicate_review": []
     },
     {
       "id": "job:d9245480e376e1857b49f80e",
@@ -578,7 +585,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "53ac91dd7a72aad4a7d15a4758a8383aa29276f081fa693b7d76dec4807063ef"
+      "content_fingerprint": "53ac91dd7a72aad4a7d15a4758a8383aa29276f081fa693b7d76dec4807063ef",
+      "duplicate_review": []
     },
     {
       "id": "job:d907f4a85ea49b70010a00fa",
@@ -655,7 +663,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "8eef79538819736d2f3c9be4e273760b8f6bf079f05c12808d97125bdde85f49"
+      "content_fingerprint": "8eef79538819736d2f3c9be4e273760b8f6bf079f05c12808d97125bdde85f49",
+      "duplicate_review": []
     },
     {
       "id": "job:d8e96d734b0c1ad299d71fe0",
@@ -727,7 +736,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "9795e8d4a92c2f6ea8d596e52a1c71b5753f7915cabc22ab2b4146ccb7526423"
+      "content_fingerprint": "9795e8d4a92c2f6ea8d596e52a1c71b5753f7915cabc22ab2b4146ccb7526423",
+      "duplicate_review": []
     },
     {
       "id": "job:d8e65022e40b05aeb0951339",
@@ -838,7 +848,19 @@
         "source_checked_at": "2026-11-25T10:23:29+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "f07e6548970f9242c5456693c510aabb314c0b8409e2fb524006f58eb34ef67a"
+      "content_fingerprint": "b6215747cf8ca90a6c1010019f70b41bc40f6f42cefd553e9ba41594cebaf7ca",
+      "duplicate_review": [
+        {
+          "status": "POSSIBLE_DUPLICATE_REVIEW",
+          "method": "same_normalized_title_market_and_jd_4gram_containment",
+          "shared_4grams": 949,
+          "containment": 1.0,
+          "other_id": "job:35d8175e70d87d23b4a63e0a",
+          "other_company": "Micron Semiconductors",
+          "other_url": "https://sg.jobstreet.com/job/96046348",
+          "other_title": "AI Engineer, SMAI"
+        }
+      ]
     },
     {
       "id": "job:d8dba76639f01930fec60ad3",
@@ -927,7 +949,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "518379fc0dfda1c4db43d320c54de54b85c4dd73d1d35e2e4659334eb91e0b6c"
+      "content_fingerprint": "518379fc0dfda1c4db43d320c54de54b85c4dd73d1d35e2e4659334eb91e0b6c",
+      "duplicate_review": []
     },
     {
       "id": "job:d8ccc547a28f2c01e9fb83e7",
@@ -999,7 +1022,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "2ffe504ee3d550b095199af95a441c29303013f9a4e25c7dd73f5b7487cd8b14"
+      "content_fingerprint": "2ffe504ee3d550b095199af95a441c29303013f9a4e25c7dd73f5b7487cd8b14",
+      "duplicate_review": []
     },
     {
       "id": "job:d8ac6af2271544067ed449c1",
@@ -1064,7 +1088,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "6defe65e8c9addd1916f623149b7be1f98ad3946734eaff1d2000cc88192b494"
+      "content_fingerprint": "6defe65e8c9addd1916f623149b7be1f98ad3946734eaff1d2000cc88192b494",
+      "duplicate_review": []
     },
     {
       "id": "job:d83cdc1f7ed1a6ef8a03dd3f",
@@ -1138,7 +1163,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "b7831beb2bcdbe2f48cabb7d8b8d932ba2a4383ebe73f5b4d22ce567926aeb91"
+      "content_fingerprint": "b7831beb2bcdbe2f48cabb7d8b8d932ba2a4383ebe73f5b4d22ce567926aeb91",
+      "duplicate_review": []
     },
     {
       "id": "job:d82b326d8e4f2951dc6998fd",
@@ -1210,7 +1236,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "97a94df6badcef3f951e6b8ff70d841accc87f6adbd76e94f10bc388fc40636a"
+      "content_fingerprint": "97a94df6badcef3f951e6b8ff70d841accc87f6adbd76e94f10bc388fc40636a",
+      "duplicate_review": []
     },
     {
       "id": "job:d81f06f9b3e32c13dd629ef4",
@@ -1289,7 +1316,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "c8795ee0da2b8925c5ef12b16e49271c593f87c112e6c7171f862018077a4388"
+      "content_fingerprint": "c8795ee0da2b8925c5ef12b16e49271c593f87c112e6c7171f862018077a4388",
+      "duplicate_review": []
     },
     {
       "id": "job:d7ecafb35f3d411dac21214d",
@@ -1359,7 +1387,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "e9436686ea22c4ebb7d41cc4d3c12bb561edf1fbef8baa23353e8875f85b5887"
+      "content_fingerprint": "e9436686ea22c4ebb7d41cc4d3c12bb561edf1fbef8baa23353e8875f85b5887",
+      "duplicate_review": []
     },
     {
       "id": "job:d7847ea7061d245fee59169c",
@@ -1442,7 +1471,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "f3b2d06559d0e5bc61c7253641030e716b709bc623bdc1d3660638550776af50"
+      "content_fingerprint": "f3b2d06559d0e5bc61c7253641030e716b709bc623bdc1d3660638550776af50",
+      "duplicate_review": []
     },
     {
       "id": "job:d7294281d6e8502dcee415a4",
@@ -1514,7 +1544,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "4cb12eb33e3c68a0e99d945300f4b5be5b7d19949ccd52de60c6c4613aff5534"
+      "content_fingerprint": "4cb12eb33e3c68a0e99d945300f4b5be5b7d19949ccd52de60c6c4613aff5534",
+      "duplicate_review": []
     },
     {
       "id": "job:d6cef7b7618de955aef2ae3f",
@@ -1636,7 +1667,8 @@
         "source_checked_at": "2026-11-27T12:43:34+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "17eeab09f7b4a4c42ede6f59b18a449c16cf4c21667e71537d84c7373d79080e"
+      "content_fingerprint": "17eeab09f7b4a4c42ede6f59b18a449c16cf4c21667e71537d84c7373d79080e",
+      "duplicate_review": []
     },
     {
       "id": "job:d6c14f2470824073b1c2030c",
@@ -1720,7 +1752,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "0f9e0934e0fba8a2ac4eb89c3de931470d0cf555041308eccc33a5547940eae7"
+      "content_fingerprint": "0f9e0934e0fba8a2ac4eb89c3de931470d0cf555041308eccc33a5547940eae7",
+      "duplicate_review": []
     },
     {
       "id": "job:d6916e0b6782e97500eb3af3",
@@ -1801,7 +1834,8 @@
         "source_checked_at": "2026-11-27T22:21:01+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "15117b255663a82eebde90df6f3d329d1629a8072e56478a014bace932c3ba23"
+      "content_fingerprint": "15117b255663a82eebde90df6f3d329d1629a8072e56478a014bace932c3ba23",
+      "duplicate_review": []
     },
     {
       "id": "job:d673466fc062eaa73ea5d959",
@@ -1871,7 +1905,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "ea1e3e6cf739527d33d25c76512be384d6c11894d9f957295d93c2c106e1ca1f"
+      "content_fingerprint": "ea1e3e6cf739527d33d25c76512be384d6c11894d9f957295d93c2c106e1ca1f",
+      "duplicate_review": []
     },
     {
       "id": "job:d645e86eb0b3303159e7ed08",
@@ -1952,7 +1987,8 @@
         "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "ca3fd02b3d11dff6a9a6b351a0184e59882440cfcef0e84256451d1822f5df32"
+      "content_fingerprint": "ca3fd02b3d11dff6a9a6b351a0184e59882440cfcef0e84256451d1822f5df32",
+      "duplicate_review": []
     }
   ]
 }

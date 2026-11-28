@@ -79,7 +79,8 @@
         "source_checked_at": "2026-11-26T19:29:37.858704Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "b181440481e721c2b71223b8a46e50c4e93b9032323671937ec9abb127d8ea5e"
+      "content_fingerprint": "b181440481e721c2b71223b8a46e50c4e93b9032323671937ec9abb127d8ea5e",
+      "duplicate_review": []
     },
     {
       "id": "job:332caf48b99d784eaf58dbb1",
@@ -149,7 +150,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "8d962fe337912ce31ac3d2f3e07eb6026e0caa341d2e6e9bfcfb9d0390c46168"
+      "content_fingerprint": "8d962fe337912ce31ac3d2f3e07eb6026e0caa341d2e6e9bfcfb9d0390c46168",
+      "duplicate_review": []
     },
     {
       "id": "job:331c9bb56f128b5b451a3e71",
@@ -208,7 +210,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "5548835dddad81832a71ae7d72a0e70e6dcff934986a69ada444d654acca9670"
+      "content_fingerprint": "5548835dddad81832a71ae7d72a0e70e6dcff934986a69ada444d654acca9670",
+      "duplicate_review": []
     },
     {
       "id": "job:330d4680ff769e70f2ca88ef",
@@ -275,7 +278,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "af8d6e26a7fd2a3980bb13d7a6c8da7f28271c331cdee83647c212f49313a377"
+      "content_fingerprint": "af8d6e26a7fd2a3980bb13d7a6c8da7f28271c331cdee83647c212f49313a377",
+      "duplicate_review": []
     },
     {
       "id": "job:32d994e72ac8c39a1502d533",
@@ -364,7 +368,8 @@
         "source_checked_at": "2026-11-25T14:05:23.096767Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "42c3e617a64f7b42e8ca06e1fe26538fa058095706ab1c9298dd63ed14af216f"
+      "content_fingerprint": "42c3e617a64f7b42e8ca06e1fe26538fa058095706ab1c9298dd63ed14af216f",
+      "duplicate_review": []
     },
     {
       "id": "job:32a4ab7d4442c8c4181814e7",
@@ -429,7 +434,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "5dff7c5949ab83f3715e0ea26b9268cff7d84c50d7e2abdf6f1b995f7a715471"
+      "content_fingerprint": "5dff7c5949ab83f3715e0ea26b9268cff7d84c50d7e2abdf6f1b995f7a715471",
+      "duplicate_review": []
     },
     {
       "id": "job:3292febfc2afad26bbc94fd4",
@@ -509,7 +515,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "38b3910f36833e41f98b7e35b9eacd78d2420027a7a647d45f897bf7a498e293"
+      "content_fingerprint": "38b3910f36833e41f98b7e35b9eacd78d2420027a7a647d45f897bf7a498e293",
+      "duplicate_review": []
     },
     {
       "id": "job:32532cebd3eeab3b9a8a797a",
@@ -587,7 +594,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "751a86a476a86a4ec8e5e25ed4f7285fca19b796002b44263710e56287b761ca"
+      "content_fingerprint": "751a86a476a86a4ec8e5e25ed4f7285fca19b796002b44263710e56287b761ca",
+      "duplicate_review": []
     },
     {
       "id": "job:321e7088e98892a0736bb63c",
@@ -654,7 +662,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "11fc426a5129e920bd9c65096cc0bb1f40a216efa729dc2e03f064fee66e2de9"
+      "content_fingerprint": "11fc426a5129e920bd9c65096cc0bb1f40a216efa729dc2e03f064fee66e2de9",
+      "duplicate_review": []
     },
     {
       "id": "job:3214540a9545d3db0ba0be55",
@@ -737,7 +746,8 @@
         "source_checked_at": "2026-11-28T05:50:40+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "1a7fc18c77bc8bc8e7cacd43a35385012c6dbc56058c7b8eeb83b3eadaac160c"
+      "content_fingerprint": "1a7fc18c77bc8bc8e7cacd43a35385012c6dbc56058c7b8eeb83b3eadaac160c",
+      "duplicate_review": []
     },
     {
       "id": "job:3205ffd5e517f6f7fa2ab7a9",
@@ -806,7 +816,19 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "84babcb9cee6800eba34dde4beb46e977b6a2c65fdfb1e610908531a157011a0"
+      "content_fingerprint": "cbcd6fd8e75e9648d70e3df7abbcfd7460999d58379d3ad9a00078fe4459aedc",
+      "duplicate_review": [
+        {
+          "status": "POSSIBLE_DUPLICATE_REVIEW",
+          "method": "same_normalized_title_market_and_jd_4gram_containment",
+          "shared_4grams": 993,
+          "containment": 1.0,
+          "other_id": "job:d4c05a2c167c90fc6fc4e8e3",
+          "other_company": "BSI Group",
+          "other_url": "https://my.jobstreet.com/job/93322330",
+          "other_title": "AI Engineer - ML Ops"
+        }
+      ]
     },
     {
       "id": "job:31b4875f07bc95b8f044e8f9",
@@ -885,7 +907,8 @@
         "source_checked_at": "2026-11-25T22:41:43+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "39d7ab4d19604c3b51e5cd14160e60483ffaf6fd649354214dd2d6c0aaca168b"
+      "content_fingerprint": "39d7ab4d19604c3b51e5cd14160e60483ffaf6fd649354214dd2d6c0aaca168b",
+      "duplicate_review": []
     },
     {
       "id": "job:316f10db90c6a46c69c29c64",
@@ -955,7 +978,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "c685f1154a8ad943839e1e8cdfd2972404a021dd611c95df9761beca0af14abd"
+      "content_fingerprint": "c685f1154a8ad943839e1e8cdfd2972404a021dd611c95df9761beca0af14abd",
+      "duplicate_review": []
     },
     {
       "id": "job:3160dde987af50b54c8f8fba",
@@ -1020,7 +1044,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "7780e61c8e06700911502dd27bdf1d9525a241fced514403ecf1bc53400a481d"
+      "content_fingerprint": "7780e61c8e06700911502dd27bdf1d9525a241fced514403ecf1bc53400a481d",
+      "duplicate_review": []
     },
     {
       "id": "job:315feca3167cda16e37dc52c",
@@ -1085,7 +1110,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "47e72571c8da55caa00d17f4c05ede158a1f9b3380e8ad0a8be2838aa79e1d8f"
+      "content_fingerprint": "47e72571c8da55caa00d17f4c05ede158a1f9b3380e8ad0a8be2838aa79e1d8f",
+      "duplicate_review": []
     },
     {
       "id": "job:312409048fe9789aa8e40f05",
@@ -1153,7 +1179,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "6f33ce432b498a4484182d0ea3abecec7f4c7e1d0f6ffb36328535f784115734"
+      "content_fingerprint": "6f33ce432b498a4484182d0ea3abecec7f4c7e1d0f6ffb36328535f784115734",
+      "duplicate_review": []
     },
     {
       "id": "job:310df631fff1996c52d40da8",
@@ -1234,7 +1261,8 @@
         "source_checked_at": "2026-11-27T13:04:12+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "245380ba7edb6782adfbbf9f942d126f72573debdd968b1b629bb7a4a10e523e"
+      "content_fingerprint": "245380ba7edb6782adfbbf9f942d126f72573debdd968b1b629bb7a4a10e523e",
+      "duplicate_review": []
     },
     {
       "id": "job:30a2f0bc32c2bf27f51ba682",
@@ -1301,7 +1329,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "a11d4f5bd9628c332b14ff1c76dd19d2ac970856bda21082e596304e655c952a"
+      "content_fingerprint": "a11d4f5bd9628c332b14ff1c76dd19d2ac970856bda21082e596304e655c952a",
+      "duplicate_review": []
     },
     {
       "id": "job:305515a4f34642ade5b697cf",
@@ -1367,7 +1396,19 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "432119bdfbad3dd78b3965b29cea4cd578724aa36fb012dc94edd48e16cd25ea"
+      "content_fingerprint": "96381ed7ff6c51e857de6da1827efe83b5d9b4da031d1830a864b76a2570617a",
+      "duplicate_review": [
+        {
+          "status": "POSSIBLE_DUPLICATE_REVIEW",
+          "method": "same_normalized_title_market_and_jd_4gram_containment",
+          "shared_4grams": 566,
+          "containment": 0.9826,
+          "other_id": "job:ae9b0fceb462e03e6a0da620",
+          "other_company": "NCS",
+          "other_url": "https://jobs.smartrecruiters.com/NCS3/6000000001505774",
+          "other_title": "#EG AI Native Builder"
+        }
+      ]
     },
     {
       "id": "job:302a97063a28a49740a65459",
@@ -1437,7 +1478,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "f9590176736831e02491bb411d262c571d722eac70790c81a5a201b93b62fb41"
+      "content_fingerprint": "f9590176736831e02491bb411d262c571d722eac70790c81a5a201b93b62fb41",
+      "duplicate_review": []
     },
     {
       "id": "job:2fa9d57dad17762acac3b077",
@@ -1513,7 +1555,8 @@
         "source_checked_at": "2026-11-27T12:25:31+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "c81aebc55c929b1706d15f78dbd82df35b788ff59950778e2783b4054ebef678"
+      "content_fingerprint": "c81aebc55c929b1706d15f78dbd82df35b788ff59950778e2783b4054ebef678",
+      "duplicate_review": []
     },
     {
       "id": "job:2f8071c3d191535b78fe73de",
@@ -1613,7 +1656,8 @@
         "source_checked_at": "2026-11-28T05:50:40+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "c0dd8d5314b5f82bdf2d7b42e9f0b780387cf3bfd2c960533b1061e2ff316354"
+      "content_fingerprint": "c0dd8d5314b5f82bdf2d7b42e9f0b780387cf3bfd2c960533b1061e2ff316354",
+      "duplicate_review": []
     },
     {
       "id": "job:2f5c9b05ef04ddb183bb314a",
@@ -1690,7 +1734,8 @@
         "source_checked_at": "2026-11-28T05:20:26.871Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "ecd7339e5cf682d52dfa0bdc2f17b73274c5eaab746166f0ccf585c0b810833e"
+      "content_fingerprint": "ecd7339e5cf682d52dfa0bdc2f17b73274c5eaab746166f0ccf585c0b810833e",
+      "duplicate_review": []
     },
     {
       "id": "job:2f538e19b2542fb9ce5e20f9",
@@ -1760,7 +1805,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "3c507d907e6b1bbb2bd1c97667a76398a19bb16274311dec082a046cf8e2722f"
+      "content_fingerprint": "3c507d907e6b1bbb2bd1c97667a76398a19bb16274311dec082a046cf8e2722f",
+      "duplicate_review": []
     },
     {
       "id": "job:2f50bbef87669d5939420bd5",
@@ -1825,7 +1871,8 @@
         "source_checked_at": null,
         "identity_conflict": false
       },
-      "content_fingerprint": "c603ec062059895becb264808a602d82a07747ecfe6d1dbf692e16b690c3f7cb"
+      "content_fingerprint": "c603ec062059895becb264808a602d82a07747ecfe6d1dbf692e16b690c3f7cb",
+      "duplicate_review": []
     }
   ]
 }
