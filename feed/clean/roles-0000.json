@@ -2,6 +2,144 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:fe1111c1106304c2d1807cd4",
+      "title": "#EG Agentic AI Engineer (AI Tech Lead)",
+      "company": "NCS",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001176114",
+      "locations": [
+        "Singapore, sg"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-013.json",
+        "key": "ncs3|smartrecruiters|6000000001176114",
+        "sha256": "2ca80302cd480c0dabd8e66386b7d3635f1fdda2438d2733d48fe120fe60025a"
+      },
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "What will you do? Technical Delivery Own end-to-end delivery of AI workstreams: from requirements through data preparation, modelling, integration, testing, and production handover Develop agentic applications including RAG pipelines, promp",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001176114",
+          "key": "ncs3|smartrecruiters|6000000001176114",
+          "job_id": "6000000001176114",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-013.json",
+            "key": "ncs3|smartrecruiters|6000000001176114",
+            "sha256": "2ca80302cd480c0dabd8e66386b7d3635f1fdda2438d2733d48fe120fe60025a"
+          },
+          "posted_at": "2026-06-23T07:54:23.619Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Singapore, sg",
+          "company": "NCS",
+          "title": "#EG Agentic AI Engineer (AI Tech Lead)"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001176114--eg-agentic-ai-engineer-ai-tech-lead-",
+          "key": "freehire|eg-agentic-ai-engineer-ai-tech-lead-ncs3-5yp44e54",
+          "job_id": "eg-agentic-ai-engineer-ai-tech-lead-ncs3-5yp44e54",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, sg",
+          "company": "ncs3",
+          "title": "#EG Agentic AI Engineer (AI Tech Lead)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T05:33:08+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:36:41+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1,
+          3
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Agentic",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Develop agentic applications including RAG pipelines, prompt-engineered agents, and agentic workflows",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "Minimum 3 years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "at least 1 year",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Lead",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "c43f1a5288acea19b86f071524995aa27e91dbcbfc0fda646387684a6fde250d"
+    },
+    {
       "id": "job:f8636b7f8c59f483ba14fa16",
       "title": "Principal AI Engineer, AI Agent Development",
       "company": "OKX",
@@ -20,11 +158,11 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-015.json",
+        "path": "feed/ats/jd/SG-017.json",
         "key": "okx|greenhouse|6690158003",
         "sha256": "24d7c5c2ccd334cb7615f7044d80e5c79925b6243b6cb5ac937a6d0542ab3a1a"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "OKX will be prioritising applicants who have a current right to work in Singapore, and do not require OKX's sponsorship of a visa. Who We Are </",
       "observations": [
         {
@@ -34,12 +172,12 @@
           "url": "https://job-boards.greenhouse.io/okx/jobs/6690158003",
           "key": "okx|greenhouse|6690158003",
           "job_id": "6690158003",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-015.json",
+            "path": "feed/ats/jd/SG-017.json",
             "key": "okx|greenhouse|6690158003",
             "sha256": "24d7c5c2ccd334cb7615f7044d80e5c79925b6243b6cb5ac937a6d0542ab3a1a"
           },
@@ -106,10 +244,152 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "d451b966cb4c8dc64d91d3515df36860435af5d261603e2614f99624f6ad0e65"
+    },
+    {
+      "id": "job:f62ca87f4ae6a2ee284b901f",
+      "title": "Senior LLM / Multimodal AI Engineer",
+      "company": "NCS",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085",
+      "locations": [
+        "Singapore, sg"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-016.json",
+        "key": "ncs3|smartrecruiters|6000000001516085",
+        "sha256": "4205494319711258d51f079eb151acaec0061c7776555defbf965f1bc8d0411f"
+      },
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "Join NCS as a Senior LLM / Multimodal AI Engineer and spearhead the development of next-generation foundation models and multimodal understanding systems. With 4+ years of hands-on experience, you will architect, train, evaluate, and deploy",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085",
+          "key": "ncs3|smartrecruiters|6000000001516085",
+          "job_id": "6000000001516085",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-016.json",
+            "key": "ncs3|smartrecruiters|6000000001516085",
+            "sha256": "4205494319711258d51f079eb151acaec0061c7776555defbf965f1bc8d0411f"
+          },
+          "posted_at": "2026-10-23T02:40:38.159Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Singapore, sg",
+          "company": "NCS",
+          "title": "Senior LLM / Multimodal AI Engineer"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001516085-senior-llm-multimodal-ai-engineer",
+          "key": "freehire|senior-llm-multimodal-ai-engineer-ncs3-govhzbwg",
+          "job_id": "senior-llm-multimodal-ai-engineer-ncs3-govhzbwg",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, sg",
+          "company": "ncs3",
+          "title": "Senior LLM / Multimodal AI Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T05:33:08+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:36:15+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          4
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "LLM",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "train, evaluate, and deploy large-scale Vision-Language Models (VLMs) and Large Language Models (LLMs",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Pre-Training",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "4+ years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "4+ years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "012ea531f9695d5040336a498023340074241d7dfd9136e760e8fc4b20ae5f11"
     },
     {
       "id": "job:f364ab949b32be6ef476b7f8",
@@ -130,11 +410,11 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-015.json",
+        "path": "feed/ats/jd/SG-017.json",
         "key": "okx|greenhouse|7699598003",
         "sha256": "4f565c233560c9abf34025eb89defe2d9c78523c3d800cff3fdb5dedb81cca84"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "",
       "observations": [
         {
@@ -144,12 +424,12 @@
           "url": "https://job-boards.greenhouse.io/okx/jobs/7699598003",
           "key": "okx|greenhouse|7699598003",
           "job_id": "7699598003",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-015.json",
+            "path": "feed/ats/jd/SG-017.json",
             "key": "okx|greenhouse|7699598003",
             "sha256": "4f565c233560c9abf34025eb89defe2d9c78523c3d800cff3fdb5dedb81cca84"
           },
@@ -221,7 +501,7 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "0d7360f5442eca6642264b106b1d0c95d05691f6b1d0f2f2f4eefdd22920cc03"
@@ -354,7 +634,7 @@
         "key": "bjakcareer|ashby|bbc89cf7-ebc9-4c2d-a210-6d63d7083b90",
         "sha256": "3d771469cd0cf74e5d2128bb95b2890d52b07d8b45db13f945fa8df08b25265d"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
       "observations": [
         {
@@ -364,10 +644,10 @@
           "url": "https://jobs.ashbyhq.com/bjakcareer/bbc89cf7-ebc9-4c2d-a210-6d63d7083b90",
           "key": "bjakcareer|ashby|bbc89cf7-ebc9-4c2d-a210-6d63d7083b90",
           "job_id": "bbc89cf7-ebc9-4c2d-a210-6d63d7083b90",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
             "path": "feed/ats/jd/CN-000.json",
             "key": "bjakcareer|ashby|bbc89cf7-ebc9-4c2d-a210-6d63d7083b90",
@@ -387,7 +667,7 @@
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
           "apply_url": "https://jobs.ashbyhq.com/bjakcareer/bbc89cf7-ebc9-4c2d-a210-6d63d7083b90/application",
           "title_match": null
@@ -432,7 +712,7 @@
         "source_file": "feed/ats/markets/CN.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "7738a4d62e40e9ac1f4cecf6c138be1796f4486e7fc65cded747f7614b0467b1"
@@ -781,7 +1061,7 @@
         "key": "clera|ashby|d905d8d7-569f-44a2-954f-a593d819fe33",
         "sha256": "f79b71468232e2e503b9a4f631f4fbf5a0298bbfc513ddfb550ef720deb4cee8"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "ABOUT THE ROLE Build privacy and anonymization systems that make sensitive real-world data safer to use in AI training. You will develop and evaluate methods that protect sensitive information while preserving the structure and utility of d",
       "observations": [
         {
@@ -791,10 +1071,10 @@
           "url": "https://jobs.ashbyhq.com/Clera/d905d8d7-569f-44a2-954f-a593d819fe33",
           "key": "clera|ashby|d905d8d7-569f-44a2-954f-a593d819fe33",
           "job_id": "d905d8d7-569f-44a2-954f-a593d819fe33",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
             "path": "feed/ats/jd/SG-007.json",
             "key": "clera|ashby|d905d8d7-569f-44a2-954f-a593d819fe33",
@@ -822,7 +1102,7 @@
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
           "apply_url": "https://jobs.ashbyhq.com/Clera/d905d8d7-569f-44a2-954f-a593d819fe33/application",
           "title_match": null
@@ -830,7 +1110,7 @@
         {
           "source": "browser",
           "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:15:53+00:00",
+          "checked_at": "2026-11-28T05:36:22+00:00",
           "fresh": true,
           "apply_url": "https://jobs.ashbyhq.com/Clera/d905d8d7-569f-44a2-954f-a593d819fe33/application",
           "title_match": true
@@ -862,7 +1142,7 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "60832037d1206807766d543d86a4f4e188c2007af1a33e405b898d77676ab5a7"
@@ -988,11 +1268,11 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-022.json",
+        "path": "feed/ats/jd/SG-024.json",
         "key": "temus|greenhouse|5166363008",
         "sha256": "8add8b7252ba0cfde1268be8a2ae166dabc18683e76ceb1e6eff8cec53046383"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "Temus is a Temasek-backed consulting firm providing digital transformation solutions for the private and public sectors. W e aspire to be a strategic partner in realising the",
       "observations": [
         {
@@ -1002,12 +1282,12 @@
           "url": "https://job-boards.greenhouse.io/temus/jobs/5166363008",
           "key": "temus|greenhouse|5166363008",
           "job_id": "5166363008",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-022.json",
+            "path": "feed/ats/jd/SG-024.json",
             "key": "temus|greenhouse|5166363008",
             "sha256": "8add8b7252ba0cfde1268be8a2ae166dabc18683e76ceb1e6eff8cec53046383"
           },
@@ -1025,7 +1305,7 @@
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
           "apply_url": "",
           "title_match": null
@@ -1082,7 +1362,7 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "1ca88f7edd80c17a9eaaf29e5b0103f21e741eb188ccb47c41e5c87b562504f7"
@@ -1324,7 +1604,7 @@
         "key": "binance|greenhouse|5009522101",
         "sha256": "51cd87e5d8000033dca54878863a4e96de299354e02ae09d63b6263302ac17dc"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
       "observations": [
         {
@@ -1334,10 +1614,10 @@
           "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5009522101",
           "key": "binance|greenhouse|5009522101",
           "job_id": "5009522101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
             "path": "feed/ats/jd/SG-004.json",
             "key": "binance|greenhouse|5009522101",
@@ -1357,7 +1637,7 @@
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
           "apply_url": "",
           "title_match": null
@@ -1415,7 +1695,7 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "f7437748b7ae2cdfd530c42a6475af914604e416e9f35606ec09a63bd66de9b5"
@@ -1630,6 +1910,124 @@
       "content_fingerprint": "3829beffcb6ad8d05b3364d0ce67e0ae6bdde4fc99f7543b21cb6e95b5e57a81"
     },
     {
+      "id": "job:d8ec7059c273b7bd62ea6053",
+      "title": "Platform Senior AI Engineer",
+      "company": "NCS",
+      "url": "https://jobs.smartrecruiters.com/NCS3/6000000001138861",
+      "locations": [
+        "Singapore, sg"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-013.json",
+        "key": "ncs3|smartrecruiters|6000000001138861",
+        "sha256": "251b120db88d8feee382ec2e1cb4b63abec53e15ff1de2e6462605e5c5db3efd"
+      },
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "As an AI Platform Engineer , you'll be part of our AI Centre of Excellence (AI COE) - a centralized platform team building and operating enterprise-grade AI and data platforms for internal engineering teams across NCS. You'll work hands-on",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/NCS3/6000000001138861",
+          "key": "ncs3|smartrecruiters|6000000001138861",
+          "job_id": "6000000001138861",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-013.json",
+            "key": "ncs3|smartrecruiters|6000000001138861",
+            "sha256": "251b120db88d8feee382ec2e1cb4b63abec53e15ff1de2e6462605e5c5db3efd"
+          },
+          "posted_at": "2026-06-09T02:20:51.454Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Singapore, sg",
+          "company": "NCS",
+          "title": "Platform Senior AI Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T05:33:08+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T22:21:06+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          1
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Implementation Implement AI workflows including RAG pipelines and inference services Develop LLM",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "1–2 years hands-on experience",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "8a2664f3e045d4be244345b43e9b8ada39c23b076a375f2c9a05bb52b9c2d54a"
+    },
+    {
       "id": "job:d8d85851bffebb4257791b93",
       "title": "Staff Data Engineer, Data and AI, Customer Data Platform",
       "company": "Airwallex",
@@ -1652,7 +2050,7 @@
         "key": "airwallex|ashby|e77c835b-90e8-4d77-9a44-38d2f6d929fd",
         "sha256": "dbfb83f3a4e99fca1e7f0e326effaca472f84182787f027031473b8e0619df53"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
       "observations": [
         {
@@ -1662,10 +2060,10 @@
           "url": "https://jobs.ashbyhq.com/airwallex/e77c835b-90e8-4d77-9a44-38d2f6d929fd",
           "key": "airwallex|ashby|e77c835b-90e8-4d77-9a44-38d2f6d929fd",
           "job_id": "e77c835b-90e8-4d77-9a44-38d2f6d929fd",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
             "path": "feed/ats/jd/SG-002.json",
             "key": "airwallex|ashby|e77c835b-90e8-4d77-9a44-38d2f6d929fd",
@@ -1718,10 +2116,132 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "46427b79650499e673d8ae719c32b120024df574222f17423148db2c4c2d4331"
+    },
+    {
+      "id": "job:d262ef886715910e3a9d6182",
+      "title": "AI 智能体平台软件工程师 / Software Engineer – AI Agent Platform",
+      "company": "Kirin",
+      "url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa",
+      "locations": [
+        "Shenzhen"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/CN-007.json",
+        "key": "kirin|ashby|72245ec9-a742-4b0e-a420-f94f23e051aa",
+        "sha256": "b115fce12badb2686010837e33b68a2f9b2824b1def672d836e12cf4b106edf9"
+      },
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "我们是一家正在打造 AI 智能体和消费级硬件设备的初创公司。用户可以让智能体跨工具执行任务，也可以通过定制设备随时捕捉意图。团队位于深圳和纽约，创始人曾在硅谷创办一家独角兽公司。 我们正在深圳招聘一名 AI 智能体平台软件工程师，负责连接模型、工具、权限、任务执行和用户产品体验。 工作职责 • 构建智能体编排、工具调用、任务状态、重试和人工确认流程。 • 集成第三方 API、OAuth、事件和后台任务。 • 开发可靠的前端、后端、数据库和观测系统。 • 改善延迟、成功率、成本",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa",
+          "key": "kirin|ashby|72245ec9-a742-4b0e-a420-f94f23e051aa",
+          "job_id": "72245ec9-a742-4b0e-a420-f94f23e051aa",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/CN-007.json",
+            "key": "kirin|ashby|72245ec9-a742-4b0e-a420-f94f23e051aa",
+            "sha256": "b115fce12badb2686010837e33b68a2f9b2824b1def672d836e12cf4b106edf9"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa/application",
+          "location": "Shenzhen",
+          "company": "Kirin",
+          "title": "AI 智能体平台软件工程师 / Software Engineer – AI Agent Platform"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa",
+          "key": "freehire|ai-zhi-neng-ti-ping-tai-ruan-jian-gong-cheng-shi-software-engineer-ai-agent-platform-kirin-nnmxtsjs",
+          "job_id": "ai-zhi-neng-ti-ping-tai-ruan-jian-gong-cheng-shi-software-engineer-ai-agent-platform-kirin-nnmxtsjs",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Shenzhen",
+          "company": "Kirin",
+          "title": "AI 智能体平台软件工程师 / Software Engineer – AI Agent Platform"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T05:33:08+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:36:43+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Kirin/72245ec9-a742-4b0e-a420-f94f23e051aa/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          4
+        ],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "构建智能体",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "构建智能体",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "4+ years",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "2e603688749e297f5d65b0aed93c0548361ea241c3992a928291e6d23720326e"
     },
     {
       "id": "job:d0e526ec0d2849d7169a80b5",
@@ -1823,6 +2343,107 @@
         "identity_conflict": false
       },
       "content_fingerprint": "cba1051148329bd068c513d30b2fc30cc5174a89b5a876b30a76f558cad6a5b5"
+    },
+    {
+      "id": "job:ce0de3aa465ef689e647436c",
+      "title": "Full Stack Developer (AI)",
+      "company": "cygnify",
+      "url": "https://jobs.ashbyhq.com/cygnify/8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-008.json",
+        "key": "cygnify|ashby|8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+        "sha256": "a989ad9a43cba9f884b7179e3588c64c9127bc6ebc994cfd14d16392747a565a"
+      },
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "Full Stack Engineer – AI Role We are looking for a Full Stack Engineer - AI Systems to build the product layer that turns these capabilities into usable, production-grade workflows. This includes designing how agents operate, fail, recover,",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/cygnify/8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+          "key": "cygnify|ashby|8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+          "job_id": "8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+          "observed_at": "2026-11-28T05:33:08+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-008.json",
+            "key": "cygnify|ashby|8b4caac6-95d5-4964-b5c5-1eef092af1c9",
+            "sha256": "a989ad9a43cba9f884b7179e3588c64c9127bc6ebc994cfd14d16392747a565a"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/cygnify/8b4caac6-95d5-4964-b5c5-1eef092af1c9/application",
+          "location": "Singapore",
+          "company": "cygnify",
+          "title": "Full Stack Developer (AI)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T05:33:08+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/cygnify/8b4caac6-95d5-4964-b5c5-1eef092af1c9/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "NOT_FOUND_HTTP",
+          "checked_at": "2026-11-28T05:36:09+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Integrate LLMs",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Integrate LLMs",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "4635be27bd8788aad77a9587bed4f8a230b672e8550ffe59ddb842b1228d3165"
     },
     {
       "id": "job:cde41d5eaccfd7771e105b4c",
@@ -1948,11 +2569,11 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-023.json",
+        "path": "feed/ats/jd/SG-024.json",
         "key": "temus|greenhouse|5233699008",
         "sha256": "3b44b6ae509e9d3c19113da12f142b889cfe41e4124c7c3cf919be50c251217d"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
       "excerpt": "Temus is a Temasek-backed consulting firm providing digital transformation solutions for the private and public sectors. W e aspire to be a strategic partner in realising the",
       "observations": [
         {
@@ -1962,12 +2583,12 @@
           "url": "https://job-boards.greenhouse.io/temus/jobs/5233699008",
           "key": "temus|greenhouse|5233699008",
           "job_id": "5233699008",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-023.json",
+            "path": "feed/ats/jd/SG-024.json",
             "key": "temus|greenhouse|5233699008",
             "sha256": "3b44b6ae509e9d3c19113da12f142b889cfe41e4124c7c3cf919be50c251217d"
           },
@@ -1985,7 +2606,7 @@
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
           "apply_url": "",
           "title_match": null
@@ -2042,131 +2663,18 @@
         "source_file": "feed/ats/markets/SG.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
       "content_fingerprint": "9fbe655ee0368a22d7febef5b5d650704a7ae2778c6b562418e60e76190c05ac"
     },
     {
-      "id": "job:c5a133137018c2f5169baf9d",
-      "title": "AI Engineer - All Levels",
-      "company": "Capco",
-      "url": "https://job-boards.greenhouse.io/capco/jobs/8248788",
+      "id": "job:cb603e1741789fb5cfe22025",
+      "title": "AI Benchmark Engineer | Native Language Specialist - Chinese Mandarin - Remote",
+      "company": "lilt-production",
+      "url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9",
       "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-007.json",
-        "key": "capco|greenhouse|8248788",
-        "sha256": "c988c93a095cd969da941946381df4eecf5fa01a0609db80a968b6422bcc2c62"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Capco Capco is a leading global technology and management consultancy that excels in driving digital transformation within the financial services and insurance sectors. With an unwavering commitment to delivering",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/capco/jobs/8248788",
-          "key": "capco|greenhouse|8248788",
-          "job_id": "8248788",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-007.json",
-            "key": "capco|greenhouse|8248788",
-            "sha256": "c988c93a095cd969da941946381df4eecf5fa01a0609db80a968b6422bcc2c62"
-          },
-          "posted_at": "2026-11-20T00:10:56-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Singapore",
-          "company": "Capco",
-          "title": "AI Engineer - All Levels"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:06:45+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": true,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Train, fine-tune, and optimize neural network models, including LLMs",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "3–12 years of professional experience",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "work_location_or_authorization_restriction",
-            "quote": "Only Singapore Citizens and Singapore Permanent Residents",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "c5b491300bbc0836e614aa6d1909e1abeba9b1d9c651dab4473208e2e12ecb3d"
-    },
-    {
-      "id": "job:c4cc75068a1c0c4af357bc10",
-      "title": "LongCat - 基座大模型算法研究员（多模态评测方向）",
-      "company": "meituan",
-      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-      "locations": [
-        "北京市 / 上海市"
+        "China (Remote)"
       ],
       "observed_markets": [
         "CN"
@@ -2179,364 +2687,68 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "3848257556",
-        "sha256": "04dba9c655c4173c9769a123912ae0b76fa783ca27ace325a5a95e09b7c29e2d"
+        "path": "feed/ats/jd/CN-008.json",
+        "key": "lilt-production|ashby|bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+        "sha256": "0648c4bb86b4f6129048ac96c4bdd880a46944690de84f4696942e52b67d2b08"
       },
-      "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-          "job_id": "3848257556",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "社招",
-          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556&jobShareType=1&highlightType=social",
-          "location": "北京市 / 上海市",
-          "company": "meituan",
-          "title": "LongCat - 基座大模型算法研究员（多模态评测方向）"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-          "job_id": "3848257556",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "3848257556",
-            "sha256": "04dba9c655c4173c9769a123912ae0b76fa783ca27ace325a5a95e09b7c29e2d"
-          },
-          "company": "meituan",
-          "title": "LongCat - 基座大模型算法研究员（多模态评测方向）"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:24+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "UNKNOWN",
-        "degree": "MASTER_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "算法研究",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "训练策略优化，并且对训练数据、训练策略和模型能力之间的关系进行研究分析，产出可行的模型评测",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "模型评测",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "degree",
-            "quote": "硕士及以上",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T14:19:32.877251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2384ca7936b5ecf78aa750b181383da902cc83e47c3edad006cfd77fb8dc0d69"
-    },
-    {
-      "id": "job:c45f215bbd0694b4bfda7d0c",
-      "title": "Forward Deployed Engineer - Singapore",
-      "company": "OpenAI",
-      "url": "https://jobs.ashbyhq.com/openai/4c078f82-93b9-427c-8fd8-95de198884b4",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-019.json",
-        "key": "openai|ashby|4c078f82-93b9-427c-8fd8-95de198884b4",
-        "sha256": "6bbf5723eb9c28b98884d4b1934abe2fcddc61ca170767fe5a9c0a70579d6684"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About the team OpenAI’s Forward Deployed Engineering team partners with customers to turn research breakthroughs into production systems. We operate at the intersection of customer delivery and core platform development. About the role Forw",
+      "jd_checked_at": "2026-11-28T05:33:08+00:00",
+      "excerpt": "ABOUT THE OPPORTUNITY We are building a rigorous, verifiable evaluation suite of Terminal-Bench tasks designed to test the limits of large language models on multilingual software challenges. Our goal is to measure multilingual robustness a",
       "observations": [
         {
           "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/openai/4c078f82-93b9-427c-8fd8-95de198884b4",
-          "key": "openai|ashby|4c078f82-93b9-427c-8fd8-95de198884b4",
-          "job_id": "4c078f82-93b9-427c-8fd8-95de198884b4",
-          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+          "key": "lilt-production|ashby|bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+          "job_id": "bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+          "observed_at": "2026-11-28T05:33:08+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:33:08+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-019.json",
-            "key": "openai|ashby|4c078f82-93b9-427c-8fd8-95de198884b4",
-            "sha256": "6bbf5723eb9c28b98884d4b1934abe2fcddc61ca170767fe5a9c0a70579d6684"
+            "path": "feed/ats/jd/CN-008.json",
+            "key": "lilt-production|ashby|bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+            "sha256": "0648c4bb86b4f6129048ac96c4bdd880a46944690de84f4696942e52b67d2b08"
           },
           "posted_at": "",
           "salary_summary": "",
           "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/openai/4c078f82-93b9-427c-8fd8-95de198884b4/application",
-          "location": "Singapore",
-          "company": "OpenAI",
-          "title": "Forward Deployed Engineer - Singapore"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "deployed systems powered by LLMs",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "deployed systems powered by LLMs",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "b80f1ad9520faa726368bdf1e922b54415845bed7fc54725d43e7a5580633c62"
-    },
-    {
-      "id": "job:c3db4034e0bfabfd3d722452",
-      "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测",
-      "company": "minimax",
-      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
-      "locations": [
-        "北京 / 上海"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "7485710014515939595",
-        "sha256": "4d25cef20296a57d6f52a47f8b2b41eebae187661f4adcb37032fdf158bd103a"
-      },
-      "jd_checked_at": "2026-11-28T05:02:53.578120Z",
-      "excerpt": "",
-      "observations": [
+          "employment_type": "Contract",
+          "apply_url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9/application",
+          "location": "China (Remote)",
+          "company": "lilt-production",
+          "title": "AI Benchmark Engineer | Native Language Specialist - Chinese Mandarin - Remote"
+        },
         {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
           "market": "CN",
-          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
-          "job_id": "7485710014515939595",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
+          "url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9",
+          "key": "freehire|ai-benchmark-engineer-native-language-specialist-chinese-mandarin-remote-lilt-production-oyfwyhii",
+          "job_id": "ai-benchmark-engineer-native-language-specialist-chinese-mandarin-remote-lilt-production-oyfwyhii",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
-          "location": "北京 / 上海",
-          "company": "minimax",
-          "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
-          "job_id": "7485710014515939595",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-28T05:02:53.578120Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "7485710014515939595",
-            "sha256": "4d25cef20296a57d6f52a47f8b2b41eebae187661f4adcb37032fdf158bd103a"
-          },
-          "location": "北京 / 上海",
-          "company": "minimax",
-          "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-27T13:08:02+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "训练框架与底层算力基础设施的交界处，负责大模型",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "预训练",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "seniority",
-            "quote": "专家",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-28T05:02:53.578120Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "68512e5cba94c2e49251bd43bf17f570d918be6c2de62cfb7fe297af46716598"
-    },
-    {
-      "id": "job:bdff9ba2a39e949cdecc85d6",
-      "title": "Forward Deployed Engineer, Singapore",
-      "company": "Telnyx",
-      "url": "https://job-boards.greenhouse.io/telnyx54/jobs/7992741003",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-022.json",
-        "key": "telnyx54|greenhouse|7992741003",
-        "sha256": "32d0111e640015320f65d6fc08e902d7618048dee003bfce6cc08850b99cc96e"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About Telnyx Telnyx is an industry leader that's not just imagining the future of global connectivity—we're building it. From architecting and amplify",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/telnyx54/jobs/7992741003",
-          "key": "telnyx54|greenhouse|7992741003",
-          "job_id": "7992741003",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-022.json",
-            "key": "telnyx54|greenhouse|7992741003",
-            "sha256": "32d0111e640015320f65d6fc08e902d7618048dee003bfce6cc08850b99cc96e"
-          },
-          "posted_at": "2026-09-11T17:08:53-04:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Singapore",
-          "company": "Telnyx",
-          "title": "Forward Deployed Engineer, Singapore"
+          "location": "China (Remote)",
+          "company": "LILT (Production)",
+          "title": "AI Benchmark Engineer | Native Language Specialist  - Chinese Mandarin - Remote"
         }
       ],
       "application_evidence": [
         {
           "source": "api",
           "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
+          "checked_at": "2026-11-28T05:33:08+00:00",
           "fresh": true,
-          "apply_url": "",
+          "apply_url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9/application",
           "title_match": null
         },
         {
           "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:27:37+00:00",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:36:43+00:00",
           "fresh": true,
-          "apply_url": null,
+          "apply_url": "https://jobs.ashbyhq.com/lilt-production/bf512e0a-e388-45ce-b7db-c1c07978e3e9/application",
           "title_match": true
         }
       ],
@@ -2547,7 +2759,7 @@
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [
-          3
+          1
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
@@ -2556,133 +2768,27 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "implementations: AI Voice Assistants, Telnyx APIs (Voice, Messaging, Fax, Wireless), WebRTC • Run open-weight LLMs",
+            "quote": "designed to test the limits of large language models",
             "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "ai_depth",
-            "quote": "implementations: AI Voice Assistants, Telnyx APIs (Voice, Messaging, Fax, Wireless), WebRTC • Run open-weight LLMs",
+            "quote": "designed to test the limits of large language models",
             "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "experience_min_mentions",
-            "quote": "3+ years",
+            "quote": "1+ years",
             "origin": "FIRST_PARTY_FULL"
           }
         ],
-        "source_file": "feed/ats/markets/SG.json",
+        "source_file": "feed/ats/markets/CN.json",
         "retained_jd_ref": null,
         "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_checked_at": "2026-11-28T05:33:08+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "4d1eb541057f6c6d10957dec1f4a75c90d1dea81c1afe230d382b0812b52b0a6"
-    },
-    {
-      "id": "job:bb88f1d644a95b623e0e4b8f",
-      "title": "LLM Applied Data Scientist (RAG/ NLP)",
-      "company": "Binance",
-      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5002635101",
-      "locations": [
-        "Hong Kong; Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-003.json",
-        "key": "binance|greenhouse|5002635101",
-        "sha256": "1271cecf9a52e94a362c2ebb6a8d740b36fb8dafe72c62a930659c95bc1890cf"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5002635101",
-          "key": "binance|greenhouse|5002635101",
-          "job_id": "5002635101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-003.json",
-            "key": "binance|greenhouse|5002635101",
-            "sha256": "1271cecf9a52e94a362c2ebb6a8d740b36fb8dafe72c62a930659c95bc1890cf"
-          },
-          "posted_at": "2026-11-26T01:15:56-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Hong Kong; Singapore",
-          "company": "Binance",
-          "title": "LLM Applied Data Scientist (RAG/ NLP)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:27:39+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "LLM",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "integrate RAG",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "pre-training",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "412ca3fcdce0ee2edb825f91e58eac8626cd80df67efde6086f4b68ec1e35fda"
+      "content_fingerprint": "913926e0dfcb962a0298b4ad0fa818a31885252011b537d54a458fbf81b24d16"
     }
   ]
 }
