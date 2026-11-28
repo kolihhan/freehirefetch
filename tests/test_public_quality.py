@@ -37,6 +37,34 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(jobs[0]["location_status"], "UNRESOLVED")
         self.assertEqual(audit["source_observations"]["freehire"], 1)
 
+    def test_devglobal_source_visible_but_not_first_party_jd_or_live_apply(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            base = root / "feed/devglobal"
+            base.mkdir(parents=True)
+            observed = "2026-11-27T20:00:00+00:00"
+            item = dict(market="SG", source_id="180952401",
+                        url="https://devglobaljobs.com/jobs/detail/180952401",
+                        title="AI Agent Engineer", company="Example", location="Singapore")
+            (base / "devglobal-sg-candidates.json").write_text(json.dumps(
+                dict(market="SG", observed_at=observed, items=[item],
+                     source_credit="Powered by Dev Global Jobs")))
+            (base / "health.json").write_text(json.dumps(
+                dict(SG=dict(coverage="PARTIAL_COVERAGE", pages=0, failed_pages=1,
+                             observed_at="2026-11-28T00:00:00+00:00"))))
+            rows, reads, health, probes = collect(root)
+            jobs, audit = build(rows, NOW, probes)
+            self.assertEqual(len(jobs), 1)
+            self.assertEqual(audit["source_observations"]["devglobal"], 1)
+            self.assertEqual(jobs[0]["identity_quality"], "UNVERIFIED_URL")
+            self.assertFalse(jobs[0]["fresh_full_jd"])
+            self.assertEqual(jobs[0]["application_evidence"], [])
+            obs = jobs[0]["observations"][0]
+            self.assertEqual(obs["discovery_freshness"], "RETAINED_UNVERIFIED")
+            self.assertEqual(obs["observed_at"], observed)
+            self.assertEqual(obs["source_credit"], "Powered by Dev Global Jobs")
+            self.assertEqual(health["devglobal"]["SG"]["pages"], 0)
+
     def test_exact_query_identity_and_aliases(self):
         base="https://zhaopin.meituan.com/web/position/detail?jobUnionId="
         rows=[dict(source="ats",market="CN",url=base+i,title="AI Engineer",company="Meituan")
