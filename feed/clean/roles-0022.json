@@ -2,6 +2,1942 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:57a8ff773ee358fbd1994c20",
+      "title": "到餐-全栈 Agent Builder",
+      "company": "meituan",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=2917570547",
+      "locations": [
+        "北京市"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "2917570547",
+        "sha256": "f346af825a0b7779293960c0fe6ffea481102d5eabb0914468c30d94195d93b4"
+      },
+      "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-agent.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=2917570547",
+          "job_id": "2917570547",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "社招",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=2917570547&jobShareType=1&highlightType=social",
+          "location": "北京市",
+          "company": "meituan",
+          "title": "到餐-全栈 Agent Builder"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=2917570547",
+          "job_id": "2917570547",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "2917570547",
+            "sha256": "f346af825a0b7779293960c0fe6ffea481102d5eabb0914468c30d94195d93b4"
+          },
+          "company": "meituan",
+          "title": "到餐-全栈 Agent Builder"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T14:21:29+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "全栈",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-27T13:41:43.976186Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "1ffb68815d2556a610dab093c8b5989bf52c65d0033078aad817d92d8097ae41"
+    },
+    {
+      "id": "job:578fee6602f2a81f7e5a3d2a",
+      "title": "AI Agent 开发实习生（Python 后端方向）",
+      "company": "nio",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+      "locations": [
+        "上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "7701650833616947497",
+        "sha256": "d9aec908a4177f65d98bf79668b2b258034377758dfc2eccf65465cbe3eeea78"
+      },
+      "jd_checked_at": "2026-11-27T23:59:00.520087Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-agent.json",
+          "market": "CN",
+          "url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+          "job_id": "7701650833616947497",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "实习",
+          "apply_url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+          "location": "上海",
+          "company": "nio",
+          "title": "AI Agent 开发实习生（Python 后端方向）"
+        },
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-backend.json",
+          "market": "CN",
+          "url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+          "job_id": "7701650833616947497",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "实习",
+          "apply_url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+          "location": "上海",
+          "company": "nio",
+          "title": "AI Agent 开发实习生（Python 后端方向）"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://nio.jobs.feishu.cn/campus/position/7701650833616947497/detail",
+          "job_id": "7701650833616947497",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T23:59:00.520087Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "7701650833616947497",
+            "sha256": "d9aec908a4177f65d98bf79668b2b258034377758dfc2eccf65465cbe3eeea78"
+          },
+          "company": "nio",
+          "title": "AI Agent 开发实习生（Python 后端方向）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "INTERNSHIP",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "后端",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "employment",
+            "quote": "实习",
+            "origin": "TITLE_OR_METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-27T23:59:00.520087Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "c5f9d6eebd6432d4be070f2a24044a4f3e8ab51dad17bbddb7f44044aa482476"
+    },
+    {
+      "id": "job:56c9dd998cdf343d955f291b",
+      "title": "Lead Engineer - AI Payments App",
+      "company": "BJAK",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/0aa0f315-b39f-49ba-9711-05ccf293810f",
+      "locations": [
+        "Malaysia"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/MY-000.json",
+        "key": "bjakcareer|ashby|0aa0f315-b39f-49ba-9711-05ccf293810f",
+        "sha256": "6d4f74bc98e80d31d3136bfbc218d88a1eb27f9595ae5082c6c7d50db404d5b3"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/MY.json",
+          "market": "MY",
+          "url": "https://jobs.ashbyhq.com/bjakcareer/0aa0f315-b39f-49ba-9711-05ccf293810f",
+          "key": "bjakcareer|ashby|0aa0f315-b39f-49ba-9711-05ccf293810f",
+          "job_id": "0aa0f315-b39f-49ba-9711-05ccf293810f",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/MY-000.json",
+            "key": "bjakcareer|ashby|0aa0f315-b39f-49ba-9711-05ccf293810f",
+            "sha256": "6d4f74bc98e80d31d3136bfbc218d88a1eb27f9595ae5082c6c7d50db404d5b3"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/0aa0f315-b39f-49ba-9711-05ccf293810f/application",
+          "location": "Malaysia",
+          "company": "BJAK",
+          "title": "Lead Engineer - AI Payments App"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Lead",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/MY.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "3802e05ff36a8a368ed054bd4640e699c393420a39673aa0c895a222416ae73a"
+    },
+    {
+      "id": "job:5614bba7841307f179234dbe",
+      "title": "Recommendation Engine & Audio Backend Engineer (Golang) (APAC Remote)",
+      "company": "Binance",
+      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5021408101",
+      "locations": [
+        "Hong Kong; Singapore; Taiwan"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-004.json",
+        "key": "binance|greenhouse|5021408101",
+        "sha256": "8a56053961750bdfbc73f2c7639c7b5bfdc37a259e3021bdfcc7a116b7f7a0d5"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5021408101",
+          "key": "binance|greenhouse|5021408101",
+          "job_id": "5021408101",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-004.json",
+            "key": "binance|greenhouse|5021408101",
+            "sha256": "8a56053961750bdfbc73f2c7639c7b5bfdc37a259e3021bdfcc7a116b7f7a0d5"
+          },
+          "posted_at": "2026-11-24T12:08:48-05:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Hong Kong; Singapore; Taiwan",
+          "company": "Binance",
+          "title": "Recommendation Engine & Audio Backend Engineer (Golang) (APAC Remote)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Backend",
+            "origin": "TITLE"
+          },
+          {
+            "field": "degree",
+            "quote": "Bachelor's degree or above",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e6a550156d81b90cc2972b413990c5355e4fc70c89b4c7fd5dcb107b4a924eb8"
+    },
+    {
+      "id": "job:5422492158639a5e63f57448",
+      "title": "Senior Data Scientist, Analytics (Lending)",
+      "company": "Airwallex",
+      "url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc",
+      "locations": [
+        "SG - Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-000.json",
+        "key": "airwallex|ashby|341d23f4-f254-4a2b-a75c-eb267eedfffc",
+        "sha256": "2695250afae59dbef3c7b58058ba1e9b56beee4789f3903aa1cd3296f2256160"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc",
+          "key": "airwallex|ashby|341d23f4-f254-4a2b-a75c-eb267eedfffc",
+          "job_id": "341d23f4-f254-4a2b-a75c-eb267eedfffc",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-000.json",
+            "key": "airwallex|ashby|341d23f4-f254-4a2b-a75c-eb267eedfffc",
+            "sha256": "2695250afae59dbef3c7b58058ba1e9b56beee4789f3903aa1cd3296f2256160"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc/application",
+          "location": "SG - Singapore",
+          "company": "Airwallex",
+          "title": "Senior Data Scientist, Analytics (Lending)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:13+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/341d23f4-f254-4a2b-a75c-eb267eedfffc/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          3
+        ],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "3+ years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "bachelor’s degree or above",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "5b1d839bf582d8f2f4b71cdd199cf9bd56517a9d09bdb92f058aca3d301cc89c"
+    },
+    {
+      "id": "job:519762a51721f22fe49fb5eb",
+      "title": "AI Engineering Lead",
+      "company": "Temus",
+      "url": "https://job-boards.greenhouse.io/temus/jobs/5428034008",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-023.json",
+        "key": "temus|greenhouse|5428034008",
+        "sha256": "2af764373b59891f398148f8c293985b4cd57dcfae29bb50e7cd2f3806f579d9"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "Temus is a Temasek-backed consulting firm providing digital transformation solutions for the private and public sectors. W e aspire to be a strategic partner in realising the",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/temus/jobs/5428034008",
+          "key": "temus|greenhouse|5428034008",
+          "job_id": "5428034008",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-023.json",
+            "key": "temus|greenhouse|5428034008",
+            "sha256": "2af764373b59891f398148f8c293985b4cd57dcfae29bb50e7cd2f3806f579d9"
+          },
+          "posted_at": "2026-09-18T04:48:10-04:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Singapore",
+          "company": "Temus",
+          "title": "AI Engineering Lead"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Lead",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "9487aad852cdb25d5b5d476d73d1948b642d399e2ac60f372d522cc38b561891"
+    },
+    {
+      "id": "job:501503f6667901357ff6a099",
+      "title": "AI-HR培训生（分析方向）",
+      "company": "tencent",
+      "url": "https://join.qq.com/post_detail.html?postid=1286682460696231937",
+      "locations": [
+        "深圳总部 北京 上海 广州 成都"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "1286682460696231937",
+        "sha256": "f737256b7e6884e4dfc7b93c0f05c124f7db7398d85fbc052d30af5e44e09f39"
+      },
+      "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-ai.json",
+          "market": "CN",
+          "url": "https://join.qq.com/post_detail.html?postid=1286682460696231937",
+          "job_id": "1286682460696231937",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "应届毕业生",
+          "apply_url": "https://join.qq.com/post_detail.html?postid=1286682460696231937",
+          "location": "深圳总部 北京 上海 广州 成都",
+          "company": "tencent",
+          "title": "AI-HR培训生（分析方向）"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://join.qq.com/post_detail.html?postid=1286682460696231937",
+          "job_id": "1286682460696231937",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "1286682460696231937",
+            "sha256": "f737256b7e6884e4dfc7b93c0f05c124f7db7398d85fbc052d30af5e44e09f39"
+          },
+          "company": "tencent",
+          "title": "AI-HR培训生（分析方向）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-27T13:41:43.976186Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "93f25aac67639c205d0b83aa1501e644fddc47cfcb57e572193414a961eb14cc"
+    },
+    {
+      "id": "job:4f3385c4ff0baa16181f96c9",
+      "title": "Full Stack Engineer - Recommendation Engine (APAC Remote)",
+      "company": "Binance",
+      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5025783101",
+      "locations": [
+        "Hong Kong; Japan; Singapore; Taiwan"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-005.json",
+        "key": "binance|greenhouse|5025783101",
+        "sha256": "cbb47f93b755a21b597464d64292bd410113d2387172bf81f9493c494be921b1"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5025783101",
+          "key": "binance|greenhouse|5025783101",
+          "job_id": "5025783101",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-005.json",
+            "key": "binance|greenhouse|5025783101",
+            "sha256": "cbb47f93b755a21b597464d64292bd410113d2387172bf81f9493c494be921b1"
+          },
+          "posted_at": "2026-11-23T01:55:35-05:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Hong Kong; Japan; Singapore; Taiwan",
+          "company": "Binance",
+          "title": "Full Stack Engineer - Recommendation Engine (APAC Remote)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          5
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Full Stack",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "5+ years",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f5e26d1ff2828f0e73da2566393d262c7f5d26b7c8e2dd51a8fb4f7f8e70c460"
+    },
+    {
+      "id": "job:4e9b74aac616a0c89baa1568",
+      "title": "Lead Engineer - Travel FX App",
+      "company": "BJAK",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+      "locations": [
+        "Malaysia"
+      ],
+      "observed_markets": [
+        "MY"
+      ],
+      "location_markets": [
+        "MY"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/MY-001.json",
+        "key": "bjakcareer|ashby|a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+        "sha256": "6d4f74bc98e80d31d3136bfbc218d88a1eb27f9595ae5082c6c7d50db404d5b3"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/MY.json",
+          "market": "MY",
+          "url": "https://jobs.ashbyhq.com/bjakcareer/a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+          "key": "bjakcareer|ashby|a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+          "job_id": "a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/MY-001.json",
+            "key": "bjakcareer|ashby|a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b",
+            "sha256": "6d4f74bc98e80d31d3136bfbc218d88a1eb27f9595ae5082c6c7d50db404d5b3"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/a646ef2c-9a5d-4c0b-8ad0-78d9efdc7a7b/application",
+          "location": "Malaysia",
+          "company": "BJAK",
+          "title": "Lead Engineer - Travel FX App"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Lead",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/MY.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "82b8934cc17c4c52f25b87a18243bd8ec718affd7de7c07234c4df6dae0f2dc4"
+    },
+    {
+      "id": "job:4d3af43c73667747255d3ae6",
+      "title": "Research Engineer, QC Automation",
+      "company": "Clera",
+      "url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-007.json",
+        "key": "clera|ashby|897994b9-2adf-4279-a9f9-042f830bce44",
+        "sha256": "976aab71f2d6ccc0bc18f1b0885195313f4b79d935d6a249a2f56e11a2452ff8"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT THE ROLE Join an early-stage AI infrastructure team focused on reinforcement learning environments and evaluation. You will own automation that ensures training data meets high standards, helping the team scale reliable data quality p",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44",
+          "key": "clera|ashby|897994b9-2adf-4279-a9f9-042f830bce44",
+          "job_id": "897994b9-2adf-4279-a9f9-042f830bce44",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-007.json",
+            "key": "clera|ashby|897994b9-2adf-4279-a9f9-042f830bce44",
+            "sha256": "976aab71f2d6ccc0bc18f1b0885195313f4b79d935d6a249a2f56e11a2452ff8"
+          },
+          "posted_at": "",
+          "salary_summary": "$100K - $170K",
+          "salary_components": [
+            {
+              "compensationType": "Salary",
+              "currencyCode": "USD",
+              "interval": "1 YEAR",
+              "maxValue": 170000,
+              "minValue": 100000
+            }
+          ],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44/application",
+          "location": "Singapore",
+          "company": "Clera",
+          "title": "Research Engineer, QC Automation"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:04+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Clera/897994b9-2adf-4279-a9f9-042f830bce44/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "RESEARCH_UNSPECIFIED",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Research Engineer",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "ca5f6b2381ea09b934529a053409f644d295dbe64a39bcf7d2794c34a7302419"
+    },
+    {
+      "id": "job:4d38062f114fbda78920c6df",
+      "title": "Forward Deployed Engineer, APJ",
+      "company": "Arize AI",
+      "url": "https://job-boards.greenhouse.io/arizeai/jobs/5993317004",
+      "locations": [
+        "Remote (Singapore)"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-002.json",
+        "key": "arizeai|greenhouse|5993317004",
+        "sha256": "192d50e76f5d3dd41cbea46b4dabd13f4dfe22395fc29ccea3de5557d15085ec"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "About Arize AI is rapidly transforming the world. As generative AI reshapes industries, teams need powerful ways to monitor, troubleshoot, and optimize their AI systems. That’s where we come in. Arize",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/arizeai/jobs/5993317004",
+          "key": "arizeai|greenhouse|5993317004",
+          "job_id": "5993317004",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-002.json",
+            "key": "arizeai|greenhouse|5993317004",
+            "sha256": "192d50e76f5d3dd41cbea46b4dabd13f4dfe22395fc29ccea3de5557d15085ec"
+          },
+          "posted_at": "2026-11-17T09:57:11-05:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Remote (Singapore)",
+          "company": "Arize AI",
+          "title": "Forward Deployed Engineer, APJ"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "LIVE_FORM",
+          "checked_at": "2026-11-27T12:27:37+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0ea236654a8d0710e69720409e60e3dcc0343a558c855b2d982bebd15d73358e"
+    },
+    {
+      "id": "job:4c65f3121b517c7dfdfdbe6e",
+      "title": "大模型-端到端算法研发工程师",
+      "company": "nio",
+      "url": "https://nio.jobs.feishu.cn/campus/position/7474868680229603623/detail",
+      "locations": [
+        "上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "7474868680229603623",
+        "sha256": "21fcc54fd01fa1f1e7529830ad4e56965819e2663ab94798e1a7d8e9023940ce"
+      },
+      "jd_checked_at": "2026-11-28T05:20:57.073822Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-llm.json",
+          "market": "CN",
+          "url": "https://nio.jobs.feishu.cn/campus/position/7474868680229603623/detail",
+          "job_id": "7474868680229603623",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://nio.jobs.feishu.cn/campus/position/7474868680229603623/detail",
+          "location": "上海",
+          "company": "nio",
+          "title": "大模型-端到端算法研发工程师"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://nio.jobs.feishu.cn/campus/position/7474868680229603623/detail",
+          "job_id": "7474868680229603623",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:20:57.073822Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "7474868680229603623",
+            "sha256": "21fcc54fd01fa1f1e7529830ad4e56965819e2663ab94798e1a7d8e9023940ce"
+          },
+          "location": "上海",
+          "company": "nio",
+          "title": "大模型-端到端算法研发工程师"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "CLOSED_EXPLICIT",
+          "checked_at": "2026-11-25T22:44:17+00:00",
+          "fresh": false,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-28T05:20:57.073822Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f3ef5b8e1b69fcb984186e614113efad9bc8afe590f83f88f3fa5a4543cf0cc5"
+    },
+    {
+      "id": "job:4b598966d378c47e41204e5e",
+      "title": "产品经理｜AI Native 智算平台",
+      "company": "zerooneai",
+      "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+      "locations": [
+        "北京 / 杭州"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "7699707170430896403",
+        "sha256": "536e4cc5a1096e18fab3fcddf96b50ea5aed898555ef94bc461bf527cd4cbe9c"
+      },
+      "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-ai.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "job_id": "7699707170430896403",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "location": "北京 / 杭州",
+          "company": "zerooneai",
+          "title": "产品经理｜AI Native 智算平台"
+        },
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-agent.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "job_id": "7699707170430896403",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "location": "北京 / 杭州",
+          "company": "zerooneai",
+          "title": "产品经理｜AI Native 智算平台"
+        },
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-llm.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "job_id": "7699707170430896403",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "location": "北京 / 杭州",
+          "company": "zerooneai",
+          "title": "产品经理｜AI Native 智算平台"
+        },
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "job_id": "7699707170430896403",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "location": "北京 / 杭州",
+          "company": "zerooneai",
+          "title": "产品经理｜AI Native 智算平台"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://01ai.jobs.feishu.cn/index/position/7699707170430896403/detail",
+          "job_id": "7699707170430896403",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T13:41:43.976186Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "7699707170430896403",
+            "sha256": "536e4cc5a1096e18fab3fcddf96b50ea5aed898555ef94bc461bf527cd4cbe9c"
+          },
+          "company": "zerooneai",
+          "title": "产品经理｜AI Native 智算平台"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "NON_TECHNICAL",
+        "ai_depth": "NOT_CORE_AI",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "产品经理",
+            "origin": "TITLE"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-27T13:41:43.976186Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "7b43f8ea73a00c43ed1773a30b5182cd91735b3926b3c584ad0e93a29ef4ea24"
+    },
+    {
+      "id": "job:4ab665fb6013a6b49cf1b74d",
+      "title": "Backend Software Engineer - AI Finance Agent",
+      "company": "BJAK",
+      "url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-006.json",
+        "key": "bjakcareer|ashby|cf705995-4c22-4615-a660-6fab9ba9b8cf",
+        "sha256": "a4fa4c4b74d8c31668ad7b8f61730133618e498347f94219d98cea92ef4de0c1"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf",
+          "key": "bjakcareer|ashby|cf705995-4c22-4615-a660-6fab9ba9b8cf",
+          "job_id": "cf705995-4c22-4615-a660-6fab9ba9b8cf",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-006.json",
+            "key": "bjakcareer|ashby|cf705995-4c22-4615-a660-6fab9ba9b8cf",
+            "sha256": "a4fa4c4b74d8c31668ad7b8f61730133618e498347f94219d98cea92ef4de0c1"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf/application",
+          "location": "Singapore",
+          "company": "BJAK",
+          "title": "Backend Software Engineer - AI Finance Agent"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:15:53+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/cf705995-4c22-4615-a660-6fab9ba9b8cf/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          3
+        ],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": true,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Backend",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "3+ years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "work_location_or_authorization_restriction",
+            "quote": "must be based in Singapore",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "58851aa1059c49a035d05584e03ec0d851ae76a1fbea571656c04192cc20bb26"
+    },
+    {
+      "id": "job:470b4db8f23b0eeba0dec5b0",
+      "title": "AI Application Engineer, APJ",
+      "company": "Arize AI",
+      "url": "https://job-boards.greenhouse.io/arizeai/jobs/5989512004",
+      "locations": [
+        "Remote (Singapore)"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-002.json",
+        "key": "arizeai|greenhouse|5989512004",
+        "sha256": "24b2e369381faa2eff9f5ec3c1dec1fb3eb870c3585c6b5113e533750603e551"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "About Arize AI is rapidly transforming the world. As generative AI reshapes industries, teams need powerful ways to monitor, troubleshoot, and optimize their AI systems. That’s where we come in. Arize",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/arizeai/jobs/5989512004",
+          "key": "arizeai|greenhouse|5989512004",
+          "job_id": "5989512004",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-002.json",
+            "key": "arizeai|greenhouse|5989512004",
+            "sha256": "24b2e369381faa2eff9f5ec3c1dec1fb3eb870c3585c6b5113e533750603e551"
+          },
+          "posted_at": "2026-11-10T11:00:36-05:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Remote (Singapore)",
+          "company": "Arize AI",
+          "title": "AI Application Engineer, APJ"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "LIVE_FORM",
+          "checked_at": "2026-11-27T12:06:44+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "2-5 years of experience",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "2a627f78b0b71070455457ad2d8f9cf5f42917e097d0f014e7a45522e2f9ab99"
+    },
+    {
+      "id": "job:44780a274f8507e1e14b078d",
+      "title": "大模型评测研究员",
+      "company": "minimax",
+      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7637364748019583275/detail",
+      "locations": [
+        "北京 / 上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "7637364748019583275",
+        "sha256": "fc1ecc08e758872c1e5b73898a71433bab379c316fac99359b338842b32469fc"
+      },
+      "jd_checked_at": "2026-11-28T05:20:57.073822Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-llm.json",
+          "market": "CN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7637364748019583275/detail",
+          "job_id": "7637364748019583275",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7637364748019583275/detail",
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "大模型评测研究员"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7637364748019583275/detail",
+          "job_id": "7637364748019583275",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T05:20:57.073822Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "7637364748019583275",
+            "sha256": "fc1ecc08e758872c1e5b73898a71433bab379c316fac99359b338842b32469fc"
+          },
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "大模型评测研究员"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-25T22:44:20+00:00",
+          "fresh": false,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_RESEARCH",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "研究员",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-28T05:20:57.073822Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0f9c9cdcb76215833805b8af6fed1ea9c243959988346512f4985ca3b70e0cd2"
+    },
+    {
+      "id": "job:431aa8a8bea81ad3ca4d975c",
+      "title": "Software Engineer, Risk",
+      "company": "Airwallex",
+      "url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45",
+      "locations": [
+        "SG - Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-002.json",
+        "key": "airwallex|ashby|c992a940-930c-400f-b73d-1ab303d10b45",
+        "sha256": "c74769b2a74580d59d4a06708a4371dd3700254d90224b197a08b0275ad20fc7"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45",
+          "key": "airwallex|ashby|c992a940-930c-400f-b73d-1ab303d10b45",
+          "job_id": "c992a940-930c-400f-b73d-1ab303d10b45",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-002.json",
+            "key": "airwallex|ashby|c992a940-930c-400f-b73d-1ab303d10b45",
+            "sha256": "c74769b2a74580d59d4a06708a4371dd3700254d90224b197a08b0275ad20fc7"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45/application",
+          "location": "SG - Singapore",
+          "company": "Airwallex",
+          "title": "Software Engineer, Risk"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:21+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/c992a940-930c-400f-b73d-1ab303d10b45/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Software Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "More than 2 years of core Java development experience",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "7afbc04433272b5a89b97426d5bc0e9ecc741269e945f6bbaf667e78bb8ba603"
+    },
+    {
+      "id": "job:41f30d74f624c64ac7640eaf",
+      "title": "Forward Deployed Software Engineer",
+      "company": "Temus",
+      "url": "https://job-boards.greenhouse.io/temus/jobs/5268937008",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-023.json",
+        "key": "temus|greenhouse|5268937008",
+        "sha256": "e8df422cb3e26424fbf7a7ea653c2c6d666644e12bb69e7a372187e01c47fbf3"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "Temus is a Temasek-backed consulting firm providing digital transformation solutions for the private and public sectors. W e aspire to be a strategic partner in realising the",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/temus/jobs/5268937008",
+          "key": "temus|greenhouse|5268937008",
+          "job_id": "5268937008",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-023.json",
+            "key": "temus|greenhouse|5268937008",
+            "sha256": "e8df422cb3e26424fbf7a7ea653c2c6d666644e12bb69e7a372187e01c47fbf3"
+          },
+          "posted_at": "2026-06-17T22:46:59-04:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Singapore",
+          "company": "Temus",
+          "title": "Forward Deployed Software Engineer"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Software Engineer",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "44621eb69fdb7da2830f1b6e92cf2995d0c47f259df2be8b6e749894c97796d7"
+    },
+    {
+      "id": "job:40201ddfa3cc79a53225c179",
+      "title": "Data Engineer",
+      "company": "SimplifyNext",
+      "url": "https://job-boards.greenhouse.io/simplifynext/jobs/5233120007",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-021.json",
+        "key": "simplifynext|greenhouse|5233120007",
+        "sha256": "eca1b655d9a91bff7fddaa99cb49c689ad613955f1a2b7955115b87c998c9c08"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "SimplifyNext is a Singapore-headquartered digital engineering firm, with offices in Thailand and Malaysia, working across three converged areas: agentic AI, AI-enabled application modernisation, and intelligent",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/simplifynext/jobs/5233120007",
+          "key": "simplifynext|greenhouse|5233120007",
+          "job_id": "5233120007",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-021.json",
+            "key": "simplifynext|greenhouse|5233120007",
+            "sha256": "eca1b655d9a91bff7fddaa99cb49c689ad613955f1a2b7955115b87c998c9c08"
+          },
+          "posted_at": "2026-09-30T21:57:19-04:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Singapore",
+          "company": "SimplifyNext",
+          "title": "Data Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "LIVE_FORM",
+          "checked_at": "2026-11-27T12:06:53+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          4
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Data Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "4+ years",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "9916048270086077e79e71ee39029fefbda9b22c1f48f0070eddc6dd3f7aa340"
+    },
+    {
+      "id": "job:3fb7e0fea03a8199d4a8c737",
+      "title": "Senior Data Scientist, Analytics (Risk & Payments)",
+      "company": "Airwallex",
+      "url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5",
+      "locations": [
+        "SG - Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-000.json",
+        "key": "airwallex|ashby|4401779c-419c-46d4-9c9d-4aea013652a5",
+        "sha256": "78b2893eda96465349f6028771cbdbb15ea64d879b9f25faa41b2d095f0b1363"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5",
+          "key": "airwallex|ashby|4401779c-419c-46d4-9c9d-4aea013652a5",
+          "job_id": "4401779c-419c-46d4-9c9d-4aea013652a5",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-000.json",
+            "key": "airwallex|ashby|4401779c-419c-46d4-9c9d-4aea013652a5",
+            "sha256": "78b2893eda96465349f6028771cbdbb15ea64d879b9f25faa41b2d095f0b1363"
+          },
+          "posted_at": "",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5/application",
+          "location": "SG - Singapore",
+          "company": "Airwallex",
+          "title": "Senior Data Scientist, Analytics (Risk & Payments)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:16+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/airwallex/4401779c-419c-46d4-9c9d-4aea013652a5/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          7
+        ],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "7+ years",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "6d669b9dc1239d3474026a15dfc8eaa5a38d22751048d0de559a45ba8a49b470"
+    },
+    {
       "id": "job:3f6b99f35a7278d4f02a6e76",
       "title": "Data Migration Engineer",
       "company": "SimplifyNext",
@@ -475,1929 +2411,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "dc7159e3529da3196a9aef9295188648b41a78fc3b49dc942dbf2ce1f5fbd1c8"
-    },
-    {
-      "id": "job:35dc2a826b63ae7bda457547",
-      "title": "Android Developer - AI Finance Agent",
-      "company": "BJAK",
-      "url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-006.json",
-        "key": "bjakcareer|ashby|65b8694d-244e-40e9-9a24-4b90d9ff5130",
-        "sha256": "ce508a369661b2acf4557139323c36341067149eb993d436b1fbaada4ae15fbb"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130",
-          "key": "bjakcareer|ashby|65b8694d-244e-40e9-9a24-4b90d9ff5130",
-          "job_id": "65b8694d-244e-40e9-9a24-4b90d9ff5130",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-006.json",
-            "key": "bjakcareer|ashby|65b8694d-244e-40e9-9a24-4b90d9ff5130",
-            "sha256": "ce508a369661b2acf4557139323c36341067149eb993d436b1fbaada4ae15fbb"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130/application",
-          "location": "Singapore",
-          "company": "BJAK",
-          "title": "Android Developer - AI Finance Agent"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130/application",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:15:47+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/65b8694d-244e-40e9-9a24-4b90d9ff5130/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": true,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Android",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "work_location_or_authorization_restriction",
-            "quote": "must be based in Singapore",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ccb21037aaf120ca0c1f95e728b27e00b51cdc876f2c3805ba5d58ffa526c7e4"
-    },
-    {
-      "id": "job:3546e5c4f5ad7c4ee67c0019",
-      "title": "算法大模型评测开发工程师（抖音搜索） - 抖音研发中台",
-      "company": "bytedance",
-      "url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-      "locations": [
-        "北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "7664602088575584565",
-        "sha256": "1e081d78b4b07077f76df2ffbd912b471588fb6ac8484a7e3ef03643fc282522"
-      },
-      "jd_checked_at": "2026-11-27T23:59:00.520087Z",
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-nlp.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-          "job_id": "7664602088575584565",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-          "location": "北京",
-          "company": "bytedance",
-          "title": "算法大模型评测开发工程师（抖音搜索） - 抖音研发中台"
-        },
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-          "job_id": "7664602088575584565",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-          "location": "北京",
-          "company": "bytedance",
-          "title": "算法大模型评测开发工程师（抖音搜索） - 抖音研发中台"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/campus/position/7664602088575584565/detail",
-          "job_id": "7664602088575584565",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T23:59:00.520087Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "7664602088575584565",
-            "sha256": "1e081d78b4b07077f76df2ffbd912b471588fb6ac8484a7e3ef03643fc282522"
-          },
-          "company": "bytedance",
-          "title": "算法大模型评测开发工程师（抖音搜索） - 抖音研发中台"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-27T22:21:30+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "degree",
-            "quote": "本科及以上",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T23:59:00.520087Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "05dc3ae56bb378598e617078f673fec4959b459ef206ac49b94710bd603c2b5a"
-    },
-    {
-      "id": "job:3457e6c810a19a0a9ad74dcb",
-      "title": "Techical Support Engineer",
-      "company": "Binance",
-      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5008266101",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-004.json",
-        "key": "binance|greenhouse|5008266101",
-        "sha256": "165d4f3e82389e36ac3f9526c49fa8fa427d7cad9138dba05d83f502b092408f"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5008266101",
-          "key": "binance|greenhouse|5008266101",
-          "job_id": "5008266101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-004.json",
-            "key": "binance|greenhouse|5008266101",
-            "sha256": "165d4f3e82389e36ac3f9526c49fa8fa427d7cad9138dba05d83f502b092408f"
-          },
-          "posted_at": "2026-11-23T01:50:44-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Singapore",
-          "company": "Binance",
-          "title": "Techical Support Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "1ae1673abfab123271d8f2946cbd9dc6a38283f97bee007847d37cb90966e27c"
-    },
-    {
-      "id": "job:3446bc686231b6b9ebfe08ab",
-      "title": "Lead Engineer (Backend) - MoneyLion",
-      "company": "Gen Digital / MoneyLion",
-      "url": "https://jobs.ashbyhq.com/gen-digital/fcb4d86d-f097-4966-8807-e9cebf755506",
-      "locations": [
-        "MYS - Kuala Lumpur"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/MY-003.json",
-        "key": "gen-digital|ashby|fcb4d86d-f097-4966-8807-e9cebf755506",
-        "sha256": "8db0362aa94aaa99e24679aacae636692bb26d88815c8829e8cb414cda7a409b"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About Gen Gen is a global company dedicated to powering Digital Freedom through its trusted consumer brands including Norton, Avast, LifeLock, MoneyLion and more. Our combined heritage is rooted in financial empowerment and cyber safety for",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/MY.json",
-          "market": "MY",
-          "url": "https://jobs.ashbyhq.com/gen-digital/fcb4d86d-f097-4966-8807-e9cebf755506",
-          "key": "gen-digital|ashby|fcb4d86d-f097-4966-8807-e9cebf755506",
-          "job_id": "fcb4d86d-f097-4966-8807-e9cebf755506",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/MY-003.json",
-            "key": "gen-digital|ashby|fcb4d86d-f097-4966-8807-e9cebf755506",
-            "sha256": "8db0362aa94aaa99e24679aacae636692bb26d88815c8829e8cb414cda7a409b"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/gen-digital/fcb4d86d-f097-4966-8807-e9cebf755506/application",
-          "location": "MYS - Kuala Lumpur",
-          "company": "Gen Digital / MoneyLion",
-          "title": "Lead Engineer (Backend) - MoneyLion"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          8
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Backend",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "8+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "seniority",
-            "quote": "Lead",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/MY.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "b09243354051a8862e539570f863a84aef8b66e1efeb8a3a1aea84d9d97a022a"
-    },
-    {
-      "id": "job:3367dab32eb907d72bfc9148",
-      "title": "Devops/Digital Engineer",
-      "company": "New Era Technology",
-      "url": "https://job-boards.greenhouse.io/neweratech/jobs/8890964002",
-      "locations": [
-        "Kuala Lumpur, Malaysia"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/MY-004.json",
-        "key": "neweratech|greenhouse|8890964002",
-        "sha256": "21908476ebb9d5f0215eba537a8179d2e33b5642774c4b03e457e23127b1b718"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Join New Era Technology, where People First i",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/MY.json",
-          "market": "MY",
-          "url": "https://job-boards.greenhouse.io/neweratech/jobs/8890964002",
-          "key": "neweratech|greenhouse|8890964002",
-          "job_id": "8890964002",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/MY-004.json",
-            "key": "neweratech|greenhouse|8890964002",
-            "sha256": "21908476ebb9d5f0215eba537a8179d2e33b5642774c4b03e457e23127b1b718"
-          },
-          "posted_at": "2026-11-17T13:26:19-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Kuala Lumpur, Malaysia",
-          "company": "New Era Technology",
-          "title": "Devops/Digital Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          4
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Devops",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "4+ years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/MY.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "0a9b54f33243845ce5a1d861581e8b17fa57d972182a14989d1c169eab8c6979"
-    },
-    {
-      "id": "job:327515693fa64c610fa97598",
-      "title": "Research Engineer",
-      "company": "Sonar",
-      "url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-022.json",
-        "key": "sonarsource|lever|2f1af926-9595-4031-8a26-3c776a6dfbcd",
-        "sha256": "97ef872b4824ce9c456bae85794866b35f215d6b444eebe0d4470100ec942d7b"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Who is Sonar? Sonar enables organizations to ship agentic code with confidence. Code creation is abundant, but confidence is scarce. Our core platform, SonarQube, verifies over 750 billion lines of code every day, delivering agentic verific",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd",
-          "key": "sonarsource|lever|2f1af926-9595-4031-8a26-3c776a6dfbcd",
-          "job_id": "2f1af926-9595-4031-8a26-3c776a6dfbcd",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-022.json",
-            "key": "sonarsource|lever|2f1af926-9595-4031-8a26-3c776a6dfbcd",
-            "sha256": "97ef872b4824ce9c456bae85794866b35f215d6b444eebe0d4470100ec942d7b"
-          },
-          "posted_at": "1791879190236",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "Employee / Full-Time",
-          "apply_url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd/apply",
-          "location": "Singapore",
-          "company": "Sonar",
-          "title": "Research Engineer"
-        },
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd",
-          "key": "freehire|research-engineer-sonar-source-6k3pkrwo",
-          "job_id": "research-engineer-sonar-source-6k3pkrwo",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "Sonar Source",
-          "title": "Research Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd/apply",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:27:46+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.lever.co/sonarsource/2f1af926-9595-4031-8a26-3c776a6dfbcd/apply",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "RESEARCH_UNSPECIFIED",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          2
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Research Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "At least 2 years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "58f6c821e75b056306a34eb7fd51a8ca3e7826c6d8741a4c6df1c0efbee64bc1"
-    },
-    {
-      "id": "job:306cb5968c9423e7edb57442",
-      "title": "Data Scientist (Decision Science)",
-      "company": "Gen Digital / MoneyLion",
-      "url": "https://jobs.ashbyhq.com/gen-digital/e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-      "locations": [
-        "MYS - Kuala Lumpur"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/MY-003.json",
-        "key": "gen-digital|ashby|e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-        "sha256": "58aa584d1b4f9e53fadd5167dbd618dcebb814460583210c34cc4af424ec6443"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About Gen Gen is a global company dedicated to powering Digital Freedom through its trusted consumer brands including Norton, Avast, LifeLock, MoneyLion and more. Our combined heritage is rooted in financial empowerment and cyber safety for",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/MY.json",
-          "market": "MY",
-          "url": "https://jobs.ashbyhq.com/gen-digital/e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-          "key": "gen-digital|ashby|e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-          "job_id": "e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/MY-003.json",
-            "key": "gen-digital|ashby|e68a4dac-ca1d-43a1-a56a-6e45da05dc88",
-            "sha256": "58aa584d1b4f9e53fadd5167dbd618dcebb814460583210c34cc4af424ec6443"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/gen-digital/e68a4dac-ca1d-43a1-a56a-6e45da05dc88/application",
-          "location": "MYS - Kuala Lumpur",
-          "company": "Gen Digital / MoneyLion",
-          "title": "Data Scientist (Decision Science)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/gen-digital/e68a4dac-ca1d-43a1-a56a-6e45da05dc88/application",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T14:21:44+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/gen-digital/e68a4dac-ca1d-43a1-a56a-6e45da05dc88/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [],
-        "source_file": "feed/ats/markets/MY.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "85dda74872d7171fe18d2c88fc4919d32139b2954b2e3a80ece21050e65e8e46"
-    },
-    {
-      "id": "job:2ebe7018f7691fa8b5ced472",
-      "title": "Staff Engineer, Machine Learning & Data Infrastructure",
-      "company": "OKX",
-      "url": "https://job-boards.greenhouse.io/okx/jobs/8206913003",
-      "locations": [
-        "APAC; Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-018.json",
-        "key": "okx|greenhouse|8206913003",
-        "sha256": "4153dfade639cafb0196190489f5848666b63520e87e84b844305c66d570dea4"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Staff Engineer, Machine Learning & Data Infrastructure We are looking for an e",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/okx/jobs/8206913003",
-          "key": "okx|greenhouse|8206913003",
-          "job_id": "8206913003",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-018.json",
-            "key": "okx|greenhouse|8206913003",
-            "sha256": "4153dfade639cafb0196190489f5848666b63520e87e84b844305c66d570dea4"
-          },
-          "posted_at": "2026-11-17T08:08:28-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "APAC; Singapore, Singapore",
-          "company": "OKX",
-          "title": "Staff Engineer, Machine Learning & Data Infrastructure"
-        },
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/okx/jobs/8206913003",
-          "key": "freehire|staff-engineer-machine-learning-data-infrastructure-okx-mk5apodt",
-          "job_id": "staff-engineer-machine-learning-data-infrastructure-okx-mk5apodt",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "APAC; Singapore, Singapore",
-          "company": "OKX",
-          "title": "Staff Engineer, Machine Learning & Data Infrastructure"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Machine Learning",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Machine Learning",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Staff",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "89c7e98d4ccb45330566e35aaeb8ef422721881fcf1f6010c3b4b0bc9c6ee53f"
-    },
-    {
-      "id": "job:2e7ca987e2ac9fb294bf6565",
-      "title": "Senior Salesforce Engineer, Growth",
-      "company": "Airwallex",
-      "url": "https://jobs.ashbyhq.com/airwallex/4647580d-7a98-4881-9aa7-aa3db4cecde5",
-      "locations": [
-        "SG - Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-000.json",
-        "key": "airwallex|ashby|4647580d-7a98-4881-9aa7-aa3db4cecde5",
-        "sha256": "d09f1af187b6a2f87ccee274a2a5a017004f737ac15d5dcae5b9076fb31a2da9"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/airwallex/4647580d-7a98-4881-9aa7-aa3db4cecde5",
-          "key": "airwallex|ashby|4647580d-7a98-4881-9aa7-aa3db4cecde5",
-          "job_id": "4647580d-7a98-4881-9aa7-aa3db4cecde5",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-000.json",
-            "key": "airwallex|ashby|4647580d-7a98-4881-9aa7-aa3db4cecde5",
-            "sha256": "d09f1af187b6a2f87ccee274a2a5a017004f737ac15d5dcae5b9076fb31a2da9"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/airwallex/4647580d-7a98-4881-9aa7-aa3db4cecde5/application",
-          "location": "SG - Singapore",
-          "company": "Airwallex",
-          "title": "Senior Salesforce Engineer, Growth"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          2,
-          5
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "2+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "51917176c049691e4bdf6409138dc5fb6cffcbac0ca6dc1ec9f3040a8cd4d68d"
-    },
-    {
-      "id": "job:2d9b281691a567f9a40e2288",
-      "title": "Manager, Applied AI Engineering (Southeast Asia)",
-      "company": "OpenAI",
-      "url": "https://jobs.ashbyhq.com/openai/41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-019.json",
-        "key": "openai|ashby|41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-        "sha256": "0a45795e23a11cf9a50d2caf13e5345a4263cd8c2f0d202173686b011430f805"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT THE TEAM The Technical Success team helps OpenAI’s customers realize meaningful and sustained value from our technology. We partner with customers throughout their journey—from initial exploration and solution design to production imp",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/openai/41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-          "key": "openai|ashby|41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-          "job_id": "41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-019.json",
-            "key": "openai|ashby|41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-            "sha256": "0a45795e23a11cf9a50d2caf13e5345a4263cd8c2f0d202173686b011430f805"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/openai/41df4950-f6b1-4f97-8b29-cd0a11f19e25/application",
-          "location": "Singapore",
-          "company": "OpenAI",
-          "title": "Manager, Applied AI Engineering (Southeast Asia)"
-        },
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/openai/41df4950-f6b1-4f97-8b29-cd0a11f19e25",
-          "key": "freehire|manager-ai-deployment-engineering-southeast-asia-openai-urexybsi",
-          "job_id": "manager-ai-deployment-engineering-southeast-asia-openai-urexybsi",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore",
-          "company": "OpenAI",
-          "title": "Manager, Applied AI Engineering (Southeast Asia)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "seniority",
-            "quote": "Manager",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "c16bfe169e2091fe85a3dc741afefe562bd98703339a2c40a1e3e3b13764a74a"
-    },
-    {
-      "id": "job:2963338cbe4a31b6725620ae",
-      "title": "Full Stack Engineer",
-      "company": "BJAK",
-      "url": "https://jobs.ashbyhq.com/bjakcareer/7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-      "locations": [
-        "Malaysia"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/MY-001.json",
-        "key": "bjakcareer|ashby|7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-        "sha256": "f336739a8f84662bd272d57245d79b450e3c002d36d409191f59caffc3283e5b"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/MY.json",
-          "market": "MY",
-          "url": "https://jobs.ashbyhq.com/bjakcareer/7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-          "key": "bjakcareer|ashby|7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-          "job_id": "7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/MY-001.json",
-            "key": "bjakcareer|ashby|7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e",
-            "sha256": "f336739a8f84662bd272d57245d79b450e3c002d36d409191f59caffc3283e5b"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/7ca37d6f-d7a7-4420-a36a-bc4740c4fa2e/application",
-          "location": "Malaysia",
-          "company": "BJAK",
-          "title": "Full Stack Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Full Stack",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/ats/markets/MY.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "55a7bd4121469943b0b178296d64d92ebcb4be7c7322b81979f6a5d57cf8e842"
-    },
-    {
-      "id": "job:2906681c2c177d14b005fabf",
-      "title": "Senior Data Engineer, Knowledge Platform",
-      "company": "Airwallex",
-      "url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-      "locations": [
-        "SG - Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-000.json",
-        "key": "airwallex|ashby|39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-        "sha256": "b6b917cbbec645c71f20345d4ebc29082c65790b13f9409c07707e40c1bc54b4"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT AIRWALLEX Airwallex is the AI-native financial operating system for a real-time, intelligent economy. More than 675,000 businesses, including McLaren Racing, Qantas, SHEIN, and TikTok, use us, directly or through our platform partners",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-          "key": "airwallex|ashby|39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-          "job_id": "39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-000.json",
-            "key": "airwallex|ashby|39069d1d-9a56-4ef2-b326-8cc1f46a25f9",
-            "sha256": "b6b917cbbec645c71f20345d4ebc29082c65790b13f9409c07707e40c1bc54b4"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9/application",
-          "location": "SG - Singapore",
-          "company": "Airwallex",
-          "title": "Senior Data Engineer, Knowledge Platform"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9/application",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:12+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/airwallex/39069d1d-9a56-4ef2-b326-8cc1f46a25f9/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Data Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "Bachelor’s degree or higher",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "d0c478c701634d941072ad64a7879a8e81b49be4f3435c49272008b33457f403"
-    },
-    {
-      "id": "job:28839da440f3fb2913eca069",
-      "title": "【LongCat大模型人才校招】基座评测与认知分析算法研究员-多模态与前沿交互研究",
-      "company": "meituan",
-      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4530490380",
-      "locations": [
-        "北京市 / 上海市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "4530490380",
-        "sha256": "c666b250e22d219a086419e1d534f19918736326875ed5d09b92ffec4febc26e"
-      },
-      "jd_checked_at": "2026-11-27T23:59:00.520087Z",
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4530490380",
-          "job_id": "4530490380",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "校招",
-          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4530490380&jobShareType=1&highlightType=campus",
-          "location": "北京市 / 上海市",
-          "company": "meituan",
-          "title": "【LongCat大模型人才校招】基座评测与认知分析算法研究员-多模态与前沿交互研究"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4530490380",
-          "job_id": "4530490380",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T23:59:00.520087Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "4530490380",
-            "sha256": "c666b250e22d219a086419e1d534f19918736326875ed5d09b92ffec4febc26e"
-          },
-          "company": "meituan",
-          "title": "【LongCat大模型人才校招】基座评测与认知分析算法研究员-多模态与前沿交互研究"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:34+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "MASTER_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "算法研究",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "校招",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "硕士及以上",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T23:59:00.520087Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "85b34565cd387fcf5d71090a38447181c008bab4ff2430431e7044a3784a6406"
-    },
-    {
-      "id": "job:284f1680fd809805ca42d3e8",
-      "title": "Mobile Engineer - AI Finance Agent",
-      "company": "BJAK",
-      "url": "https://jobs.ashbyhq.com/bjakcareer/101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-      "locations": [
-        "China"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/CN-000.json",
-        "key": "bjakcareer|ashby|101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-        "sha256": "8f2a6247f1c75adde23cda61b3cdba40f640b748b1f3a586916978b641b09e9b"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/CN.json",
-          "market": "CN",
-          "url": "https://jobs.ashbyhq.com/bjakcareer/101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-          "key": "bjakcareer|ashby|101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-          "job_id": "101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/CN-000.json",
-            "key": "bjakcareer|ashby|101d89f0-f66b-45c4-8f05-2d2a784dae1c",
-            "sha256": "8f2a6247f1c75adde23cda61b3cdba40f640b748b1f3a586916978b641b09e9b"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/101d89f0-f66b-45c4-8f05-2d2a784dae1c/application",
-          "location": "China",
-          "company": "BJAK",
-          "title": "Mobile Engineer - AI Finance Agent"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/101d89f0-f66b-45c4-8f05-2d2a784dae1c/application",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-25T22:44:14+00:00",
-          "fresh": false,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/101d89f0-f66b-45c4-8f05-2d2a784dae1c/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": true,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Mobile",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "3+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "work_location_or_authorization_restriction",
-            "quote": "must be based in China",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/CN.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "16afb6959b885d62ff7c0e2288e0fe85429925035d891b9f9d5af3a882248084"
-    },
-    {
-      "id": "job:267dd0fc8af1ecc500a29145",
-      "title": "Mobile Engineer",
-      "company": "BJAK",
-      "url": "https://jobs.ashbyhq.com/bjakcareer/d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-      "locations": [
-        "Malaysia"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/MY-002.json",
-        "key": "bjakcareer|ashby|d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-        "sha256": "063eed5ab61b3d44ad959bb2feae9bf76d9ad61e8953f1bfff0cacefe9d48ed1"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/MY.json",
-          "market": "MY",
-          "url": "https://jobs.ashbyhq.com/bjakcareer/d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-          "key": "bjakcareer|ashby|d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-          "job_id": "d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/MY-002.json",
-            "key": "bjakcareer|ashby|d3630ab7-5292-44f1-b7f8-9b2d80e4eba0",
-            "sha256": "063eed5ab61b3d44ad959bb2feae9bf76d9ad61e8953f1bfff0cacefe9d48ed1"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/d3630ab7-5292-44f1-b7f8-9b2d80e4eba0/application",
-          "location": "Malaysia",
-          "company": "BJAK",
-          "title": "Mobile Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Mobile",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "3+ years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/MY.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "c1cffe912247a7d805c41a2ffe344157af463521bdefa7ae05db01429993a64a"
-    },
-    {
-      "id": "job:263d7e311b7b2edbd529ce88",
-      "title": "Full Stack Software Engineer - AI Finance Agent",
-      "company": "BJAK",
-      "url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-006.json",
-        "key": "bjakcareer|ashby|e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-        "sha256": "64330d36be4519e23d734f0df45764c603b8b8e2a4a8da9c61b307ff4a1f7b9a"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance t",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-          "key": "bjakcareer|ashby|e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-          "job_id": "e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-006.json",
-            "key": "bjakcareer|ashby|e0d83246-3866-45ac-9bf7-a0b58ac2cafb",
-            "sha256": "64330d36be4519e23d734f0df45764c603b8b8e2a4a8da9c61b307ff4a1f7b9a"
-          },
-          "posted_at": "",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb/application",
-          "location": "Singapore",
-          "company": "BJAK",
-          "title": "Full Stack Software Engineer - AI Finance Agent"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb/application",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:15:58+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/bjakcareer/e0d83246-3866-45ac-9bf7-a0b58ac2cafb/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          3
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": true,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Full Stack",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "3+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "work_location_or_authorization_restriction",
-            "quote": "must be based in Singapore",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "33897bd70ea4ca39e8a4573e4ee7f11faf8f9298518d9fdacb3cdaaf4194cd9c"
-    },
-    {
-      "id": "job:24c4f400ccf54be5add7b4c0",
-      "title": "Fullstack Engineer - Square (APAC Remote)",
-      "company": "Binance",
-      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5028202101",
-      "locations": [
-        "Hong Kong; Singapore; Taiwan"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-005.json",
-        "key": "binance|greenhouse|5028202101",
-        "sha256": "8e2a3bc903a396cb53b6fbb51ab0f20725e1d6fc29b5cb5747da38bab836f1a6"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5028202101",
-          "key": "binance|greenhouse|5028202101",
-          "job_id": "5028202101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-005.json",
-            "key": "binance|greenhouse|5028202101",
-            "sha256": "8e2a3bc903a396cb53b6fbb51ab0f20725e1d6fc29b5cb5747da38bab836f1a6"
-          },
-          "posted_at": "2026-11-23T01:56:02-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Hong Kong; Singapore; Taiwan",
-          "company": "Binance",
-          "title": "Fullstack Engineer - Square (APAC Remote)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "9967ae97289f3fc3862de8323878490f2056d41274fbfb54c772b161b86723c5"
-    },
-    {
-      "id": "job:2217829b97e8154456ff8a40",
-      "title": "Quality Engineer, Rack Infrastructure & Site Operations",
-      "company": "OpenAI",
-      "url": "https://jobs.ashbyhq.com/openai/b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-019.json",
-        "key": "openai|ashby|b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-        "sha256": "d74064ddc963b89d040c8dd9d744bccfae0f04ffd2fc764c01531f155d20e694"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "About the Team OpenAI, in partnership with our capital and technology partners, is building a global network of advanced datacenters to support the most demanding AI workloads. The Industrial Compute team ensures that all datacenter systems",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/openai/b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-          "key": "openai|ashby|b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-          "job_id": "b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-019.json",
-            "key": "openai|ashby|b71906c2-51a9-4ad7-a744-2390ccdc1ad8",
-            "sha256": "d74064ddc963b89d040c8dd9d744bccfae0f04ffd2fc764c01531f155d20e694"
-          },
-          "posted_at": "",
-          "salary_summary": "SGD 171K - SGD 345K",
-          "salary_components": [
-            {
-              "compensationType": "Salary",
-              "currencyCode": "SGD",
-              "interval": "1 YEAR",
-              "maxValue": 345000,
-              "minValue": 171000
-            }
-          ],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/openai/b71906c2-51a9-4ad7-a744-2390ccdc1ad8/application",
-          "location": "Singapore",
-          "company": "OpenAI",
-          "title": "Quality Engineer, Rack Infrastructure & Site Operations"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          10
-        ],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "experience_min_mentions",
-            "quote": "10+ years",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "a49e8caf9332e43b9a28d362ffefd507ef62c3dedeb376101cf9f1b1a15cd3cf"
-    },
-    {
-      "id": "job:20a7cf5e567a8f2618e5b368",
-      "title": "Software Engineer, Backend",
-      "company": "Exa",
-      "url": "https://jobs.ashbyhq.com/exa/8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-007.json",
-        "key": "exa|ashby|8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-        "sha256": "7815b364f50322c09d7e839d515dc9d1d9841a4514712fd2377e677e960ee5b9"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Exa is an applied AI lab building a search engine unlike the world has ever seen. We build massive-scale infra to crawl the entire web, train state-of-the-art embedding models to process it, and design super high performant vector databases",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/exa/8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-          "key": "exa|ashby|8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-          "job_id": "8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-007.json",
-            "key": "exa|ashby|8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba",
-            "sha256": "7815b364f50322c09d7e839d515dc9d1d9841a4514712fd2377e677e960ee5b9"
-          },
-          "posted_at": "",
-          "salary_summary": "SGD 90K - SGD 300K",
-          "salary_components": [
-            {
-              "compensationType": "Salary",
-              "currencyCode": "SGD",
-              "interval": "1 YEAR",
-              "maxValue": 300000,
-              "minValue": 90000
-            }
-          ],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/exa/8ba94280-c4f0-4a15-b3eb-8acf4e2d6dba/application",
-          "location": "Singapore",
-          "company": "Exa",
-          "title": "Software Engineer, Backend"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Software Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "35e3932dc11bf37c9696a8224b69a588b07a2dc67a68d8492fcdce6be6d74e14"
-    },
-    {
-      "id": "job:1c48e3c064314affd568d576",
-      "title": "腾讯云—面向数据库自动驾驶领域大模型的强化学习研究",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1231829074692139104",
-      "locations": [
-        "成都"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "1231829074692139104",
-        "sha256": "d536142ff66fb87f8c75bbc70942619631d5dc9e407fb3e7244e837833939d57"
-      },
-      "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1231829074692139104",
-          "job_id": "1231829074692139104",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "实习生 青云计划",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1231829074692139104",
-          "location": "成都",
-          "company": "tencent",
-          "title": "腾讯云—面向数据库自动驾驶领域大模型的强化学习研究"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1231829074692139104",
-          "job_id": "1231829074692139104",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "1231829074692139104",
-            "sha256": "d536142ff66fb87f8c75bbc70942619631d5dc9e407fb3e7244e837833939d57"
-          },
-          "company": "tencent",
-          "title": "腾讯云—面向数据库自动驾驶领域大模型的强化学习研究"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T14:19:32.877251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "3088c12a32fe1eb03ed91b51f350423b0a15e5bc83b314b524976fd1b0638ed1"
     }
   ]
 }

@@ -2,18 +2,18 @@
   "version": 1,
   "jobs": [
     {
-      "id": "job:0d1f4b4b44ba60d8c67e7e3a",
-      "title": "GCP Cloud Engineer - Data & AI Infra, Hybrid & Terraform",
-      "company": "NTT Singapore Pte Ltd",
-      "url": "https://freehire.me/api/v1/go/gcp-cloud-engineer-data-ai-infra-hybrid-terraform-ntt-singapore-pte-ltd-ppljzlbp?src=web",
+      "id": "job:092a114a91a9292ff690a074",
+      "title": "飞猪-大模型搜推算法专家-AI Agent方向",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/fei-zhu-da-mo-xing-sou-tui-suan-fa-zhuan-jia-ai-agentfang-xiang-alibaba-group-ox5v2cnu?src=web",
       "locations": [
-        "Singapore, Singapore"
+        "Hangzhou"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -21,19 +21,96 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "NTT Singapore Pte Ltd is seeking an experienced cloud engineer to design, build, and operate scalable data infrastructure on Google Cloud Platform (GCP). You will support distributed computing, ML workloads, and hybrid cloud deployments, using Terraform and cloud-native architectures. You will work with Kubernetes, Spark, and data formats like Avro and Parquet, implementing security controls and automation to enhance reliability and delivery quality. Strong L2/L3 support experience is expected. Design, build and operate scalable data collection and analytics infrastructure on Goog",
+      "excerpt": "1、AI摘要Agent研发: 设计并实现基于LLM的搜索摘要Agent,提升对搜索结果与旅行内容的理解、推理与结构化总结能力。 探索 LLM Reasoning 技术(思维链、多步推理),优化复杂查询的 Deep Research 模式,实现长文本理解与跨内容/跨商品的信息融合。 构建端到端系统,涵盖意图理解、知识与商品检索、结果生成与偏好对齐,持续提升用户体验。 2、AI搜推链路升级: 探索搜索/推荐引擎与大模型、机器学习、强化学习等前沿技术的结合,推动AI搜推链路重构与系统优化,结合内容与时空热点属性,构建场景化的导购引导。 3、模型优化及应用: 通过指令微调(SFT)、偏好对齐(RLHF/DPO)等技术优化模型在搜推场景的适应性。 探索多模态信息(文本、图像、视频、结构化数据)融合的搜索与生成技术。 参与统一搜推大模型建设; 1、硕士学位及以上,计算机科学、人工智能、自然语言处理等相关领域。 2、精通 PyTorch/TensorFlow 等框架,具备大规模语言模型(如 GPT、Llama 等)训练与优化经验。 3、熟悉检索增强生成(RAG)、Agent 架构、搜索算法(如倒排索引、语义检索)",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/gcp-cloud-engineer-data-ai-infra-hybrid-terraform-ntt-singapore-pte-ltd-ppljzlbp?src=web",
-          "event_seq": 70850,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/fei-zhu-da-mo-xing-sou-tui-suan-fa-zhuan-jia-ai-agentfang-xiang-alibaba-group-ox5v2cnu?src=web",
+          "event_seq": 71283,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T23:00:00Z",
-          "location": "Singapore, Singapore",
-          "company": "NTT Singapore Pte Ltd",
-          "title": "GCP Cloud Engineer - Data & AI Infra, Hybrid & Terraform"
+          "posted_at": "2026-11-25T16:00:00Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "飞猪-大模型搜推算法专家-AI Agent方向"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "专家",
+            "origin": "TITLE_OR_METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "硕士学位及以上",
+            "origin": "EXCERPT"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f8a87ab1b21961b83e007796a7f150b39fcf3785484c25fc3891c17443db4e63"
+    },
+    {
+      "id": "job:4dc3c43ae6db08aefbbef4ae",
+      "title": "飞猪-AI搜索算法工程师-杭州",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/fei-zhu-aisou-suo-suan-fa-gong-cheng-shi-hang-zhou-alibaba-group-g3acog3a?src=web",
+      "locations": [
+        "Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "飞猪正在重构下一代 AI Native Search，打造旅行行业的AI搜索引擎。我们希望通过大语言模型、Agent、Reasoning、Semantic Retrieval 等技术，构建能够理解用户真实需求、具备推理能力的新一代搜索系统。如果你希望参与搜索范式的变革，而不仅仅是调排序模型，这将是一个非常好的机会。 你将负责 1）构建 AI Native Search Engine，提升复杂旅行需求的搜索理解与满足能力； 2）设计并实现基于LLM的 Query Understanding、Constraint Reasoning、Intent Planning等核心能力； 3）探索Agent驱动的搜索范式，Reason Search、Intent Navigation、端到端生成式检索等能力； 4）研发 LLM Re-ranking、多目标优化及搜索决策模型，提升用户体验与业务指标； 5）跟踪 Agent、Reasoning、RAG、Memory、World Model 等前沿技术，并推动业务落地。 1）计算机科学、人工智能、自然语言处理或相关专业本科及以上学历； 2）1年以上大模型及搜推广领域，召回、排序算法研发经验，有AI Search、Copilot、智能问答、Agent等项目实战经验优先； 3）熟悉 Tran",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/fei-zhu-aisou-suo-suan-fa-gong-cheng-shi-hang-zhou-alibaba-group-g3acog3a?src=web",
+          "event_seq": 71280,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-25T16:00:00Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "飞猪-AI搜索算法工程师-杭州"
         }
       ],
       "application_evidence": [],
@@ -41,63 +118,7 @@
         "role_family": "UNKNOWN",
         "ai_depth": "UNKNOWN",
         "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ac0d557927c67638355b9c2f22740fdb28a0be930e8da3c6e16270bccbaa1f6c"
-    },
-    {
-      "id": "job:d4c7da898bd33162431cd5f2",
-      "title": "AI Platform Engineer - Azure, LLMs & Microservices",
-      "company": "NanoSoft Business Systems Pte Ltd",
-      "url": "https://freehire.me/api/v1/go/ai-platform-engineer-azure-llms-microservices-nanosoft-business-systems-pte-ltd-kfwpt2mh?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "NanoSoft Business Systems Pte Ltd in Singapore seeks a senior software engineer to design, develop, and maintain scalable web applications with AI/ML capabilities. The role spans the full stack, from micro-frontend UIs to backend microservices, leveraging Azure cloud services and event-driven architectures. You will work with modern tools and practices, including Docker, Kubernetes, LangChain, and Neo4j, integrating LLM APIs and ensuring secure, scalable deployments while adhering to coding,",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-platform-engineer-azure-llms-microservices-nanosoft-business-systems-pte-ltd-kfwpt2mh?src=web",
-          "event_seq": 70843,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T23:00:00Z",
-          "location": "Singapore, Singapore",
-          "company": "NanoSoft Business Systems Pte Ltd",
-          "title": "AI Platform Engineer - Azure, LLMs & Microservices"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
@@ -106,14 +127,9 @@
         "text_evidence_grade": "EXCERPT",
         "evidence": [
           {
-            "field": "role_family",
-            "quote": "LLMs",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "LLMs",
-            "origin": "TITLE"
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "EXCERPT"
           }
         ],
         "source_file": "feed/candidates.json",
@@ -122,16 +138,18 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "4ac2935037fc1e1d1ea13474d9e6c7b6689ccc652647c522c53f4c511bd975ac"
+      "content_fingerprint": "7c049e837e3c48eae0fb2dd53aa42e1bb6422c26e5662575d6ba9e2c21474c1b"
     },
     {
-      "id": "job:719764255b6f140509ede9c5",
-      "title": "Senior JavaScript Automation Test Engineer with AI & Agentic Testing",
-      "company": "EPAM Systems",
-      "url": "https://freehire.me/api/v1/go/senior-javascript-automation-test-engineer-with-ai-agentic-testing-epam-systems-w7oafyqf?src=web",
-      "locations": [],
+      "id": "job:3caead397b8cc43cfda36a79",
+      "title": "Mobile Engineer - AI Finance Agent",
+      "company": "Bjak",
+      "url": "https://freehire.me/api/v1/go/mobile-engineer-ai-finance-agent-bjakcareer-ggohyyzw?src=web",
+      "locations": [
+        "Sydney, Australia"
+      ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [],
       "location_status": "UNRESOLVED",
@@ -140,157 +158,20 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "We are seeking a Senior JavaScript Automation Test Engineer to join our team and play a crucial role in ensuring the reliability and accuracy of software systems, leading a team of testers, implementing and managing automated testing processes and contributing to the continuous improvement of the test automation framework. The ideal candidate will be responsible for designing scalable automation solutions, driving quality engineering practices, mentoring teams, and leveraging Generative AI and Agentic AI technologies to accelerate software testing and delivery.",
+      "excerpt": "About BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance to be accessible online by millions in the region. Today, its the leading insurance platform in Southeast Asia. Today, we are expanding ways to help people in the region — this includes spending, saving, investing, exchanging, travelling, and more. Our mission is help people get more from their money every day.",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-javascript-automation-test-engineer-with-ai-agentic-testing-epam-systems-w7oafyqf?src=web",
-          "event_seq": 70809,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/mobile-engineer-ai-finance-agent-bjakcareer-ggohyyzw?src=web",
+          "event_seq": 71228,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T00:00:00Z",
-          "location": "",
-          "company": "EPAM Systems",
-          "title": "Senior JavaScript Automation Test Engineer with AI & Agentic Testing"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Test Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "627ad88e4feabbb89a4a06a5ff3da87a9868228c0ce920d438bab1500c2d9fb6"
-    },
-    {
-      "id": "job:91d4417c46376caa250bad38",
-      "title": "Applied ML Engineer",
-      "company": "Sentient",
-      "url": "https://freehire.me/api/v1/go/applied-ml-engineer-sentient-uumxbq5g?src=web",
-      "locations": [
-        "Remote - APAC ( Singapore )"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Applied ML Engineer The Role We’re looking for an Applied ML Engineer to build systems at the intersection of machine learning research and production software. This is an end-to-end engineering role. You should be comfortable reading a research paper, identifying what is actually testable, building the smallest useful experiment, evaluating it rigorously, and turning the result into a production system that users can interact with. You’ll work across model evaluation, model internals, inference infrastructure, backend systems, and product interfaces. The goal is",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/applied-ml-engineer-sentient-uumxbq5g?src=web",
-          "event_seq": 70739,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-09-23T13:56:14Z",
+          "posted_at": "2026-11-23T06:41:23Z",
           "employment_type": "full_time",
-          "location": "Remote - APAC ( Singapore )",
-          "company": "Sentient",
-          "title": "Applied ML Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "ML Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "ML Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "39fbef80e516dbc770c4414c03be98fa93ffd3d3b8e427274e74a1766ef710a7"
-    },
-    {
-      "id": "job:06428ca5ca55701a7eb44324",
-      "title": "AI & Data Engineer",
-      "company": "ASTM International",
-      "url": "https://freehire.me/api/v1/go/ai-data-engineer-cb316e90-dff0-482d-84cc-2f99849ec539-19000101-000001-2553xag6?src=web",
-      "locations": [
-        "SG"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "In response to the expansion into new emerging areas in recent years, the ASTM Advanced Manufacturing Center of Excellence (AM CoE) is exploring the convergence of Additive Manufacturing and other emerging technologies such as Robotics, automation and autonomous system, Artificial intelligence and Machine learning (AI & ML) targeting towards applications in Advanced Manufacturing. Through collaboration among industry, government, and academia, ASTM AM CoE addresses not only the need for accelerated standards development models to help",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-data-engineer-cb316e90-dff0-482d-84cc-2f99849ec539-19000101-000001-2553xag6?src=web",
-          "event_seq": 70737,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-09-10T16:13:54Z",
-          "location": "SG",
-          "company": "ASTM International",
-          "title": "AI & Data Engineer"
+          "location": "Sydney, Australia",
+          "company": "Bjak",
+          "title": "Mobile Engineer - AI Finance Agent"
         }
       ],
       "application_evidence": [],
@@ -308,7 +189,7 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Data Engineer",
+            "quote": "Mobile",
             "origin": "TITLE"
           },
           {
@@ -323,21 +204,21 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "c88c2439067f781ac898648b3cfccc29ef158250f04fb2794753a25af632d89f"
+      "content_fingerprint": "ea43db96bf27ec8a2844244323aa9349ea4d6e7e4bd4220de81b88b93c75d02a"
     },
     {
-      "id": "job:ef430ab68c78d5cb7b098f39",
-      "title": "Senior AI Engineer (Kubernetes & Customised Scheduler)",
-      "company": "Firmus Technologies",
-      "url": "https://freehire.me/api/v1/go/senior-ai-engineer-kubernetes-customised-scheduler-firmus-technologies-zxptjizx?src=web",
+      "id": "job:a01ceb60810878e293ed9c3f",
+      "title": "Senior Software Engineer, AI Gateway - Shanghai",
+      "company": "Kong",
+      "url": "https://freehire.me/api/v1/go/senior-software-engineer-ai-gateway-shanghai-kong-fe6dckcx?src=web",
       "locations": [
-        "Singapore"
+        "Shanghai, China"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -345,442 +226,27 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Firmus Technologies Firmus Technologies is a global leader pioneering the development and operation of efficient AI infrastructure across Asia Pacific. Founded in Australia in 2019, our mission is to create the most efficient AI infrastructure by combining cutting-edge technology with a steadfast commitment to sustainability. At Firmus, we are unique in our approach. We design, build, and operate a new class of digital infrastructure – the AI Factory. Through our model-to-grid technology approach, we have pushed the boundaries of multi-generational l",
+      "excerpt": "Help the world move AI. At Kong, we're building the connectivity layer that brings AI, APIs, and applications together. Our work helps organizations innovate faster, more securely, and more efficiently. We're looking for people who think boldly, lead with purpose, and want to make an impact. If you're ready to take on meaningful challenges, do work that matters, and help build what comes next for technology, we'd love to meet you. About the Role: As Kong advances into the Agentic Era, the AI Gateway team is developing the vital infra",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-ai-engineer-kubernetes-customised-scheduler-firmus-technologies-zxptjizx?src=web",
-          "event_seq": 70734,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/senior-software-engineer-ai-gateway-shanghai-kong-fe6dckcx?src=web",
+          "event_seq": 71214,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T01:37:42Z",
+          "posted_at": "2026-10-23T06:29:52Z",
           "employment_type": "full_time",
-          "location": "Singapore",
-          "company": "Firmus Technologies ",
-          "title": "Senior AI Engineer (Kubernetes & Customised Scheduler)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ddde4de80528954c8a723e865e69d366cbc672cb7a039e8fbc3707f3581d61b3"
-    },
-    {
-      "id": "job:9ba3f8ad86fc45f43925207f",
-      "title": "Associate, AI Engineer (Singapore)",
-      "company": "Nomura",
-      "url": "https://freehire.me/api/v1/go/associate-ai-data-scientist-singapore-nomura-hcxwkchn?src=web",
-      "locations": [
-        "Singapore, SG, 018983"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Company overview Nomura is a global financial services group with an integrated network spanning approximately 30 countries and regions. By connecting markets East & West, Nomura services the needs of individuals, institutions, corporates and governments through its three business divisions: Wealth Management, Investment Management, and Wholesale (Global Markets and Investment Banking). Founded in 1925, the firm is built on a tradition of disciplined entrepreneurship, serving clients with creative solutions and considered",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/associate-ai-data-scientist-singapore-nomura-hcxwkchn?src=web",
-          "event_seq": 70729,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-21T00:00:00Z",
-          "location": "Singapore, SG, 018983",
-          "company": "Nomura",
-          "title": "Associate, AI Engineer (Singapore)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ff3d9143153288c66e127dfff78869ca0478f36950f84f470e331068fd923205"
-    },
-    {
-      "id": "job:0670f995337b1b8a06f517fa",
-      "title": "Marine Acoustic ML Engineer – Field Trials & Data",
-      "company": "National University of Singapore",
-      "url": "https://freehire.me/api/v1/go/marine-acoustic-ml-engineer-field-trials-data-national-university-of-singapore-qmvpfmrt?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "The National University of Singapore's Acoustic Research Laboratory at Kent Ridge Campus is seeking a Research Engineer/Associate to develop and test algorithms for underwater acoustics and marine robotics. You will collaborate with engineers to create systems, plan field trials, collect and process data, and contribute to reports, publications and patents. Candidates should have a degree in ML/CV, experience in ML for CV, and strong programming skills in Julia or Python, with a willingness to",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/marine-acoustic-ml-engineer-field-trials-data-national-university-of-singapore-qmvpfmrt?src=web",
-          "event_seq": 70727,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-08-29T21:48:47Z",
-          "location": "Singapore, Singapore",
-          "company": "National University of Singapore",
-          "title": "Marine Acoustic ML Engineer – Field Trials & Data"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "ML Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "ML Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2d7ea4c8bded5942dc96e9f92dbfaa545ffe96fa23a3e523dd223db89060fb55"
-    },
-    {
-      "id": "job:8f0995b5786dda3d397e7609",
-      "title": "AI Research Engineer: ML Systems & Data Intelligence",
-      "company": "DSO National Laboratories",
-      "url": "https://freehire.me/api/v1/go/ai-research-engineer-ml-systems-data-intelligence-dso-national-laboratories-msjtf6bt?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "DSO National Laboratories’ INFO Division invites applications for an Artificial Intelligence Research Engineer. You will conduct research into state-of-the-art AI/ML models, develop AI/ML products to extract and analyse information from large data volumes, and collaborate with software and system engineers to deploy models. Candidates should hold a Master or Bachelor's in Computer Engineering / Data Analytics / AI / Mathematics / Statistics / Electrical & Electronics Engineering, be proficient",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-research-engineer-ml-systems-data-intelligence-dso-national-laboratories-msjtf6bt?src=web",
-          "event_seq": 70726,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-08-29T21:48:47Z",
-          "location": "Singapore, Singapore",
-          "company": "DSO National Laboratories",
-          "title": "AI Research Engineer: ML Systems & Data Intelligence"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Research Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Research",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "0cffd7cffaf51a66a162920ae1d13049729061bda0d0355f9d01ac495b127cbd"
-    },
-    {
-      "id": "job:e9dc18dc7268d1e7f2d9dfcf",
-      "title": "Senior Data Platform Engineer – Cloud, AI/APIs",
-      "company": "Platform&Co",
-      "url": "https://freehire.me/api/v1/go/senior-data-platform-engineer-cloud-ai-apis-platform-co-lgbyl6do?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Platform&Co is hiring a senior data platform engineer to design and deliver large-scale data pipelines on a cloud-native platform. You will establish reusable patterns for low-latency analysis and build REST/gRPC APIs and AI-driven interfaces for efficient data interaction. You will own reliability, scalability, and cost efficiency, tackling millions of concurrent workloads and working with distributed teams to translate complex requirements into scalable product architectures.",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-data-platform-engineer-cloud-ai-apis-platform-co-lgbyl6do?src=web",
-          "event_seq": 70724,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-08-29T17:48:26Z",
-          "location": "Singapore, Singapore",
-          "company": "Platform&Co",
-          "title": "Senior Data Platform Engineer – Cloud, AI/APIs"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "3893a923392c794b6236f87b19a5b66130938648915ee1f5733e090fbd29e5f4"
-    },
-    {
-      "id": "job:8927acc30eed52b7a65b9a6f",
-      "title": "AI Engineer (BLR)",
-      "company": "WeAssist.io",
-      "url": "https://freehire.me/api/v1/go/ai-engineer-blr-weassist-io-mpaox6j3?src=web",
-      "locations": [
-        "Philippines"
-      ],
-      "observed_markets": [
-        "MY",
-        "SG"
-      ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Hiring: Full-time - AI Engineer - Remote 🌟 About us, WeAssist, the hiring team 💡 🌍 Led by a Founder Who Cares – Reef Colman built WeAssist to empower individuals and create meaningful opportunities that support families. ⚡ Fast & Purposeful Recruiting – We move quickly but prioritize long-term fit, stability, and growth over just filling roles. 🌎 Connecting Global Talent – With 100+ outsourced professionals and growing, we li",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-engineer-blr-weassist-io-mpaox6j3?src=web",
-          "event_seq": 70722,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T01:00:42Z",
-          "employment_type": "full_time",
-          "location": "Philippines",
-          "company": "WeAssist.io",
-          "title": "AI Engineer (BLR)"
-        },
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "MY",
-          "source_url": "https://freehire.me/api/v1/go/ai-engineer-blr-weassist-io-mpaox6j3?src=web",
-          "event_seq": 70722,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T01:00:42Z",
-          "employment_type": "full_time",
-          "location": "Philippines",
-          "company": "WeAssist.io",
-          "title": "AI Engineer (BLR)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "19233557aca74dd3711c05ce439b42697738784c3c5fa9da4630f721457a5756"
-    },
-    {
-      "id": "job:55e903078a880d5043cbc5d5",
-      "title": "AI Software Engineer",
-      "company": "Razer",
-      "url": "https://freehire.me/api/v1/go/ai-software-engineer-razer-wbeo63fo?src=web",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Joining Razer will place you on a global mission to revolutionize the way the world games. Razer is a place to do great work , offering you the opportunity to make an impact globally while working across a global team located across 5 continents. Razer is also a great place to work, providing you the unique, gamer-centric #LifeAtRazer experience that will put you in an accelerated growth, both personally and professionally. Job Responsibilities : We are seeking a highly skilled AI Software Engineer to design, develop, and deploy AI-powered soluti",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-software-engineer-razer-wbeo63fo?src=web",
-          "event_seq": 70717,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2025-04-22T00:00:00Z",
-          "location": "Singapore",
-          "company": "Razer",
-          "title": "AI Software Engineer"
+          "location": "Shanghai, China",
+          "company": "Kong",
+          "title": "Senior Software Engineer, AI Gateway - Shanghai"
         }
       ],
       "application_evidence": [],
       "role_tags": {
         "role_family": "SOFTWARE_ENGINEERING",
         "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
-        "seniority": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
@@ -798,135 +264,6 @@
             "field": "ai_depth",
             "quote": "AI",
             "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "05696e75ae3314dc45aaa10bd72e8a809b9ca51a49e7807a0897ae79a64bac7e"
-    },
-    {
-      "id": "job:32e22ba289678373fd5a929e",
-      "title": "Senior Data Scientist (Computer Vision Engineer)",
-      "company": "Razer",
-      "url": "https://freehire.me/api/v1/go/senior-data-scientist-computer-vision-engineer-razer-z2h7c2ai?src=web",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Joining Razer will place you on a global mission to revolutionize the way the world games. Razer is a place to do great work , offering you the opportunity to make an impact globally while working across a global team located across 5 continents. Razer is also a great place to work, providing you the unique, gamer-centric #LifeAtRazer experience that will put you in an accelerated growth, both personally and professionally. Job Responsibilities : This role will focus on designing and developing advanced computer vision so",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-data-scientist-computer-vision-engineer-razer-z2h7c2ai?src=web",
-          "event_seq": 70716,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-04-23T00:00:00Z",
-          "location": "Singapore",
-          "company": "Razer",
-          "title": "Senior Data Scientist (Computer Vision Engineer)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ddc2968a2cdef20f08e342dd021657504158d578459684a8c8f10ec23997a4c0"
-    },
-    {
-      "id": "job:22216da9499dda76c168482c",
-      "title": "Senior Researcher, Speech Synthesis and Multimodal LLM",
-      "company": "Tencent",
-      "url": "https://freehire.me/api/v1/go/senior-researcher-speech-synthesis-and-multimodal-llm-tencent-gxdchlcp?src=web",
-      "locations": [
-        "Singapore-CapitaSky"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Business Unit LIGHTSPEED STUDIOS is made up of passionate players who advance the art & science of game development through great stories, great gameplay, and advanced technology. We are focused on bringing next generation experiences to gamers who want to enjoy them anywhere, anytime, across multiple genres and devices. About the Hiring Team Lightspeed Tech Center is a R&D department under Lightspeed Studios which develop PUBG Mobile and other high-quality games. Our Tech Center leads the research, exploration, and discovery of innovat",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-researcher-speech-synthesis-and-multimodal-llm-tencent-gxdchlcp?src=web",
-          "event_seq": 70712,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-07-17T00:00:00Z",
-          "location": "Singapore-CapitaSky",
-          "company": "Tencent",
-          "title": "Senior Researcher, Speech Synthesis and Multimodal LLM"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Researcher",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "LLM",
-            "origin": "TITLE"
           },
           {
             "field": "seniority",
@@ -940,21 +277,21 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "09c342e229a45d299444fd9813c31d253cec3659a24e1eb067ece8ce2d92bd7b"
+      "content_fingerprint": "0536fe25effd70b821dc75ff71791dc4aac95fae9da19d3681ea1ed0387a2b01"
     },
     {
-      "id": "job:847b8e2f2859a9c9228f75e6",
-      "title": "AI Engineer",
-      "company": "Univers",
-      "url": "https://freehire.me/api/v1/go/ai-engineer-univers-n3ugv5pg?src=web",
+      "id": "job:fe91eff783925f6f2d84f9ec",
+      "title": "Senior Software Engineer, AI Gateway - Shanghai",
+      "company": "Kong",
+      "url": "https://freehire.me/api/v1/go/senior-software-engineer-ai-gateway-shanghai-kong-du3lvvcq?src=web",
       "locations": [
-        "Singapore, Singapore"
+        "Shanghai, China"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -962,160 +299,26 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "ABOUT UNIVERS Univers combines global operating scale, deep industrial intelligence, and recognition from the institutions shaping energy, technology, and sustainability. The platforms built for the last decade were designed to monitor. Univers was built to act — not just report Univers operates at global scale: 1,070 GW+ Energy assets under AI management 450M+ Connected sensors and devices 800+ Enterprise customers Leade",
+      "excerpt": "Help the world move AI. At Kong, we're building the connectivity layer that brings AI, APIs, and applications together. Our work helps organizations innovate faster, more securely, and more efficiently. We're looking for people who think boldly, lead with purpose, and want to make an impact. If you're ready to take on meaningful challenges, do work that matters, and help build what comes next for technology, we'd love to meet you. About the Role: As Kong advances into the Agentic Era, the AI Gateway team is developing the vital infra",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-engineer-univers-n3ugv5pg?src=web",
-          "event_seq": 70711,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/senior-software-engineer-ai-gateway-shanghai-kong-du3lvvcq?src=web",
+          "event_seq": 71213,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-27T08:19:08Z",
-          "location": "Singapore, Singapore",
-          "company": "Univers",
-          "title": "AI Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "17d8841907cd8fb684516aaa1f34f506d948a454528b845aa07d544f4447569e"
-    },
-    {
-      "id": "job:480bc956a8a5a755d79e7c1e",
-      "title": "AI& LLM Engineer (Agentic AI & ML)",
-      "company": "Reolink",
-      "url": "https://freehire.me/api/v1/go/artificial-intelligence-algorithms-specialist-master-phd-holder-reolink-ibzk25mj?src=web",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Reolink , a leader in intelligent visual technology for homes and businesses, was founded in 2009 by a group of engineers with a strong commitment to and passion for smarter security solutions. Our products are now trusted by millions of users across more than 110 countries and regions worldwide. Building on this trust, we continue expanding our presence and bringing our innovations to more markets around the globe. Reolink remains committed to delivering advanced, reliable, and user‑centric solutions that empower people to protect what matters most.",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/artificial-intelligence-algorithms-specialist-master-phd-holder-reolink-ibzk25mj?src=web",
-          "event_seq": 70710,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-27T09:28:57Z",
-          "location": "Singapore",
-          "company": "Reolink",
-          "title": "AI& LLM Engineer (Agentic AI & ML)"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "LLM",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "LLM",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "e8646f2c54a980a4bf2eb52247c68cdfe3fd5300d987543079d72a629efae6c7"
-    },
-    {
-      "id": "job:3c6d123a3dd85ab7b7c21f77",
-      "title": "Senior AI Engineer , Physics AI",
-      "company": "Firmus Technologies",
-      "url": "https://freehire.me/api/v1/go/senior-ai-engineer-physics-ai-firmus-technologies-lp2pyvc7?src=web",
-      "locations": [
-        "Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Firmus Technologies Firmus Technologies is a global leader pioneering the development and operation of efficient AI infrastructure across Asia Pacific. Founded in Australia in 2019, our mission is to create the most efficient AI infrastructure by combining cutting-edge technology with a steadfast commitment to sustainability. At Firmus, we are unique in our approach. We design, build, and operate a new class of digital infrastructure – the AI Factory. Through our model-to-grid technology approach, we have pushed the boundaries of multi-generational l",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-ai-engineer-physics-ai-firmus-technologies-lp2pyvc7?src=web",
-          "event_seq": 70706,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-12T01:37:42Z",
+          "posted_at": "2026-10-23T06:32:30Z",
           "employment_type": "full_time",
-          "location": "Singapore",
-          "company": "Firmus Technologies ",
-          "title": "Senior AI Engineer , Physics AI"
+          "location": "Shanghai, China",
+          "company": "Kong",
+          "title": "Senior Software Engineer, AI Gateway - Shanghai"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
         "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -1127,12 +330,12 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI Engineer",
+            "quote": "Software Engineer",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "AI Engineer",
+            "quote": "AI",
             "origin": "TITLE"
           },
           {
@@ -1147,21 +350,21 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "07f3f3563cc9d4cec7e9f7ce981c8b6745142375ce5b1cd046a0ee745909055d"
+      "content_fingerprint": "f726be7e6667cc055f03fb4da1695b7a1060c610c5d910216eab42c6dec31533"
     },
     {
-      "id": "job:ec8a356d1b9bb8cb7bfebd47",
-      "title": "Senior ML/AI Engineer - AWS, Databricks & MLOps (Public Sector)",
-      "company": "Xtremax Pte. Ltd.",
-      "url": "https://freehire.me/api/v1/go/senior-ml-ai-engineer-aws-databricks-mlops-public-sector-xtremax-pte-ltd-f6t4k5b7?src=web",
+      "id": "job:28c2624f0cde84617bb36997",
+      "title": "大前端开发工程师（Web / React Native / AI 全栈方向）",
+      "company": "Trip.com Group",
+      "url": "https://freehire.me/api/v1/go/da-qian-duan-kai-fa-gong-cheng-shi-web-react-native-ai-quan-zhan-fang-xiang-trip-com-group-dpjdhsua?src=web",
       "locations": [
-        "Singapore, Singapore, Singapore"
+        "Shenzhen"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -1169,27 +372,27 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "At Xtremax, we're looking for a Senior ML/AI Engineer to help build the engineering foundations that make machine learning and AI systems reliable in production. Working across AWS and Databricks, you'll help turn experiments and notebooks into maintainable services, reusable pipelines and operational AI capabilities. You'll work across the ML lifecycle, from data preparation and feature engineering through experiment tracking, deployment, monitoring, evaluation, retraining and retirement. Using technologies such as Python, PySpark, SQL, Databricks and MLflow, you'll improve the relia",
+      "excerpt": "职位描述 1. 负责大前端旅游应用（Web、APP、H5）的研发工作，保证多平台兼容性，优化用户体验。 2. 负责 iOS / Android 原生与 React Native 混合应用的研发工作，负责原生能力接入与桥接集成，保障多端兼容性与稳定性。 3. 参与 Node.js 服务端应用设计开发工作，能够制定合理有效的开发规范，提升质量和效率。 4. 参与前端技术体系建设，沉淀公共组件、工具和文档。 5. 参与 UBT 用户行为轨迹收集端的建设与维护，保障埋点数据的完整性与准确性。 6. 持续与产品、设计、后端沟通配合，挖掘痛点并制定最优技术解决方案，共同完成产研任务。 7. 持续提升项目的质量、性能与架构合理性，并落地相关优化工作。 8. 推动 AI 能力在业务研发中落地：使用 AI 模型与工具提升开发效率，参与 AI工具完成端到端的功能交付。 任职资格 1. 本科及以上，计算机软件相关专业，3年以上相关工作经验。 2. 熟练掌握前端开发技术，熟练运用 ES6/7，具备移动端开发经验。 3. 熟悉 Node.js 服务端开发技术及其生态系统。 4. 对 React 前端框架中有深入使用经验并了解其",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-ml-ai-engineer-aws-databricks-mlops-public-sector-xtremax-pte-ltd-f6t4k5b7?src=web",
-          "event_seq": 70703,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/da-qian-duan-kai-fa-gong-cheng-shi-web-react-native-ai-quan-zhan-fang-xiang-trip-com-group-dpjdhsua?src=web",
+          "event_seq": 71192,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-10-26T00:00:00Z",
-          "location": "Singapore, Singapore, Singapore",
-          "company": "Xtremax Pte. Ltd.",
-          "title": "Senior ML/AI Engineer - AWS, Databricks & MLOps (Public Sector)"
+          "posted_at": "2026-11-12T02:00:12Z",
+          "location": "Shenzhen",
+          "company": "Trip.com Group",
+          "title": "大前端开发工程师（Web / React Native / AI 全栈方向）"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
@@ -1199,18 +402,18 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI Engineer",
+            "quote": "前端",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "AI Engineer",
+            "quote": "AI",
             "origin": "TITLE"
           },
           {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "EXCERPT"
           }
         ],
         "source_file": "feed/candidates.json",
@@ -1219,21 +422,21 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "cd80025febd6481460cb61626c0088ebefbdcffe0daf297bad9576ee8177fe03"
+      "content_fingerprint": "6e3c6c4e13a7ba2ae434d05f8abf9ccceaa7623eff0d3de8efa17c43a2b3f732"
     },
     {
-      "id": "job:8492d018a56c53a7bc3310db",
-      "title": "Sr AI Engineer, SMAI",
-      "company": "Micron Technology",
-      "url": "https://freehire.me/api/v1/go/sr-ai-engineer-smai-micron-technology-7oge7wtk?src=web",
+      "id": "job:c70159c14590eb3a41cd42ff",
+      "title": "供应链产品技术部-经营决策算法专家-杭州",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/gong-ying-lian-chan-pin-ji-zhu-bu-jing-ying-jue-ce-suan-fa-zhuan-jia-hang-zhou-alibaba-group-wwaahsle?src=web",
       "locations": [
-        "Fab 10W, Singapore"
+        "Hangzhou"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
@@ -1241,220 +444,25 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Our vision is to transform how the world uses information to enrich life for all. Join an inclusive team passionate about one thing: using their expertise in the relentless pursuit of innovation for customers and partners. The solutions we build help make everything from virtual reality experiences to breakthroughs in neural networks possible. We do it all while committing to integrity, sustainability, and giving back to our communities. Because doing so can fuel the very innovation we are pursuing. We’re looking for candidates who are willing to lear",
+      "excerpt": "经营决策算法团队主要采用运筹优化、因果推断以及模型/算法自进化等前沿技术，围绕淘天自营/类自营业 目务的品类规划、价格决策、经营目标规划、投资预算分配与优化等核心业务场景，不断通过算法升级和运 营AI化，来持续提升经营目标的达成以及长期损益的优化。 岗位职责： 1. 商品经营决策：围绕商品的生命周期，进行品类规划、价格、以及渠道投资决策，提升商品的经营能力； 2. 构建分层的经营目标规划、预算分配的决策算法以及动态调控能力； 3.增量效应与因果推断：解决零售经营投资响应建模的问题，优化目标和预算的分配决策； 4. 供应链决策优化：构建智能补货、库存调拨、订单履约优化、物流成本优化等算法能力，支撑行业成本、效率、履约体验与损益等核心经营目标达成； 5. LLM-based Decision Making 与自进化优化（Self-Evolution Optimization）的算法能力与Agent建设，并应用到上述经营场景中。 1. 运筹优化、机器学习、人工智能、计算机科学、工业工程等相关专业硕士或以上学历； 2. 熟练掌握 Python，熟悉 PyTorch/TensorFlow 等深度学习框架，具备大规模分布式训练、推理优化与工程部署经验；熟悉 SQL、Spark/Hadoop/Flink 等大数据处理工具，能",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/sr-ai-engineer-smai-micron-technology-7oge7wtk?src=web",
-          "event_seq": 70701,
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/gong-ying-lian-chan-pin-ji-zhu-bu-jing-ying-jue-ce-suan-fa-zhuan-jia-hang-zhou-alibaba-group-wwaahsle?src=web",
+          "event_seq": 71191,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-10-26T00:00:00Z",
-          "location": "Fab 10W, Singapore",
-          "company": "Micron Technology",
-          "title": "Sr AI Engineer, SMAI"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "Sr",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "e0745050e5b1b1d12ff93158b6659b87672393f94859ab164f44bc7cbe0b917d"
-    },
-    {
-      "id": "job:9f52ad8b4075cb31fefbc99e",
-      "title": "Associate, AI Data Scientist (Singapore)",
-      "company": "Nomura",
-      "url": "https://freehire.me/api/v1/go/associate-ai-data-scientist-singapore-nomura-57rix2gr?src=web",
-      "locations": [
-        "Singapore, SG, 018983"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Company overview Nomura is a financial services group with an integrated global network. By connecting markets East & West, we service the needs of individuals, institutions, corporates and governments through our four business divisions: Wealth Management, Investment Management, Wholesale (Global Markets and Investment Banking) and Banking. Driven by the insights of some 28,000 people worldwide, we put our clients at the center of everything we do, delivering unparalleled access to, from and within",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/associate-ai-data-scientist-singapore-nomura-57rix2gr?src=web",
-          "event_seq": 70699,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-10-24T00:00:00Z",
-          "location": "Singapore, SG, 018983",
-          "company": "Nomura",
-          "title": "Associate, AI Data Scientist (Singapore)"
+          "posted_at": "2026-11-12T02:47:04Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "供应链产品技术部-经营决策算法专家-杭州"
         }
       ],
       "application_evidence": [],
       "role_tags": {
         "role_family": "UNKNOWN",
         "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "ef812a65d6b45d8a7acf829eff1e322474ecc91d09056d195dcd7ca39fc14bb5"
-    },
-    {
-      "id": "job:a0cbc982a5841a992b0d2036",
-      "title": "Data & Integration Engineer - GenAI",
-      "company": "D L RESOURCES PTE LTD",
-      "url": "https://freehire.me/api/v1/go/data-integration-engineer-genai-d-l-resources-pte-ltd-hahywcvp?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "About the Client: Our client is an established banking and financial services organization in Singapore, the role will be within their technology department . Responsibilities: We are looking for a Data & Integration Engineer who operates effectively at the intersection of system analysis, enterprise integration and data engineering to support GenAI initiatives . The successful candidate will: Understand business and functional requirements Translate them into data flows and integration designs Work acr",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/data-integration-engineer-genai-d-l-resources-pte-ltd-hahywcvp?src=web",
-          "event_seq": 70696,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-10-29T20:39:50Z",
-          "location": "Singapore, Singapore",
-          "company": "D L RESOURCES PTE LTD",
-          "title": "Data & Integration Engineer - GenAI"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "EXCERPT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "GenAI",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "GenAI",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/candidates.json",
-        "retained_jd_ref": null,
-        "source": "freehire",
-        "source_checked_at": "2026-11-28T01:40:41.791881Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "8c1c918b3030b8c544e5e3d6c0f376777120db32e872183a9b72aa38bd47b6f0"
-    },
-    {
-      "id": "job:e87f35ccce0f0974ac7241fa",
-      "title": "Senior Data & AI Engineer: Build Production AI & Pipelines",
-      "company": "Foodpanda",
-      "url": "https://freehire.me/api/v1/go/senior-data-ai-engineer-build-production-ai-pipelines-foodpanda-6hhctxed?src=web",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "AGGREGATOR_ID",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "foodpanda, part of the Delivery Hero Group, seeks a Senior Software Engineer (Data & AI) to design, build, and scale production AI applications across APAC and Europe. You will own end-to-end data pipelines, agentic workflows, and robust RAG systems, with focus on data quality and reliability. You will participate in on-call rotations and collaborate with analytics teams to deliver measurable value. You will work on an agentic analytics platform connecting AI agents with enterprise logic,",
-      "observations": [
-        {
-          "source": "freehire",
-          "source_file": "feed/candidates.json",
-          "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/senior-data-ai-engineer-build-production-ai-pipelines-foodpanda-6hhctxed?src=web",
-          "event_seq": 70693,
-          "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-10-31T12:40:37Z",
-          "location": "Singapore, Singapore",
-          "company": "Foodpanda",
-          "title": "Senior Data & AI Engineer: Build Production AI & Pipelines"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
         "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
@@ -1465,18 +473,8 @@
         "text_evidence_grade": "EXCERPT",
         "evidence": [
           {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
             "field": "seniority",
-            "quote": "Senior",
+            "quote": "专家",
             "origin": "TITLE_OR_METADATA"
           }
         ],
@@ -1486,18 +484,721 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "bc4cd8e1660953cd2133c853109913cab2060d1f65d44cc1bc6b3d99f60cca42"
+      "content_fingerprint": "8e6b0968bee07b5486522570ceb29a97b6218f3a84060490449d567c8871c53b"
     },
     {
-      "id": "job:eac70eebfc21e0e9f6827740",
-      "title": "Engineer AI/ML",
-      "company": "Empower",
-      "url": "https://freehire.me/api/v1/go/engineer-ai-ml-empower-vvtboz5r?src=web",
+      "id": "job:974612df2bd49be716287664",
+      "title": "Backend Developer (Python, Data & AI)",
+      "company": "Awisee",
+      "url": "https://freehire.me/api/v1/go/backend-developer-python-data-ai-awisee-z2222v3n?src=web",
       "locations": [
-        "KA Bangalore"
+        "Ho Chi Minh City, Viet Nam"
       ],
       "observed_markets": [
         "CN",
+        "MY"
+      ],
+      "location_markets": [],
+      "location_status": "UNRESOLVED",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "About AWISEE AWISEE is a fully remote international marketing agency working across Search, Social and AI Visibility for brands in technology, AI, fintech, gaming and consumer. Our team builds the internal products behind the agency: a creator data platform that scans more than 100,000 creator profiles a day, and the tools our influencer marketing team uses to match creators with brands and run campaigns. We are a small team that ships weekly and uses AI tools in everything we build. Team: AI Labs · Experience: 3–5 years · Type: Full-time · Work mode:",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/backend-developer-python-data-ai-awisee-z2222v3n?src=web",
+          "event_seq": 71185,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-12T00:00:00Z",
+          "employment_type": "full_time",
+          "location": "Ho Chi Minh City, Viet Nam",
+          "company": "Awisee",
+          "title": "Backend Developer (Python, Data & AI)"
+        },
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "MY",
+          "source_url": "https://freehire.me/api/v1/go/backend-developer-python-data-ai-awisee-z2222v3n?src=web",
+          "event_seq": 71185,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-12T00:00:00Z",
+          "employment_type": "full_time",
+          "location": "Ho Chi Minh City, Viet Nam",
+          "company": "Awisee",
+          "title": "Backend Developer (Python, Data & AI)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Backend",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "a1146a07bd2a31190b5b2f6317922710040a35f1e05ffb04c0ab60aeae9e179f"
+    },
+    {
+      "id": "job:c4018d9f49811098f86dcd6c",
+      "title": "千问办公-AI 全栈工程师-AI表格",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/qian-wen-ban-gong-ai-quan-zhan-gong-cheng-shi-aibiao-ge-alibaba-group-d4t55ffd?src=web",
+      "locations": [
+        "Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "1、负责千问办公 AI 表格核心产品的全栈研发，参与数据表格、多维视图与公式引擎等核心模块的设计与交付。 2、参与 AI 表格面向 Agent 的基础能力建设，将表格数据与操作封装为可被大模型调用的工具接口。 3、负责前后端技术方案设计与落地，建设高性能的数据渲染与实时协同链路。 4、参与 AI 表格开放能力建设，推动产品与生态伙伴的场景打通与集成落地。 5、独立承担中大型需求的分析、方案设计、开发与上线，对交付质量和效果负责。 1、本科及以上学历，计算机、软件工程或相关专业，3 年以上研发经验。 2、熟练掌握 TypeScript、JavaScript、HTML 和 CSS，具备复杂前端架构与性能优化经验。 3、具备扎实的软件工程能力，熟悉组件化、状态管理、模块化设计与服务端分层架构。 4、对电子表格、多维表格、低代码、数据分析或协同办公产品有深入理解与研发经验。 5、理解大模型应用和 AI Agent 的基本原理，熟悉 Prompt 工程与工具调用机制。 6、具备 AI Agent 工程化意识，能够处理模型输出不确定性并设计校验与兜底。 7、具备良好的产品意识和用户体验意识，能够从真实的使用场景出发打磨功能。 8、具备良好的沟通协作能力、责任心、抗压能力和结果导向意识。 9、加分项：有在线",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/qian-wen-ban-gong-ai-quan-zhan-gong-cheng-shi-aibiao-ge-alibaba-group-d4t55ffd?src=web",
+          "event_seq": 71172,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-15T16:00:00Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "千问办公-AI 全栈工程师-AI表格"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          3
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "全栈",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "3 年以上研发经验",
+            "origin": "EXCERPT"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "EXCERPT"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "c0c0ab95e8363805a0a2bf57fbb2e5f4d78d09cb19454a4966ca74fd16af0f33"
+    },
+    {
+      "id": "job:89caa572f333fb60248dc87e",
+      "title": "千问事业部-Omni全模态大模型算法专家-杭州/北京",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/qian-wen-shi-ye-bu-omniquan-mo-tai-da-mo-xing-suan-fa-zhuan-jia-hang-zhou-bei-jing-alibaba-group-3e56jz2h?src=web",
+      "locations": [
+        "Beijing; Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "全面负责定义、设计并实现下一代实时音视频通话 AI 应用的核心模型能力与交互体验，围绕 Omni 多模态模型在实时对话场景中的落地，重点攻坚模型后训练、数据构建与评测体系等关键问题，持续提升模型在聊天、问答、生活办事等场景下的自然度、智能性、趣味性与任务完成效果。您将直接参与塑造面向海量用户的实时 AI 通话体验，推动 AI 从“能回答”走向“更像真人、更懂用户、更会互动”的下一代产品形态。 【工作职责】 1. 结合实时音视频通话场景中的用户需求与交互特点，定义模型能力目标与体验标准，制定后训练与效果演进方案，持续优化响应速度、表达自然度、理解准确性与任务完成效果。 2. 围绕 Omni 多模态模型开展 Post-training 工作，包括 SFT、RL、数据配比优化、训练目标设计与策略迭代，提升模型在多轮对话、上下文理解、情绪感知、口语表达等方面的能力。 3. 构建实时 AI 通话场景的数据与评测体系，覆盖聊天、问答、生活服务等核心场景，建设监督数据、偏好数据、强化学习数据及线上回流样本，建立可量化的效果评估标准并驱动持续优化。 4. 面向真实产品链路中的复杂问题，优化模型在打断恢复、上下文衔接、模糊意图理解、口语化问答、多模态信息融合等场景下的表现，并与产品、工程、语音、评测等团队协同推动落地。 1. 计算机科学、人工智能、机器",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/qian-wen-shi-ye-bu-omniquan-mo-tai-da-mo-xing-suan-fa-zhuan-jia-hang-zhou-bei-jing-alibaba-group-3e56jz2h?src=web",
+          "event_seq": 71171,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-18T02:42:11Z",
+          "location": "Beijing; Hangzhou",
+          "company": "Alibaba Group",
+          "title": "千问事业部-Omni全模态大模型算法专家-杭州/北京"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "专家",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "a4be8f640f6ee3a1560455e7e000bb03a676a0f298b1b1928f9c9f8ca3fa56a6"
+    },
+    {
+      "id": "job:2f7c70755d9afb19809610d1",
+      "title": "阿里云智能-AI 服务端开发工程师-秒悟-杭州",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/a-li-yun-zhi-neng-ai-fu-wu-duan-kai-fa-gong-cheng-shi-miao-wu-hang-zhou-alibaba-group-w6enm66c?src=web",
+      "locations": [
+        "Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "1. 与跨职能团队（产品、设计、运维、基础设施）协作，使用 Node.js/Python/Java 构建高性能、可扩展的后端服务，支持核心 AI 产品功能 2. 设计、开发和优化 API（RESTful 和 gRPC），确保高效的前后端交互，实现 SSE 流式响应和实时通信能力 3. 参与系统架构设计，确保企业级规模下的稳定性、可靠性和可扩展性，处理大规模数据流并优化分布式系统性能 4. 编写清晰、可维护、文档完善的代码，遵循行业最佳实践，建立组件、功能或系统的深度端到端理解和主人翁意识 1. 计算机科学、软件工程或相关专业本科及以上学历，或同等实践经验 2. 5 年以上后端开发经验，精通 Node.js/Python/Java 中的至少一种语言，有实际项目经验 3. 深入理解微服务架构和服务编排工具（gRPC、Kubernetes），熟悉数据库设计、优化和管理（MySQL、PostgreSQL、Redis） 4. 有分布式系统、消息队列（Kafka、RabbitMQ）和缓存技术（Redis）的实战经验 5. 熟悉云平台（阿里云、AWS 等）和容器化技术，有 CI/CD 流程和基础设施即代码的实践经验 加分项 ● 有 AI、机器学习或 SaaS 产品的后端开发经验 ● 深度理解 AI 技术栈，熟悉 LLM",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/a-li-yun-zhi-neng-ai-fu-wu-duan-kai-fa-gong-cheng-shi-miao-wu-hang-zhou-alibaba-group-w6enm66c?src=web",
+          "event_seq": 71170,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-16T09:49:57Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "阿里云智能-AI 服务端开发工程师-秒悟-杭州"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "EXCERPT"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "9fdca92cce8b413964bc334bb012d9769f1b87fead762a447b698d2418d9b6bf"
+    },
+    {
+      "id": "job:828b8ae5610ef79926843d27",
+      "title": "供应链产品技术部-高级经营决策算法专家-急招",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/gong-ying-lian-chan-pin-ji-zhu-bu-gao-ji-jing-ying-jue-ce-suan-fa-zhuan-jia-ji-zhao-alibaba-group-l7hnniue?src=web",
+      "locations": [
+        "Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "经营决策算法团队主要采用运筹优化、因果推断以及模型/算法自进化等前沿技术，围绕淘天自营/类自营业务的品类规划、价格决策、经营目标规划、投资预算分配与优化等核心业务场景，不断通过算法升级和运 营AI化，来持续提升经营目标的达成以及长期损益的优化。 岗位职责： 1. 商品经营决策：围绕商品的生命周期，进行品类规划、价格、以及渠道投资决策，提升商品的经营能力； 2. 构建分层的经营目标规划、预算分配的决策算法以及动态调控能力； 3.增量效应与因果推断：解决零售经营投资响应建模的问题，优化目标和预算的分配决策； 4. 供应链决策优化：构建智能补货、库存调拨、订单履约优化、物流成本优化等算法能力，支撑行业成本、效率、履约体验与损益等核心经营目标达成； 5. LLM-based Decision Making 与自进化优化（Self-Evolution Optimization）的算法能力与Agent建设，并应用到上述经营场景中。 1. 运筹优化、机器学习、人工智能、计算机科学、工业工程等相关专业硕士或以上学历； 2. 熟练掌握 Python，熟悉 PyTorch/TensorFlow 等深度学习框架，具备大规模分布式训练、推理优化与工程部署经验；熟悉 SQL、Spark/Hadoop/Flink 等大数据处理工具，能高效",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/gong-ying-lian-chan-pin-ji-zhu-bu-gao-ji-jing-ying-jue-ce-suan-fa-zhuan-jia-ji-zhao-alibaba-group-l7hnniue?src=web",
+          "event_seq": 71169,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-12T06:18:06Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "供应链产品技术部-高级经营决策算法专家-急招"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "高级",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "ae5c22826f4f746e90815d10719b5bd05b2866585cb0f7a1dc5f9ef6931f0c81"
+    },
+    {
+      "id": "job:48bcc08f1ef04c29636289b0",
+      "title": "千问办公-AI 全栈研发工程师-Teambition",
+      "company": "Alibaba Group",
+      "url": "https://freehire.me/api/v1/go/qian-wen-ban-gong-ai-quan-zhan-yan-fa-gong-cheng-shi-teambition-alibaba-group-yqh2ptbs?src=web",
+      "locations": [
+        "Hangzhou"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "1、主导千问办公-钉钉项目 Teambition 的全栈研发与迭代，覆盖 Web 与桌面端核心功能交付，保障项目协作产品的体验与稳定性。 2、探索 AI 大模型在项目管理和团队协作领域的落地场景，将模型能力转化为可用的产品功能，提升协作效率。 3、负责设计和优化产品内部 Agent 系统架构，沉淀可复用的工具调用与上下文管理能力，支撑上层 AI 功能持续演进。 1、计算机相关专业本科及以上学历，2 年以上研发经验，具备完整的功能交付经验。 2、具备全栈交付能力，熟悉 JavaScript / TypeScript、React 等前端技术栈与服务端开发框架。 3、有大模型应用开发经验，熟悉常见 Agent 框架，能够独立完成从需求到上线的闭环交付。 4、熟悉服务端数据与中间件，掌握 MySQL / PostgreSQL、Redis、消息队列等常用组件。 5、具备产品意识和业务洞察力，能判断技术投入对应的业务价值并合理排期。",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/qian-wen-ban-gong-ai-quan-zhan-yan-fa-gong-cheng-shi-teambition-alibaba-group-yqh2ptbs?src=web",
+          "event_seq": 71168,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-15T16:00:00Z",
+          "location": "Hangzhou",
+          "company": "Alibaba Group",
+          "title": "千问办公-AI 全栈研发工程师-Teambition"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          2
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "全栈",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "2 年以上研发经验",
+            "origin": "EXCERPT"
+          },
+          {
+            "field": "degree",
+            "quote": "本科及以上",
+            "origin": "EXCERPT"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "cbdbd714f098dd2e637ba9e0ff59baaa570a6f579d5426bf8065d16a1eb2e136"
+    },
+    {
+      "id": "job:89d51f4b2e01dfb2f10b0f2c",
+      "title": "具身大模型算法工程师",
+      "company": "它石智航",
+      "url": "https://freehire.me/api/v1/go/ju-shen-da-mo-xing-suan-fa-gong-cheng-shi-ta-shi-zhi-hang-ycmtlvb5?src=web",
+      "locations": [
+        "Shanghai"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "1. 架构设计与算法研发: 核心参与机器人基础模型（如 VLM - 视觉语言模型, VLA - 视觉语言-动作模型）的架构设计，探索和实现最前沿的算法。 2. 多模态融合: 研发能够有效融合多种传感器输入（如视觉、语言指令、触觉、力反馈、本体感知）的模型，使其能够深刻理解物理世界和复杂任务。 3. 大规模预训练: 负责设计和执行大规模、多源数据（互联网数据、模拟数据、真实机器人数据）的预训练策略，构建高效、可扩展的训练流程。 4. 泛化与迁移: 专注于解决模型的泛化能力问题，包括但不限于 \"Sim-to-Real\"（模拟到现实）的迁移、\"One-shot/Few-shot\"（单样本/少样本）任务学习以及对新环境和新物体的快速适应。 5. 世界模型 (World Models): 探索和构建能够预测物理世界动态的“世界模型”，将其作为机器人规划和决策的核心组件。 6. 算法部署与迭代: 与机器人硬件和软件平台团队紧密合作，将模型部署到真实机器人（如机械臂、人形机器人、移动平台）上，并通过真实世界反馈进行快速迭代和调优。 7. 前沿追踪与创新: 持续跟踪机器人学习、CV、NLP 和强化学习领域的最新进展（如 Transformer、Diffusion Models、Imitation Learning 在机器人上的应用），并将其快速应用到研发中",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/ju-shen-da-mo-xing-suan-fa-gong-cheng-shi-ta-shi-zhi-hang-ycmtlvb5?src=web",
+          "event_seq": 71159,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-03-11T08:22:44Z",
+          "location": "Shanghai",
+          "company": "它石智航",
+          "title": "具身大模型算法工程师"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "大模型",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "265887c404d2d6da0f7c70de19763ad43015589859e5d058e61ece3c3e8c2b44"
+    },
+    {
+      "id": "job:97eb48130f94240672e686f1",
+      "title": "Agent广告算法工程师",
+      "company": "Meituan",
+      "url": "https://freehire.me/api/v1/go/yan-gao-suan-fa-gao-ji-gong-cheng-shi-meituan-gki5qsk6?src=web",
+      "locations": [
+        "Beijing"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "1.参与建设信息流广告投放Agent，研究Agent 与广告决策系统的结合：自动盯盘调控、异常感知归因、预算与出价的自动决策、策略自学习、记忆与经验沉淀（投放知识库）等核心能力； 2.研究生成式模型在出价决策中的应用，包括基于 Diffusion / Transformer 的出价策略生成，探索从端到端生成式出价的技术路线； 3.参与美团营销广告投放算法建设，负责 RTB 场景下 CTR / CVR / LTV 等深度预估模型的迭代，包括多任务学习、序列建模、跨场景迁移等； 4.设计和优化自动出价策略，研究预算约束下的多目标竞价问题（MCB / USCB 等），在保证成本达成的前提下最大化转化价值； 5.负责成本控制、预算平滑（Pacing）、冷启动等投放全链路的算法策略，解决流量波动、竞争环境变化下的稳定性问题； 1.有 LLM / AI Agent 工程落地经验，有AutoResearch应用实践经验，熟悉 Agent 框架（ReAct / Plan-and-Execute / Multi-Agent）、工具调用与评测体系； 2.数学、统计学、运筹学、计算机、人工智能等相关专业硕士及以上学历，4年及以上计算广告 / 推荐 / 搜索算法经验； 3.扎实的机器学习与深度学习基础，熟悉 Tens",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "CN",
+          "source_url": "https://freehire.me/api/v1/go/yan-gao-suan-fa-gao-ji-gong-cheng-shi-meituan-gki5qsk6?src=web",
+          "event_seq": 71115,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-27T09:15:13Z",
+          "location": "Beijing",
+          "company": "Meituan",
+          "title": "Agent广告算法工程师"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "degree",
+            "quote": "硕士及以上",
+            "origin": "EXCERPT"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "008afd67db1fb112209deaf9a3eae58c32b45eb6aa72d1abc4ac8c11371fcb2e"
+    },
+    {
+      "id": "job:c40873f6900e639a70c9cfda",
+      "title": "Senior Cloud & AI Platform Engineer (Azure, AKS, DevOps)",
+      "company": "Razer Inc.",
+      "url": "https://freehire.me/api/v1/go/senior-cloud-ai-platform-engineer-azure-aks-devops-razer-asia-pacific-pte-ltd-4h2dl2su?src=web",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Razer (Asia-Pacific) Pte. Ltd is seeking a Senior Platform Engineer in Singapore to design, build and run scalable cloud and container platforms. The role emphasizes Azure-based infrastructure, AKS Kubernetes for enterprise apps and AI workloads, and strong emphasis on automation, security and reliability. You will lead modernization initiatives, contribute to AI platform engineering, and collaborate across global teams in a fast-paced, multi-site environment.",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/senior-cloud-ai-platform-engineer-azure-aks-devops-razer-asia-pacific-pte-ltd-4h2dl2su?src=web",
+          "event_seq": 71106,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-10-25T12:40:37Z",
+          "location": "Singapore, Singapore",
+          "company": "Razer Inc.",
+          "title": "Senior Cloud & AI Platform Engineer (Azure, AKS, DevOps)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "DevOps",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "79579e2d6a8e525cc49b243d7bcaa04c4f90b1f35619cce26c9420ffe109bdb2"
+    },
+    {
+      "id": "job:341df1ff9e7b7de8d4cce141",
+      "title": "Cloud & DevOps Engineer - AI-Ready Infra & Data Center Ops",
+      "company": "RED ALPHA CYBERSECURITY PTE. LTD.",
+      "url": "https://freehire.me/api/v1/go/cloud-devops-engineer-ai-ready-infra-data-center-ops-red-alpha-cybersecurity-pte-ltd-lrygo2gt?src=web",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "RED ALPHA CYBERSECURITY PTE. LTD. in Singapore seeks a skilled technologist to join our Cloud & Data Centre Solutions team. The role focuses on planning, executing and supporting project technical aspects, including new setup or upgrades of system and network infrastructure, and ensuring service levels are met. Candidates should have hands-on experience with Windows and Linux in virtual environments, virtualization/hypervisors, and familiarity with AI/ML workloads in cloud.",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/cloud-devops-engineer-ai-ready-infra-data-center-ops-red-alpha-cybersecurity-pte-ltd-lrygo2gt?src=web",
+          "event_seq": 71100,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-10-15T11:19:43Z",
+          "location": "Singapore, Singapore",
+          "company": "RED ALPHA CYBERSECURITY PTE. LTD.",
+          "title": "Cloud & DevOps Engineer - AI-Ready Infra & Data Center Ops"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "DevOps",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "6912e7cc446d9851d83b8c69e7b537b6ca4c2ff664a95b13b72f48285d3c4900"
+    },
+    {
+      "id": "job:a2f87b466c2086975f2fe468",
+      "title": "AI Security Engineer",
+      "company": "Bjak",
+      "url": "https://freehire.me/api/v1/go/ai-security-engineer-bjakcareer-3bfbsdh2?src=web",
+      "locations": [
+        "Global"
+      ],
+      "observed_markets": [
+        "CN",
+        "MY",
         "SG"
       ],
       "location_markets": [],
@@ -1507,33 +1208,46 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Our vision for the future is based on the idea that transforming financial lives starts by giving our people the freedom to transform their own. We have a flexible work environment, and fluid career paths. We not only encourage but celebrate internal mobility. We also recognize the importance of purpose, well-being, and work-life balance. Within Empower and our communities, we work hard to create a welcoming and inclusive environment, and our associates dedicate thousands of hours to volunteering for causes that matter most to them. Chart your own path and grow your career while helpi",
+      "excerpt": "About BJAK The original mission of BJAK is we believe people deserve smarter ways to plan, save and grow their money. This is the origin of our name. Started in 2019, we built the first mobile-first, insurance platform, enabling insurance to be accessible online by millions in the region. Today, its the leading insurance platform in Southeast Asia. Today, we are expanding ways to help people in the region — this includes spending, saving, investing, exchanging, travelling, and more. Our mission is help people get more from their money every day. We",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
           "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/engineer-ai-ml-empower-vvtboz5r?src=web",
-          "event_seq": 70692,
+          "source_url": "https://freehire.me/api/v1/go/ai-security-engineer-bjakcareer-3bfbsdh2?src=web",
+          "event_seq": 71084,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-02T00:00:00Z",
+          "posted_at": "2026-11-23T06:09:49Z",
           "employment_type": "full_time",
-          "location": "KA Bangalore",
-          "company": "Empower",
-          "title": "Engineer AI/ML"
+          "location": "Global",
+          "company": "Bjak",
+          "title": "AI Security Engineer"
         },
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
           "market": "CN",
-          "source_url": "https://freehire.me/api/v1/go/engineer-ai-ml-empower-vvtboz5r?src=web",
-          "event_seq": 70692,
+          "source_url": "https://freehire.me/api/v1/go/ai-security-engineer-bjakcareer-3bfbsdh2?src=web",
+          "event_seq": 71084,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-02T00:00:00Z",
+          "posted_at": "2026-11-23T06:09:49Z",
           "employment_type": "full_time",
-          "location": "KA Bangalore",
-          "company": "Empower",
-          "title": "Engineer AI/ML"
+          "location": "Global",
+          "company": "Bjak",
+          "title": "AI Security Engineer"
+        },
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "MY",
+          "source_url": "https://freehire.me/api/v1/go/ai-security-engineer-bjakcareer-3bfbsdh2?src=web",
+          "event_seq": 71084,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-23T06:09:49Z",
+          "employment_type": "full_time",
+          "location": "Global",
+          "company": "Bjak",
+          "title": "AI Security Engineer"
         }
       ],
       "application_evidence": [],
@@ -1555,13 +1269,205 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "d5203e0463222b1fdb7a7dc2895ecc65e6ace328806fa1654eaed3bced54ef14"
+      "content_fingerprint": "e24448140c24f4c6637457efdc7d8cd991f8a65b36cc7209a53e177aa9a65e3d"
     },
     {
-      "id": "job:8dea77139ab6e4beff50abfc",
-      "title": "AI ENGINEER",
-      "company": "Go-Genie",
-      "url": "https://freehire.me/api/v1/go/ai-engineer-go-genie-eogxrkn4?src=web",
+      "id": "job:5bb4c5cf11d4685e568e4620",
+      "title": "Senior AI Infrastructure Engineer, Observability",
+      "company": "Firmus Technologies",
+      "url": "https://freehire.me/api/v1/go/senior-ai-infrastructure-engineer-observability-firmus-technologies-lmckds3b?src=web",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Firmus Technologies Firmus Technologies is a global leader pioneering the development and operation of efficient AI infrastructure across Asia Pacific. Founded in Australia in 2019, our mission is to create the most efficient AI infrastructure by combining cutting-edge technology with a steadfast commitment to sustainability. At Firmus, we are uni",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/senior-ai-infrastructure-engineer-observability-firmus-technologies-lmckds3b?src=web",
+          "event_seq": 71067,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-12T01:37:42Z",
+          "employment_type": "full_time",
+          "location": "Singapore",
+          "company": "Firmus Technologies ",
+          "title": "Senior AI Infrastructure Engineer, Observability "
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f90a3d2a3368e7971757609292d3fb167cd0694741076869291b6b02457efd41"
+    },
+    {
+      "id": "job:3b457e144813b271e661f482",
+      "title": "Senior Cloud & AI Platform Engineer (Azure, AKS, DevOps)",
+      "company": "Razer (Asia-Pacific) Pte. Ltd",
+      "url": "https://freehire.me/api/v1/go/senior-cloud-ai-platform-engineer-azure-aks-devops-razer-asia-pacific-pte-ltd-4q362qbi?src=web",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Razer (Asia-Pacific) Pte. Ltd is seeking a Senior Platform Engineer in Singapore to design, build and run scalable cloud and container platforms. The role emphasizes Azure-based infrastructure, AKS Kubernetes for enterprise apps and AI workloads, and strong emphasis on automation, security and reliability. You will lead modernization initiatives, contribute to AI platform engineering, and collaborate across global teams in a fast-paced, multi-site environment.",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/senior-cloud-ai-platform-engineer-azure-aks-devops-razer-asia-pacific-pte-ltd-4q362qbi?src=web",
+          "event_seq": 71047,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-03T14:41:05Z",
+          "location": "Singapore, Singapore",
+          "company": "Razer (Asia-Pacific) Pte. Ltd",
+          "title": "Senior Cloud & AI Platform Engineer (Azure, AKS, DevOps)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "DevOps",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "77995b3d71b5739a963e203da1c056fdd20e3be84cede8590063121bea230615"
+    },
+    {
+      "id": "job:7b1c948f780901e6e121461a",
+      "title": "Site Reliability Engineer - AI Infrastructure",
+      "company": "Firmus Technologies",
+      "url": "https://freehire.me/api/v1/go/site-reliability-engineer-ai-infrastructure-firmus-technologies-fqc3wr3h?src=web",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Firmus Technologies Firmus Technologies is a global leader pioneering the development and operation of efficient AI infrastructure across Asia Pacific. Founded in Australia in 2019, our mission is to create the most efficient AI infrastructure by combining cutting-edge technology with a steadfast commitment to sustainability. At Firmus, we are uni",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/site-reliability-engineer-ai-infrastructure-firmus-technologies-fqc3wr3h?src=web",
+          "event_seq": 71021,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-12T01:37:42Z",
+          "employment_type": "full_time",
+          "location": "Singapore",
+          "company": "Firmus Technologies ",
+          "title": "Site Reliability Engineer - AI Infrastructure "
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e8a8c5d64abd848d762797b9fb8617e322eea48f21ed2d1ea3e2f9bfedc439dc"
+    },
+    {
+      "id": "job:733c53ec1c3a47359e058168",
+      "title": "Senior Privacy Security Engineer (AI Red Teaming) - PDPO (Singapore)",
+      "company": "TikTok",
+      "url": "https://freehire.me/api/v1/go/senior-privacy-security-engineer-ai-red-teaming-pdpo-singapore-tiktok-qpz2frlv?src=web",
       "locations": [
         "Central Region"
       ],
@@ -1575,27 +1481,27 @@
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "Department: Technology / Product Reporting To: Chief Technology Officer (CTO)/Chief Operations Officer (COO) Employment Type: Full-Time Role Overview GO-GENIE is seeking an AI Engineer to design, develop and implement AI-driven solutions across our in-house logistics and operational platforms. The role focuses on building practical, scalable and reliable AI applications that enhance operational efficiency, automate workflows and support data-driven decision-making. The successful candidate",
+      "excerpt": "The Privacy and Data Protection Office (PDPO) leads, supervises, and empowers TikTok’s global privacy efforts, ensuring that privacy is protected across our products, platforms, and technologies in an accountable and industry-leading manner. As experts in privacy risk assessment and mitigation, we work closely with engineering, product, and cross-functional teams to integrate effective privacy safeguards and technical controls throughout the product and system lifecycle. As Large Language Models (LLMs) and AI Agents continue to evolve, we explore emerging privacy and security challen",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
           "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-engineer-go-genie-eogxrkn4?src=web",
-          "event_seq": 70687,
+          "source_url": "https://freehire.me/api/v1/go/senior-privacy-security-engineer-ai-red-teaming-pdpo-singapore-tiktok-qpz2frlv?src=web",
+          "event_seq": 71002,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-03T09:34:10Z",
+          "posted_at": "2026-11-10T04:36:22Z",
           "employment_type": "full_time",
           "location": "Central Region",
-          "company": "Go-Genie",
-          "title": "AI ENGINEER"
+          "company": "TikTok",
+          "title": "Senior Privacy Security Engineer (AI Red Teaming) - PDPO (Singapore)"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
@@ -1605,14 +1511,9 @@
         "text_evidence_grade": "EXCERPT",
         "evidence": [
           {
-            "field": "role_family",
-            "quote": "AI ENGINEER",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI ENGINEER",
-            "origin": "TITLE"
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/candidates.json",
@@ -1621,47 +1522,160 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "29a87fd6e296496a6845535a04719c6c3f56bb03397424158c7cd64d71da7715"
+      "content_fingerprint": "6cad9e34fb5b84faae0ee7aae41bf14b164cb435cc03c07bd0ac646215380403"
     },
     {
-      "id": "job:2878db11ee897e9c583f3ffe",
-      "title": "AI Engineer",
-      "company": "Fullerton Healthcare Group",
-      "url": "https://freehire.me/api/v1/go/ai-engineer-fullerton-healthcare-group-mful5vlk?src=web",
+      "id": "job:741e16811d87237eefbdfdaf",
+      "title": "Network Engineer | NOC | Data Centre | AI Infrastructure",
+      "company": "RANDSTAD PTE. LIMITED",
+      "url": "https://freehire.me/api/v1/go/network-engineer-noc-data-centre-ai-infrastructure-randstad-pte-limited-vw4fnovh?src=web",
       "locations": [
-        "Central Region"
+        "Cross Street, Singapore"
       ],
       "observed_markets": [
         "SG"
       ],
-      "location_markets": [],
-      "location_status": "UNRESOLVED",
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
       "identity_quality": "AGGREGATOR_ID",
       "fresh_full_jd": false,
       "jd_ref": null,
       "jd_checked_at": null,
-      "excerpt": "About Fullert Health Group and Fullerton Health Technology (FHT) Fullerton Health Group is a leading integrated healthcare provider across Asia-Pacific, operating an extensive network of clinics, medical centers, and healthcare services across multiple markets. Fullerton Health Technology (FHT) serves as the Group’s technology and innovation arm, spearheading enterprise AI transformation, data platform modernization, and intelligent healthcare automation initiatives across the region. Our mission is to re-architect healthcare operations through AI — spanning intellig",
+      "excerpt": "Grow together with a fast growing company Exposure to latest technology such as AI computing and GPU About the company An established technology enterprise investing heavily in next-generation high performance computing ecosystems and resilient cloud infrastructure. Grow together with a strong financial backed company that focuses in scaling advanced AI and hyperscale infrastructure solutions. About the job Your role involves: Deploy, configure, and",
       "observations": [
         {
           "source": "freehire",
           "source_file": "feed/candidates.json",
           "market": "SG",
-          "source_url": "https://freehire.me/api/v1/go/ai-engineer-fullerton-healthcare-group-mful5vlk?src=web",
-          "event_seq": 70686,
+          "source_url": "https://freehire.me/api/v1/go/network-engineer-noc-data-centre-ai-infrastructure-randstad-pte-limited-vw4fnovh?src=web",
+          "event_seq": 70921,
           "observed_at": "2026-11-28T01:40:41.791881Z",
-          "posted_at": "2026-11-05T07:31:39Z",
-          "employment_type": "full_time",
-          "location": "Central Region",
-          "company": "Fullerton Healthcare Group",
-          "title": "AI Engineer"
+          "posted_at": "2026-11-17T00:27:52Z",
+          "location": "Cross Street, Singapore",
+          "company": "RANDSTAD PTE. LIMITED",
+          "title": "Network Engineer | NOC | Data Centre | AI Infrastructure"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
         "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "0dc3b3b74062c8421eac880ace8338c6c5c3ecb98dca8bf40570452d1bf29804"
+    },
+    {
+      "id": "job:a7340b1c1e1502d3d531f9b0",
+      "title": "Activation Solutions Engineer for AI Data Cloud",
+      "company": "Snowflake",
+      "url": "https://freehire.me/api/v1/go/activation-solutions-engineer-for-ai-data-cloud-snowflake-glhbgov3?src=web",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Snowflake is seeking an Activation Solution Engineer in Singapore to accelerate customer time-to-value and platform adoption. You will act as a full-stack technical resource bridging engineering depth with strategic business acumen. You’ll drive initial utilization, enable customers with AI-powered tools, and support rapid implementation of Use Cases. You will collaborate with account teams, lead technical guidance, and help scale programs like Hands-on Labs and webinars while shaping the",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/activation-solutions-engineer-for-ai-data-cloud-snowflake-glhbgov3?src=web",
+          "event_seq": 70920,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-17T00:27:53Z",
+          "location": "Singapore, Singapore",
+          "company": "Snowflake",
+          "title": "Activation Solutions Engineer for AI Data Cloud"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "EXCERPT",
+        "evidence": [],
+        "source_file": "feed/candidates.json",
+        "retained_jd_ref": null,
+        "source": "freehire",
+        "source_checked_at": "2026-11-28T01:40:41.791881Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "5a12c1bcc08b3134d99c758b6ad7f7ddc0d75fb7f21c688cda7420479a267c5e"
+    },
+    {
+      "id": "job:a0f97a71e3763bbf4e71ecb7",
+      "title": "Senior DevOps Engineer for AI-Powered Production",
+      "company": "Rakuten Inc.",
+      "url": "https://freehire.me/api/v1/go/senior-devops-engineer-for-ai-powered-production-rakuten-asia-pte-ltd-dss2frau?src=web",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "AGGREGATOR_ID",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Rakuten Asia Pte Ltd, based in Singapore, is seeking a DevOps/SRE to own reliability, releases, observability and cost for our production services. You will run multi-cluster Kubernetes workloads, including LLM-powered apps, and build automation with modern tooling to keep services fast, secure and stable under peak traffic. Collaborate with engineering, product and platform teams to drive automation, incident response, capacity planning and FinOps, shaping scalable infrastructure for Rakuten’s",
+      "observations": [
+        {
+          "source": "freehire",
+          "source_file": "feed/candidates.json",
+          "market": "SG",
+          "source_url": "https://freehire.me/api/v1/go/senior-devops-engineer-for-ai-powered-production-rakuten-asia-pte-ltd-dss2frau?src=web",
+          "event_seq": 70895,
+          "observed_at": "2026-11-28T01:40:41.791881Z",
+          "posted_at": "2026-11-18T18:29:07Z",
+          "location": "Singapore, Singapore",
+          "company": "Rakuten Inc.",
+          "title": "Senior DevOps Engineer for AI-Powered Production"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
@@ -1672,13 +1686,18 @@
         "evidence": [
           {
             "field": "role_family",
-            "quote": "AI Engineer",
+            "quote": "DevOps",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "AI Engineer",
+            "quote": "AI",
             "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/candidates.json",
@@ -1687,7 +1706,7 @@
         "source_checked_at": "2026-11-28T01:40:41.791881Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "5f6054cf5caee6f90c4496897e107eee4869429c9ff2e8296d1e503031dd2df4"
+      "content_fingerprint": "1a4a310b571fcc3f1d500121965fa09f278bd8c81cf8c35526d983a9de95f804"
     }
   ]
 }
