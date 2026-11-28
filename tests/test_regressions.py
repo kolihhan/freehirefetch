@@ -17,12 +17,15 @@ class FreeHireRegressionTests(unittest.TestCase):
         cn = dict(sg, market="CN")
         self.assertEqual(mod.content_fingerprint(sg), mod.content_fingerprint(cn))
 
-    def test_unchanged_job_does_not_refresh_seen_timestamp(self):
+    def test_recent_observation_survives_later_incomplete_full_scan(self):
         job = {"public_slug": "abc", "title": "AI Engineer", "company": "Acme"}
         seen = {"abc": {"fingerprint": mod.content_fingerprint(job), "last_seen": "2026-09-01T00:00:00Z"}}
         events, next_seen = mod.classify_events([job], seen, "2026-10-09T00:00:00Z", bootstrap=False)
         self.assertEqual(events, [])
-        self.assertEqual(next_seen["abc"]["last_seen"], "2026-09-01T00:00:00Z")
+        kept, _ = mod.apply_retention(next_seen, [], datetime(2026, 10, 10, tzinfo=timezone.utc), set())
+        self.assertIn("abc", kept)
+        events, _ = mod.classify_events([job], kept, "2026-10-11T00:00:00Z", bootstrap=False)
+        self.assertEqual(events, [])
 
     def test_event_does_not_embed_full_raw_job(self):
         job = {"public_slug": "abc", "title": "AI Engineer", "company": "Acme", "description": "x" * 10000, "url": "https://jobs.example/abc"}

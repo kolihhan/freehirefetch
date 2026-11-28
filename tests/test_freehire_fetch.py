@@ -117,6 +117,8 @@ class FreeHireWorkerTests(unittest.TestCase):
         events, next_seen = mod.classify_events([job], seen, "2026-10-09T00:00:00Z", bootstrap=False)
         self.assertEqual(events, [])
         self.assertEqual(next_seen["abc"]["fingerprint"], seen["abc"]["fingerprint"])
+        self.assertEqual(next_seen["abc"]["last_seen"], "2026-10-09T00:00:00Z")
+        self.assertEqual(seen["abc"]["last_seen"], "2026-10-08T00:00:00Z")
 
     def test_same_identity_changed_fingerprint_emits_changed(self):
         old = {"public_slug": "abc", "title": "AI Engineer", "company_name": "Acme", "location": "Singapore"}
