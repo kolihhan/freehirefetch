@@ -216,6 +216,29 @@ class JDProducerTests(unittest.TestCase):
         self.assertEqual(report["attempted"],1)
         self.assertEqual(report["failures"][0]["job_id"],TENCENT["post_id"])
 
+    def test_detail_failures_distinguish_identity_missing_sections_and_transport(self):
+        data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
+        valid = {"ok": True, **TENCENT, "description": "Agent engineering. " * 20,
+                 "requirements": "Python and model development. " * 20}
+        def timeout(*args):
+            raise TimeoutError("network timed out")
+        for fetch, expected in (
+            (lambda *args: {"ok": False}, "UPSTREAM_UNAVAILABLE"),
+            (lambda *args: dict(valid, post_id="wrong"), "JOB_ID_MISMATCH"),
+            (lambda *args: dict(valid, title="Other role"), "TITLE_MISMATCH"),
+            (lambda *args: dict(valid, apply_url="https://example.com"), "OFFICIAL_URL_MISMATCH"),
+            (lambda *args: dict(valid, requirements=""), "MISSING_JD_SECTION"),
+            (lambda *args: dict(valid, requirements="short"), "JD_SECTION_LENGTH"),
+            (timeout, "DETAIL_TIMEOUT"),
+        ):
+            with self.subTest(expected=expected):
+                report = jd.hydrate(data, detail_fetch=fetch, limit=1)
+                self.assertEqual(report["jobs"], [])
+                self.assertEqual(report["failures"][0]["reason"], expected)
+                self.assertEqual(report["failure_reasons"], {expected: 1})
+                record = next(iter(report["state"]["records"].values()))
+                self.assertEqual(record["failure_reason"], expected)
+
     def test_run_fail_closed_and_finite_failure_reports(self):
         data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
         def bad(*args, **kwargs):
