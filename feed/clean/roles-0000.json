@@ -79,6 +79,7 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -103,11 +104,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "ab9ac571c57481996e9a23dbf461f4bc157c41a5e4a951ef13cbf0c0fe21659b"
+      "content_fingerprint": "d451b966cb4c8dc64d91d3515df36860435af5d261603e2614f99624f6ad0e65"
     },
     {
       "id": "job:f364ab949b32be6ef476b7f8",
@@ -187,6 +189,7 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -216,11 +219,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "9d853848e049fc0b89adae946b74e0e6893af4dce700dff5e140a49dbfe3d7db"
+      "content_fingerprint": "0d7360f5442eca6642264b106b1d0c95d05691f6b1d0f2f2f4eefdd22920cc03"
     },
     {
       "id": "job:efef0ffe2ef706d22910db23",
@@ -301,6 +305,7 @@
         "experience_min_mentions": [],
         "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": true,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -312,14 +317,20 @@
             "field": "ai_depth",
             "quote": "BUILD - Build AI agents",
             "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "work_location_or_authorization_restriction",
+            "quote": "must be based in China",
+            "origin": "FIRST_PARTY_FULL"
           }
         ],
         "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "06b045516b2fe71c8da703e8724a2fc3bd3eb2beb02d50d661778442fb5e25a8"
+      "content_fingerprint": "7738a4d62e40e9ac1f4cecf6c138be1796f4486e7fc65cded747f7614b0467b1"
     },
     {
       "id": "job:e84389dc2a7c7527b7a29f46",
@@ -353,7 +364,8 @@
           "market": "CN",
           "url": "https://jobs.bytedance.com/campus/position/7628618262641117445/detail",
           "job_id": "7628618262641117445",
-          "source_run_status": "PARTIAL_OR_UNKNOWN",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "recruit_label": "正式",
           "apply_url": "https://jobs.bytedance.com/campus/position/7628618262641117445/detail",
@@ -389,7 +401,7 @@
         }
       ],
       "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
@@ -397,8 +409,14 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "优化大模型",
+            "origin": "FIRST_PARTY_FULL"
+          },
           {
             "field": "ai_depth",
             "quote": "优化大模型",
@@ -411,11 +429,12 @@
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
         "source_checked_at": "2026-11-27T13:41:43.976186Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "847d8a7f7041c124eb172998a38074ea05b2731b4f409978905218171e38e4ac"
+      "content_fingerprint": "654d98b30eb610c421da1b5e9deaa9421bd6af939a97be90aefe9b9b53a5012e"
     },
     {
       "id": "job:e65fb13d17b12d42a5fdeb2d",
@@ -504,6 +523,7 @@
         "experience_min_mentions": [],
         "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -518,11 +538,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "121cf3a58699789c0625ce8b10bd4ca85cabf0358035e7ba35a49a06e7139927"
+      "content_fingerprint": "60832037d1206807766d543d86a4f4e188c2007af1a33e405b898d77676ab5a7"
     },
     {
       "id": "job:e4bbaf6afac0c820e20e3970",
@@ -556,6 +577,7 @@
           "market": "CN",
           "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7392439184869312809/detail",
           "job_id": "7392439184869312809",
+          "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "listing_only",
           "recruit_label": "全职",
@@ -583,7 +605,7 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "UNKNOWN",
         "degree": "BACHELOR_MIN_SIGNAL",
@@ -593,8 +615,14 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "训练、大模型",
+            "origin": "FIRST_PARTY_FULL"
+          },
           {
             "field": "ai_depth",
             "quote": "训练、大模型",
@@ -612,11 +640,12 @@
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
         "source_checked_at": "2026-11-27T23:59:00.520087Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "77ffd7af7cecfd5d52b1bf65c767911cba847e3c30923b580823bf61fe0171d0"
+      "content_fingerprint": "e3bb8fd38b9c8a12ab9f972fc111f15bc4a73dc02c4b281804d9b582f38f091b"
     },
     {
       "id": "job:df1eb53144d0b44faadf8b2a",
@@ -699,6 +728,7 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -728,11 +758,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "d9d7fae65a09f9503b9f4699f64e0c25999e907c5ea8ddb574336c78667ebd38"
+      "content_fingerprint": "1ca88f7edd80c17a9eaaf29e5b0103f21e741eb188ccb47c41e5c87b562504f7"
     },
     {
       "id": "job:de50c66c5631a9f62a1cfe05",
@@ -766,6 +797,7 @@
           "market": "CN",
           "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3342130787",
           "job_id": "3342130787",
+          "discovery_freshness": "UNKNOWN",
           "source_run_status": "COMPLETE",
           "jd_kind": "listing_only",
           "recruit_label": "社招",
@@ -810,6 +842,7 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -834,11 +867,12 @@
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
         "source_checked_at": "2026-11-27T13:41:43.976186Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "cc4e60f4582161ef20c3d7d9abb9426481fecff0b1aa2f4786cfad9e853c1619"
+      "content_fingerprint": "23fa9bc7ae190ad59c0288dc5fd5bd630381d390de9d49a2564edab5b2baae26"
     },
     {
       "id": "job:db7dac860660ba31f71c0205",
@@ -922,6 +956,7 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -931,7 +966,7 @@
           },
           {
             "field": "ai_depth",
-            "quote": "develop and refine Large Language Models (LLMs",
+            "quote": "Build and maintain Retrieval-Augmented Generation (RAG",
             "origin": "FIRST_PARTY_FULL"
           },
           {
@@ -951,11 +986,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "cb345eb6a24c7746542b6abaeb51e8884f3555d866965482bc471580b9ecdb05"
+      "content_fingerprint": "f7437748b7ae2cdfd530c42a6475af914604e416e9f35606ec09a63bd66de9b5"
     },
     {
       "id": "job:dad79f9834f13c91200c2dd8",
@@ -989,7 +1025,8 @@
           "market": "CN",
           "url": "https://jobs.bytedance.com/campus/position/7665691286032156933/detail",
           "job_id": "7665691286032156933",
-          "source_run_status": "PARTIAL_OR_UNKNOWN",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "recruit_label": "正式",
           "apply_url": "https://jobs.bytedance.com/campus/position/7665691286032156933/detail",
@@ -1025,7 +1062,7 @@
         }
       ],
       "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
         "seniority": "UNKNOWN",
         "degree": "BACHELOR_MIN_SIGNAL",
@@ -1033,8 +1070,14 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "评测体系搭建：负责抖音互动场景下大模型",
+            "origin": "FIRST_PARTY_FULL"
+          },
           {
             "field": "ai_depth",
             "quote": "评测体系搭建：负责抖音互动场景下大模型",
@@ -1052,11 +1095,12 @@
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
         "source_checked_at": "2026-11-27T23:59:00.520087Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "07c94bca12d2e6b1f16142be28ddf588ec50a24f1eecddb86cd9b088db2e256b"
+      "content_fingerprint": "7804f42aa4822e544dacc14e80c86102558534324ff03c317c6c3a19316b88e5"
     },
     {
       "id": "job:d8d85851bffebb4257791b93",
@@ -1112,7 +1156,7 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "SENIOR_TITLE",
         "degree": "BACHELOR_MIN_SIGNAL",
@@ -1120,12 +1164,13 @@
         "experience_min_mentions": [],
         "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Data Engineer",
-            "origin": "TITLE"
+            "quote": "Develop data models and data products that support operational needs, agentic workflows",
+            "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "ai_depth",
@@ -1144,316 +1189,113 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "340b0450f289469ac34d2c29dc412b993f6cca63054f1e26a27f1a8e1774a406"
+      "content_fingerprint": "46427b79650499e673d8ae719c32b120024df574222f17423148db2c4c2d4331"
     },
     {
-      "id": "job:cff3f9700e8182613d109e44",
-      "title": "Forward Deployed Research Engineer",
-      "company": "Clera",
-      "url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7",
+      "id": "job:d0e526ec0d2849d7169a80b5",
+      "title": "技术社区运营（大模型评测方向）",
+      "company": "meituan",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3246787138",
       "locations": [
-        "Singapore"
+        "北京市 / 上海市"
       ],
       "observed_markets": [
-        "SG"
+        "CN"
       ],
       "location_markets": [
-        "SG"
+        "CN"
       ],
       "location_status": "EXPLICIT_LOCATION_SIGNAL",
       "identity_conflict": false,
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-007.json",
-        "key": "clera|ashby|a3d52889-1c3b-4913-86a9-37381ba464e7",
-        "sha256": "0d58048f177275f0c2ee4e096326ff1717564f8d39ddbd32e7cf313e833ec717"
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "3246787138",
+        "sha256": "38d9e4bfae6d3148d76f199813846275f0f176adb7e0129cc924af3ead978d9c"
       },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "ABOUT THE ROLE Join a small AI engineering team to solve urgent, ambiguous technical challenges for AI labs and data vendors. You will own deployments from initial triage through completion, while turning recurring problems into reusable to",
+      "jd_checked_at": "2026-11-28T05:02:53.578120Z",
+      "excerpt": "",
       "observations": [
         {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7",
-          "key": "clera|ashby|a3d52889-1c3b-4913-86a9-37381ba464e7",
-          "job_id": "a3d52889-1c3b-4913-86a9-37381ba464e7",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-007.json",
-            "key": "clera|ashby|a3d52889-1c3b-4913-86a9-37381ba464e7",
-            "sha256": "0d58048f177275f0c2ee4e096326ff1717564f8d39ddbd32e7cf313e833ec717"
-          },
-          "posted_at": "",
-          "salary_summary": "$100K - $170K",
-          "salary_components": [
-            {
-              "compensationType": "Salary",
-              "currencyCode": "USD",
-              "interval": "1 YEAR",
-              "maxValue": 170000,
-              "minValue": 100000
-            }
-          ],
-          "employment_type": "FullTime",
-          "apply_url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7/application",
-          "location": "Singapore",
-          "company": "Clera",
-          "title": "Forward Deployed Research Engineer"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7/application",
-          "title_match": null
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3246787138",
+          "job_id": "3246787138",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "社招",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3246787138&jobShareType=1&highlightType=social",
+          "location": "北京市 / 上海市",
+          "company": "meituan",
+          "title": "技术社区运营（大模型评测方向）"
         },
         {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:02+00:00",
-          "fresh": true,
-          "apply_url": "https://jobs.ashbyhq.com/Clera/a3d52889-1c3b-4913-86a9-37381ba464e7/application",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Research Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "training data and AI agents",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "reinforcement learning",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "df20de99500c1f5aca5abf2b2c2929e2d1158df20c22e8b2bc433a17137997d2"
-    },
-    {
-      "id": "job:ce5c517d29d30500543de770",
-      "title": "Senior Finance Transformation & Strategy PMO (BI / AI)",
-      "company": "OKX",
-      "url": "https://job-boards.greenhouse.io/okx/jobs/8042491003",
-      "locations": [
-        "Hong Kong, Hong Kong SAR; Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-018.json",
-        "key": "okx|greenhouse|8042491003",
-        "sha256": "80587d5c07746ae3e22564903bfa0740f7bbadf51441476b63724cf84e053952"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "OKX will be prioritising applicants who have a current right to work in Singapore",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.greenhouse.io/okx/jobs/8042491003",
-          "key": "okx|greenhouse|8042491003",
-          "job_id": "8042491003",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3246787138",
+          "job_id": "3246787138",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_checked_at": "2026-11-28T05:02:53.578120Z",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-018.json",
-            "key": "okx|greenhouse|8042491003",
-            "sha256": "80587d5c07746ae3e22564903bfa0740f7bbadf51441476b63724cf84e053952"
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "3246787138",
+            "sha256": "38d9e4bfae6d3148d76f199813846275f0f176adb7e0129cc924af3ead978d9c"
           },
-          "posted_at": "2026-10-23T02:31:23-04:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Hong Kong, Hong Kong SAR; Singapore, Singapore",
-          "company": "OKX",
-          "title": "Senior Finance Transformation & Strategy PMO (BI / AI)"
+          "location": "北京市 / 上海市",
+          "company": "meituan",
+          "title": "技术社区运营（大模型评测方向）"
         }
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          5
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "ai_depth",
-            "quote": "implementing LLMs, AI agents",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "5+ years",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "f896a017458a71c6fed3e01db7a52f6b57fbd4414dd907261eadcad60b2fec61"
-    },
-    {
-      "id": "job:ce2cd1061671732c8f0f09f3",
-      "title": "Data Scientist – Computer Vision / AI Manipulation Detection (Risk AI)",
-      "company": "Binance",
-      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5032464101",
-      "locations": [
-        "Australia; Hong Kong; Singapore; Taiwan; Thailand"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-005.json",
-        "key": "binance|greenhouse|5032464101",
-        "sha256": "a3a4a72fb3e18c8ee1b30b1ae4be4d8d7ab39a8a92475fbc9f3d2eea9b7fcfd3"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5032464101",
-          "key": "binance|greenhouse|5032464101",
-          "job_id": "5032464101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-005.json",
-            "key": "binance|greenhouse|5032464101",
-            "sha256": "a3a4a72fb3e18c8ee1b30b1ae4be4d8d7ab39a8a92475fbc9f3d2eea9b7fcfd3"
-          },
-          "posted_at": "2026-11-23T01:56:38-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Australia; Hong Kong; Singapore; Taiwan; Thailand",
-          "company": "Binance",
-          "title": "Data Scientist – Computer Vision / AI Manipulation Detection (Risk AI)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:27:37+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
         "seniority": "UNKNOWN",
-        "degree": "MASTER_MIN_SIGNAL",
+        "degree": "BACHELOR_MIN_SIGNAL",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
             "field": "ai_depth",
-            "quote": "developing and deploying machine learning models",
+            "quote": "评测社区开展相关社群活动，负责活跃社群用户增加社群的粘性，同时对大模型",
             "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "ai_depth",
-            "quote": "fine-tuning",
+            "quote": "模型评测",
             "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "degree",
-            "quote": "Master's degree or above",
+            "quote": "本科及以上",
             "origin": "FIRST_PARTY_FULL"
           }
         ],
-        "source_file": "feed/ats/markets/SG.json",
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-28T05:02:53.578120Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "9cf06c22f16c1af40b7d0cfa74880670cdf1de553654de2fb3cd59af3da714a2"
+      "content_fingerprint": "965eba436ffdf0cd3e41f76f964ee5e6f34446e59b60db9282a051baeb38f343"
     },
     {
       "id": "job:cd8a4617755033a6d7fc3c52",
@@ -1536,6 +1378,7 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -1565,117 +1408,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "28018327e22cf2a1293eeeee8408958b64bc25bd958944eb7c0e56f528f8f802"
-    },
-    {
-      "id": "job:c93286277fbd18f0eeadd45f",
-      "title": "AI Engineer （internal tool)",
-      "company": "Binance",
-      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5041060101",
-      "locations": [
-        "Hong Kong; Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/ats/jd/SG-005.json",
-        "key": "binance|greenhouse|5041060101",
-        "sha256": "e2a961368eb3bc305ca5ac3f67f28dcd1df27b120af61806988cd487557b7769"
-      },
-      "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/SG.json",
-          "market": "SG",
-          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5041060101",
-          "key": "binance|greenhouse|5041060101",
-          "job_id": "5041060101",
-          "observed_at": "2026-11-27T22:18:07+00:00",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T22:18:07+00:00",
-          "jd_ref": {
-            "path": "feed/ats/jd/SG-005.json",
-            "key": "binance|greenhouse|5041060101",
-            "sha256": "e2a961368eb3bc305ca5ac3f67f28dcd1df27b120af61806988cd487557b7769"
-          },
-          "posted_at": "2026-11-24T07:08:14-05:00",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "",
-          "apply_url": "",
-          "location": "Hong Kong; Singapore",
-          "company": "Binance",
-          "title": "AI Engineer （internal tool)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-27T22:18:07+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "LIVE_FORM",
-          "checked_at": "2026-11-27T12:06:46+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          2
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "researchers and engineers to push the boundaries of what AI agents can do: from Agentic RAG",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "2+ Year",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/ats/markets/SG.json",
-        "source": "official-ats",
-        "source_checked_at": "2026-11-27T22:18:07+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2ecec6668c958d17e9f21856810334ff6c9dcba819fcc92dd65018d7f5a71d32"
+      "content_fingerprint": "9fbe655ee0368a22d7febef5b5d650704a7ae2778c6b562418e60e76190c05ac"
     },
     {
       "id": "job:c5a133137018c2f5169baf9d",
@@ -1749,13 +1487,16 @@
       ],
       "role_tags": {
         "role_family": "AI_ENGINEERING",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
-        "experience_min_mentions": [],
+        "experience_min_mentions": [
+          3
+        ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": true,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -1769,17 +1510,23 @@
             "origin": "FIRST_PARTY_FULL"
           },
           {
-            "field": "ai_depth",
-            "quote": "fine-tuning",
+            "field": "experience_min_mentions",
+            "quote": "3–12 years of professional experience",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "work_location_or_authorization_restriction",
+            "quote": "Only Singapore Citizens and Singapore Permanent Residents",
             "origin": "FIRST_PARTY_FULL"
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "af69eb75605dd243115c0ff08041ea72d602f7e2e63937b1a26d78c68b1914cf"
+      "content_fingerprint": "c5b491300bbc0836e614aa6d1909e1abeba9b1d9c651dab4473208e2e12ecb3d"
     },
     {
       "id": "job:c4cc75068a1c0c4af357bc10",
@@ -1813,7 +1560,8 @@
           "market": "CN",
           "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
           "job_id": "3848257556",
-          "source_run_status": "PARTIAL_OR_UNKNOWN",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "recruit_label": "社招",
           "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556&jobShareType=1&highlightType=social",
@@ -1857,6 +1605,7 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -1881,11 +1630,12 @@
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
         "source_checked_at": "2026-11-27T14:19:32.877251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "2bd22bf4f4a40f855b4c3cb80f37d02019d4788bbd31c6c79de834ac87578116"
+      "content_fingerprint": "965d69eb1d4899071db50c17d1b5867cdb04350ab82987b4bdcc68171ac89e1e"
     },
     {
       "id": "job:c45f215bbd0694b4bfda7d0c",
@@ -1941,7 +1691,7 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
@@ -1951,8 +1701,14 @@
         ],
         "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "deployed systems powered by LLMs",
+            "origin": "FIRST_PARTY_FULL"
+          },
           {
             "field": "ai_depth",
             "quote": "deployed systems powered by LLMs",
@@ -1965,19 +1721,20 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "6de6b88093ef9bc010e4d8c7dfcfc37bbd9e718210c8a38c5a72c439a057d3c9"
+      "content_fingerprint": "b80f1ad9520faa726368bdf1e922b54415845bed7fc54725d43e7a5580633c62"
     },
     {
-      "id": "job:c0490f99b29b2c8ee000a081",
-      "title": "技术美术（AI方向）",
-      "company": "tencent",
-      "url": "https://join.qq.com/post_detail.html?postid=1283878428566955009",
+      "id": "job:c3db4034e0bfabfd3d722452",
+      "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测",
+      "company": "minimax",
+      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
       "locations": [
-        "深圳总部 上海 杭州"
+        "北京 / 上海"
       ],
       "observed_markets": [
         "CN"
@@ -1991,67 +1748,95 @@
       "fresh_full_jd": true,
       "jd_ref": {
         "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "1283878428566955009",
-        "sha256": "fb925b24760782fa0bb2cbaf45b5050051e0ace332ee00decffac88e15cca34e"
+        "job_id": "7485710014515939595",
+        "sha256": "4d25cef20296a57d6f52a47f8b2b41eebae187661f4adcb37032fdf158bd103a"
       },
-      "jd_checked_at": "2026-11-27T04:01:19.053019Z",
+      "jd_checked_at": "2026-11-28T05:02:53.578120Z",
       "excerpt": "",
       "observations": [
         {
           "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-ai.json",
+          "source_file": "feed/cn-native/jobpro-llm.json",
           "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1283878428566955009",
-          "job_id": "1283878428566955009",
-          "source_run_status": "PARTIAL_OR_UNKNOWN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
+          "job_id": "7485710014515939595",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
           "jd_kind": "listing_only",
-          "recruit_label": "应届毕业生",
-          "apply_url": "https://join.qq.com/post_detail.html?postid=1283878428566955009",
-          "location": "深圳总部 上海 杭州",
-          "company": "tencent",
-          "title": "技术美术（AI方向）"
+          "recruit_label": "全职",
+          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测"
         },
         {
           "source": "jobpro-detail",
           "source_file": "feed/cn-native/jobpro-jd.json",
           "market": "CN",
-          "url": "https://join.qq.com/post_detail.html?postid=1283878428566955009",
-          "job_id": "1283878428566955009",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7485710014515939595/detail",
+          "job_id": "7485710014515939595",
           "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T04:01:19.053019Z",
+          "jd_checked_at": "2026-11-28T05:02:53.578120Z",
           "jd_ref": {
             "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "1283878428566955009",
-            "sha256": "fb925b24760782fa0bb2cbaf45b5050051e0ace332ee00decffac88e15cca34e"
+            "job_id": "7485710014515939595",
+            "sha256": "4d25cef20296a57d6f52a47f8b2b41eebae187661f4adcb37032fdf158bd103a"
           },
-          "company": "tencent",
-          "title": "技术美术（AI方向）"
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "大模型训练系统专家-实验平台 / 稳定性与容错 / Checkpoint / 训练可观测"
         }
       ],
-      "application_evidence": [],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-27T13:08:02+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
       "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "SENIOR_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
+            "field": "role_family",
+            "quote": "大模型",
+            "origin": "TITLE"
+          },
+          {
             "field": "ai_depth",
-            "quote": "设计与落地：参与探索并搭建基于 ComfyUI 等节点式工具的 AI 美术工作流，将大模型",
+            "quote": "训练框架与底层算力基础设施的交界处，负责大模型",
             "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "预训练",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "seniority",
+            "quote": "专家",
+            "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
         "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T04:01:19.053019Z",
+        "source_checked_at": "2026-11-28T05:02:53.578120Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "cadd6743c627fcd828aa273392e8faecf06cd72054d14a28c8c682ba46687840"
+      "content_fingerprint": "68512e5cba94c2e49251bd43bf17f570d918be6c2de62cfb7fe297af46716598"
     },
     {
       "id": "job:bdff9ba2a39e949cdecc85d6",
@@ -2124,7 +1909,7 @@
         }
       ],
       "role_tags": {
-        "role_family": "UNKNOWN",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "UNKNOWN",
         "degree": "UNKNOWN",
@@ -2134,8 +1919,14 @@
         ],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
+          {
+            "field": "role_family",
+            "quote": "implementations: AI Voice Assistants, Telnyx APIs (Voice, Messaging, Fax, Wireless), WebRTC • Run open-weight LLMs",
+            "origin": "FIRST_PARTY_FULL"
+          },
           {
             "field": "ai_depth",
             "quote": "implementations: AI Voice Assistants, Telnyx APIs (Voice, Messaging, Fax, Wireless), WebRTC • Run open-weight LLMs",
@@ -2148,11 +1939,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "10a06e3f2c2d03d470f51406e5012f72ff586aa26bb84ee719c1eed4347273c1"
+      "content_fingerprint": "4d1eb541057f6c6d10957dec1f4a75c90d1dea81c1afe230d382b0812b52b0a6"
     },
     {
       "id": "job:bb88f1d644a95b623e0e4b8f",
@@ -2233,6 +2025,7 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -2247,16 +2040,17 @@
           },
           {
             "field": "ai_depth",
-            "quote": "fine-tuning",
+            "quote": "pre-training",
             "origin": "FIRST_PARTY_FULL"
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "805adde40ba17ad9c8b42ed2d1dc524c946173fe6dc3c1df2ef84b451080eeb9"
+      "content_fingerprint": "412ca3fcdce0ee2edb825f91e58eac8626cd80df67efde6086f4b68ec1e35fda"
     },
     {
       "id": "job:b94249b9496fc1002e9d16a0",
@@ -2337,6 +2131,7 @@
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
@@ -2346,7 +2141,7 @@
           },
           {
             "field": "ai_depth",
-            "quote": "building AI Agent",
+            "quote": "Build and optimize the large-model application pipeline, including prompt engineering, retrieval-augmented generation",
             "origin": "FIRST_PARTY_FULL"
           },
           {
@@ -2356,11 +2151,12 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "8e2dda78df5fae9594c931cce694f0c5131f1b1331f09f487e0e89348dcb99d5"
+      "content_fingerprint": "dc0b6e96a8695827666f2f76ce5c34f9da87d6bf39fe0cf5deeb1cbf5fd2217c"
     },
     {
       "id": "job:b4916680203f6d6d8caa088d",
@@ -2416,7 +2212,7 @@
       ],
       "application_evidence": [],
       "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
+        "role_family": "AI_ENGINEERING",
         "ai_depth": "AI_SYSTEM_DEVELOPMENT",
         "seniority": "SENIOR_TITLE",
         "degree": "BACHELOR_MIN_SIGNAL",
@@ -2424,12 +2220,13 @@
         "experience_min_mentions": [],
         "employment": "FULL_TIME_UNSPECIFIED_TERM",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Data Engineer",
-            "origin": "TITLE"
+            "quote": "Develop data models and data products that support operational needs, agentic workflows",
+            "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "ai_depth",
@@ -2448,19 +2245,129 @@
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "e0b06e12a889c183946c4d6cdb83e1e16379422f17e1907f55aa0fff72a8203b"
+      "content_fingerprint": "938e5be07cb08ba3a595bbe83b70e59a3dd8eebde79e9891815440fd510f9bb9"
     },
     {
-      "id": "job:b46cc41acec08b6dd206b5cc",
-      "title": "Staff/Senior Staff Frontend Engineer - Customer Genius & BOSS",
-      "company": "OKX",
-      "url": "https://job-boards.greenhouse.io/okx/jobs/7712938003",
+      "id": "job:b3e5e5b2f7a375b3d17613e6",
+      "title": "LongCat - 基座大模型评测分析算法研究员",
+      "company": "meituan",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3057805095",
       "locations": [
-        "Singapore, Singapore"
+        "上海市 / 北京市"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "3057805095",
+        "sha256": "2db8dabf6d20b6dec370c32996a6496b23769eb074b4d0218a7e8357aebd7d41"
+      },
+      "jd_checked_at": "2026-11-27T14:19:32.877251Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-eval.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3057805095",
+          "job_id": "3057805095",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "社招",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3057805095&jobShareType=1&highlightType=social",
+          "location": "上海市 / 北京市",
+          "company": "meituan",
+          "title": "LongCat - 基座大模型评测分析算法研究员"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3057805095",
+          "job_id": "3057805095",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T14:19:32.877251Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "3057805095",
+            "sha256": "2db8dabf6d20b6dec370c32996a6496b23769eb074b4d0218a7e8357aebd7d41"
+          },
+          "company": "meituan",
+          "title": "LongCat - 基座大模型评测分析算法研究员"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:24+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_RESEARCH",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "UNKNOWN",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "算法研究",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "构建Data-Centric的数据-训练-评测闭环，探索研究包括但不限于下列方向：大模型",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "模型评测",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "degree",
+            "quote": "硕士及以上",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-27T14:19:32.877251Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e4187924b906c7cd4cbceac9ebe19ce5918b339a806a763e23f23c6142667c4e"
+    },
+    {
+      "id": "job:b277ef7ca6ebe8d3351ac122",
+      "title": "Software Engineer, Agent",
+      "company": "Sierra",
+      "url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+      "locations": [
+        "Singapore"
       ],
       "observed_markets": [
         "SG"
@@ -2473,73 +2380,342 @@
       "identity_quality": "EXACT_ROLE",
       "fresh_full_jd": true,
       "jd_ref": {
-        "path": "feed/ats/jd/SG-015.json",
-        "key": "okx|greenhouse|7712938003",
-        "sha256": "a5448ee0d3ec4644d327bfb62d212626c6aee1403c11d308f8db9669ea92dbb3"
+        "path": "feed/ats/jd/SG-020.json",
+        "key": "sierra|ashby|43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+        "sha256": "52cb1fb5e117b8d9fbfb6f124ed2391c231b9ecaeb1d4035fbbb4ce7128760ce"
       },
       "jd_checked_at": "2026-11-27T22:18:07+00:00",
-      "excerpt": "OKX will be prioritising applicants who have a curre",
+      "excerpt": "ABOUT US Sierra is the leading platform for customer-facing AI agents, working with many of the world's biggest brands — including The GAP, Rocket Mortgage, SoFi, Sutter Health, and SoftBank — to transform how they serve customers and grow",
       "observations": [
         {
           "source": "official-ats",
           "source_file": "feed/ats/markets/SG.json",
           "market": "SG",
-          "url": "https://job-boards.greenhouse.io/okx/jobs/7712938003",
-          "key": "okx|greenhouse|7712938003",
-          "job_id": "7712938003",
+          "url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+          "key": "sierra|ashby|43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+          "job_id": "43e6eda7-6e46-43e8-82a5-6e5035f063bb",
           "observed_at": "2026-11-27T22:18:07+00:00",
           "source_run_status": "COMPLETE",
           "jd_kind": "full_jd",
           "jd_checked_at": "2026-11-27T22:18:07+00:00",
           "jd_ref": {
-            "path": "feed/ats/jd/SG-015.json",
-            "key": "okx|greenhouse|7712938003",
-            "sha256": "a5448ee0d3ec4644d327bfb62d212626c6aee1403c11d308f8db9669ea92dbb3"
+            "path": "feed/ats/jd/SG-020.json",
+            "key": "sierra|ashby|43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+            "sha256": "52cb1fb5e117b8d9fbfb6f124ed2391c231b9ecaeb1d4035fbbb4ce7128760ce"
           },
-          "posted_at": "2026-08-07T05:33:06-04:00",
+          "posted_at": "",
+          "salary_summary": "SGD 295K - SGD 495K",
+          "salary_components": [
+            {
+              "compensationType": "Salary",
+              "currencyCode": "SGD",
+              "interval": "1 YEAR",
+              "maxValue": 495000,
+              "minValue": 295000
+            }
+          ],
+          "employment_type": "FullTime",
+          "apply_url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb/application",
+          "location": "Singapore",
+          "company": "Sierra",
+          "title": "Software Engineer, Agent"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb",
+          "key": "aidevboard|5aaa4f9d-0ea8-4807-83fb-8c2d058a6d7f",
+          "job_id": "5aaa4f9d-0ea8-4807-83fb-8c2d058a6d7f",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "Sierra",
+          "title": "Software Engineer, Agent"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb/application",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-27T17:16:18+00:00",
+          "fresh": true,
+          "apply_url": "https://jobs.ashbyhq.com/Sierra/43e6eda7-6e46-43e8-82a5-6e5035f063bb/application",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Design and deliver production-grade AI agents",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Design and deliver production-grade AI agents",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "4d714349304f9e0836b8f208e5f0a06c25fe514263bb1c666c14496f011cfea2"
+    },
+    {
+      "id": "job:af07ebb6418415fec5638877",
+      "title": "AI Engineer (Graduate)",
+      "company": "SimplifyNext",
+      "url": "https://job-boards.greenhouse.io/simplifynext/jobs/4996764007",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-021.json",
+        "key": "simplifynext|greenhouse|4996764007",
+        "sha256": "730bee62f936da687dbc316c2de0516788125c813de63ff4fd1e55a0ea7f9f98"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "SimplifyNext is a Singapore-headquartered digital engineering firm, with offices in Thailand and Malaysia, working across three converged areas: agentic AI, AI-enabled application modernisation, and intelligent",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/simplifynext/jobs/4996764007",
+          "key": "simplifynext|greenhouse|4996764007",
+          "job_id": "4996764007",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-021.json",
+            "key": "simplifynext|greenhouse|4996764007",
+            "sha256": "730bee62f936da687dbc316c2de0516788125c813de63ff4fd1e55a0ea7f9f98"
+          },
+          "posted_at": "2026-09-30T21:57:19-04:00",
           "salary_summary": "",
           "salary_components": [],
           "employment_type": "",
           "apply_url": "",
-          "location": "Singapore, Singapore",
-          "company": "OKX",
-          "title": "Staff/Senior Staff Frontend Engineer - Customer Genius & BOSS"
+          "location": "Singapore",
+          "company": "SimplifyNext",
+          "title": "AI Engineer (Graduate)"
+        },
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.greenhouse.io/simplifynext/jobs/4996764007",
+          "key": "freehire|ai-engineer-graduate-simplifynext-3bjkro7c",
+          "job_id": "ai-engineer-graduate-simplifynext-3bjkro7c",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "SimplifyNext",
+          "title": "AI Engineer (Graduate)"
         }
       ],
-      "application_evidence": [],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "LIVE_FORM",
+          "checked_at": "2026-11-27T12:06:45+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
       "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
-        "seniority": "SENIOR_TITLE",
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "EARLY_CAREER_TITLE",
         "degree": "UNKNOWN",
         "phd_preferred_signal": false,
         "experience_min_mentions": [],
         "employment": "UNKNOWN",
         "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
         "text_evidence_grade": "FIRST_PARTY_FULL",
         "evidence": [
           {
             "field": "role_family",
-            "quote": "Frontend",
+            "quote": "AI Engineer",
             "origin": "TITLE"
           },
           {
             "field": "ai_depth",
-            "quote": "building AI-powered features - chat interfaces, LLM",
+            "quote": "Development · Build and train machine learning models",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "fine-tuning",
             "origin": "FIRST_PARTY_FULL"
           },
           {
             "field": "seniority",
-            "quote": "Staff",
+            "quote": "Graduate",
             "origin": "TITLE_OR_METADATA"
           }
         ],
         "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
         "source": "official-ats",
         "source_checked_at": "2026-11-27T22:18:07+00:00",
         "identity_conflict": false
       },
-      "content_fingerprint": "bfe03c64f8f8fa583879abc09414f30470ebd81eb9897488929d99576bae3e3d"
+      "content_fingerprint": "15a097f56c4f06a37ae8da9b7a97316a9ae5cb704148be11e187dedae304d5db"
+    },
+    {
+      "id": "job:ae1dce7882a07f4f45169c3b",
+      "title": "AI Security Engineer (APAC Remote)",
+      "company": "Binance",
+      "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5030531101",
+      "locations": [
+        "Hong Kong; Singapore; Taiwan"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/ats/jd/SG-005.json",
+        "key": "binance|greenhouse|5030531101",
+        "sha256": "4f04394bd40a74b6adb9bd79a9bcbfd1a0557e15e3d5ba7d31f3dc102f2cd13d"
+      },
+      "jd_checked_at": "2026-11-27T22:18:07+00:00",
+      "excerpt": "Binance is a leading global blockchain ecosystem behind the world’s largest cryptocurrency exchange by trading volume and registered users. We are trusted by 300+ million people in 100+ countries for our indust",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://job-boards.eu.greenhouse.io/binance/jobs/5030531101",
+          "key": "binance|greenhouse|5030531101",
+          "job_id": "5030531101",
+          "observed_at": "2026-11-27T22:18:07+00:00",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-27T22:18:07+00:00",
+          "jd_ref": {
+            "path": "feed/ats/jd/SG-005.json",
+            "key": "binance|greenhouse|5030531101",
+            "sha256": "4f04394bd40a74b6adb9bd79a9bcbfd1a0557e15e3d5ba7d31f3dc102f2cd13d"
+          },
+          "posted_at": "2026-11-24T01:22:00-05:00",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "",
+          "apply_url": "",
+          "location": "Hong Kong; Singapore; Taiwan",
+          "company": "Binance",
+          "title": "AI Security Engineer (APAC Remote)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-27T22:18:07+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "LIVE_FORM",
+          "checked_at": "2026-11-27T12:06:46+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_SYSTEM_DEVELOPMENT",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          5
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Design and implement security controls for LLM",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Design and implement security controls for LLM",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "experience_min_mentions",
+            "quote": "5+ years",
+            "origin": "FIRST_PARTY_FULL"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T22:18:07+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "e438f840ad3705c2c46ffc1328b39b046d8636e1d9acdb53a104d14a434e0f73"
     }
   ]
 }
