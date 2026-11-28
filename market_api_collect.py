@@ -367,6 +367,10 @@ def collect(market, *, fetch=get_json, max_pages=2):
                             seen_urls.add(cand["url"])
                     if not has_next:
                         break
+                    # Fixed offsets assume a full page until exhaustion. Keep the
+                    # observed rows, but do not skip an unobserved gap or claim complete.
+                    if provider == "freehire" and len(rows) < FREEHIRE_LIMIT:
+                        raise ValueError("short nonterminal FreeHire page")
                     if page == max_pages:
                         truncated = True
                 except (OSError, ValueError, TypeError, json.JSONDecodeError) as e:
