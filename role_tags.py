@@ -12,16 +12,14 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     body=str(text or "")
     # A qualification or employer intro is not evidence of day-to-day AI work.
     duty_heading=re.search(r"(?:岗位职责|工作职责|职位描述|Responsibilities|What you.ll do|Key Responsibilities)\s*[:：/]?",body,re.I)
-    if duty_heading:
-        duty_tail=body[duty_heading.end():]
-        requirements_heading=re.search(r"(?:任职要求|岗位要求|Qualifications|Requirements|What we.re looking for|Minimum Qualifications)\s*[:：/]?",duty_tail,re.I)
-        duties=duty_tail[:requirements_heading.start()] if requirements_heading else duty_tail
-    else:
-        duties=body
+    requirements_pattern = r"(?:任职要求|岗位要求|职位要求|任职资格|申请条件|Qualifications|Requirements|What we.re looking for|Minimum Qualifications|What you.ll bring)\s*[:：/]?"
+    duty_tail = body[duty_heading.end():] if duty_heading else body
+    requirements_heading = re.search(requirements_pattern, duty_tail, re.I)
+    duties = duty_tail[:requirements_heading.start()] if requirements_heading else duty_tail
     ev=[]
     def note(field,m,origin):
         if m: ev.append({"field":field,"quote":m.group(0)[:180],"origin":origin})
-    nontech=match(r"\b(?:sales|account executive|marketing manager|product manager|recruiter|business development|talent acquisition|customer success)\b|销售|产品经理|商务拓展|招聘专员|运营专员|数据运营|市场营销",t)
+    nontech=match(r"\b(?:sales|account executive|marketing manager|product manager|recruiter|business development|talent acquisition|customer success)\b|销售|产品经理|商务拓展|招聘专员|运营专员|数据运营|市场营销|(?:技术社区|社区|社群|内容|用户|活动|产品|商业化|生态|平台内容)运营|\b(?:community manager|community operations|community specialist|content operations|content moderator|data annotation specialist)\b",t)
     research=match(r"\b(?:research(?:er| (?:engineer|assistant|associate|scientist|fellow|officer))|applied scientist)\b|研究员|研究科学家|研究助理|研究工程师|算法研究",t)
     model=match(r"\b(?:LLMs?|NLP|RAG|agentic|AI agents?|generative AI|genAI|machine learning|AI engineer|AI scientist|model evaluation|AI research|ML engineer|deep learning)\b|大模型|智能体|自然语言处理|模型评测|AI(?:应用|算法|研发|工程)|机器学习",t)
     conventional=match(r"\b(?:software engineer|backend|back.end|full.stack|frontend|front.end|mobile|android|iOS|QA|test engineer|devops|data engineer)\b|后端|前端|全栈|客户端|测试开发|软件开发|数据工程|软件工程师|\b(?:developer|programmer|software development engineer|systems engineer|SRE)\b",t)
@@ -69,6 +67,10 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     # Explicit duration or intern requirement, not reference to internship experience.
     jd_intern=match(r"实习时长|每周\s*(?:[≥>=]|至少)?\s*\d+\s*天[^。；]{0,30}实习|\binternship duration\b|\b(?:internship of|intern for)\s+\d+\s+months?\b",body)
     contract=match(r"\b(?:fixed.term|temporary|contractor|contract position|contract role)\b|劳务派遣|固定期限|短期合同",t+" "+em)
+    # A bare provider employment value such as Contract is meaningful;
+    # an engineering title mentioning smart contracts is not.
+    if not contract:
+        contract=match(r"\b(?:contract|contractual|fixedterm)\b|合同制",em)
     permanent=match(r"\bpermanent\b|正式|无固定期限",em)
     employment="UNKNOWN"
     if internship or jd_intern: employment="INTERNSHIP";note("employment",internship or jd_intern,"TITLE_OR_METADATA" if internship else grade)

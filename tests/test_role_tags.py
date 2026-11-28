@@ -78,4 +78,24 @@ class RoleTagTests(unittest.TestCase):
         self.assertTrue(tags["work_location_or_authorization_restriction"])
         self.assertEqual(tag_role("AI Engineer Graduate (PhD)")["degree"],"PHD_TITLE_SIGNAL")
 
+    def test_community_operations_not_model_research(self):
+        tags=tag_role("技术社区运营（大模型评测方向）",
+            "岗位职责：负责评测社区开展相关社群活动，负责活跃社群用户增加社群的粘性，同时对大模型评测进行宣传。",
+            "FIRST_PARTY_FULL")
+        self.assertEqual(tags["role_family"],"NON_TECHNICAL")
+        self.assertEqual(tags["ai_depth"],"NOT_CORE_AI")
+        self.assertEqual(tag_role("Community Manager, AI Agents")["role_family"],"NON_TECHNICAL")
+        self.assertEqual(tag_role("AI Platform Operations Engineer","Responsibilities: Develop RAG systems.")["ai_depth"],"AI_SYSTEM_DEVELOPMENT")
+
+    def test_qualifications_without_responsibilities_do_not_establish_ai_duties(self):
+        for heading in ("Requirements:", "What you'll bring:", "任职资格："):
+            tags=tag_role("Backend Engineer", "Maintain backend APIs. "+heading+" Develop LLM agents.", "FIRST_PARTY_FULL")
+            self.assertEqual(tags["role_family"],"SOFTWARE_ENGINEERING")
+            self.assertNotEqual(tags["ai_depth"],"AI_SYSTEM_DEVELOPMENT")
+
+    def test_bare_contract_metadata_is_not_permanent_or_unknown(self):
+        for employment in ("Contract","FixedTerm","合同制"):
+            self.assertEqual(tag_role("AI Engineer",metadata={"employment_type":employment})["employment"],"CONTRACT_SIGNAL")
+        self.assertEqual(tag_role("Smart Contract Engineer",metadata={"employment_type":"Full-time"})["employment"],"FULL_TIME_UNSPECIFIED_TERM")
+
 if __name__=="__main__": unittest.main()
