@@ -1,163 +1,43 @@
-name: CN Native Public Discovery
+name: CN upstream sources read-only smoke test
 
+# Isolated test branch only. Do not merge this workflow replacement.
 on:
-  workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'hydrate_cn_jobpro_jd.py'
-      - 'cn_source_retention.py'
-      - 'tests/test_cn_source_retention.py'
-      - 'test_hydrate_cn_jobpro_jd.py'
-      - '.github/workflows/cn-native-discovery.yml'
   pull_request:
     paths:
-      - 'hydrate_cn_jobpro_jd.py'
-      - 'cn_source_retention.py'
-      - 'tests/test_cn_source_retention.py'
-      - 'test_hydrate_cn_jobpro_jd.py'
       - '.github/workflows/cn-native-discovery.yml'
-  schedule:
-    - cron: '05 1,4,7,10,13,16,19,22 * * *'
+  workflow_dispatch:
 permissions:
-  contents: write
-
-concurrency:
-  group: cn-native-public-source-${{ github.ref }}
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  collect:
+  jobradar:
     runs-on: ubuntu-latest
-    timeout-minutes: 24
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Test Liepin public JSON collector
-        run: node --test test_liepin_discovery.mjs
-      - name: Fetch bounded CN native Liepin public API slice
-        shell: bash
+      - name: Install upstream pinned client
+        run: python -m pip --disable-pip-version-check install jobsearchradar==2.3.10
+      - name: Download and validate upstream snapshot
         run: |
-          set -euo pipefail
-          mkdir -p feed/cn-native
-          node liepin_discovery.mjs \
-            --rotation-number "$GITHUB_RUN_NUMBER" \
-            --pages 2 --days 0 \
-            --output feed/cn-native/liepin-raw.json
-      - name: Fetch public employer careers via pinned job-pro
-        shell: bash
-        run: |
-          for spec in 'ai:AI' 'backend:后端' 'swe:软件工程师' 'agent:Agent' 'llm:大模型' 'nlp:自然语言处理' 'eval:模型评测'; do
-            name="${spec%%:*}"
-            query="${spec#*:}"
-            # The all-50-company AI query exceeded the 75s job timeout and
-            # published a false empty AI source on 2026-11-11. Keep a bounded
-            # high-signal, publicly supported company slice; broad backend/SWE
-            # sweeps remain independent and source failures stay explicit.
-            companies=()
-            scope=all
-            if [[ "$name" == "ai" ]]; then
-              companies=(--companies tencent,bytedance,alibaba,meituan,xiaohongshu,minimax,moonshot,zerooneai)
-            elif [[ "$name" == "agent" ]]; then
-              # Narrow official-employer slice: AI search's first 20 results
-              # are frequently consumed by non-engineering AI titles.
-              scope=social
-              companies=(--companies bytedance,alibaba,meituan,antgroup,baichuan,zerooneai,minimax,trip,nio)
-            elif [[ "$name" == "llm" ]]; then
-              scope=social
-              companies=(--companies bytedance,alibaba,baichuan,minimax,iflytek,zerooneai,meituan,trip,nio)
-            elif [[ "$name" == "nlp" || "$name" == "eval" ]]; then
-              # Narrow independent searches on companies with observed official routes.
-              # Keep campus and social jobs; never claim exhaustive coverage.
-              scope=all
-              companies=(--companies tencent,bytedance,xiaohongshu,antgroup,baichuan,minimax,zerooneai,meituan)
-            fi
-            if ! timeout 75s npx -y @ha7ch/job-pro@1.2.1 find "$query" \
-                --scope "$scope" "${companies[@]}" --limit 20 --timeout 12000 --compact \
-                > "feed/cn-native/jobpro-${name}.json"; then
-              printf '{"ok":false,"keyword":"%s","results":[],"failed":[{"company":"job-pro","message":"call failed or timed out"}]}' \
-                "$query" > "feed/cn-native/jobpro-${name}.json"
-            fi
-          done
-      - name: Verify CN official JD hydration matching, completeness and source-only boundaries
-        run: python -m unittest -v test_hydrate_cn_jobpro_jd && python -m unittest discover -s tests -p test_cn_source_retention.py -v
-      - name: Hydrate bounded full JDs from public employer job-pro detail APIs
-        run: python hydrate_cn_jobpro_jd.py --limit 48 --per-company 12
-      - name: Validate source identity, record scoped health and preserve unavailable sources
-        shell: bash
+          jobradar update
+          jobradar doctor
+      - name: Query campus and social roles without exporting JD corpus
         run: |
           python - <<'PY'
-          import json
-          from datetime import datetime,timezone
-          from pathlib import Path
-          src=Path('feed/cn-native')
-          liepin=json.loads((src/'liepin-raw.json').read_text())
-          assert liepin.get('source')=='liepin-public-api'
-          assert isinstance(liepin.get('jobs'),list)
-          assert isinstance(liepin.get('searches'),list)
-          jobs=liepin['jobs']
-          ids=[str(x.get('sourceId') or '') for x in jobs]
-          assert all(ids) and len(ids)==len(set(ids)) if jobs else True
-          quality=liepin.get('meta',{}).get('runQuality','UNKNOWN')
-          failed=liepin.get('failedPages') or []
-          reports={}
-          for name in ('ai','backend','swe','agent','llm','nlp','eval'):
-              from cn_source_retention import reconcile_jobpro
-              import subprocess
-              path=src/f'jobpro-{name}.json'
-              try:
-                  doc=json.loads(path.read_text())
-              except (OSError, ValueError):
-                  doc=None
-              old=subprocess.run(['git','show','HEAD:'+str(path)],
-                                 text=True,capture_output=True,check=False)
-              try:
-                  previous=json.loads(old.stdout) if old.returncode==0 else None
-              except ValueError:
-                  previous=None
-              published,reports[name]=reconcile_jobpro(doc,previous)
-              path.write_text(json.dumps(published,ensure_ascii=False,indent=2)+'\n')
-          # Do not erase last known public source rows with a totally failed
-          # source response. A failure is not an empty job market.
-          if not jobs and failed:
-              previous=Path('/tmp/cn-native-previous.json')
-              import subprocess
-              old=subprocess.run(['git','show','HEAD:feed/cn-native/liepin-raw.json'],
-                                 text=True,capture_output=True,check=False)
-              if old.returncode==0:
-                  (src/'liepin-raw.json').write_text(old.stdout)
-          health={'version':1,'checked_at':datetime.now(timezone.utc).isoformat(),
-                  'source':'public native Liepin JSON + public job-pro careers',
-                  'liepin':{'status':quality,'jobs':len(jobs),'failed_pages':len(failed),
-                            'completed_queries':liepin.get('meta',{}).get('completedQueryCount',0)},
-                  'jobpro':reports,
-                  'coverage':'bounded rotating sample, NOT all China platforms; no applicant decisions'}
-          (src/'health.json').write_text(json.dumps(health,ensure_ascii=False,indent=2)+'\n')
-          print(json.dumps(health,ensure_ascii=False))
+          import subprocess,json
+          seen=set()
+          for lane in ('social','campus'):
+              for q in ('大模型','Agent','NLP','RAG','模型评测'):
+                  raw=subprocess.check_output(['jobradar','search','--keyword',q,'--type',lane,'--limit','20'],text=True,timeout=90)
+                  d=json.loads(raw)
+                  items=d.get('results')
+                  if not isinstance(items,list): raise ValueError('Unexpected search schema')
+                  for x in items:
+                      uid=str(x.get('id') or '')
+                      if not uid or uid in seen: continue
+                      seen.add(uid)
+                      print('JOBRADAR_ROW '+json.dumps({k:x.get(k) for k in ('id','company','title','url','cities','recruit_type','grad_year','degree_min','availability','last_seen','source_stale','job_stale','url_scope')},ensure_ascii=False))
+                  print(json.dumps({'source':'jobradar','lane':lane,'q':q,'data_as_of':d.get('data_as_of'),'stale':d.get('stale'),'returned':len(items),'distinct_ids':len({str(x.get('id')) for x in items if x.get('id')}),'with_url':sum(bool(x.get('url')) for x in items)},ensure_ascii=False))
           PY
-      - name: Publish public raw source batch ONLY
-        if: github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A feed/cn-native
-          if git diff --cached --quiet; then
-            echo 'No new public source data to publish.'
-          else
-            git commit -m 'data: publish bounded CN native public source [skip ci]'
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cn-native-public-source
-          path: feed/cn-native/
-          retention-days: 7
