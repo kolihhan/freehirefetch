@@ -118,7 +118,7 @@
     }
   },
   "version": 1,
-  "generated_at": "2026-11-28T05:33:02.660267+00:00",
+  "generated_at": "2026-11-28T05:33:21.172889+00:00",
   "file_reads": {
     "feed/ats/health.json": "FILE_READ",
     "feed/market-api/health.json": "FILE_READ",
@@ -845,6 +845,6 @@
   ],
   "snapshot_id": "e5672c839f20c2fc853f48f2ea425cb16fd37a6e51c37b98dcae984657c76391",
   "consumption": "Pin one repository commit for index and shards; dedupe on id + content_fingerprint, never use ordinal shard as a durable cursor.",
-  "projection_seconds": 2.092,
+  "projection_seconds": 2.517,
   "scope": "latest firehose delta + available source snapshots; not a lossless journal, location signals not work authorization, JD references not live routes"
 }
