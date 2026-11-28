@@ -802,7 +802,8 @@ def main() -> int:
     print(json.dumps({"discovery": {"registered": len(discovery["boards"]),
           "selected": discovery["selected"], "deferred": len(discovery["deferred"]),
           "seed_reads": discovery["seed_reads"]}}), flush=True)
-    result = run(args.root, config["boards"] + discovered, clock=clock, discovery=discovery)
+    result = run(args.root, config["boards"] + discovered, clock=clock, discovery=discovery,
+                 paused_ats=set(config.get("paused_ats", [])))
     # A partial source scan is visible as workflow failure, but preserves successful board deltas.
     return 0 if result["health"]["complete"] else 2
 
