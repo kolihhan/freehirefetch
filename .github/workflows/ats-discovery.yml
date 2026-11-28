@@ -11,6 +11,8 @@ on:
       - 'tests/test_board_discovery.py'
       - 'market_api_collect.py'
       - 'test_market_api_collect.py'
+      - 'candidate_snapshot.py'
+      - 'tests/test_candidate_market_quality.py'
       - 'sg_research_collect.py'
       - 'test_sg_research_collect.py'
       - 'cn_platform_collect.py'
@@ -25,6 +27,8 @@ on:
       - 'tests/test_board_discovery.py'
       - 'market_api_collect.py'
       - 'test_market_api_collect.py'
+      - 'candidate_snapshot.py'
+      - 'tests/test_candidate_market_quality.py'
       - 'sg_research_collect.py'
       - 'test_sg_research_collect.py'
       - 'cn_platform_collect.py'
@@ -60,6 +64,9 @@ jobs:
           code=$?
           python -m unittest discover -s tests -p test_board_discovery.py -v >> /tmp/ats-tests.txt 2>&1
           board_code=$?
+          python -m unittest discover -s tests -p test_candidate_market_quality.py -v >> /tmp/ats-tests.txt 2>&1
+          quality_code=$?
+          if [ "$board_code" = 0 ]; then board_code=$quality_code; fi
           if [ "$code" = 0 ]; then code=$board_code; fi
           cat /tmp/ats-tests.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
