@@ -212,7 +212,7 @@ def collect(root):
     for x in d.get("jobs",[]): add(x,"liepin",rel,market="CN",observed_at=d.get("generatedAt"),source_run_status=latest.get("status","UNKNOWN"),discovery_freshness="RETAINED_UNVERIFIED" if retained else "UNKNOWN",posted_at=x.get("date"),jd_kind="listing_only")
     rel="feed/cn-native/platform-public.json"; d=read(rel)
     for group in d.get("sources",[]):
-        for x in group.get("jobs",[]): add(x,group.get("source","cn-platform"),rel,market="CN",observed_at=d.get("run_at"),jd_kind="listing_only")
+        for x in group.get("jobs",[]): add(x,group.get("source","cn-platform"),rel,market="CN",observed_at=x.get("observed_at") or (d.get("run_at") if x.get("discovery_freshness")=="OBSERVED_THIS_RUN" else None),source_run_status=group.get("coverage"),jd_kind="listing_only")
     for name in ("ai","agent","llm","nlp","eval","backend","swe"):
         rel=f"feed/cn-native/jobpro-{name}.json"; d=read(rel)
         report=cn_health.get("jobpro",{}).get(name,{})
