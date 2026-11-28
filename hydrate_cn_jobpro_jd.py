@@ -142,7 +142,9 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
     # Never let yesterday's first six titles consume every subsequent budget.
     history = history or {}
     clock = parse_time(now or checked_at())
-    tiers = ({}, {})
+    # Refresh previously verified evidence alongside never-read roles.
+    # Failed detail attempts remain a separate retry tier after cooldown.
+    tiers = ({}, {}, {})
     for company, entries in groups.items():
         for item in entries:
             old = matching_record(history, item)
@@ -153,11 +155,9 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
                 delay = RETRY_AFTER if old.get("status") != "OK" else REFRESH_AFTER
                 if clock - last < delay:
                     continue
-                tier = 1
+                tier = 1 if old.get("status") == "OK" else 2
             tiers[tier].setdefault(company, []).append(item)
-    rows = []
-    counts = defaultdict(int)
-    for tier in tiers:
+    def round_robin(tier):
         for entries in tier.values():
             entries.sort(key=lambda item: (
                 parse_time(matching_record(history, item).get("attempted_at")),
@@ -165,11 +165,24 @@ def choose_candidates(documents: list[dict], *, limit: int = 10, per_company: in
         for index in range(max((len(x) for x in tier.values()), default=0)):
             for company in SUPPORTED:
                 items = tier.get(company, [])
-                if index < len(items) and counts[company] < per_company:
-                    rows.append(items[index])
-                    counts[company] += 1
-                    if len(rows) == limit:
-                        return rows
+                if index < len(items):
+                    yield items[index]
+    from itertools import zip_longest
+    rows = []
+    counts = defaultdict(int)
+    def append(item):
+        if item is not None and counts[item["company_key"]] < per_company:
+            rows.append(item)
+            counts[item["company_key"]] += 1
+        return len(rows) >= limit
+    # Alternate unseen and due successful JDs, allowing either to fill unused
+    # capacity. A failed role still never displaces an unseen or good role.
+    for unseen, refresh in zip_longest(round_robin(tiers[0]), round_robin(tiers[1])):
+        if append(unseen) or append(refresh):
+            return rows
+    for item in round_robin(tiers[2]):
+        if append(item):
+            return rows
     return rows
 
 
@@ -255,14 +268,14 @@ def cli_detail(company: str, uid: str) -> dict:
 
 
 def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10,
-            history: dict | None = None, now: str | None = None) -> dict:
+            history: dict | None = None, now: str | None = None, per_company: int = 6) -> dict:
     when = now or checked_at()
     clock = parse_time(when)
     history = {key: record for key, record in (history or {}).items()
                if clock - parse_time(record.get("attempted_at")) < RETENTION}
     # Enumerate every exact supported current identity, even when its JD is cached.
     observed = choose_candidates(documents, limit=100000, per_company=100000, now=when)
-    candidates = choose_candidates(documents, limit=limit, history=history, now=when, technical_only=True)
+    candidates = choose_candidates(documents, limit=limit, per_company=per_company, history=history, now=when, technical_only=True)
     output = {"version": 1, "source": "jobpro-public-employer-detail",
               "checked_at": when, "attempted": 0, "failed": 0,
               "jobs": [], "failures": [],
@@ -319,6 +332,7 @@ def main() -> None:
     p.add_argument("--source-dir", type=Path, default=Path("feed/cn-native"))
     p.add_argument("--output", type=Path, default=Path("feed/cn-native/jobpro-jd.json"))
     p.add_argument("--limit", type=int, default=10)
+    p.add_argument("--per-company", type=int, default=6)
     args = p.parse_args()
     inputs = []
     for key in ("ai", "backend", "swe", "agent", "llm", "nlp", "eval"):
@@ -339,7 +353,7 @@ def main() -> None:
         except (OSError, ValueError):
             return {}
     history = prior_records(read_previous(state_path), read_previous(args.output))
-    result = hydrate(inputs, limit=args.limit, history=history)
+    result = hydrate(inputs, limit=args.limit, per_company=args.per_company, history=history)
     state = result.pop("state")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n",
