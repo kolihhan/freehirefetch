@@ -215,11 +215,14 @@ def collect(root):
         for x in group.get("jobs",[]): add(x,group.get("source","cn-platform"),rel,market="CN",observed_at=d.get("run_at"),jd_kind="listing_only")
     for name in ("ai","agent","llm","nlp","eval","backend","swe"):
         rel=f"feed/cn-native/jobpro-{name}.json"; d=read(rel)
+        report=cn_health.get("jobpro",{}).get(name,{})
+        retained=report.get("retained_previous") is True
+        status=report.get("status") or ("COMPLETE" if d.get("ok") is True and not d.get("failed") else "PARTIAL_OR_UNKNOWN")
         for group in d.get("results",[]):
             company=group.get("company")
             for x in group.get("positions",[]):
                 url=official_url(company,x)
-                if url: add(x,"jobpro-list",rel,url=url,company=company,market="CN",job_id=str(x.get("post_id")),location=x.get("work_cities"),source_run_status="COMPLETE" if d.get("ok") is True and not d.get("failed") else "PARTIAL_OR_UNKNOWN",jd_kind="listing_only")
+                if url: add(x,"jobpro-list",rel,url=url,company=company,market="CN",job_id=str(x.get("post_id")),location=x.get("work_cities"),source_run_status=status,discovery_freshness="RETAINED_UNVERIFIED" if retained else "UNKNOWN",jd_kind="listing_only")
     rel="feed/cn-native/jobpro-jd.json"; d=read(rel)
     for x in d.get("jobs",[]):
         valid=x.get("full_jd_complete") is True and x.get("description_truncated") is False and bool(x.get("full_jd_text"))
