@@ -2,7 +2,9 @@
 """Bounded, read-only native public job discovery. No login, CAPTCHA bypass or submission."""
 import asyncio
 import json
+import os
 import re
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlencode, urlparse
 
@@ -14,6 +16,45 @@ SOURCES = {
     "Zhaopin": ("zhaopin.com", "https://sou.zhaopin.com/?", "page", {"kw":"大模型"}),
     "51job": ("51job.com", "https://we.51job.com/pc/search?", "pageNum", {"keyword":"大模型"}),
 }
+QUERY_ROTATION = ("大模型", "智能体", "LLM", "RAG", "自然语言处理", "AI工程师", "模型评测")
+RETENTION_DAYS = 7
+
+def rotated_spec(source, rotation):
+    domain, base, page_key, params = SOURCES[source]
+    params = dict(params)
+    # Different bounded public searches, not retries or challenge bypass.
+    key = next(k for k in ("query", "keyword", "kw") if k in params)
+    params[key] = QUERY_ROTATION[max(0, rotation - 1) % len(QUERY_ROTATION)]
+    return domain, base, page_key, params
+
+def parse_time(value):
+    try:
+        t = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        return t if t.tzinfo else None
+    except (ValueError, TypeError):
+        return None
+
+def retain_observations(report, previous, checked_at, previous_run_at):
+    fresh = {}
+    for job in report["jobs"]:
+        ident = identity(job["url"])
+        if ident:
+            fresh[ident] = dict(job, observed_at=checked_at, discovery_freshness="OBSERVED_THIS_RUN")
+    clock = parse_time(checked_at)
+    for old in previous.get("jobs", []):
+        ident = identity(old["url"])
+        if not ident or ident in fresh:
+            continue
+        observed = old.get("observed_at")
+        if not observed and old.get("discovery_freshness") == "OBSERVED_THIS_RUN":
+            observed = previous_run_at
+        t = parse_time(observed)
+        if clock is None or t is None or not timedelta(0) <= clock-t <= timedelta(days=RETENTION_DAYS):
+            continue
+        fresh[ident] = dict(old, observed_at=observed, discovery_freshness="RETAINED_UNVERIFIED")
+    report["jobs"] = list(fresh.values())
+    report["retained_count"] = sum(j["discovery_freshness"] == "RETAINED_UNVERIFIED" for j in report["jobs"])
+
 CHALLENGE = re.compile(r"安全验证|请完成验证|访问受限|请求过于频繁|人机验证")
 
 def source_host(url, domain):
@@ -176,19 +217,17 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         try:
-            reports = await asyncio.gather(*(collect_source(browser,k,v) for k,v in SOURCES.items()))
+            rotation = int(os.environ.get("GITHUB_RUN_NUMBER", "1"))
+            reports = await asyncio.gather(*(collect_source(browser,k,rotated_spec(k,rotation)) for k in SOURCES))
         finally:
             await browser.close()
     previous = {r["source"]:r for r in prior.get("sources",[])}
+    checked_at = now()
     for report in reports:
-        fresh = {identity(j["url"]):j for j in report["jobs"]}
-        for old in previous.get(report["source"],{}).get("jobs",[]):
-            if identity(old["url"]) not in fresh:
-                fresh[identity(old["url"])] = dict(old,discovery_freshness="RETAINED_UNVERIFIED")
-        report["jobs"] = list(fresh.values())
+        retain_observations(report, previous.get(report["source"], {}), checked_at, prior.get("run_at"))
         print(json.dumps({k:v for k,v in report.items() if k!="jobs"},ensure_ascii=False))
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps({"run_at":now(),"sources":reports,"note":"Public native source leads, not verified JD, application eligibility, or market coverage."},ensure_ascii=False,indent=2)+"\n")
+    out.write_text(json.dumps({"run_at":checked_at,"sources":reports,"note":"Public native source leads, not verified JD, application eligibility, or market coverage."},ensure_ascii=False,indent=2)+"\n")
 
 if __name__=="__main__":
     asyncio.run(main())
