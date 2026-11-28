@@ -3,10 +3,11 @@
     "ashby:0g": {
       "candidates": 2,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 7,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:abound": {
       "candidates": 1,
@@ -51,18 +52,20 @@
     "ashby:cognition": {
       "candidates": 3,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 120,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:cygnify": {
       "candidates": 8,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 57,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:exa": {
       "candidates": 3,
@@ -91,46 +94,55 @@
     "ashby:hellyeah": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 7,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:kirin": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 28,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:kong": {
       "candidates": 5,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 121,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:lilt-production": {
       "candidates": 4,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 455,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:menlo": {
       "candidates": 0,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 2,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:meshy": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 8,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 25,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:mistral.ai": {
       "candidates": 2,
@@ -149,16 +161,28 @@
       "status": "COMPLETE"
     },
     "ashby:palo-it": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 7,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 34,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:plaud": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 53,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:pragmatike": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 3,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 48,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:sash": {
       "candidates": 1,
@@ -169,8 +193,12 @@
       "status": "COMPLETE"
     },
     "ashby:sentient": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 3,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:sierra": {
       "candidates": 3,
@@ -181,16 +209,28 @@
       "status": "COMPLETE"
     },
     "ashby:simular": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 5,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 22,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "ashby:thatgamecompany": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 39,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:aift": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 28,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:anthropic": {
       "error": "Not scanned in this bounded run; previous records retained",
@@ -349,12 +389,12 @@
       "status": "DEFERRED_ROTATION"
     },
     "smartrecruiters:boschgroup": {
-      "candidates": 72,
+      "candidates": 76,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 56,
-        "deferred_budget": 65,
-        "due": 75,
+        "cooldown_skipped": 66,
+        "deferred_budget": 55,
+        "due": 65,
         "eligible": 131,
         "failed": 0
       },
@@ -399,12 +439,12 @@
       "status": "DEFERRED_ROTATION"
     },
     "smartrecruiters:ncs3": {
-      "candidates": 39,
+      "candidates": 47,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 42,
-        "deferred_budget": 11,
-        "due": 21,
+        "cooldown_skipped": 52,
+        "deferred_budget": 1,
+        "due": 11,
         "eligible": 63,
         "failed": 0
       },
@@ -464,77 +504,50 @@
       "status": "COMPLETE"
     },
     "workday:micron": {
-      "candidates": 0,
-      "detail_requests": {},
-      "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
+      "last_status": "FAILED",
+      "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
-      "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PAUSED_POLICY"
     },
     "workday:ntu": {
-      "candidates": 0,
-      "detail_requests": {},
-      "error": "'': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
+      "last_status": "FAILED",
+      "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
-      "scope": "whole_board",
-      "status": "FAILED"
+      "status": "PAUSED_POLICY"
     },
     "workday:nvidia": {
-      "candidates": 4,
-      "detail_requests": {},
-      "error": "'machine learning': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
-      "rows_read": 114,
-      "scope": "targeted_keywords",
-      "status": "PARTIAL"
+      "last_status": "PARTIAL",
+      "reason": "Source temporarily paused; previous records retained",
+      "rows_read": 0,
+      "status": "PAUSED_POLICY"
     },
     "workday:pwc": {
-      "candidates": 0,
-      "detail_requests": {},
-      "error": "'AI Engineer': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
+      "last_status": "FAILED",
+      "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
-      "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PAUSED_POLICY"
     },
     "workday:razer": {
-      "candidates": 0,
-      "detail_requests": {},
-      "error": "'AI': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
+      "last_status": "FAILED",
+      "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
-      "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PAUSED_POLICY"
     },
     "workday:redhat": {
-      "candidates": 1,
-      "detail_requests": {},
-      "error": "'machine learning': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
-      "rows_read": 40,
-      "scope": "targeted_keywords",
-      "status": "PARTIAL"
+      "last_status": "PARTIAL",
+      "reason": "Source temporarily paused; previous records retained",
+      "rows_read": 0,
+      "status": "PAUSED_POLICY"
     },
     "workday:surbanajurong": {
-      "candidates": 0,
-      "detail_requests": {},
-      "error": "'AI': HTTPError: HTTP Error 429: Too Many Requests; remaining Workday keyword windows deferred after HTTP 429",
-      "full_jds_hydrated": 0,
-      "retry_after_until": "2026-11-28T05:48:08+00:00",
+      "last_status": "FAILED",
+      "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
-      "scope": "targeted_keywords",
-      "status": "FAILED"
+      "status": "PAUSED_POLICY"
     }
   },
-  "complete": false,
+  "complete": true,
+  "coverage_scope": "active attempted boards only",
   "discovery": {
     "deferred": 31,
     "registered": 39,
@@ -561,15 +574,16 @@
       }
     },
     "selected": [
-      "ashby:0g",
-      "ashby:cognition",
-      "ashby:cygnify",
-      "ashby:hellyeah",
-      "ashby:kirin",
-      "ashby:kong",
-      "ashby:lilt-production",
-      "ashby:menlo"
+      "ashby:meshy",
+      "ashby:palo-it",
+      "ashby:plaud",
+      "ashby:pragmatike",
+      "ashby:sentient",
+      "ashby:simular",
+      "ashby:thatgamecompany",
+      "greenhouse:aift"
     ]
   },
+  "paused_boards": 7,
   "version": 1
 }

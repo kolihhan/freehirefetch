@@ -1,67 +1,13 @@
 {
-  "run_at": "2026-11-28T05:36:07+00:00",
+  "run_at": "2026-11-28T05:54:02+00:00",
   "sources": [
     {
-      "source": "BOSS",
-      "query": "模型评测",
-      "pages": [
-        {
-          "page": 1,
-          "url": "https://www.zhipin.com/web/geek/job?query=%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B&city=101280600&page=1",
-          "status": "CHALLENGE",
-          "http_status": 200
-        }
-      ],
-      "jobs": [],
-      "unique_observed": 0,
-      "coverage": "NATIVE_COVERAGE_UNPROVEN",
-      "retained_count": 0
-    },
-    {
-      "source": "Nowcoder",
-      "query": "模型评测",
-      "pages": [
-        {
-          "page": 1,
-          "url": "https://www.nowcoder.com/jobs?keyword=%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B&page=1",
-          "status": "NO_EXACT_ROLE_LINKS",
-          "http_status": 200,
-          "structured_role_links": 0,
-          "role_links": 0,
-          "new_links": 0
-        }
-      ],
-      "jobs": [],
-      "unique_observed": 0,
-      "coverage": "NATIVE_COVERAGE_UNPROVEN",
-      "retained_count": 0
-    },
-    {
-      "source": "Zhaopin",
-      "query": "模型评测",
-      "pages": [
-        {
-          "page": 1,
-          "url": "https://sou.zhaopin.com/?kw=%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B&page=1",
-          "status": "NO_EXACT_ROLE_LINKS",
-          "http_status": 200,
-          "structured_role_links": 0,
-          "role_links": 0,
-          "new_links": 0
-        }
-      ],
-      "jobs": [],
-      "unique_observed": 0,
-      "coverage": "NATIVE_COVERAGE_UNPROVEN",
-      "retained_count": 0
-    },
-    {
       "source": "51job",
-      "query": "模型评测",
+      "query": "智能体",
       "pages": [
         {
           "page": 1,
-          "url": "https://we.51job.com/pc/search?keyword=%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B&pageNum=1",
+          "url": "https://we.51job.com/pc/search?keyword=%E6%99%BA%E8%83%BD%E4%BD%93&pageNum=1",
           "status": "NO_EXACT_ROLE_LINKS",
           "http_status": 200,
           "structured_role_links": 0,
@@ -308,6 +254,33 @@
       "unique_observed": 0,
       "coverage": "NATIVE_COVERAGE_UNPROVEN",
       "retained_count": 18
+    },
+    {
+      "source": "BOSS",
+      "query": null,
+      "pages": [],
+      "jobs": [],
+      "unique_observed": 0,
+      "coverage": "PAUSED_POLICY",
+      "retained_count": 0
+    },
+    {
+      "source": "Nowcoder",
+      "query": null,
+      "pages": [],
+      "jobs": [],
+      "unique_observed": 0,
+      "coverage": "PAUSED_POLICY",
+      "retained_count": 0
+    },
+    {
+      "source": "Zhaopin",
+      "query": null,
+      "pages": [],
+      "jobs": [],
+      "unique_observed": 0,
+      "coverage": "PAUSED_POLICY",
+      "retained_count": 0
     }
   ],
   "note": "Public native source leads, not verified JD, application eligibility, or market coverage."
