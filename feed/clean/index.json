@@ -1,6 +1,6 @@
 {
-  "input_observations": 2303,
-  "valid_observations": 2303,
+  "input_observations": 2342,
+  "valid_observations": 2342,
   "invalid_observations": 0,
   "invalid_details": [],
   "conflict_details": [
@@ -50,20 +50,20 @@
       ]
     }
   ],
-  "unique_roles": 2019,
-  "duplicate_observations": 284,
+  "unique_roles": 2050,
+  "duplicate_observations": 292,
   "identity_conflicts": 3,
-  "fresh_full_jd": 340,
+  "fresh_full_jd": 365,
   "unverified_url_roles": 121,
-  "fresh_api_evidence": 182,
-  "fresh_browser_evidence": 669,
+  "fresh_api_evidence": 192,
+  "fresh_browser_evidence": 774,
   "missing_fields": {
     "location_markets": 134,
     "locations": 14
   },
   "source_observations": {
     "freehire": 168,
-    "official-ats": 426,
+    "official-ats": 465,
     "market-api": 569,
     "sg-research": 12,
     "liepin": 166,
@@ -73,52 +73,52 @@
   },
   "role_tag_counts": {
     "role_family": {
-      "AI_ENGINEERING": 866,
-      "AI_RESEARCH": 49,
-      "SOFTWARE_ENGINEERING": 345,
-      "UNKNOWN": 613,
+      "AI_ENGINEERING": 878,
+      "AI_RESEARCH": 51,
+      "SOFTWARE_ENGINEERING": 349,
+      "UNKNOWN": 626,
       "RESEARCH_UNSPECIFIED": 59,
       "NON_TECHNICAL": 79,
       "OTHER_RESEARCH": 8
     },
     "ai_depth": {
-      "AI_SYSTEM_DEVELOPMENT": 297,
-      "MODEL_RESEARCH_OR_EVALUATION": 111,
-      "AI_PRODUCT_CONTEXT_ONLY": 156,
-      "UNKNOWN": 861,
-      "AI_TITLE_ONLY": 507,
+      "AI_SYSTEM_DEVELOPMENT": 306,
+      "MODEL_RESEARCH_OR_EVALUATION": 112,
+      "AI_PRODUCT_CONTEXT_ONLY": 157,
+      "UNKNOWN": 877,
+      "AI_TITLE_ONLY": 511,
       "NOT_CORE_AI": 79,
       "NON_AI_RESEARCH_SIGNAL": 8
     },
     "seniority": {
-      "SENIOR_TITLE": 520,
-      "UNKNOWN": 1340,
+      "SENIOR_TITLE": 535,
+      "UNKNOWN": 1356,
       "EARLY_CAREER_TITLE": 159
     },
     "degree": {
-      "UNKNOWN": 1803,
+      "UNKNOWN": 1829,
       "BACHELOR_MIN_SIGNAL": 142,
-      "MASTER_MIN_SIGNAL": 68,
+      "MASTER_MIN_SIGNAL": 73,
       "PHD_TITLE_SIGNAL": 5,
       "PHD_REQUIRED_SIGNAL": 1
     },
     "employment": {
-      "PERMANENT_SIGNAL": 311,
-      "UNKNOWN": 1284,
-      "FULL_TIME_UNSPECIFIED_TERM": 278,
+      "UNKNOWN": 1277,
+      "FULL_TIME_UNSPECIFIED_TERM": 304,
+      "PERMANENT_SIGNAL": 323,
       "INTERNSHIP": 146
     },
     "text_evidence_grade": {
-      "FIRST_PARTY_FULL": 357,
-      "EXCERPT": 183,
-      "THIRD_PARTY_TEXT": 501,
-      "FIRST_PARTY_RETAINED": 210,
-      "FIRST_PARTY_PARTIAL": 26,
+      "FIRST_PARTY_FULL": 382,
+      "EXCERPT": 177,
+      "THIRD_PARTY_TEXT": 493,
+      "FIRST_PARTY_RETAINED": 227,
+      "FIRST_PARTY_PARTIAL": 29,
       "TITLE_ONLY": 742
     }
   },
   "version": 1,
-  "generated_at": "2026-11-28T05:50:38.475871+00:00",
+  "generated_at": "2026-11-28T05:56:07.723067+00:00",
   "file_reads": {
     "feed/ats/health.json": "FILE_READ",
     "feed/market-api/health.json": "FILE_READ",
@@ -135,6 +135,8 @@
     "feed/ats/jd/CN-006.json": "FILE_READ",
     "feed/ats/jd/CN-007.json": "FILE_READ",
     "feed/ats/jd/CN-008.json": "FILE_READ",
+    "feed/ats/jd/CN-009.json": "FILE_READ",
+    "feed/ats/jd/CN-010.json": "FILE_READ",
     "feed/market-api/CN.json": "FILE_READ",
     "feed/ats/markets/MY.json": "FILE_READ",
     "feed/ats/jd/MY-000.json": "FILE_READ",
@@ -171,6 +173,8 @@
     "feed/ats/jd/SG-023.json": "FILE_READ",
     "feed/ats/jd/SG-024.json": "FILE_READ",
     "feed/ats/jd/SG-025.json": "FILE_READ",
+    "feed/ats/jd/SG-026.json": "FILE_READ",
+    "feed/ats/jd/SG-027.json": "FILE_READ",
     "feed/market-api/SG.json": "FILE_READ",
     "feed/sg-research/current.json": "FILE_READ",
     "feed/cn-native/liepin-raw.json": "FILE_READ",
@@ -190,7 +194,7 @@
   "source_run_health": {
     "ats": {
       "ashby:0g": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 7
       },
       "ashby:abound": {
@@ -214,11 +218,11 @@
         "rows_read": 301
       },
       "ashby:cognition": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 120
       },
       "ashby:cygnify": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 57
       },
       "ashby:exa": {
@@ -234,28 +238,28 @@
         "rows_read": 88
       },
       "ashby:hellyeah": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 7
       },
       "ashby:kirin": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 28
       },
       "ashby:kong": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 121
       },
       "ashby:lilt-production": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 455
       },
       "ashby:menlo": {
-        "status": "COMPLETE",
+        "status": "DEFERRED_ROTATION",
         "rows_read": 2
       },
       "ashby:meshy": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 25
       },
       "ashby:mistral.ai": {
         "status": "COMPLETE",
@@ -266,40 +270,40 @@
         "rows_read": 876
       },
       "ashby:palo-it": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 34
       },
       "ashby:plaud": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 53
       },
       "ashby:pragmatike": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 48
       },
       "ashby:sash": {
         "status": "COMPLETE",
         "rows_read": 8
       },
       "ashby:sentient": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 3
       },
       "ashby:sierra": {
         "status": "COMPLETE",
         "rows_read": 203
       },
       "ashby:simular": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 22
       },
       "ashby:thatgamecompany": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 39
       },
       "greenhouse:aift": {
-        "status": "DEFERRED_ROTATION",
-        "rows_read": null
+        "status": "COMPLETE",
+        "rows_read": 28
       },
       "greenhouse:anthropic": {
         "status": "DEFERRED_ROTATION",
@@ -466,31 +470,31 @@
         "rows_read": 333
       },
       "workday:micron": {
-        "status": "FAILED",
+        "status": "PAUSED_POLICY",
         "rows_read": 0
       },
       "workday:ntu": {
-        "status": "FAILED",
+        "status": "PAUSED_POLICY",
         "rows_read": 0
       },
       "workday:nvidia": {
-        "status": "PARTIAL",
-        "rows_read": 114
+        "status": "PAUSED_POLICY",
+        "rows_read": 0
       },
       "workday:pwc": {
-        "status": "FAILED",
+        "status": "PAUSED_POLICY",
         "rows_read": 0
       },
       "workday:razer": {
-        "status": "FAILED",
+        "status": "PAUSED_POLICY",
         "rows_read": 0
       },
       "workday:redhat": {
-        "status": "PARTIAL",
-        "rows_read": 40
+        "status": "PAUSED_POLICY",
+        "rows_read": 0
       },
       "workday:surbanajurong": {
-        "status": "FAILED",
+        "status": "PAUSED_POLICY",
         "rows_read": 0
       }
     },
@@ -600,411 +604,416 @@
     {
       "path": "feed/clean/roles-0000.json",
       "count": 25,
-      "sha256": "2f58e556689872cdc839dc5daa8b232221b2821deb4e2c94a5ebac628caa0974"
+      "sha256": "81fb59b83e6f51c593a0b894a121b628079131ffc60c8ee3f72bdef67143e1d5"
     },
     {
       "path": "feed/clean/roles-0001.json",
       "count": 25,
-      "sha256": "3149c32b446dc10c0a8581c669d4811e79abb48a2d9738b9289e7f07a55fadef"
+      "sha256": "05fd7a42852fc2f4a9e316840c9836c3197cb955c7bfd0b671e388e68f639dc3"
     },
     {
       "path": "feed/clean/roles-0002.json",
       "count": 25,
-      "sha256": "a3996d33c68ca3df4f809802e9a4f6e0fc94579baf3f58b8095564da5b1db7b2"
+      "sha256": "a3e70e71c8c02d206eb12ad1099953422296e55b234e7de30bbf06ae1edf2675"
     },
     {
       "path": "feed/clean/roles-0003.json",
       "count": 25,
-      "sha256": "a0ed0a7cc246ec3ed7f39b9aea362d2b549c81db70f0c907c0a8cca7f5fca8f4"
+      "sha256": "abcf84bbd6d8679515748450eb7c1ee93debaceba5b27072851d022483820f65"
     },
     {
       "path": "feed/clean/roles-0004.json",
       "count": 25,
-      "sha256": "d48b953e61a616ce1c9fb67b7664abf3b2532729f8b096d51a71abe26cf50e88"
+      "sha256": "3471aa9c4806f138c9d709239620c8ffcd0e07a626e28bb511bce8c16b62b911"
     },
     {
       "path": "feed/clean/roles-0005.json",
       "count": 25,
-      "sha256": "a8bf023fca66e3466e65cdbf55d910773a5c9aa8336d831d90bc79c6ef924ca9"
+      "sha256": "87619796460c8cb176448b7ca0abc46aa6dcb66e78c4faf95443a4b9b8dea17c"
     },
     {
       "path": "feed/clean/roles-0006.json",
       "count": 25,
-      "sha256": "bb49fb74a9d7a6ff424689a62a54d464364a111088fd45b965d74a33586be9b5"
+      "sha256": "2632c72bb54a941ad288b803ca62a2b7ffdc2308ae8851c9f8f2268d1fe0b9a5"
     },
     {
       "path": "feed/clean/roles-0007.json",
       "count": 25,
-      "sha256": "5652375f1f48d015cc8a76fabed6f514fbf54bc2d4102e992b252b5444cc1590"
+      "sha256": "24a9ec6f7cfacb9541a6cb938a1e190522eff567800528e4f1148a362360118d"
     },
     {
       "path": "feed/clean/roles-0008.json",
       "count": 25,
-      "sha256": "b34f489facffdf1d14d747d50c2524b3922c7ae9583fa9ecaa3d0b73940af134"
+      "sha256": "12a31be5f9fb60ac59fb12bb32bff1d01200cfdda65c497baee0c56e0dcdc846"
     },
     {
       "path": "feed/clean/roles-0009.json",
       "count": 25,
-      "sha256": "ad38798f973cb5aa8f2fc37a80b9eccd7648209dc588e17ece21ada2f7f87ace"
+      "sha256": "360db4a1f408065de81637710f1af1c638cb06582c2b4829aea2ca8a0a7d663a"
     },
     {
       "path": "feed/clean/roles-0010.json",
       "count": 25,
-      "sha256": "7002b21ac1644abc63d8bd3c8e7a9912073106086bf6cbd16cb79869ef2f7b63"
+      "sha256": "4c15250265532788af5d427f0455406c8cff1e91275812500edeef82f0efc162"
     },
     {
       "path": "feed/clean/roles-0011.json",
       "count": 25,
-      "sha256": "200349aaa6a51d130155bbdc6605278d366c4731c09d6a896d3dd1d519a62b79"
+      "sha256": "ee2047605d7efe3e49b0c892f3a9f0fa68949cd32706bda1b6b71903c132a205"
     },
     {
       "path": "feed/clean/roles-0012.json",
       "count": 25,
-      "sha256": "3a06eae90d87ee3bdc9e26498d6de5412eb3489777166fb760244bc299edcbe6"
+      "sha256": "b34ad8ce301f673e5857d432bf5b48d6cbfda4f272a3ea8fb5008e7c871e196d"
     },
     {
       "path": "feed/clean/roles-0013.json",
       "count": 25,
-      "sha256": "caa0ad7b9395642052d5d67394d996ba2ab7baf26f584cba51eb704ae1808b48"
+      "sha256": "33792914e165128b435528ae272035e4790f60238f0dc42e9c0d886a4118b1db"
     },
     {
       "path": "feed/clean/roles-0014.json",
       "count": 25,
-      "sha256": "807258465811ab4ddffc0091baf2eccde99d6f7c3ced1781310c9e04d0fd213d"
+      "sha256": "a0854df0e41b6445c1df3ff8634402cfc80b99a83d13f5757bdc60728ac7cc9f"
     },
     {
       "path": "feed/clean/roles-0015.json",
       "count": 25,
-      "sha256": "c92f4dcfe43ff06e927bff2c930b47265cd86a69af28ffae0206795d4727d2b3"
+      "sha256": "ef486ea105a4e7b6662713ba2508e1c433c96e2027cfaa530f5bb48c2d9c26aa"
     },
     {
       "path": "feed/clean/roles-0016.json",
       "count": 25,
-      "sha256": "a55310a1565ac3a217d41273609937ff1f7f96337e86d2525bcac9c94f00a398"
+      "sha256": "1c5750b372dc4b5fd89c385e56331737308853ee4372b8e6784652ed769ab728"
     },
     {
       "path": "feed/clean/roles-0017.json",
       "count": 25,
-      "sha256": "5c06204d28c174c497339ebfe056fa2916a8bdd6b04f8f70bba61f0a3c86d971"
+      "sha256": "13a95771d7cfc35c18eccc861146fe76deb0547c32fe69e5053ed99a2ecf916b"
     },
     {
       "path": "feed/clean/roles-0018.json",
       "count": 25,
-      "sha256": "da59ce8b783406da69693b23fdabda257217b6f09c502878138d94f60611dd2f"
+      "sha256": "e5dc0edc72e52a6725261e8ee98feb6a782d89cf417a279a7cb08c2f6679e3c6"
     },
     {
       "path": "feed/clean/roles-0019.json",
       "count": 25,
-      "sha256": "f4166353c5655afb1f800bf73f011f39b5b2a1439dfc9ec7332cd62cebce8e7c"
+      "sha256": "3a9087ea912ca3207d981b213dc9e2bd9f0d793092f09f58cc7a4d4edac619d1"
     },
     {
       "path": "feed/clean/roles-0020.json",
       "count": 25,
-      "sha256": "11480c4c9218dfad74858663bf736f8975191a0d9f93ec538c4ab154e7b2313b"
+      "sha256": "4c81abaeb6144df88eaebcb2dd79facf33c0e321eeeaffb6abff7509cbfd16f3"
     },
     {
       "path": "feed/clean/roles-0021.json",
       "count": 25,
-      "sha256": "545d8c7f73ddd55178005bebb31a5635d3a2d1c11847fb46bfb4d30347c65664"
+      "sha256": "675bdd00addaba3945ba03aaf6151785cfd8768acfe4065239e223b97c7ee658"
     },
     {
       "path": "feed/clean/roles-0022.json",
       "count": 25,
-      "sha256": "3262fa8dc486a135ca294c65cee2c28974fbcfd961d28f8eca3f08a948eb39b5"
+      "sha256": "7bbc2b78c649e5b7be89f3cbb22632f9d60db3a8cfed805abfc64929e84a8797"
     },
     {
       "path": "feed/clean/roles-0023.json",
       "count": 25,
-      "sha256": "f04dcccaf5e7b2e4930f421c52d9ed8cc2935fb06ecd3e4dc76bb409b25293c2"
+      "sha256": "9c51598fd4b4c362c01d1c712b4f4050fc05bf0838994cf2ba23c15670864120"
     },
     {
       "path": "feed/clean/roles-0024.json",
       "count": 25,
-      "sha256": "a031c82040397be0a29c76166f7beb2699e1fc216a82a71ad653ae2f9d3d736f"
+      "sha256": "2409b18609c5739593f187d72976b7e268c4cfcdcfa4dd301dd7deb5de2d01f9"
     },
     {
       "path": "feed/clean/roles-0025.json",
       "count": 25,
-      "sha256": "a86f498b211e40b8ea7c4a3588256ac7da60538052ff0c96e250faa480541780"
+      "sha256": "a9f6df26faa36a155d03032f06d149a5f9f1c5daf4880920657006a9a688f0fd"
     },
     {
       "path": "feed/clean/roles-0026.json",
       "count": 25,
-      "sha256": "831311258c27e26d098bfad8ad048fcfd3c52db900cc9367756e9b2356c6f08c"
+      "sha256": "59653cca910dbaa4c3f41d96f219232e84ef8c71635753747f809f1cbdb4c852"
     },
     {
       "path": "feed/clean/roles-0027.json",
       "count": 25,
-      "sha256": "4b31d3c4cae8f60a5ac1b2aecca84e22e8d59409d56b020b09b33ac8d70d5a33"
+      "sha256": "e83230eb6f74e4b4ff75a11a5b0f55cdb0e00efb8a3b666d3d89a2d92d648e57"
     },
     {
       "path": "feed/clean/roles-0028.json",
       "count": 25,
-      "sha256": "3459351af3d5b7ec481dd52129089eecafd26f6dbf8abb80f6581a2d380ded58"
+      "sha256": "df1374a994c9cc6c0e74aff09c7d0e1c0fc9be9c3921f68ef7dedc906fc3cecf"
     },
     {
       "path": "feed/clean/roles-0029.json",
       "count": 25,
-      "sha256": "db1d23e3b2cf09f476d2d66c1e2552014222e6b39d867f59d9978f5027dbd361"
+      "sha256": "86876986084321cd111599e577048a7a8a35aec136a72531bc7e66511f14bd66"
     },
     {
       "path": "feed/clean/roles-0030.json",
       "count": 25,
-      "sha256": "16ec1bcfca631e7cd05da7780ad919ae278b1cf12263b87bbbd0e0b89ed3737e"
+      "sha256": "576b4d55025418da60009d110315641573ff959d0ef8dd952b9178b0433aef45"
     },
     {
       "path": "feed/clean/roles-0031.json",
       "count": 25,
-      "sha256": "972695881449b44f61fedfe2640146fe32fe8969dc2fa15dedd149498d123695"
+      "sha256": "0b93a9883d432c3bc2ebf770acf26653233dbce607251a74c768f6351cff465a"
     },
     {
       "path": "feed/clean/roles-0032.json",
       "count": 25,
-      "sha256": "35b870ca0e0dcc565b8c19c606019aff0ffda4c6ec18fee6cd0cdf54f08ba343"
+      "sha256": "c36520e1ac9477e82adb414659be46c5ebe4623be5fa66895b9ca4afd9b15a6e"
     },
     {
       "path": "feed/clean/roles-0033.json",
       "count": 25,
-      "sha256": "5dbeee4a50ddaf5b662196ca73b2df53b322b013296ff229da520a1dce2efc49"
+      "sha256": "95d5b1affd64c0b5e285c05ff312b6dc2e887e35603d4e68045060b9802de167"
     },
     {
       "path": "feed/clean/roles-0034.json",
       "count": 25,
-      "sha256": "df5263391fc2743b70fed24e58d22e2c3250a01d20afcec93be623bbaaac5744"
+      "sha256": "faded1aa297fb01859b0c83826e384449e1620b18d6a048caaefd1ff6fddb972"
     },
     {
       "path": "feed/clean/roles-0035.json",
       "count": 25,
-      "sha256": "b79d468ec2e573f2cd81a3b75b44b674b5cbdc3ff6aae13f4c4cebf920392981"
+      "sha256": "9ee8c43869d04d5d6ae3ff52d42dce8e55775a4a55b1ad4d0f3e961ebb952c13"
     },
     {
       "path": "feed/clean/roles-0036.json",
       "count": 25,
-      "sha256": "f41c0ffd7cff0cb548b401ddb5984ebb0fcd8dcdd06280bd8264998ef79a516e"
+      "sha256": "0b7ffc3bf67770485ac350694ce2126e26c87a66d3ab09ad148e621114c39879"
     },
     {
       "path": "feed/clean/roles-0037.json",
       "count": 25,
-      "sha256": "3b7eb370971862233cb4171392a93f73bb1ac49c20763aa466dbef9ada7cbf07"
+      "sha256": "5e407ed307d56fad2d2846152e7c513244826e9cb1691bac394abef482479909"
     },
     {
       "path": "feed/clean/roles-0038.json",
       "count": 25,
-      "sha256": "bf93621062b236259224e07a1edfe9d27759915052993356848abd498eefcf0e"
+      "sha256": "79901d99e458a91cabebfbd85d3552c684a6f323d1eeb16ab56e6195c37dea66"
     },
     {
       "path": "feed/clean/roles-0039.json",
       "count": 25,
-      "sha256": "2bfcecf6e2ab5192f047f9ce85ec4c4aa3539a0920d9fe664cc1e0395bdd5a9b"
+      "sha256": "417de8688a384eff554a0ad673cd1988ade999d3a475ff439447fd34c988bac4"
     },
     {
       "path": "feed/clean/roles-0040.json",
       "count": 25,
-      "sha256": "f21ea3240c44420b51d9afacaa542fa99fd26207916b139a3dac689c8ccdbf96"
+      "sha256": "36f236b2aef9da0d2578868039b745f1dff636acd9aae327f12b4fbb996c46d5"
     },
     {
       "path": "feed/clean/roles-0041.json",
       "count": 25,
-      "sha256": "3c23d6dc6128d5b7346b2160abc76e7c68ce4554e7cc790d05093b09a3abe424"
+      "sha256": "43af676935c02b857622ea78d3c65b0df3191dc7b87e2c49731f90fcefff68df"
     },
     {
       "path": "feed/clean/roles-0042.json",
       "count": 25,
-      "sha256": "127f277cfe6f1a05e1c2fda75734a8ac5eb12f4b3a7fde15958b0987979e6bc0"
+      "sha256": "2a64cb81c07d44b08b90ae5080059f5601943a598079fee6ad68cb5ad2fa767e"
     },
     {
       "path": "feed/clean/roles-0043.json",
       "count": 25,
-      "sha256": "245329e0fc12b2e4ba8953125a49ddbb734398c512c764fc3fe1b6eeebbb9e44"
+      "sha256": "1d394777cc0ed1246a16d5b4722f657715464c257d9cc8de95c0af92a2df35ca"
     },
     {
       "path": "feed/clean/roles-0044.json",
       "count": 25,
-      "sha256": "6caca8011fff5729ed7bd913a586859ad2e465419d05d87e5edb700ae8567d50"
+      "sha256": "a4137137d6d1fc58fedb8aeb5a1bd399458b4f70e3cd018019115f203a452af5"
     },
     {
       "path": "feed/clean/roles-0045.json",
       "count": 25,
-      "sha256": "6e575efc19ba56710a388764abe6866ccb3f89100360e5a0dcb0813cb21a5c78"
+      "sha256": "36a8e2a5bd0abe53a5c9d11c80a3150dc7477ef4916cbea0fc26b73fed6e590d"
     },
     {
       "path": "feed/clean/roles-0046.json",
       "count": 25,
-      "sha256": "abe96c6892819afea0c3f4006714cb6091e517c164b42bc976d92956d2ddf744"
+      "sha256": "8df42788683bfeb6c35854e457a873cfb4402abb701d59721249248f9bcd9d01"
     },
     {
       "path": "feed/clean/roles-0047.json",
       "count": 25,
-      "sha256": "0b24082647fcf90365d21ecd6a9c102546bbd93c9a3c581712e7706c34843072"
+      "sha256": "04481835d75b5adeee510b7d1fe43efa81ff16ab714c3d7e97d22e5c5bb39f4f"
     },
     {
       "path": "feed/clean/roles-0048.json",
       "count": 25,
-      "sha256": "c065c0f0d0ba327cbe90ed5db416063eaf5bfb88de241d3e434b0c9ccb9a4c49"
+      "sha256": "60871a9b79f991fa2686da0ab5dd22a96a53420377890d4cedefeae1a1e9029a"
     },
     {
       "path": "feed/clean/roles-0049.json",
       "count": 25,
-      "sha256": "a8f0f35bc8c2e2876e8518efe86a8d9de900acefe0b5f75ead1de679fb03c4cc"
+      "sha256": "980b9958a24549173a3c780d7321cb213fc6e42184776a128efe3e7ae7ad3c70"
     },
     {
       "path": "feed/clean/roles-0050.json",
       "count": 25,
-      "sha256": "60a240b72afe4d5cdc65ce696e7d6bfe75b85de1791f908958e71949a2464a7a"
+      "sha256": "1a565c821c45e0049521deb5f4e1c3399c66d4cae354370ff43915db1f9a70dd"
     },
     {
       "path": "feed/clean/roles-0051.json",
       "count": 25,
-      "sha256": "b49565b90856d8506bcec4198b0a118fc5459045f828b911fcb341ed65961d72"
+      "sha256": "1b2f21339066f0ffdf33ea29d8af53bf93f4223673e238d6131822c860ff5eed"
     },
     {
       "path": "feed/clean/roles-0052.json",
       "count": 25,
-      "sha256": "2b12760f42ba13d8661fd021776c2e9f9b1cc796b55b8d516196a873fd741fef"
+      "sha256": "77942a8b7845b9eafbdbc5258028a8bb61bf5450104d6a73ee1480fbe2c65cbe"
     },
     {
       "path": "feed/clean/roles-0053.json",
       "count": 25,
-      "sha256": "752713164522bd4db9fc61bac25465c354bfe4124ec8d01217ad5a2fe019ae2d"
+      "sha256": "af754ed74a5a2435d64d6c68b85d7ed2943b590ffcf80131d7a8900ce1493540"
     },
     {
       "path": "feed/clean/roles-0054.json",
       "count": 25,
-      "sha256": "58f7d2589ed24bd0b0fd5a116ee90321a4fe21627d6261b4b599034b50e7f258"
+      "sha256": "88bb012f7194aace87c475cc82d2bab70773a6f24d914be526f75fd23bd3e4d0"
     },
     {
       "path": "feed/clean/roles-0055.json",
       "count": 25,
-      "sha256": "5aa57b0a766db4b4c97990e5fd8ea7069145fc791defc9bf818f70afbec40b2d"
+      "sha256": "da0c6071b1ca23797aff4614594f06e01b5159dad23b264b26bebddddbb666f5"
     },
     {
       "path": "feed/clean/roles-0056.json",
       "count": 25,
-      "sha256": "6923a75e18224fd2e05acca903c9a676f78716f43ed6bf4ef29b57d8bc0458c7"
+      "sha256": "6de07c5782e800484e41f90172164fd7c889145671dc3e46e9084fce0646f082"
     },
     {
       "path": "feed/clean/roles-0057.json",
       "count": 25,
-      "sha256": "0862a1a8bc4489173cde6d77fa0ca8d6dd9fd355053ee3aec8f1bd79695bff3a"
+      "sha256": "592195521186d5c0f9c676e64ef20378d65a445764831e783790e10288346e0f"
     },
     {
       "path": "feed/clean/roles-0058.json",
       "count": 25,
-      "sha256": "08412092423c128d495031372cf040cd3ca53a3472a9da6f4ca915f9dbc2f2e2"
+      "sha256": "4f21f04c453d95b29ff266224681eb72e49c65338609b147df290598f8b5d606"
     },
     {
       "path": "feed/clean/roles-0059.json",
       "count": 25,
-      "sha256": "a9271e1574257b54d8f12284dd5ccbf0eff549aff0ea9e0e82ec24b0f378c574"
+      "sha256": "e1482e2d4a79b85654c0677b42347510bee21cfef192bdef52bbaf4c0b173ec5"
     },
     {
       "path": "feed/clean/roles-0060.json",
       "count": 25,
-      "sha256": "e9fb6e8456985c6bb1f9ce6363973fc4e94d878e04a3a85d187d0e1906ff7b69"
+      "sha256": "63f378520ed52d33eeb9d97b8a8ce677f734bdf0153c39994076626f4e7cec5e"
     },
     {
       "path": "feed/clean/roles-0061.json",
       "count": 25,
-      "sha256": "59299599479ee3ba4a373fa317bc871d5dbc505f79335a30405650161e9a50c0"
+      "sha256": "3b55a50fbe8d81ac87b03d93386884ab9d8ab9be44447d8b944f3edd70d5f53c"
     },
     {
       "path": "feed/clean/roles-0062.json",
       "count": 25,
-      "sha256": "d4ac3e7e07e15ec7a05d456ab8141c74e6a4fbc11c6ef53d46f866871a2292f3"
+      "sha256": "d84c93951f4a86c39f8530493cffee66580919209aa4a7846c8108f78bec6e7d"
     },
     {
       "path": "feed/clean/roles-0063.json",
       "count": 25,
-      "sha256": "6b6e1ecc1e701f16ac4236c6009f62703306e9da28534d59ac8b410a5bab6a9f"
+      "sha256": "65f8c940aba9deec2cba5d4eac89bbc629791de3b544583e532a8f1a5451cfc7"
     },
     {
       "path": "feed/clean/roles-0064.json",
       "count": 25,
-      "sha256": "e1a1d79caecbe85feda10f355fea452d2aa4c08be9626364c63fe395a772c0d0"
+      "sha256": "8aa361c72b3979edd8d492f84cde2a7d777d1e5a80397dfc5be629e823797e93"
     },
     {
       "path": "feed/clean/roles-0065.json",
       "count": 25,
-      "sha256": "ebcc13211f61fba32104f30d03c27d57066ea70562fc41472655a68c5226f3ad"
+      "sha256": "389977a2e890ff1166a78ecf7bfe5b5da907b14bde437b2fd385577b007bef0f"
     },
     {
       "path": "feed/clean/roles-0066.json",
       "count": 25,
-      "sha256": "ada7673b1b992e93ed3de286fef4cfee101b10ef2e8cafcdab96383de24f28b2"
+      "sha256": "a8b703c35bd6758f4b3a7cdad1cb04c9dbb37e54479d3b7d484d1e43bdac6adb"
     },
     {
       "path": "feed/clean/roles-0067.json",
       "count": 25,
-      "sha256": "6e1f96b64816d6d0f5b82fc53d25f5fb3f17940b3390dbef4b7e5d0ae7ed2b29"
+      "sha256": "4a90f6f2795a8a88a32b322c3bb288139907f304fb70f2ecd3bd76cf3a6dbde9"
     },
     {
       "path": "feed/clean/roles-0068.json",
       "count": 25,
-      "sha256": "bba107d09cd8a885746559de9669e3820a0c52d404ff76a579d013f5c7eeee63"
+      "sha256": "3a0aa75009f1f39bf94a9168b847fb73d72f4b9ea5f962bb46ee3527013ce88b"
     },
     {
       "path": "feed/clean/roles-0069.json",
       "count": 25,
-      "sha256": "8487192ac880c14a6e217a264e9c69331c37d22b57991b92858b6065d929396d"
+      "sha256": "2af608be7173137d3fb5dd9befd4a211813b5a09d1f0059827f0d1c9dc43e986"
     },
     {
       "path": "feed/clean/roles-0070.json",
       "count": 25,
-      "sha256": "9dec0b28e025b2ed48bb1fef69b6765cdec56f4eac11339bff51745789767850"
+      "sha256": "7db9a4db0f9475770fddaeb057db3e29de50dcc5fd90e22206c64b6c1a68c684"
     },
     {
       "path": "feed/clean/roles-0071.json",
       "count": 25,
-      "sha256": "a41502bf2ca1a50857f264628626561474739c97c4194ef2ecde19ef053d307b"
+      "sha256": "1ac7b344fb6fe11e0c34bce14fe97b9460ed54bff580e4535dfc412adfb91986"
     },
     {
       "path": "feed/clean/roles-0072.json",
       "count": 25,
-      "sha256": "62f68ebb3a3c8c28dd3fba09053a87fb5f4d3edefdc21d688a27b712345a9463"
+      "sha256": "8435eec83aee0a091e01a3f7777b96597f3f5a8324a96bc9bdffb9619710dccf"
     },
     {
       "path": "feed/clean/roles-0073.json",
       "count": 25,
-      "sha256": "84bb4459f5156772d9dad33ef99f654349c5636f4642883b3bd91fca248a9e45"
+      "sha256": "bf36386edfbb176b70041e66ab12ddbc5d43629b34212d69389253a8651e7cb4"
     },
     {
       "path": "feed/clean/roles-0074.json",
       "count": 25,
-      "sha256": "9eb6cec5dd866c81276b537745bc46574110f503479883483b936873b5756d4a"
+      "sha256": "39d0719eaed8bc654db8513e4ce88bff35b675ca68c348b7ea399eb62e185ab2"
     },
     {
       "path": "feed/clean/roles-0075.json",
       "count": 25,
-      "sha256": "0df76a373e3bda84f713b881ea9cf28b958d382fe9d4815c7efec3cde4705877"
+      "sha256": "00658b28083809a2df4f3f7934eec495ceeb19bc0f64dc48c4f0cb232986683c"
     },
     {
       "path": "feed/clean/roles-0076.json",
       "count": 25,
-      "sha256": "ce51884359ab08fb0cb0b58b9530ad78b6f9ad7e1fa126f8c28c8dc1be6c694f"
+      "sha256": "05c30b09cf656cc2e209bcb40784b5ab8934740643baee240646c9733e5c86d0"
     },
     {
       "path": "feed/clean/roles-0077.json",
       "count": 25,
-      "sha256": "6977c6607e74d0157cf98361703e5c9ead90c69f8b9c08a00cb77fc206f4d93f"
+      "sha256": "f29195c1aeb8664e907e5e61c79ca5d30b180234e1a9d51a6307d1506ac763bf"
     },
     {
       "path": "feed/clean/roles-0078.json",
       "count": 25,
-      "sha256": "95f9a6177f83ad6323a11a88872ec5c144ecbf6cf25f01516afddbda27b1532c"
+      "sha256": "8797a1c8a2d111843413a9dbbdb7faa925ddacee937d5e6c1fcc93e6566324b0"
     },
     {
       "path": "feed/clean/roles-0079.json",
       "count": 25,
-      "sha256": "cee970460248b15c2f3f7b7f6edcf3a02fe928002e3502a01133286d2543b843"
+      "sha256": "f6b74dcb5a307a3ab73fa6c5ef178a4b87c126a78a3ad0cacf9bacced57c81e4"
     },
     {
       "path": "feed/clean/roles-0080.json",
-      "count": 19,
-      "sha256": "967a383ec7c741c89f7a7bee55cdf958312b34e1f53424a46e60b3c0ad23bb72"
+      "count": 25,
+      "sha256": "cd309813826c7d3f039200c116bd3ce47cec0addcbabe737bfb6d7c6de87f4c8"
+    },
+    {
+      "path": "feed/clean/roles-0081.json",
+      "count": 25,
+      "sha256": "8ebbc96ad5dc4a5d765462cf398e027cf45e82bc269a318035d6c5e449befb4d"
     }
   ],
-  "snapshot_id": "3bb8b9857a777b92129de8d40de5116dd649404f37e1a3a4adbf5b6be75d3b43",
+  "snapshot_id": "af8eb320ca911a8a0b905ee7afe66f191ec2506ba95644df12d1190445c37198",
   "consumption": "Pin one repository commit for index and shards; dedupe on id + content_fingerprint, never use ordinal shard as a durable cursor.",
-  "projection_seconds": 3.25,
+  "projection_seconds": 1.876,
   "scope": "latest firehose delta + available source snapshots; not a lossless journal, location signals not work authorization, JD references not live routes"
 }
