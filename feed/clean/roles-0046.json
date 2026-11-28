@@ -238,91 +238,6 @@
       "duplicate_review": []
     },
     {
-      "id": "job:a01be3afb81bc3d3ab347610",
-      "title": "大模型系统架构师（存储背景）",
-      "company": "minimax",
-      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7679036870903286054/detail",
-      "locations": [
-        "北京 / 上海"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
-          "market": "CN",
-          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7679036870903286054/detail",
-          "job_id": "7679036870903286054",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7679036870903286054/detail",
-          "location": "北京 / 上海",
-          "company": "minimax",
-          "title": "大模型系统架构师（存储背景）"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-27T12:47:48+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "架构师",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-llm.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "b5d827ca2f16455530e52d9c8bafd24f1293c80769cb1f179653bc85616c49a7",
-      "duplicate_review": []
-    },
-    {
       "id": "job:a012582d7423a8cd058a5db7",
       "title": "Platform Deployment Engineer (AI Factory Delivery)",
       "company": "Sharon AI, Inc",
@@ -532,6 +447,74 @@
         "identity_conflict": false
       },
       "content_fingerprint": "174d49747145d7d19a023d66a681aca3a2c683ec394d32979f4b278f168be60a",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:9f7502a8bab4fdfa38c5e39b",
+      "title": "Python后端开发工程师",
+      "company": "深圳市法本信息技术股份有限公司武汉分公司",
+      "url": "https://www.liepin.com/job/1975394017.shtml",
+      "locations": [
+        "深圳-南山区"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "liepin",
+          "source_file": "feed/cn-native/liepin-raw.json",
+          "market": "CN",
+          "url": "https://www.liepin.com/job/1975394017.shtml",
+          "observed_at": "2026-11-28T08:47:08.251Z",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "jd_kind": "listing_only",
+          "posted_at": "2025-06-26",
+          "salary": "11-12k",
+          "experience": "2年以上",
+          "education": "大专",
+          "location": "深圳-南山区",
+          "company": "深圳市法本信息技术股份有限公司武汉分公司",
+          "title": "Python后端开发工程师"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "后端",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/liepin-raw.json",
+        "retained_jd_ref": null,
+        "source": "liepin",
+        "source_checked_at": "2026-11-28T08:47:08.251Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "5dd5c356e7ac253aa932497f895fc2729b5c671def51d3268446b48cc51573b5",
       "duplicate_review": []
     },
     {

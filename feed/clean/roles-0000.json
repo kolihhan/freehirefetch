@@ -994,6 +994,117 @@
       "duplicate_review": []
     },
     {
+      "id": "job:e4afa8b256fbf82d049e8b83",
+      "title": "AGI 服务端资深工程师 （AI Agent / AI App）",
+      "company": "minimax",
+      "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7455240666059704630/detail",
+      "locations": [
+        "北京 / 上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": true,
+      "jd_ref": {
+        "path": "feed/cn-native/jobpro-jd.json",
+        "job_id": "7455240666059704630",
+        "sha256": "87a15697352460fe52fdef660cdd17addb5fff6c02aed42918feeb8233950181"
+      },
+      "jd_checked_at": "2026-11-28T08:47:51.269342Z",
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-agent.json",
+          "market": "CN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7455240666059704630/detail",
+          "job_id": "7455240666059704630",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职",
+          "apply_url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7455240666059704630/detail",
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "AGI 服务端资深工程师 （AI Agent / AI App）"
+        },
+        {
+          "source": "jobpro-detail",
+          "source_file": "feed/cn-native/jobpro-jd.json",
+          "market": "CN",
+          "url": "https://vrfi1sk8a0.jobs.feishu.cn/index/position/7455240666059704630/detail",
+          "job_id": "7455240666059704630",
+          "jd_kind": "full_jd",
+          "jd_checked_at": "2026-11-28T08:47:51.269342Z",
+          "jd_ref": {
+            "path": "feed/cn-native/jobpro-jd.json",
+            "job_id": "7455240666059704630",
+            "sha256": "87a15697352460fe52fdef660cdd17addb5fff6c02aed42918feeb8233950181"
+          },
+          "location": "北京 / 上海",
+          "company": "minimax",
+          "title": "AGI 服务端资深工程师 （AI Agent / AI App）"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "JD_ONLY",
+          "checked_at": "2026-11-28T05:54:34+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_FULL",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Agent",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "构建大模型",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Post-Training",
+            "origin": "FIRST_PARTY_FULL"
+          },
+          {
+            "field": "seniority",
+            "quote": "资深",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-jd.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-detail",
+        "source_checked_at": "2026-11-28T08:47:51.269342Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f755c76d810fcf6f564e39884f17b162830d83ff3d42d700397ad9deacd820af",
+      "duplicate_review": []
+    },
+    {
       "id": "job:df1eb53144d0b44faadf8b2a",
       "title": "Lead AI Engineer",
       "company": "Temus",
@@ -1576,7 +1687,7 @@
           "url": "https://jobs.bytedance.com/campus/position/7665691286032156933/detail",
           "job_id": "7665691286032156933",
           "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
+          "source_run_status": "PARTIAL",
           "jd_kind": "listing_only",
           "recruit_label": "正式",
           "apply_url": "https://jobs.bytedance.com/campus/position/7665691286032156933/detail",
@@ -1650,7 +1761,7 @@
         "source_checked_at": "2026-11-27T23:59:00.520087Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "8ecdf90ca17042b9b7e59eab96ff39265f14f68d73dc98d90adc2efed4dd743e",
+      "content_fingerprint": "7804f42aa4822e544dacc14e80c86102558534324ff03c317c6c3a19316b88e5",
       "duplicate_review": []
     },
     {
@@ -2648,116 +2759,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "c5486f85b6eec5952642f513bdc8a98196f22dade15c3d044cd7a555dc416540",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:c4cc75068a1c0c4af357bc10",
-      "title": "LongCat - 基座大模型算法研究员（多模态评测方向）",
-      "company": "meituan",
-      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-      "locations": [
-        "北京市 / 上海市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": true,
-      "jd_ref": {
-        "path": "feed/cn-native/jobpro-jd.json",
-        "job_id": "3848257556",
-        "sha256": "04dba9c655c4173c9769a123912ae0b76fa783ca27ace325a5a95e09b7c29e2d"
-      },
-      "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-          "job_id": "3848257556",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "社招",
-          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556&jobShareType=1&highlightType=social",
-          "location": "北京市 / 上海市",
-          "company": "meituan",
-          "title": "LongCat - 基座大模型算法研究员（多模态评测方向）"
-        },
-        {
-          "source": "jobpro-detail",
-          "source_file": "feed/cn-native/jobpro-jd.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=3848257556",
-          "job_id": "3848257556",
-          "jd_kind": "full_jd",
-          "jd_checked_at": "2026-11-27T14:19:32.877251Z",
-          "jd_ref": {
-            "path": "feed/cn-native/jobpro-jd.json",
-            "job_id": "3848257556",
-            "sha256": "04dba9c655c4173c9769a123912ae0b76fa783ca27ace325a5a95e09b7c29e2d"
-          },
-          "company": "meituan",
-          "title": "LongCat - 基座大模型算法研究员（多模态评测方向）"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T17:16:24+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_RESEARCH",
-        "ai_depth": "MODEL_RESEARCH_OR_EVALUATION",
-        "seniority": "UNKNOWN",
-        "degree": "MASTER_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_FULL",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "算法研究",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "训练策略优化，并且对训练数据、训练策略和模型能力之间的关系进行研究分析，产出可行的模型评测",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "模型评测",
-            "origin": "FIRST_PARTY_FULL"
-          },
-          {
-            "field": "degree",
-            "quote": "硕士及以上",
-            "origin": "FIRST_PARTY_FULL"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-detail",
-        "source_checked_at": "2026-11-27T14:19:32.877251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2384ca7936b5ecf78aa750b181383da902cc83e47c3edad006cfd77fb8dc0d69",
       "duplicate_review": []
     }
   ]
