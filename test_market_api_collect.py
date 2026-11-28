@@ -168,6 +168,46 @@ class FreeJobAPIContractTests(unittest.TestCase):
         self.assertTrue(all(s["status"]=="COMPLETE"
                             for s in result["providers"].values()))
 
+    def test_freehire_four_page_budget_reads_400_rows_without_extra_requests(self):
+        calls = []
+        def fake(url):
+            parsed = urlparse(url)
+            params = parse_qs(parsed.query)
+            if parsed.hostname == "freehire.me":
+                if params["q"] != ["AI Engineer"]:
+                    return {"data": [], "meta": {"total": 0}}
+                offset = int(params["offset"][0])
+                limit = int(params["limit"][0])
+                calls.append((offset, limit))
+                rows = [dict(FREEHIRE, public_slug=f"job-{i}",
+                             url=f"https://sg.jobstreet.com/job/{96000000+i}")
+                        for i in range(offset, min(offset + limit, 401))]
+                return {"data": rows, "meta": {"total": 401, "offset": offset,
+                                               "limit": limit}}
+            self.assertEqual(params["limit"], ["50"])
+            return {"jobs": [], "has_next": False, "total": 0}
+        result = api.collect("SG", fetch=fake, max_pages=4)
+        self.assertEqual(calls, [(0, 100), (100, 100), (200, 100), (300, 100)])
+        self.assertEqual(len(result["jobs"]), 400)
+        window = result["providers"]["freehire"]["queries"][0]
+        self.assertEqual(window["rows"], 400)
+        self.assertTrue(window["truncated"])
+
+    def test_freehire_short_nonterminal_page_does_not_skip_remaining_rows(self):
+        calls = []
+        def fake(url):
+            params = parse_qs(urlparse(url).query)
+            if urlparse(url).hostname == "freehire.me":
+                calls.append(int(params["offset"][0]))
+                return {"data": [FREEHIRE], "meta": {"total": 51}}
+            return {"jobs": [], "has_next": False}
+        result = api.collect("SG", fetch=fake, max_pages=2)
+        self.assertEqual(result["providers"]["freehire"]["status"], "PARTIAL")
+        self.assertEqual(len(result["jobs"]), 1)
+        self.assertTrue(all(offset == 0 for offset in calls))
+        self.assertTrue(any("short" in error.lower()
+                            for error in result["providers"]["freehire"]["errors"]))
+
     def test_api_pagination_and_partial_failure_are_explicit(self):
         pages=[]
         def paged(url):

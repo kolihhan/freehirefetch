@@ -94,6 +94,7 @@ LOCATIONS = {
 }
 MAX_BYTES = 3_000_000
 LIMIT = 50
+FREEHIRE_LIMIT = 100
 # Unverified third-party source text is useful for review, NEVER a verified JD.
 MAX_API_DESCRIPTION_CHARS = 12000
 
@@ -276,13 +277,13 @@ def normalize_aidevboard(row, market):
 def request_page(provider, market, query, page, fetch):
     if provider == "freehire":
         params = urlencode({
-            "countries": market, "q": query, "limit": LIMIT,
-            "offset": (page-1)*LIMIT, "description_format": "html",
+            "countries": market, "q": query, "limit": FREEHIRE_LIMIT,
+            "offset": (page-1)*FREEHIRE_LIMIT, "description_format": "html",
         })
         full_url = "https://freehire.me/api/v1/agent/jobs/search?" + params
         preview_url = ("https://freehire.me/api/v1/jobs/search?" +
-                       urlencode({"countries": market, "q": query, "limit": LIMIT,
-                                  "offset": (page-1)*LIMIT}))
+                       urlencode({"countries": market, "q": query, "limit": FREEHIRE_LIMIT,
+                                  "offset": (page-1)*FREEHIRE_LIMIT}))
         converter = normalize_freehire_full
         try:
             payload = fetch(full_url)
@@ -306,7 +307,7 @@ def request_page(provider, market, query, page, fetch):
         total = meta["total"]
         if total < 0:
             raise ValueError("negative total")
-        start = (page-1)*LIMIT
+        start = (page-1)*FREEHIRE_LIMIT
         rows = payload["data"]
         if rows and start >= total:
             raise ValueError("FreeHire page outside total")
@@ -366,6 +367,10 @@ def collect(market, *, fetch=get_json, max_pages=2):
                             seen_urls.add(cand["url"])
                     if not has_next:
                         break
+                    # Fixed offsets assume a full page until exhaustion. Keep the
+                    # observed rows, but do not skip an unobserved gap or claim complete.
+                    if provider == "freehire" and len(rows) < FREEHIRE_LIMIT:
+                        raise ValueError("short nonterminal FreeHire page")
                     if page == max_pages:
                         truncated = True
                 except (OSError, ValueError, TypeError, json.JSONDecodeError) as e:
@@ -391,6 +396,8 @@ def collect(market, *, fetch=get_json, max_pages=2):
                        else "COMPLETE"),
             "full_text_fallback_pages": full_text_fallback_pages,
             "successful_pages": successful_pages, "accepted_exact_urls": len(seen_urls),
+            "page_size": FREEHIRE_LIMIT if provider == "freehire" else LIMIT,
+            "max_pages_per_query": max_pages,
             "queries": windows, "errors": errors,
         }
     return {"market":market,"jobs":list(jobs.values()),"providers":reports}
