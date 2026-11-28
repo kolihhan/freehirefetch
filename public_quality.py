@@ -73,6 +73,56 @@ def location_markets(value):
 def norm(value):
     return re.sub(r"[^\w]+","",clean_text(value).casefold())
 
+def review_title(value):
+    # Remove only explicitly recognized scheduling suffixes. Never remove
+    # seniority, language, specialization or requisition identifiers.
+    return norm(re.sub(r"\s*\((?:Singapore Time|US Pacific Time)\)\s*$", "", clean_text(value), flags=re.I))
+
+def jd_shingles(text):
+    tokens=re.findall(r"[a-z0-9]+|[\u3400-\u9fff]", text.casefold())
+    return {tuple(tokens[i:i+4]) for i in range(len(tokens)-3)}
+
+def duplicate_review(jobs, bodies):
+    """Cross-source content overlap is a review signal, never identity."""
+    buckets={}
+    pairs=[]
+    for job in jobs:
+        job["duplicate_review"]=[]
+        body=bodies.get(job["id"],"")
+        grams=jd_shingles(body)
+        if (job["identity_conflict"] or not job["company"] or not job["location_markets"]
+                or len(grams)<100):
+            continue
+        buckets.setdefault(review_title(job["title"]),[]).append((job,grams))
+    for candidates in buckets.values():
+        for i,(a,ga) in enumerate(candidates):
+            for b,gb in candidates[i+1:]:
+                if norm(a["company"])==norm(b["company"]):
+                    continue
+                if not set(a["location_markets"]) & set(b["location_markets"]):
+                    continue
+                shared=len(ga & gb)
+                overlap=shared/min(len(ga),len(gb))
+                # Require substantial distinctive shared wording, not merely
+                # identical titles or a short generic company introduction.
+                if shared<50 or overlap<0.28:
+                    continue
+                evidence={"status":"POSSIBLE_DUPLICATE_REVIEW",
+                          "method":"same_normalized_title_market_and_jd_4gram_containment",
+                          "shared_4grams":shared,"containment":round(overlap,4)}
+                for left,right in ((a,b),(b,a)):
+                    left["duplicate_review"].append({**evidence,"other_id":right["id"],
+                        "other_company":right["company"],"other_url":right["url"],
+                        "other_title":right["title"]})
+                pairs.append({"ids":sorted([a["id"],b["id"]]),**evidence})
+    for job in jobs:
+        job["duplicate_review"].sort(key=lambda x:x["other_id"])
+        if job["duplicate_review"]:
+            job["content_fingerprint"]=hashlib.sha256(json.dumps(
+                [job["content_fingerprint"],job["duplicate_review"]],
+                ensure_ascii=False,sort_keys=True).encode()).hexdigest()
+    return sorted(pairs,key=lambda p:p["ids"])
+
 def build(rows,now,probes=()):
     groups={}; invalid=[]; sources=Counter(); missing=Counter(); conflicts=[]
     route_index={}
@@ -90,7 +140,7 @@ def build(rows,now,probes=()):
             invalid.append({"source":row.get("source"),"source_file":row.get("source_file"),"title":row.get("title"),"url":row.get("url") or row.get("source_url"),"reason":"MISSING_TITLE" if not clean_text(row.get("title")) else "INVALID_URL"}); continue
         sources[row.get("source","unknown")]+=1
         groups.setdefault(key,[]).append(row)
-    jobs=[]
+    jobs=[]; bodies={}
     for key,items in groups.items():
         # The strongest first-party observation supplies display fields, not eligibility.
         items.sort(key=lambda x: (x.get("source") in {"official-ats","jobpro-detail","jobpro-list"},
@@ -131,6 +181,8 @@ def build(rows,now,probes=()):
             len(str(x.get("_tag_text") or ""))))
         tag_text=clean_text(tag_source.get("_tag_text") or tag_source.get("excerpt"))
         grade=tag_source.get("_tag_grade") or ("EXCERPT" if tag_text else "TITLE_ONLY")
+        if grade in {"FIRST_PARTY_FULL","FIRST_PARTY_RETAINED","THIRD_PARTY_TEXT"} and len(tag_text)>=500:
+            bodies[job["id"]]=tag_text
         job["role_tags"]=tag_role(job["title"],tag_text,grade,tag_source)
         job["role_tags"]["source_file"]=(tag_source.get("retained_jd_ref") or {}).get("path") or tag_source.get("source_file")
         job["role_tags"]["retained_jd_ref"]=tag_source.get("retained_jd_ref")
@@ -142,11 +194,12 @@ def build(rows,now,probes=()):
         for field in ("company","locations","location_markets"):
             if not job[field]: missing[field]+=1
         jobs.append(job)
+    review_pairs=duplicate_review(jobs,bodies)
     jobs.sort(key=lambda j:(not j["identity_conflict"],j["role_tags"]["ai_depth"] in {"MODEL_RESEARCH_OR_EVALUATION","AI_SYSTEM_DEVELOPMENT"},j["fresh_full_jd"],max((o.get("event_seq") or 0 for o in j["observations"]),default=0),j["id"]),reverse=True)
     valid=len(rows)-len(invalid)
     tag_counts={field:dict(Counter(j["role_tags"][field] for j in jobs)) for field in ("role_family","ai_depth","seniority","degree","employment","text_evidence_grade")}
     return jobs,{"input_observations":len(rows),"valid_observations":valid,"invalid_observations":len(invalid),"invalid_details":invalid,"conflict_details":conflicts,
-        "unique_roles":len(jobs),"duplicate_observations":valid-len(jobs),"identity_conflicts":sum(j["identity_conflict"] for j in jobs),
+        "unique_roles":len(jobs),"possible_duplicate_pairs":len(review_pairs),"possible_duplicate_roles":sum(bool(j["duplicate_review"]) for j in jobs),"duplicate_observations":valid-len(jobs),"identity_conflicts":sum(j["identity_conflict"] for j in jobs),
         "fresh_full_jd":sum(j["fresh_full_jd"] for j in jobs),"unverified_url_roles":sum(j["identity_quality"]=="UNVERIFIED_URL" for j in jobs),"fresh_api_evidence":sum(any(p["source"]=="api" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"fresh_browser_evidence":sum(any(p["source"]=="browser" and p["fresh"] for p in j["application_evidence"]) for j in jobs),"missing_fields":dict(missing),"source_observations":dict(sources),"role_tag_counts":tag_counts}
 
 def collect(root):

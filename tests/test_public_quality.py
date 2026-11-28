@@ -108,5 +108,28 @@ class QualityTests(unittest.TestCase):
         if path.exists():
             self.assertIsInstance(json.loads(path.read_text())["jobs"],list)
 
+    def test_cross_company_overlap_is_review_only_not_merge(self):
+        body=" ".join("Develop anonymization pipeline component %d for rare identifiers and evaluate privacy leakage under adversarial conditions." % n for n in range(40))
+        rows=[dict(source="official-ats",url="https://job-boards.greenhouse.io/"+owner+"/jobs/"+uid,
+                   title=title,company=owner,location=location,market="SG",
+                   _tag_text=text,_tag_grade="FIRST_PARTY_FULL")
+              for owner,uid,title,location,text in (
+                  ("agencyone","100","Research Engineer, Privacy","Singapore",body),
+                  ("agencytwo","200","Research Engineer, Privacy (Singapore Time)","Singapore",body+" Other information"),
+                  ("agencythree","300","Research Engineer, Privacy","Beijing",body),
+                  ("agencyfour","400","Senior Research Engineer, Privacy","Singapore",body),
+                  ("agencyfive","500","Research Engineer, Privacy","Singapore"," ".join("Manage tax compliance document %d and payroll accounts under different regulatory frameworks." % n for n in range(20))))]
+        jobs,audit=build(rows,NOW)
+        self.assertEqual(len(jobs),5)
+        self.assertEqual(audit["possible_duplicate_pairs"],1)
+        self.assertEqual(audit["possible_duplicate_roles"],2)
+        self.assertEqual(audit["duplicate_observations"],0)
+        by_company={j["company"]:j for j in jobs}
+        self.assertEqual(by_company["agencyone"]["duplicate_review"][0]["other_id"],by_company["agencytwo"]["id"])
+        self.assertEqual(by_company["agencytwo"]["duplicate_review"][0]["status"],"POSSIBLE_DUPLICATE_REVIEW")
+        self.assertEqual(by_company["agencythree"]["duplicate_review"],[])
+        self.assertEqual(by_company["agencyfour"]["duplicate_review"],[])
+        self.assertEqual(by_company["agencyfive"]["duplicate_review"],[])
+
 if __name__=="__main__":
     unittest.main()
