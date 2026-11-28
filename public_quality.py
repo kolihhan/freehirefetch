@@ -152,7 +152,7 @@ def build(rows,now,probes=()):
         observations=[]
         for x in items:
             observations.append({k:x[k] for k in ("source","source_file","market","url","source_url",
-                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","retained_jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title","matched_markets","countries","work_mode") if x.get(k) is not None})
+                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","retained_jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title","matched_markets","countries","work_mode","source_credit") if x.get(k) is not None})
         markets=sorted({m for x in items for m in [x.get("market"), *(x.get("matched_markets") or [])] if m in MARKETS})
         locations=sorted({clean_text(x.get("location")) for x in items if clean_text(x.get("location"))})
         loc_markets=sorted({m for loc in locations for m in location_markets(loc)})
@@ -223,6 +223,24 @@ def collect(root):
     run_health["ats"]={k:{"status":v.get("status"),"rows_read":v.get("rows_read")} for k,v in ats_health.get("boards",{}).items() if isinstance(v,dict)}
     run_health["market_api"]={m:{k:{f:v.get(f) for f in ("status","successful_pages","accepted_exact_urls")} for k,v in api_health.get(m,{}).items() if isinstance(v,dict)} for m in sorted(MARKETS)}
     run_health["cn_native"]=cn_health
+    # DevGlobal is a supplementary aggregator, never employer-authored JD or apply proof.
+    devglobal_health=read("feed/devglobal/health.json")
+    run_health["devglobal"]=devglobal_health
+    for market in ("SG","MY"):
+        rel=f"feed/devglobal/devglobal-{market.lower()}-candidates.json"; d=read(rel)
+        report=devglobal_health.get(market,{})
+        if d.get("market")!=market: continue
+        observed=timestamp(d.get("observed_at"))
+        checked=timestamp(report.get("observed_at"))
+        current=observed is not None and checked is not None and observed==checked and bool(report.get("pages"))
+        freshness="OBSERVED_THIS_RUN" if current else "RETAINED_UNVERIFIED"
+        for x in d.get("items",[]):
+            if not isinstance(x,dict) or x.get("market")!=market: continue
+            uid=str(x.get("source_id") or "")
+            if not uid.isdigit() or x.get("url")!="https://devglobaljobs.com/jobs/detail/"+uid: continue
+            add(x,"devglobal",rel,market=market,job_id=uid,observed_at=d.get("observed_at"),
+                source_credit=d.get("source_credit"),source_run_status=report.get("coverage","UNKNOWN"),
+                discovery_freshness=freshness,jd_kind="listing_only")
     rel="feed/candidates.json"; d=read(rel)
     for x in [*d.get("candidates",[]), *d.get("unassigned_candidates",[])]:
         add(x,"freehire",rel,observed_at=d.get("generated_at"),excerpt=x.get("description_excerpt"))
