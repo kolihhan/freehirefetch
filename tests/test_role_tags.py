@@ -68,4 +68,14 @@ class RoleTagTests(unittest.TestCase):
         tags=tag_role("Algorithm Specialist","Responsibilities: Develop RAG systems.","FIRST_PARTY_FULL")
         self.assertEqual(tags["role_family"],"AI_ENGINEERING")
 
+    def test_real_capco_range_and_local_work_restriction(self):
+        tags=tag_role("AI Engineer - All Levels","Experience and Qualifications: 3–12 years of professional experience in AI/ML engineering. ELIGIBILITY TO WORK IN SG: Only Singapore Citizens and Singapore Permanent Residents (PRs) will be considered. Employment Pass sponsorship is not available.","FIRST_PARTY_FULL")
+        self.assertEqual(tags["experience_min_mentions"],[3])
+        self.assertTrue(tags["work_location_or_authorization_restriction"])
+
+    def test_explicit_local_residence_and_doctoral_title(self):
+        tags=tag_role("Applied AI Engineer","Applicants should already be based in Singapore.","FIRST_PARTY_FULL")
+        self.assertTrue(tags["work_location_or_authorization_restriction"])
+        self.assertEqual(tag_role("AI Engineer Graduate (PhD)")["degree"],"PHD_TITLE_SIGNAL")
+
 if __name__=="__main__": unittest.main()
