@@ -56,6 +56,14 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
         if not match(r"\b(?:experience|professional|engineering|development|research|working|work)\b|经验|研发|开发|工作",context): continue
         n=int(next(g for g in m.groups() if g is not None))
         if n<=30: exp.append(n);note("experience_min_mentions",m,grade)
+    # Range lower bound is an explicit minimum mention, not a preferred maximum.
+    for m in re.finditer(r"\b(\d{1,2})\s*[-–—]\s*(\d{1,2})\s*years?\s+(?:of\s+)?(?:relevant\s+|professional\s+|hands.on\s+|work\s+)?experience\b|\bmore than\s+(\d{1,2})\s+years?\s+(?:of\s+)?(?:\w+\s+){0,5}experience\b",body,re.I):
+        context=body[max(0,m.start()-65):min(len(body),m.end()+50)]
+        if match(r"\b(?:preferred|nice to have|good to have|bonus|desirable)\b|优先|加分",context): continue
+        n=int(m.group(1) or m.group(3))
+        if n<=30: exp.append(n);note("experience_min_mentions",m,grade)
+    rights=match(r"\bonly Singapore Citizens? (?:and|or|/)\s*(?:Singapore )?(?:Permanent Residents?|PRs?)\b|\b(?:employment pass|work visa|visa) sponsorship (?:is )?(?:not available|not provided|not offered)\b|\b(?:must (?:already )?be|should already be|must currently be)\s+based in (?:Singapore|Malaysia|China)\b|仅限(?:新加坡|中国|马来西亚)(?:公民|国籍)",body)
+    if rights: note("work_location_or_authorization_restriction",rights,grade)
     em=str(metadata.get("employment_type") or "")+" "+str(metadata.get("recruit_label") or "")
     internship=match(r"\b(?:internship|intern|iXp)\b|实习",t+" "+em)
     # Explicit duration or intern requirement, not reference to internship experience.
@@ -72,6 +80,7 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     seniority="SENIOR_TITLE" if sr else "EARLY_CAREER_TITLE" if graduate else "UNKNOWN"
     note("seniority",sr or graduate,"TITLE_OR_METADATA")
     cohorts=sorted(set(re.findall(r"(?<!\d)(20[2-4]\d)\s*届",t+" "+em)))
+    title_phd=match(r"\(\s*Ph\.?\s*D\.?\s*\)|博士岗|博士专场",t)
     phd=match(r"\b(?:Ph\.?\s*D\.?|doctorate|doctoral degree)\s*(?:is\s+)?(?:required|mandatory|essential)\b|\b(?:must (?:have|hold)|required to hold)\s+(?:a\s+)?(?:Ph\.?\s*D\.?|doctorate)\b|(?:须|必须|要求)(?:具备|具有|为)?博士(?:学历|学位|毕业生)|博士毕业生加入|(?:仅限|限)博士|博士及以上",body)
     phd_pref=match(r"\b(?:Ph\.?\s*D\.?|doctorate)\s*(?:is\s+)?(?:preferred|a plus)\b|博士优先",body)
     # Alternatives are not PhD-only. Explicit preferred PhD remains a separate signal.
@@ -80,10 +89,11 @@ def tag_role(title, text="", grade="TITLE_ONLY", metadata=None):
     bachelors=match(r"本科及以上|本科以上|\bbachelor.s degree (?:or higher|or above|required)\b",body)
     degree="UNKNOWN"
     if phd: degree="PHD_REQUIRED_SIGNAL";note("degree",phd,grade)
+    elif title_phd: degree="PHD_TITLE_SIGNAL";note("degree",title_phd,"TITLE")
     elif masters: degree="MASTER_MIN_SIGNAL";note("degree",masters,grade)
     elif bachelors: degree="BACHELOR_MIN_SIGNAL";note("degree",bachelors,grade)
     if phd_pref: note("degree_preferred",phd_pref,grade)
     return {"role_family":family,"ai_depth":depth,"seniority":seniority,"degree":degree,
             "phd_preferred_signal":bool(phd_pref),"experience_min_mentions":sorted(set(exp)),
-            "employment":employment,"graduation_cohorts":cohorts,"text_evidence_grade":grade,
+            "employment":employment,"graduation_cohorts":cohorts,"work_location_or_authorization_restriction":bool(rights),"text_evidence_grade":grade,
             "evidence":ev[:14]}
