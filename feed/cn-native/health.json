@@ -1,31 +1,31 @@
 {
   "version": 1,
-  "checked_at": "2026-11-28T05:04:01.165804+00:00",
+  "checked_at": "2026-11-28T05:22:24.206147+00:00",
   "source": "public native Liepin JSON + public job-pro careers",
   "liepin": {
-    "status": "PARTIAL_COVERAGE",
-    "jobs": 0,
-    "failed_pages": 2,
-    "completed_queries": 0
+    "status": "SOURCE_SAMPLE_COMPLETED",
+    "jobs": 166,
+    "failed_pages": 0,
+    "completed_queries": 2
   },
   "jobpro": {
     "ai": {
-      "jobs": 120,
+      "jobs": 160,
+      "failed_adapters": 0,
+      "status": "COMPLETE",
+      "retained_previous": false,
+      "retained_jobs": 0
+    },
+    "backend": {
+      "jobs": 424,
       "failed_adapters": 2,
       "status": "PARTIAL",
       "retained_previous": false,
       "retained_jobs": 0
     },
-    "backend": {
-      "jobs": 327,
-      "failed_adapters": 16,
-      "status": "PARTIAL",
-      "retained_previous": false,
-      "retained_jobs": 0
-    },
     "swe": {
-      "jobs": 207,
-      "failed_adapters": 16,
+      "jobs": 240,
+      "failed_adapters": 3,
       "status": "PARTIAL",
       "retained_previous": false,
       "retained_jobs": 0
@@ -52,9 +52,9 @@
       "retained_jobs": 0
     },
     "eval": {
-      "jobs": 109,
-      "failed_adapters": 1,
-      "status": "PARTIAL",
+      "jobs": 129,
+      "failed_adapters": 0,
+      "status": "COMPLETE",
       "retained_previous": false,
       "retained_jobs": 0
     }
