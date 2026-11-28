@@ -309,7 +309,10 @@
       "career_url": "https://job-boards.greenhouse.io/anthropic",
       "company": "anthropic",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 1,
+      "last_result": "COMPLETE",
+      "last_rows_read": 634,
       "markets": [
         "SG",
         "MY",
@@ -325,7 +328,10 @@
       "career_url": "https://job-boards.greenhouse.io/flexport",
       "company": "flexport",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 2,
+      "last_result": "COMPLETE",
+      "last_rows_read": 209,
       "markets": [
         "SG",
         "MY",
@@ -341,7 +347,10 @@
       "career_url": "https://job-boards.greenhouse.io/ogroup",
       "company": "ogroup",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 29,
+      "last_result": "COMPLETE",
+      "last_rows_read": 40,
       "markets": [
         "SG",
         "MY",
@@ -357,7 +366,10 @@
       "career_url": "https://boards.greenhouse.io/point72",
       "company": "point72",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 3,
+      "last_result": "COMPLETE",
+      "last_rows_read": 200,
       "markets": [
         "SG",
         "MY",
@@ -373,7 +385,10 @@
       "career_url": "https://job-boards.greenhouse.io/recruitis",
       "company": "recruitis",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 1,
+      "last_result": "COMPLETE",
+      "last_rows_read": 5,
       "markets": [
         "SG",
         "MY",
@@ -389,7 +404,10 @@
       "career_url": "https://job-boards.greenhouse.io/schonfeld",
       "company": "schonfeld",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 2,
+      "last_result": "COMPLETE",
+      "last_rows_read": 66,
       "markets": [
         "SG",
         "MY",
@@ -405,7 +423,10 @@
       "career_url": "https://jobs.lever.co/csit",
       "company": "csit",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 20,
+      "last_result": "COMPLETE",
+      "last_rows_read": 106,
       "markets": [
         "SG",
         "MY",
@@ -421,7 +442,10 @@
       "career_url": "https://jobs.lever.co/GoToGroup",
       "company": "GoToGroup",
       "first_seen_at": "2026-11-28T05:33:08+00:00",
-      "last_attempted_at": "",
+      "last_attempted_at": "2026-11-28T09:23:26+00:00",
+      "last_candidates": 10,
+      "last_result": "COMPLETE",
+      "last_rows_read": 29,
       "markets": [
         "SG",
         "MY",
@@ -674,14 +698,6 @@
     }
   },
   "deferred": [
-    "greenhouse:anthropic",
-    "greenhouse:flexport",
-    "greenhouse:ogroup",
-    "greenhouse:point72",
-    "greenhouse:recruitis",
-    "greenhouse:schonfeld",
-    "lever:csit",
-    "lever:gotogroup",
     "lever:portcast",
     "lever:shopback-2",
     "lever:veeva",
@@ -704,12 +720,20 @@
     "ashby:kirin",
     "ashby:kong",
     "ashby:lilt-production",
-    "ashby:menlo"
+    "ashby:menlo",
+    "ashby:meshy",
+    "ashby:palo-it",
+    "ashby:plaud",
+    "ashby:pragmatike",
+    "ashby:sentient",
+    "ashby:simular",
+    "ashby:thatgamecompany",
+    "greenhouse:aift"
   ],
-  "generated_at": "2026-11-28T05:50:40+00:00",
+  "generated_at": "2026-11-28T09:23:26+00:00",
   "seed_reads": {
     "feed/candidates.json": {
-      "rows": 168,
+      "rows": 22,
       "status": "READ"
     },
     "feed/coldstart.json": {
@@ -730,14 +754,14 @@
     }
   },
   "selected": [
-    "ashby:meshy",
-    "ashby:palo-it",
-    "ashby:plaud",
-    "ashby:pragmatike",
-    "ashby:sentient",
-    "ashby:simular",
-    "ashby:thatgamecompany",
-    "greenhouse:aift"
+    "greenhouse:anthropic",
+    "greenhouse:flexport",
+    "greenhouse:ogroup",
+    "greenhouse:point72",
+    "greenhouse:recruitis",
+    "greenhouse:schonfeld",
+    "lever:csit",
+    "lever:gotogroup"
   ],
   "version": 1
 }

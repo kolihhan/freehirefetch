@@ -139,10 +139,11 @@
     "ashby:meshy": {
       "candidates": 8,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 25,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:mistral.ai": {
       "candidates": 2,
@@ -163,26 +164,29 @@
     "ashby:palo-it": {
       "candidates": 7,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 34,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:plaud": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 53,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:pragmatike": {
       "candidates": 3,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 48,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:sash": {
       "candidates": 1,
@@ -195,10 +199,11 @@
     "ashby:sentient": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 3,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:sierra": {
       "candidates": 3,
@@ -211,30 +216,37 @@
     "ashby:simular": {
       "candidates": 5,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 22,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "ashby:thatgamecompany": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 39,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:aift": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 28,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:anthropic": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 634,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:arizeai": {
       "candidates": 2,
@@ -261,8 +273,12 @@
       "status": "COMPLETE"
     },
     "greenhouse:flexport": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 2,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 209,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:heygen": {
       "candidates": 2,
@@ -281,8 +297,12 @@
       "status": "COMPLETE"
     },
     "greenhouse:ogroup": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 29,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 40,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:okx": {
       "candidates": 33,
@@ -293,16 +313,28 @@
       "status": "COMPLETE"
     },
     "greenhouse:point72": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 3,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 200,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:recruitis": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 5,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:schonfeld": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 2,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 66,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "greenhouse:simplifynext": {
       "candidates": 7,
@@ -345,12 +377,20 @@
       "status": "COMPLETE"
     },
     "lever:csit": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 20,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 106,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "lever:gotogroup": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 10,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 29,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "lever:patsnap": {
       "candidates": 0,
@@ -389,12 +429,12 @@
       "status": "DEFERRED_ROTATION"
     },
     "smartrecruiters:boschgroup": {
-      "candidates": 76,
+      "candidates": 86,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 66,
-        "deferred_budget": 55,
-        "due": 65,
+        "cooldown_skipped": 46,
+        "deferred_budget": 75,
+        "due": 85,
         "eligible": 131,
         "failed": 0
       },
@@ -422,15 +462,15 @@
     "smartrecruiters:grab": {
       "candidates": 25,
       "detail_requests": {
-        "attempted": 0,
-        "cooldown_skipped": 27,
+        "attempted": 9,
+        "cooldown_skipped": 18,
         "deferred_budget": 0,
-        "due": 0,
+        "due": 9,
         "eligible": 27,
         "failed": 0
       },
-      "full_jds_hydrated": 0,
-      "rows_read": 449,
+      "full_jds_hydrated": 9,
+      "rows_read": 448,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
@@ -439,12 +479,12 @@
       "status": "DEFERRED_ROTATION"
     },
     "smartrecruiters:ncs3": {
-      "candidates": 47,
+      "candidates": 48,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 52,
-        "deferred_budget": 1,
-        "due": 11,
+        "cooldown_skipped": 34,
+        "deferred_budget": 19,
+        "due": 29,
         "eligible": 63,
         "failed": 0
       },
@@ -499,48 +539,48 @@
         "failed": 0
       },
       "full_jds_hydrated": 0,
-      "rows_read": 333,
+      "rows_read": 334,
       "scope": "whole_board",
       "status": "COMPLETE"
     },
     "workday:micron": {
-      "last_status": "FAILED",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:ntu": {
-      "last_status": "FAILED",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:nvidia": {
-      "last_status": "PARTIAL",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:pwc": {
-      "last_status": "FAILED",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:razer": {
-      "last_status": "FAILED",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:redhat": {
-      "last_status": "PARTIAL",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
     },
     "workday:surbanajurong": {
-      "last_status": "FAILED",
+      "last_status": "PAUSED_POLICY",
       "reason": "Source temporarily paused; previous records retained",
       "rows_read": 0,
       "status": "PAUSED_POLICY"
@@ -553,7 +593,7 @@
     "registered": 39,
     "seed_reads": {
       "feed/candidates.json": {
-        "rows": 168,
+        "rows": 22,
         "status": "READ"
       },
       "feed/coldstart.json": {
@@ -574,14 +614,14 @@
       }
     },
     "selected": [
-      "ashby:meshy",
-      "ashby:palo-it",
-      "ashby:plaud",
-      "ashby:pragmatike",
-      "ashby:sentient",
-      "ashby:simular",
-      "ashby:thatgamecompany",
-      "greenhouse:aift"
+      "greenhouse:anthropic",
+      "greenhouse:flexport",
+      "greenhouse:ogroup",
+      "greenhouse:point72",
+      "greenhouse:recruitis",
+      "greenhouse:schonfeld",
+      "lever:csit",
+      "lever:gotogroup"
     ]
   },
   "paused_boards": 7,
