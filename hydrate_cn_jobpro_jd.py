@@ -225,25 +225,27 @@ def clean_text(text: str) -> str:
     return re.sub(r"[ \t\r]+", " ", unescape(text)).strip()
 
 
-def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
+def detail_result(item: dict, detail: dict, when: str) -> tuple[dict | None, str]:
     if not isinstance(detail, dict) or detail.get("ok") is not True:
-        return None
+        return None, "UPSTREAM_UNAVAILABLE"
     company = item.get("company_key")
     uid = item.get("post_id")
     url = item.get("url")
     if str(detail.get("post_id") or "") != uid:
-        return None
+        return None, "JOB_ID_MISMATCH"
     if normalized_title(detail.get("title")) != normalized_title(item.get("title")):
-        return None
+        return None, "TITLE_MISMATCH"
     if official_url(company, {"post_id": uid, "apply_url": detail.get("apply_url")}) != url:
-        return None
+        return None, "OFFICIAL_URL_MISMATCH"
     description = clean_text(detail.get("description"))
     requirements = clean_text(detail.get("requirements"))
+    if not description or not requirements:
+        return None, "MISSING_JD_SECTION"
     if not 70 <= len(description) <= MAX_JD_CHARS or not 45 <= len(requirements) <= MAX_JD_CHARS:
-        return None
+        return None, "JD_SECTION_LENGTH"
     full = "岗位职责 / Responsibilities\n" + description + "\n任职要求 / Requirements\n" + requirements
     if not 230 <= len(full) <= MAX_JD_CHARS:
-        return None
+        return None, "JD_TOTAL_LENGTH"
     return {
         "company_key": company, "job_id": uid,
         "title": item["title"], "url": url, "checked_at": when,
@@ -252,8 +254,12 @@ def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
         "description_truncated": False,
         "source": "jobpro-public-employer-detail",
         "location": item.get("work_cities") or "",
-    }
+    }, ""
 
+
+
+def detail_evidence(item: dict, detail: dict, when: str) -> dict | None:
+    return detail_result(item, detail, when)[0]
 
 def cli_detail(company: str, uid: str) -> dict:
     command = ["npx", "-y", PACKAGE, company, "detail", uid, "--compact"]
@@ -280,31 +286,38 @@ def hydrate(documents: list[dict], *, detail_fetch=cli_detail, limit: int = 10,
               "checked_at": when, "attempted": 0, "failed": 0,
               "jobs": [], "failures": [],
               "warning": "Official source JDs are not eligibility, current-route or application proof."}
-    def fetch_one(item: dict) -> dict | None:
+    def fetch_one(item: dict) -> tuple[dict | None, str]:
         try:
             detail = detail_fetch(item["company_key"], item["post_id"])
-            return detail_evidence(item, detail, when)
-        except (OSError, ValueError, TimeoutError, subprocess.TimeoutExpired):
-            return None
+            return detail_result(item, detail, when)
+        except (TimeoutError, subprocess.TimeoutExpired):
+            return None, "DETAIL_TIMEOUT"
+        except (OSError, ValueError):
+            return None, "DETAIL_TRANSPORT_OR_PARSE_ERROR"
 
     # Detail lookups are independent HTTP/CLI requests. A bounded pool cuts
     # end-to-end latency without flooding employer public endpoints.
     # executor.map preserves source priority order in the published artifact.
     with ThreadPoolExecutor(max_workers=3) as pool:
         evidence_rows = list(pool.map(fetch_one, candidates))
-    for item, evidence in zip(candidates, evidence_rows):
+    for item, (evidence, reason) in zip(candidates, evidence_rows):
         output["attempted"] += 1
         old = matching_record(history, item)
         history[identity(item)] = {"title": item["title"], "url": item["url"],
                                    "attempted_at": when,
                                    "status": "OK" if evidence else "FAILED",
-                                   "evidence": evidence or old.get("evidence")}
+                                   "evidence": evidence or old.get("evidence"),
+                                   "failure_reason": reason or None}
         if not evidence:
             output["failed"] += 1
             output["failures"].append({
                 "company_key": item["company_key"], "job_id": item["post_id"],
-                "reason": "OFFICIAL_DETAIL_NOT_VERIFIED",
+                "reason": reason,
             })
+    output["failure_reasons"] = {}
+    for failure in output["failures"]:
+        reason = failure["reason"]
+        output["failure_reasons"][reason] = output["failure_reasons"].get(reason, 0) + 1
     # Only publish fresh, matching, currently observed successful evidence.
     # Failed refreshes or disappeared roles remain in state, not in the live JD list.
     for item in observed:
