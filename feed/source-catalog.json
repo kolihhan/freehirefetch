@@ -41,6 +41,16 @@
       "note": "API proxy only, skip retained unverified rows for fresh discovery; not employer JD proof."
     },
     {
+      "id": "devglobal",
+      "mode": "current_snapshot",
+      "markets": {
+        "SG": "feed/devglobal/devglobal-sg-candidates.json",
+        "MY": "feed/devglobal/devglobal-my-candidates.json"
+      },
+      "health": "feed/devglobal/health.json",
+      "note": "Powered by Dev Global Jobs; bounded aggregator leads only, never official JD, native platform coverage, or verified application route. Reverify retained observations."
+    },
+    {
       "id": "sg-research",
       "mode": "current_snapshot",
       "path": "feed/sg-research/current.json",
