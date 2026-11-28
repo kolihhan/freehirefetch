@@ -688,7 +688,8 @@ def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: 
     write_if_changed(target / "detail-attempts.json", {"version":1,"records":attempts})
     print(json.dumps({"boards": len(statuses), "status": health["complete"], "jobs": len(new_by),
                       "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "REMOVED_FROM_FEED")},
-                      "failures": [k for k, v in statuses.items() if v["status"] != "COMPLETE"]}))
+                      "failures": [k for k, v in statuses.items() if v["status"] not in ("COMPLETE", "DEFERRED_ROTATION")],
+                      "rotation_deferred": sum(v["status"] == "DEFERRED_ROTATION" for v in statuses.values())}))
     return {"health": health, "events": events, "jobs": len(new_by)}
 
 
