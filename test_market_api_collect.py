@@ -40,6 +40,24 @@ def fake_api(url):
 
 
 class FreeJobAPIContractTests(unittest.TestCase):
+    def test_sg_deep_page_budget_reaches_new_exact_roles(self):
+        def paged(url):
+            p=urlparse(url)
+            q=parse_qs(p.query)
+            if p.hostname=="freehire.me":
+                off=int(q["offset"][0])
+                rows=[dict(FREEHIRE,public_slug=f"row-{i}",url=f"https://job-boards.greenhouse.io/example/jobs/{100000+i}") for i in range(off,min(off+50,300))]
+                return {"data":rows,"meta":{"total":300,"limit":50,"offset":off}}
+            return {"jobs":[],"has_next":False}
+        old=api.collect("SG",fetch=paged,max_pages=4)
+        new=api.collect("SG",fetch=paged,max_pages=4,sg_freehire_pages=6)
+        self.assertEqual(len(old["jobs"]),200)
+        self.assertEqual(len(new["jobs"]),300)
+        self.assertEqual(new["providers"]["freehire"]["page_budget_per_query"],6)
+        self.assertEqual(new["providers"]["aidevboard"]["page_budget_per_query"],4)
+        self.assertFalse(new["providers"]["freehire"]["queries"][0]["truncated"])
+        self.assertEqual(api.collect("CN",fetch=paged,max_pages=4,sg_freehire_pages=6)["providers"]["freehire"]["page_budget_per_query"],4)
+
     def test_freehire_country_facet_not_text_location(self):
         self.assertEqual(api.normalize_freehire(FREEHIRE,"SG")["url"],URL)
         self.assertIsNone(api.normalize_freehire(FREEHIRE,"MY"))

@@ -86,7 +86,7 @@ jobs:
         if: steps.tests.outputs.exit_code == '0'
         shell: bash
         run: |
-          python market_api_collect.py --out-dir feed/market-api --max-pages 4 ||
+          python market_api_collect.py --out-dir feed/market-api --max-pages 4 --sg-freehire-pages 6 ||
             echo "::warning::Public API batch providers failed; keep previous candidate snapshots and report outage"
       - name: Collect DevGlobal public supplementary job batches
         if: steps.tests.outputs.exit_code == '0'
