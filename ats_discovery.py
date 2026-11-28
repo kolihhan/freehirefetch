@@ -519,7 +519,7 @@ def board_deadline(seconds: int = MAX_BOARD_SECONDS):
         signal.signal(signal.SIGALRM, prior_handler)
 
 
-def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
+def run(root: Path, config: list[dict], *, clock: str | None = None, discovery: dict | None = None) -> dict:
     clock = clock or datetime.now(timezone.utc).isoformat(timespec="seconds")
     target = root / "feed" / "ats"
     old = read_json(target / "current.json", {"version": 1, "jobs": []})
@@ -661,6 +661,20 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
         for event in events
     ]}
     health = {"version": 1, "boards": statuses, "complete": all(x["status"] == "COMPLETE" for x in statuses.values())}
+    if discovery is not None:
+        for key in discovery["selected"]:
+            status = statuses.get(key, {})
+            discovery["boards"][key]["last_attempted_at"] = clock
+            discovery["boards"][key]["last_result"] = status.get("status", "UNKNOWN")
+            discovery["boards"][key]["last_rows_read"] = status.get("rows_read", 0)
+            discovery["boards"][key]["last_candidates"] = status.get("candidates", 0)
+        for key in discovery["deferred"]:
+            statuses[key] = dict(previous_health.get(key, {}), status="DEFERRED_ROTATION",
+                                 error="Not scanned in this bounded run; previous records retained")
+        health["discovery"] = {"registered": len(discovery["boards"]),
+            "selected": discovery["selected"], "deferred": len(discovery["deferred"]),
+            "seed_reads": discovery["seed_reads"]}
+        write_if_changed(target / "discovered-boards.json", discovery)
     # Bounded market-sized indexes avoid connector truncation as employer
     # coverage expands. Keep current.json for existing consumers.
     for market in ("SG", "MY", "CN"):
@@ -674,9 +688,92 @@ def run(root: Path, config: list[dict], *, clock: str | None = None) -> dict:
     write_if_changed(target / "detail-attempts.json", {"version":1,"records":attempts})
     print(json.dumps({"boards": len(statuses), "status": health["complete"], "jobs": len(new_by),
                       "events": {k: sum(x["kind"] == k for x in events) for k in ("BASELINE", "NEW", "CHANGED", "REMOVED_FROM_FEED")},
-                      "failures": [k for k, v in statuses.items() if v["status"] != "COMPLETE"]}))
+                      "failures": [k for k, v in statuses.items() if v["status"] not in ("COMPLETE", "DEFERRED_ROTATION")],
+                      "rotation_deferred": sum(v["status"] == "DEFERRED_ROTATION" for v in statuses.values())}))
     return {"health": health, "events": events, "jobs": len(new_by)}
 
+
+
+# Discover new public boards from exact role links already observed by collectors.
+# Only documented HTTPS ATS hosts are accepted; never follow arbitrary seed URLs.
+DISCOVERED_BOARD_LIMIT = 3
+_DISCOVERY_HOSTS = {
+    "job-boards.greenhouse.io": "greenhouse",
+    "boards.greenhouse.io": "greenhouse",
+    "jobs.ashbyhq.com": "ashby",
+    "jobs.lever.co": "lever",
+    "jobs.smartrecruiters.com": "smartrecruiters",
+}
+_DISCOVERY_UUID = r"[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}"
+
+def board_seed(url):
+    try:
+        p = urlparse(str(url or ""))
+        kind = _DISCOVERY_HOSTS.get(p.hostname)
+        if p.scheme != "https" or not kind or p.username or p.password or p.port not in (None, 443):
+            return None
+        slug = r"([A-Za-z0-9_.-]+)"
+        pattern = {
+            "greenhouse": slug + r"/jobs/(\d+)(?:/apply)?",
+            "ashby": slug + "/" + _DISCOVERY_UUID + r"(?:/application)?",
+            "lever": slug + "/" + _DISCOVERY_UUID + r"(?:/apply)?",
+            "smartrecruiters": slug + r"/\d{10,}(?:-[^/]+)?",
+        }[kind]
+        match = re.fullmatch(pattern, p.path.strip("/"))
+        if not match or match[1] in (".", ".."):
+            return None
+        return kind, match[1]
+    except (ValueError, TypeError):
+        return None
+
+def discover_boards(root, configured, clock, limit=DISCOVERED_BOARD_LIMIT):
+    """Return bounded rotating public board probes plus persistent discovery metadata.
+
+    Seed-company text is not employer identity proof. The board owner slug is
+    used as the public label; keep the source label and exact seed URL as evidence.
+    All target markets are screened using actual first-party listing locations.
+    """
+    known = {b["ats"] + ":" + b["slug"].lower() for b in configured}
+    path = root / "feed" / "ats" / "discovered-boards.json"
+    registry = read_json(path, {"boards": {}}).get("boards", {})
+    registry = {k: v for k, v in registry.items() if k not in known}
+    counts = {}
+    paths = ["feed/market-api/" + m + ".json" for m in REGIONS]
+    paths += ["feed/candidates.json", "feed/coldstart.json"]
+    for rel in paths:
+        try:
+            data = read_json(root / rel, {})
+            rows = data.get("jobs", data.get("candidates", []))
+            if not isinstance(rows, list):
+                raise ValueError("missing row list")
+        except (OSError, ValueError, TypeError, AttributeError):
+            counts[rel] = {"status": "READ_FAILED", "rows": 0}
+            continue
+        counts[rel] = {"status": "READ" if (root / rel).exists() else "MISSING", "rows": len(rows)}
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            loc = plain(row.get("location"))
+            if not any(pattern.search(loc) for pattern in REGIONS.values()):
+                continue
+            url = row.get("source_url") or row.get("url")
+            seed = board_seed(url)
+            if not seed:
+                continue
+            kind, slug = seed
+            key = kind + ":" + slug.lower()
+            if key in known or key in registry:
+                continue
+            registry[key] = {"ats": kind, "slug": slug, "company": slug,
+                "markets": list(REGIONS), "career_url": "https://" + urlparse(url).hostname + "/" + slug,
+                "seed_url": url, "seed_source": rel, "seed_company_label": plain(row.get("company"))[:150],
+                "first_seen_at": clock, "last_attempted_at": ""}
+    ordered = sorted(registry, key=lambda k: (registry[k].get("last_attempted_at", ""),
+                                            registry[k].get("first_seen_at", ""), k))
+    selected = ordered[:max(0, limit)]
+    return [registry[k] for k in selected], {"version": 1, "generated_at": clock,
+        "seed_reads": counts, "boards": registry, "selected": selected,
+        "deferred": ordered[len(selected):]}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -684,7 +781,12 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=ROOT)
     args = parser.parse_args()
     config = json.loads(args.config.read_text())
-    result = run(args.root, config["boards"])
+    clock = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    discovered, discovery = discover_boards(args.root, config["boards"], clock)
+    print(json.dumps({"discovery": {"registered": len(discovery["boards"]),
+          "selected": discovery["selected"], "deferred": len(discovery["deferred"]),
+          "seed_reads": discovery["seed_reads"]}}), flush=True)
+    result = run(args.root, config["boards"] + discovered, clock=clock, discovery=discovery)
     # A partial source scan is visible as workflow failure, but preserves successful board deltas.
     return 0 if result["health"]["complete"] else 2
 
