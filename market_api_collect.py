@@ -328,9 +328,11 @@ def request_page(provider, market, query, page, fetch):
     return payload["jobs"], payload["has_next"], normalize_aidevboard
 
 
-def collect(market, *, fetch=get_json, max_pages=2):
+def collect(market, *, fetch=get_json, max_pages=2, sg_freehire_pages=None):
     if market not in MARKETS or max_pages < 1:
         raise ValueError("unsupported market or page budget")
+    if sg_freehire_pages is not None and not 1 <= sg_freehire_pages <= 10:
+        raise ValueError('unsupported SG page budget')
     jobs = {}
     reports = {}
     for provider in ("freehire", "aidevboard"):
@@ -341,11 +343,12 @@ def collect(market, *, fetch=get_json, max_pages=2):
         queries = QUERIES + extra
         successful_pages, errors, windows, seen_urls = 0, [], [], set()
         full_text_fallback_pages = 0
+        page_budget = sg_freehire_pages if market == 'SG' and provider == 'freehire' and sg_freehire_pages is not None else max_pages
         for q in queries:
             rows_seen, truncated = 0, False
             before_query = set(seen_urls)
             previous_urls = set()
-            for page in range(1, max_pages+1):
+            for page in range(1, page_budget+1):
                 try:
                     rows, has_next, converter = request_page(provider,market,q,page,fetch)
                     successful_pages += 1
@@ -366,7 +369,7 @@ def collect(market, *, fetch=get_json, max_pages=2):
                             seen_urls.add(cand["url"])
                     if not has_next:
                         break
-                    if page == max_pages:
+                    if page == page_budget:
                         truncated = True
                 except (OSError, ValueError, TypeError, json.JSONDecodeError) as e:
                     errors.append(f"{q}:page{page}:{type(e).__name__}:{str(e)[:110]}")
@@ -389,6 +392,7 @@ def collect(market, *, fetch=get_json, max_pages=2):
                        "PARTIAL" if (errors or full_text_fallback_pages or
                                      any(w["truncated"] for w in windows))
                        else "COMPLETE"),
+            "page_budget_per_query": page_budget,
             "full_text_fallback_pages": full_text_fallback_pages,
             "successful_pages": successful_pages, "accepted_exact_urls": len(seen_urls),
             "queries": windows, "errors": errors,
@@ -396,12 +400,12 @@ def collect(market, *, fetch=get_json, max_pages=2):
     return {"market":market,"jobs":list(jobs.values()),"providers":reports}
 
 
-def run(out_dir, *, fetch=get_json, max_pages=2):
+def run(out_dir, *, fetch=get_json, max_pages=2, sg_freehire_pages=None):
     out_dir.mkdir(parents=True, exist_ok=True)
     health = {}
     market_results = {}
     for market in MARKETS:
-        result = collect(market,fetch=fetch,max_pages=max_pages)
+        result = collect(market,fetch=fetch,max_pages=max_pages,sg_freehire_pages=sg_freehire_pages)
         market_results[market] = result
         health[market] = result["providers"]
         # A partial window is not evidence that an unseen role disappeared.
@@ -435,8 +439,9 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--out-dir",type=Path,required=True)
     p.add_argument("--max-pages",type=int,choices=range(1,11),default=3)
+    p.add_argument('--sg-freehire-pages',type=int,choices=range(1,11),default=None)
     args=p.parse_args()
-    run(args.out_dir,max_pages=args.max_pages)
+    run(args.out_dir,max_pages=args.max_pages,sg_freehire_pages=args.sg_freehire_pages)
 
 
 if __name__=="__main__":
