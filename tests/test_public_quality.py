@@ -109,7 +109,7 @@ class QualityTests(unittest.TestCase):
             self.assertIsInstance(json.loads(path.read_text())["jobs"],list)
 
     def test_cross_company_overlap_is_review_only_not_merge(self):
-        body=" ".join("Develop anonymization pipeline component %d for rare identifiers and evaluate privacy leakage under adversarial conditions." % n for n in range(20))
+        body=" ".join("Develop anonymization pipeline component %d for rare identifiers and evaluate privacy leakage under adversarial conditions." % n for n in range(40))
         rows=[dict(source="official-ats",url="https://job-boards.greenhouse.io/"+owner+"/jobs/"+uid,
                    title=title,company=owner,location=location,market="SG",
                    _tag_text=text,_tag_grade="FIRST_PARTY_FULL")
