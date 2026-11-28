@@ -2,6 +2,72 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:b292323060f06dc470b91f16",
+      "title": "软件研发专家",
+      "company": "meituan",
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4911719948",
+      "locations": [
+        "北京市"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-swe.json",
+          "market": "CN",
+          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4911719948",
+          "job_id": "4911719948",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "社招",
+          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4911719948&jobShareType=1&highlightType=social",
+          "location": "北京市",
+          "company": "meituan",
+          "title": "软件研发专家"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "专家",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-swe.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "148597d294d83f8cf8438894cc60e64bb61926a7187531cd155effb21cb3a6f8",
+      "duplicate_review": []
+    },
+    {
       "id": "job:b247660f28685c51ef3294f4",
       "title": "AI Agent产品经理（AgentOS与数据方向） - AI创新业务",
       "company": "bytedance",
@@ -1829,74 +1895,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "ac920900b0e83e23b1ded2b3ed87c4a3ddfa5791a702f72fab83d70beba27abd",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:ad2bfd7768273fef18835f41",
-      "title": "后端技术经理（正编岗）",
-      "company": "某深圳保险上市公司",
-      "url": "https://www.liepin.com/a/82309419.shtml",
-      "locations": [
-        "深圳-福田区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "UNVERIFIED_URL",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/a/82309419.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-28",
-          "salary": "40-70k·16薪",
-          "experience": "5-10年",
-          "education": "统招本科",
-          "location": "深圳-福田区",
-          "company": "某深圳保险上市公司",
-          "title": "后端技术经理（正编岗）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "后端",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2e5b09b72f611ba29ba13b0daa901a25017934eadaa77f0d2eddda47e46dc8f7",
       "duplicate_review": []
     }
   ]

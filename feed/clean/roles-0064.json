@@ -2,6 +2,410 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:44822d5149ddd011ecf20074",
+      "title": "运营开发",
+      "company": "tencent",
+      "url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
+      "locations": [
+        "深圳总部 北京 上海 广州"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-backend.json",
+          "market": "CN",
+          "url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
+          "job_id": "1283126506864059392",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "应届毕业生",
+          "apply_url": "https://join.qq.com/post_detail.html?postid=1283126506864059392",
+          "location": "深圳总部 北京 上海 广州",
+          "company": "tencent",
+          "title": "运营开发"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "应届",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-backend.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "84670ee205d8b038b0d1e07e29fd77a4a53987b67158c8e4608d165111340cd1",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:4447643f005817c1ca32a6df",
+      "title": "Senior Data Scientist (Analytics), Financial Services",
+      "company": "Grab",
+      "url": "https://jobs.smartrecruiters.com/Grab/744000162429629",
+      "locations": [
+        "Singapore, sg"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Get to Know the Team The Financial Services (FS) Analytics team is the analytics and data function for Grab Financial Services which includes the Digibanks — GXS Bank (Singapore) and GX Bank (Malaysia). You will be part of the Save & Spend",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/SG.json",
+          "market": "SG",
+          "url": "https://jobs.smartrecruiters.com/Grab/744000162429629",
+          "key": "grab|smartrecruiters|744000162429629",
+          "job_id": "744000162429629",
+          "observed_at": "2026-11-28T09:23:26+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-27T17:12:11+00:00",
+          "posted_at": "2026-11-19T03:12:42.878Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Singapore, sg",
+          "company": "Grab",
+          "title": "Senior Data Scientist (Analytics), Financial Services"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "api",
+          "status": "API_LISTED",
+          "checked_at": "2026-11-28T09:23:26+00:00",
+          "fresh": true,
+          "apply_url": "",
+          "title_match": null
+        },
+        {
+          "source": "browser",
+          "status": "APPLY_CONTROL_ONLY",
+          "checked_at": "2026-11-28T05:36:12+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          4
+        ],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "at least 4 years",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "seniority",
+            "quote": "Senior",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/ats/markets/SG.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T17:12:11+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "719d923df443cccf6dbffbebcc266e909c2fb458654dc9a25500df918665ef0c",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:44284d2f85373708a0d3552a",
+      "title": "Machine Learning Engineer Graduate (Global E-Commerce) - 2027 Start (PhD)",
+      "company": "TikTok",
+      "url": "https://sg.jobstreet.com/job/93721505",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Responsibilities About the Team The E-commerce Algorithm Team powers TikTok Shop's intelligent commerce ecosystem, connecting users with quality products and sellers through personalized recommendations, search, live",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/93721505",
+          "key": "freehire|machine-learning-engineer-graduate-global-e-commerce-2027-start-phd-tiktok-ypwxpzae",
+          "job_id": "machine-learning-engineer-graduate-global-e-commerce-2027-start-phd-tiktok-ypwxpzae",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "TikTok",
+          "title": "Machine Learning Engineer Graduate (Global E-Commerce) - 2027 Start (PhD)"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T17:16:42+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "EARLY_CAREER_TITLE",
+        "degree": "PHD_TITLE_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "Machine Learning",
+            "origin": "TITLE"
+          },
+          {
+            "field": "seniority",
+            "quote": "Graduate",
+            "origin": "TITLE_OR_METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "(PhD)",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "ed86943f71429d898b2ad2b54ea985346bb052080b80020e71b6d7a5596eaa69",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:43e88fba2687a19683637081",
+      "title": "多任务学习算法工程师-XC",
+      "company": "Bosch",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000033774495",
+      "locations": [
+        "Shanghai, Shanghai, cn"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "负责行车/泊车场景下多任务学习算法的研发与优化，包括动态/静态感知等模型的联合训练； 设计高效的多任务训练框架，提高任务间的协同效率和模型性能； 研究多任务学习中的损失平衡、任务冲突解决等关键问题，提升模型的稳定性和泛化能力； 基于真实驾驶数据和仿真数据进行模型训练、调优及部署； 跟踪最新的多任务学习、深度学习和自动驾驶领域的研究进展，应用于实际业务场景； 支持相关团队解决训练中的技术问题，并推动算法在自动驾驶系统中的落地应用。 熟悉多任务学习的基本原理和相关技术（如共享参数",
+      "observations": [
+        {
+          "source": "official-ats",
+          "source_file": "feed/ats/markets/CN.json",
+          "market": "CN",
+          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000033774495",
+          "key": "boschgroup|smartrecruiters|744000033774495",
+          "job_id": "744000033774495",
+          "observed_at": "2026-11-28T09:23:26+00:00",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "COMPLETE",
+          "jd_kind": "retained_jd",
+          "jd_checked_at": "2026-11-27T13:04:12+00:00",
+          "posted_at": "2024-12-28T05:21:43.004Z",
+          "salary_summary": "",
+          "salary_components": [],
+          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
+          "apply_url": "",
+          "location": "Shanghai, Shanghai, cn",
+          "company": "Bosch",
+          "title": "多任务学习算法工程师-XC"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "MASTER_MIN_SIGNAL",
+        "phd_preferred_signal": true,
+        "experience_min_mentions": [],
+        "employment": "PERMANENT_SIGNAL",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "FIRST_PARTY_RETAINED",
+        "evidence": [
+          {
+            "field": "employment",
+            "quote": "permanent",
+            "origin": "METADATA"
+          },
+          {
+            "field": "degree",
+            "quote": "硕士及以上",
+            "origin": "FIRST_PARTY_RETAINED"
+          },
+          {
+            "field": "degree_preferred",
+            "quote": "博士优先",
+            "origin": "FIRST_PARTY_RETAINED"
+          }
+        ],
+        "source_file": "feed/ats/markets/CN.json",
+        "retained_jd_ref": null,
+        "source": "official-ats",
+        "source_checked_at": "2026-11-27T13:04:12+00:00",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "8ee2386a2081b194b2b076b0002100f0b692ed6322a71d329177206085e0c5e8",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:43d8cbad47d4f47e3ded2d42",
+      "title": "【共创】机器人C++软件工程师",
+      "company": "agibot",
+      "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
+      "locations": [
+        "上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-swe.json",
+          "market": "CN",
+          "url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
+          "job_id": "7655218235272579379",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "全职 / 社招",
+          "apply_url": "https://agirobot.jobs.feishu.cn/socialrecruitment/position/7655218235272579379/detail",
+          "location": "上海",
+          "company": "agibot",
+          "title": "【共创】机器人C++软件工程师"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "FULL_TIME_UNSPECIFIED_TERM",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "软件工程师",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-swe.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "9a699a1ba7e907c8c3e72511372cb2ac387622a265266bff30f6a969bc7faad2",
+      "duplicate_review": []
+    },
+    {
       "id": "job:43620458caed88aa4b4193cc",
       "title": "训练框架实习生-多模态生成方向-2028 届",
       "company": "minimax",
@@ -1461,374 +1865,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "382d6fe3c819577e00245b7b7564f82ae3129f216c258a0b0c5d3c3e8b647da9",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:4078a0d7651bf57da5818960",
-      "title": "销售经理/总监（Agent智能体）",
-      "company": "泰昌东方",
-      "url": "https://www.liepin.com/job/1984770497.shtml",
-      "locations": [
-        "深圳-宝安区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/job/1984770497.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-17",
-          "salary": "8-20k",
-          "experience": "2年以上",
-          "education": "大专",
-          "location": "深圳-宝安区",
-          "company": "泰昌东方",
-          "title": "销售经理/总监（Agent智能体）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "NON_TECHNICAL",
-        "ai_depth": "NOT_CORE_AI",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "销售",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "总监",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "b27d4e615a506271fb9f0bfb19962264d345eaac9784221b6cbcf957282b2196",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:4070811fb2d7abd99a10f1b7",
-      "title": "【实习】AI产品设计师",
-      "company": "xiaohongshu",
-      "url": "https://job.xiaohongshu.com/campus/position/22967",
-      "locations": [
-        "上海市，北京市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-ai.json",
-          "market": "CN",
-          "url": "https://job.xiaohongshu.com/campus/position/22967",
-          "job_id": "22967",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "体验设计",
-          "apply_url": "https://job.xiaohongshu.com/campus/position/22967",
-          "location": "上海市，北京市",
-          "company": "xiaohongshu",
-          "title": "【实习】AI产品设计师"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "实习",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-ai.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "aedaaf26cca64f89fa6372c4a4ffbf6abbc86240153b3943cdc6967986b40b3c",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:4056a602fc408e3d98c2d6c7",
-      "title": "AI 应用工程师（Agent / AI‑Native 开发）",
-      "company": "深圳黑白红电子商务有限公司",
-      "url": "https://www.liepin.com/job/1986598259.shtml",
-      "locations": [
-        "深圳-龙华区"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "liepin",
-          "source_file": "feed/cn-native/liepin-raw.json",
-          "market": "CN",
-          "url": "https://www.liepin.com/job/1986598259.shtml",
-          "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
-          "jd_kind": "listing_only",
-          "posted_at": "2026-11-25",
-          "salary": "15-20k·13薪",
-          "experience": "3-5年",
-          "education": "本科",
-          "location": "深圳-龙华区",
-          "company": "深圳黑白红电子商务有限公司",
-          "title": "AI 应用工程师（Agent / AI‑Native 开发）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [],
-        "source_file": "feed/cn-native/liepin-raw.json",
-        "retained_jd_ref": null,
-        "source": "liepin",
-        "source_checked_at": "2026-11-28T08:47:08.251Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "b0dd3e294b02ee453b3998273a3bd32da3d590492b5b8e218bf64c7d302f5a65",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:3fe9b5b5d49f8f7c3b7ecc05",
-      "title": "模型训练-大模型安全群组",
-      "company": "bytedance",
-      "url": "https://jobs.bytedance.com/experienced/position/7636751351460186421/detail",
-      "locations": [
-        "成都"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/experienced/position/7636751351460186421/detail",
-          "job_id": "7636751351460186421",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/experienced/position/7636751351460186421/detail",
-          "location": "成都",
-          "company": "bytedance",
-          "title": "模型训练-大模型安全群组"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-28T09:27:28+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "大模型",
-            "origin": "TITLE"
-          },
-          {
-            "field": "employment",
-            "quote": "正式",
-            "origin": "METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-llm.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "a4d6c1f727934e3c881d0d9ee8d95225b1a1cef8ec2e7523adaeb9b18347bf43",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:3fe3b1d041c6b22d1ceb1d5b",
-      "title": "Senior Microsoft Copilot & Agentic AI Engineer",
-      "company": "MLAI Digital AI Solutions Malaysia",
-      "url": "https://my.jobstreet.com/job/95468129",
-      "locations": [
-        "Kuala Lumpur"
-      ],
-      "observed_markets": [
-        "MY"
-      ],
-      "location_markets": [
-        "MY"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Salary: RM 5,000 – RM 7,000 per month About the role We are looking for a Senior Microsoft Copilot & Agentic AI Engineer with a strong understanding of the Microsoft AI ecosystem and practical experience",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/MY.json",
-          "market": "MY",
-          "url": "https://my.jobstreet.com/job/95468129",
-          "key": "freehire|senior-microsoft-copilot-agentic-ai-engineer-mlai-digital-ai-solutions-malaysia-ebqzmuvx",
-          "job_id": "senior-microsoft-copilot-agentic-ai-engineer-mlai-digital-ai-solutions-malaysia-ebqzmuvx",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Kuala Lumpur",
-          "company": "MLAI Digital AI Solutions Malaysia",
-          "title": "Senior Microsoft Copilot & Agentic AI Engineer"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "AI_ENGINEERING",
-        "ai_depth": "AI_TITLE_ONLY",
-        "seniority": "SENIOR_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [
-          6
-        ],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Agentic",
-            "origin": "TITLE"
-          },
-          {
-            "field": "ai_depth",
-            "quote": "AI Engineer",
-            "origin": "TITLE"
-          },
-          {
-            "field": "experience_min_mentions",
-            "quote": "Minimum 6 years",
-            "origin": "THIRD_PARTY_TEXT"
-          },
-          {
-            "field": "seniority",
-            "quote": "Senior",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/market-api/MY.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "96fea60727bb2260b148b655f7b0fddb925305475f641b9609e7e9a5dcddd5c5",
       "duplicate_review": []
     }
   ]

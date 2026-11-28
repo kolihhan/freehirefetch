@@ -2,6 +2,85 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:c7c714b34b4a99bc53a1f940",
+      "title": "Applied ML / AI Engineer",
+      "company": "Nestria",
+      "url": "https://sg.jobstreet.com/job/93250277",
+      "locations": [
+        "Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Software Engineering, Data Science Singapore Posted on Jul 9, 2026",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://sg.jobstreet.com/job/93250277",
+          "key": "freehire|applied-ml-ai-engineer-nestria-ntaioeuz",
+          "job_id": "applied-ml-ai-engineer-nestria-ntaioeuz",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore",
+          "company": "Nestria",
+          "title": "Applied ML / AI Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "BLOCKED",
+          "checked_at": "2026-11-27T13:08:24+00:00",
+          "fresh": true,
+          "apply_url": null,
+          "title_match": false
+        }
+      ],
+      "role_tags": {
+        "role_family": "AI_ENGINEERING",
+        "ai_depth": "AI_TITLE_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI Engineer",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "d0e2e978a15079107bbc700e5bb4ebfdc1b55b51d055b6d9fc515aa86be03eda",
+      "duplicate_review": []
+    },
+    {
       "id": "job:c7bb4b09f4439e07ab1e9131",
       "title": "Research Engineer (General)",
       "company": "HUD",
@@ -1801,80 +1880,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "cc9d16d959f79918ec6ab72f84100935a59fc8c1ae90972edff7b51e1aa219f1",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:c3ce5fc1c44b54f2da752ca9",
-      "title": "AI/ML Research Engineer - Robotics Perception",
-      "company": "SGInnovate",
-      "url": "https://www.linkedin.com/jobs/view/4462910802",
-      "locations": [
-        "Singapore, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "This role is posted on behalf of Vilota, a startup supported by SGInnovate. Background Vilota develops spatial perception products for autonomous and tele-operated robotic sys",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://www.linkedin.com/jobs/view/4462910802",
-          "key": "freehire|ai-ml-research-engineer-robotics-perception-sginnovate-2zlqyv5c",
-          "job_id": "ai-ml-research-engineer-robotics-perception-sginnovate-2zlqyv5c",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "Singapore, Singapore",
-          "company": "SGInnovate",
-          "title": "AI/ML Research Engineer - Robotics Perception"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "APPLY_CONTROL_ONLY",
-          "checked_at": "2026-11-27T13:08:23+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "RESEARCH_UNSPECIFIED",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Research Engineer",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "8dde0508911254d36b87450964c51f7489788215489f9cacd27679a1886ababd",
       "duplicate_review": []
     }
   ]

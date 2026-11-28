@@ -2,6 +2,74 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:ad2bfd7768273fef18835f41",
+      "title": "后端技术经理（正编岗）",
+      "company": "某深圳保险上市公司",
+      "url": "https://www.liepin.com/a/82309419.shtml",
+      "locations": [
+        "深圳-福田区"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "UNVERIFIED_URL",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "liepin",
+          "source_file": "feed/cn-native/liepin-raw.json",
+          "market": "CN",
+          "url": "https://www.liepin.com/a/82309419.shtml",
+          "observed_at": "2026-11-28T08:47:08.251Z",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "jd_kind": "listing_only",
+          "posted_at": "2026-11-28",
+          "salary": "40-70k·16薪",
+          "experience": "5-10年",
+          "education": "统招本科",
+          "location": "深圳-福田区",
+          "company": "某深圳保险上市公司",
+          "title": "后端技术经理（正编岗）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "后端",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/liepin-raw.json",
+        "retained_jd_ref": null,
+        "source": "liepin",
+        "source_checked_at": "2026-11-28T08:47:08.251Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "2e5b09b72f611ba29ba13b0daa901a25017934eadaa77f0d2eddda47e46dc8f7",
+      "duplicate_review": []
+    },
+    {
       "id": "job:ad02b1e6e93ac025a6bef156",
       "title": "AI Agent工程师",
       "company": "meituan",
@@ -1845,80 +1913,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "e74091e9a1d37685d0f91ae9e56636ab50cf87a72fcf625048d1660a41a9a3df",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:a713fbfb07f75b00444b69a3",
-      "title": "Research Associate (Mechanical Engineering/Aerospace Engineering/Applied Physics)",
-      "company": "Ntu",
-      "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Associate--Mechanical-Engineering-Aerospace-Engineering-Applied-Physics-_R00020668",
-      "locations": [
-        "NTU Main Campus, Singapore"
-      ],
-      "observed_markets": [
-        "SG"
-      ],
-      "location_markets": [
-        "SG"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "Young and research-intensive, Nanyang Technological University, Singapore (NTU Singapore) is ranked among the world’s top universities. NTU’s College of Computing and Data Science (CCDS) is a leading college that is known for its excelle",
-      "observations": [
-        {
-          "source": "market-api",
-          "source_file": "feed/market-api/SG.json",
-          "market": "SG",
-          "url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Associate--Mechanical-Engineering-Aerospace-Engineering-Applied-Physics-_R00020668",
-          "key": "freehire|research-associate-mechanical-engineering-aerospace-engineering-applied-physics-ntu-yu5gajah",
-          "job_id": "research-associate-mechanical-engineering-aerospace-engineering-applied-physics-ntu-yu5gajah",
-          "discovery_freshness": "OBSERVED_THIS_RUN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "location": "NTU Main Campus, Singapore",
-          "company": "Ntu",
-          "title": "Research Associate (Mechanical Engineering/Aerospace Engineering/Applied Physics)"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "AUTH_REQUIRED",
-          "checked_at": "2026-11-27T14:20:28+00:00",
-          "fresh": true,
-          "apply_url": "https://ntu.wd3.myworkdayjobs.com/Careers/job/NTU-Main-Campus-Singapore/Research-Associate--Mechanical-Engineering-Aerospace-Engineering-Applied-Physics-_R00020668/apply",
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "RESEARCH_UNSPECIFIED",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "THIRD_PARTY_TEXT",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "Research Associate",
-            "origin": "TITLE"
-          }
-        ],
-        "source_file": "feed/market-api/SG.json",
-        "retained_jd_ref": null,
-        "source": "market-api",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "84f03558b47b5295c9989f8d417d5687388068039e80ac399df07f9a9066e541",
       "duplicate_review": []
     }
   ]

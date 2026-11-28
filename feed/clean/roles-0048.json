@@ -2,6 +2,73 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:a012582d7423a8cd058a5db7",
+      "title": "Platform Deployment Engineer (AI Factory Delivery)",
+      "company": "Sharon AI, Inc",
+      "url": "https://www.linkedin.com/jobs/view/4483841528",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "🗓️ Full-time | Permanent 📍 Remote, in the same time zone as the rest of the squad 🏡 Remote working About Sharon AI Sharon",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4483841528",
+          "key": "freehire|platform-deployment-engineer-ai-factory-delivery-sharon-ai-inc-bru6uxdg",
+          "job_id": "platform-deployment-engineer-ai-factory-delivery-sharon-ai-inc-bru6uxdg",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "Sharon AI, Inc",
+          "title": "Platform Deployment Engineer (AI Factory Delivery)"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [
+          8
+        ],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "experience_min_mentions",
+            "quote": "8+ years",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "53cadb0fca07ef3c7bd52a1300a68757a18416d4374cb09f8def5c2c06eb47cd",
+      "duplicate_review": []
+    },
+    {
       "id": "job:a000d1dc5610ec04c3ae5333",
       "title": "AI Engineer",
       "company": "Zas Homes",
@@ -1820,77 +1887,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "0afd8117b8180374456e812ee68c7cfa006be812231cb4c89c9fd8c25d9b2098",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:9b2a68157b09cb0ba8197112",
-      "title": "软件开发工程师（数据科学方向）",
-      "company": "meituan",
-      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697313765",
-      "locations": [
-        "上海市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-swe.json",
-          "market": "CN",
-          "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697313765",
-          "job_id": "4697313765",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "校招",
-          "apply_url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697313765&jobShareType=1&highlightType=campus",
-          "location": "上海市",
-          "company": "meituan",
-          "title": "软件开发工程师（数据科学方向）"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "SOFTWARE_ENGINEERING",
-        "ai_depth": "UNKNOWN",
-        "seniority": "EARLY_CAREER_TITLE",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "UNKNOWN",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "role_family",
-            "quote": "软件开发",
-            "origin": "TITLE"
-          },
-          {
-            "field": "seniority",
-            "quote": "校招",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-swe.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "dbb4ef17eef13c419129a6335674234f3410d2b225f2371265db19dce725daaa",
       "duplicate_review": []
     }
   ]
