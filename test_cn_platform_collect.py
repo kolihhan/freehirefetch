@@ -1,5 +1,5 @@
 import unittest
-from cn_platform_collect import extract, source_host, extract_51job_json, rotated_spec, retain_observations, SOURCES, QUERY_ROTATION
+from cn_platform_collect import extract, source_host, extract_51job_json, rotated_spec, retain_observations, SOURCES, QUERY_ROTATION, ACTIVE_SOURCES
 
 class CNPlatformTests(unittest.TestCase):
     def test_exact_native_links_only(self):
@@ -58,3 +58,7 @@ class CNPlatformTests(unittest.TestCase):
         retain_observations(fresh,report,"2026-11-28T06:00:00+00:00","2026-11-28T05:00:00+00:00")
         self.assertEqual(fresh["jobs"][0]["observed_at"],"2026-11-28T06:00:00+00:00")
         self.assertEqual(fresh["retained_count"],0)
+
+    def test_unproductive_native_platforms_paused_by_default(self):
+        self.assertEqual(ACTIVE_SOURCES, ("51job",))
+        self.assertTrue({"BOSS","Nowcoder","Zhaopin"}.issubset(SOURCES))

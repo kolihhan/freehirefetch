@@ -302,6 +302,26 @@ class ATSFeedTests(unittest.TestCase):
             self.assertEqual(result["health"]["boards"]["workday:ntu"]["status"],"DEFERRED_RATE_LIMIT")
             self.assertFalse(result["health"]["complete"])
 
+    def test_policy_paused_board_is_retained_without_network_or_false_closure(self):
+        board = {"ats":"workday","slug":"ntu","company":"NTU","markets":["SG"],
+                 "career_url":"https://ntu.wd3.myworkdayjobs.com/en-US/Careers"}
+        item = {"id":"R12345678","title":"Research Engineer, LLM",
+                "location":"Singapore","description":"Develop LLM evaluation systems. " * 20,
+                "url":"https://ntu.wd3.myworkdayjobs.com/Careers/job/Singapore/Research-Engineer_R12345678"}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(ats,"listing",return_value=[item]):
+                first = ats.run(root,[board],clock="2026-11-27T00:00:00+00:00")
+            self.assertEqual(first["jobs"],1)
+            with patch.object(ats,"listing") as listing:
+                result = ats.run(root,[board],clock="2026-11-28T00:00:00+00:00",paused_ats={"workday"})
+                listing.assert_not_called()
+            self.assertEqual(result["jobs"],1)
+            self.assertEqual(result["events"],[])
+            self.assertEqual(result["health"]["boards"]["workday:ntu"]["status"],"PAUSED_POLICY")
+            self.assertEqual(result["health"]["paused_boards"],1)
+            self.assertEqual(result["health"]["coverage_scope"],"active attempted boards only")
+
     def test_workday_http_429_not_retried(self):
         url = "https://micron.wd1.myworkdayjobs.com/wday/cxs/micron/External/jobs"
         error = ats.HTTPError(url, 429, "Too Many Requests", {}, None)

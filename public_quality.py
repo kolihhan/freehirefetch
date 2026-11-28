@@ -194,6 +194,7 @@ def collect(root):
             board_key=board[1]+":"+board[0] if len(board)>=3 else ""
             board_status=run_health["ats"].get(board_key,{}).get("status","UNKNOWN")
             add(x,"official-ats",rel,market=market,observed_at=x.get("source_checked_at"),source_run_status=board_status,
+                discovery_freshness="RETAINED_UNVERIFIED" if board_status=="PAUSED_POLICY" else "UNKNOWN",
                 jd_kind="full_jd" if complete else ("partial_jd" if x.get("evidence")=="full_jd" else x.get("evidence")),jd_checked_at=meta.get("checked_at"),
                 jd_ref={"path":"feed/ats/jd/"+part,"key":x.get("key"),"sha256":hashlib.sha256(description.encode()).hexdigest()} if complete else None,
                 excerpt=x.get("description_excerpt"),_tag_text=description if isinstance(description,str) else x.get("description_excerpt"),

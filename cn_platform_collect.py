@@ -16,6 +16,7 @@ SOURCES = {
     "Zhaopin": ("zhaopin.com", "https://sou.zhaopin.com/?", "page", {"kw":"大模型"}),
     "51job": ("51job.com", "https://we.51job.com/pc/search?", "pageNum", {"keyword":"大模型"}),
 }
+ACTIVE_SOURCES = ("51job",)
 QUERY_ROTATION = ("大模型", "智能体", "LLM", "RAG", "自然语言处理", "AI工程师", "模型评测")
 RETENTION_DAYS = 7
 
@@ -218,9 +219,12 @@ async def main():
         browser = await p.chromium.launch(headless=True)
         try:
             rotation = int(os.environ.get("GITHUB_RUN_NUMBER", "1"))
-            reports = await asyncio.gather(*(collect_source(browser,k,rotated_spec(k,rotation)) for k in SOURCES))
+            reports = await asyncio.gather(*(collect_source(browser,k,rotated_spec(k,rotation)) for k in ACTIVE_SOURCES))
         finally:
             await browser.close()
+    reports.extend({"source": k, "query": None, "pages": [], "jobs": [],
+                    "unique_observed": 0, "coverage": "PAUSED_POLICY"}
+                   for k in SOURCES if k not in ACTIVE_SOURCES)
     previous = {r["source"]:r for r in prior.get("sources",[])}
     checked_at = now()
     for report in reports:
