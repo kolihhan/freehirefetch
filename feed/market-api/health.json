@@ -3,72 +3,74 @@
     "freehire": {
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
-      "successful_pages": 44,
-      "accepted_exact_urls": 342,
+      "successful_pages": 42,
+      "accepted_exact_urls": 461,
+      "page_size": 100,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 200,
+          "rows": 400,
+          "truncated": true,
+          "new_exact_urls": 82
+        },
+        {
+          "q": "LLM",
+          "rows": 400,
+          "truncated": true,
+          "new_exact_urls": 65
+        },
+        {
+          "q": "Research Engineer",
+          "rows": 400,
+          "truncated": true,
+          "new_exact_urls": 63
+        },
+        {
+          "q": "Agent Engineer",
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 43
         },
         {
-          "q": "LLM",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 34
-        },
-        {
-          "q": "Research Engineer",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 53
-        },
-        {
-          "q": "Agent Engineer",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 32
-        },
-        {
           "q": "Agentic AI",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 54
+          "new_exact_urls": 65
         },
         {
           "q": "NLP",
           "rows": 198,
           "truncated": false,
-          "new_exact_urls": 16
+          "new_exact_urls": 15
         },
         {
           "q": "RAG",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 19
         },
         {
           "q": "Applied AI",
-          "rows": 200,
+          "rows": 400,
+          "truncated": true,
+          "new_exact_urls": 47
+        },
+        {
+          "q": "Generative AI",
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 52
         },
         {
-          "q": "Generative AI",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 24
-        },
-        {
           "q": "Applied Scientist",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 8
+          "new_exact_urls": 3
         },
         {
           "q": "Retrieval Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 7
         }
@@ -80,6 +82,8 @@
       "full_text_fallback_pages": 0,
       "successful_pages": 13,
       "accepted_exact_urls": 22,
+      "page_size": 50,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",
@@ -157,38 +161,40 @@
     "freehire": {
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
-      "successful_pages": 41,
-      "accepted_exact_urls": 119,
+      "successful_pages": 40,
+      "accepted_exact_urls": 167,
+      "page_size": 100,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 50
+          "new_exact_urls": 80
         },
         {
           "q": "LLM",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 13
+          "rows": 371,
+          "truncated": false,
+          "new_exact_urls": 11
         },
         {
           "q": "Research Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 2
+          "new_exact_urls": 5
         },
         {
           "q": "Agent Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 9
+          "new_exact_urls": 14
         },
         {
           "q": "Agentic AI",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 16
+          "new_exact_urls": 7
         },
         {
           "q": "NLP",
@@ -198,32 +204,32 @@
         },
         {
           "q": "RAG",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 10
-        },
-        {
-          "q": "Applied AI",
-          "rows": 200,
-          "truncated": true,
-          "new_exact_urls": 7
-        },
-        {
-          "q": "Generative AI",
-          "rows": 200,
-          "truncated": true,
+          "rows": 228,
+          "truncated": false,
           "new_exact_urls": 5
         },
         {
-          "q": "Machine Learning Engineer",
-          "rows": 200,
+          "q": "Applied AI",
+          "rows": 376,
+          "truncated": false,
+          "new_exact_urls": 4
+        },
+        {
+          "q": "Generative AI",
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 7
+          "new_exact_urls": 21
+        },
+        {
+          "q": "Machine Learning Engineer",
+          "rows": 400,
+          "truncated": true,
+          "new_exact_urls": 20
         },
         {
           "q": "Applied Scientist",
-          "rows": 200,
-          "truncated": true,
+          "rows": 376,
+          "truncated": false,
           "new_exact_urls": 0
         }
       ],
@@ -234,6 +240,8 @@
       "full_text_fallback_pages": 0,
       "successful_pages": 0,
       "accepted_exact_urls": 0,
+      "page_size": 50,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",
@@ -266,91 +274,93 @@
       "status": "PARTIAL",
       "full_text_fallback_pages": 0,
       "successful_pages": 56,
-      "accepted_exact_urls": 68,
+      "accepted_exact_urls": 99,
+      "page_size": 100,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 37
+          "new_exact_urls": 64
         },
         {
           "q": "LLM",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 9
+          "new_exact_urls": 8
         },
         {
           "q": "Research Engineer",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 3
+          "new_exact_urls": 0
         },
         {
           "q": "\u5927\u6a21\u578b",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 0
         },
         {
           "q": "\u7b97\u6cd5\u5de5\u7a0b\u5e08",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 2
+          "new_exact_urls": 4
         },
         {
           "q": "\u667a\u80fd\u4f53",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 6
+          "new_exact_urls": 9
         },
         {
           "q": "\u81ea\u7136\u8bed\u8a00\u5904\u7406",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 3
         },
         {
           "q": "\u5927\u6a21\u578b\u8bc4\u6d4b",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 0
         },
         {
           "q": "\u5927\u6a21\u578b\u5e94\u7528",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 0
         },
         {
           "q": "\u68c0\u7d22\u589e\u5f3a",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 2
         },
         {
           "q": "\u77e5\u8bc6\u56fe\u8c31",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 3
         },
         {
           "q": "\u6a21\u578b\u540e\u8bad\u7ec3",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
           "new_exact_urls": 0
         },
         {
           "q": "Agent",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 2
+          "new_exact_urls": 3
         },
         {
           "q": "RAG",
-          "rows": 200,
+          "rows": 400,
           "truncated": true,
-          "new_exact_urls": 1
+          "new_exact_urls": 3
         }
       ],
       "errors": []
@@ -360,6 +370,8 @@
       "full_text_fallback_pages": 0,
       "successful_pages": 3,
       "accepted_exact_urls": 5,
+      "page_size": 50,
+      "max_pages_per_query": 4,
       "queries": [
         {
           "q": "AI Engineer",

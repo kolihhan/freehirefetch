@@ -4,22 +4,22 @@ Native/platform-wide scans are not performed by this Action. All source hits bel
 
 | Market | Named platform | API-proxy exact links | Native verified here | Status |
 |---|---|---:|---:|---|
-| SG | LinkedIn | 91 | 0 | API_PROXY_ONLY |
-| SG | JobStreet | 129 | 0 | API_PROXY_ONLY |
+| SG | LinkedIn | 119 | 0 | API_PROXY_ONLY |
+| SG | JobStreet | 179 | 0 | API_PROXY_ONLY |
 | SG | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | SG | MyCareersFuture | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| SG | Employer ATS / other | 139 | 0 | API_PROXY_ONLY |
-| MY | LinkedIn | 33 | 0 | API_PROXY_ONLY |
-| MY | JobStreet | 71 | 0 | API_PROXY_ONLY |
+| SG | Employer ATS / other | 178 | 0 | API_PROXY_ONLY |
+| MY | LinkedIn | 39 | 0 | API_PROXY_ONLY |
+| MY | JobStreet | 94 | 0 | API_PROXY_ONLY |
 | MY | Indeed | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | MY | Hiredly | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| MY | Employer ATS / other | 15 | 0 | API_PROXY_ONLY |
+| MY | Employer ATS / other | 34 | 0 | API_PROXY_ONLY |
 | CN | BOSS直聘 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 牛客 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 猎聘 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 智联 | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
 | CN | 51job | 0 | 0 | NOT_VERIFIED_BY_THIS_ACTION |
-| CN | Employer ATS / other | 73 | 0 | API_PROXY_ONLY |
+| CN | Employer ATS / other | 104 | 0 | API_PROXY_ONLY |
 
 **Outstanding duties:** SG/MY broad-platform rotations, CN BOSS/牛客/猎聘/智联/51job rotations, SG university/PI research. Separate native-collection runs must report their own independently verified exact IDs; none is credited by this API report.
 

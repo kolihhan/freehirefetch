@@ -243,10 +243,11 @@
     "greenhouse:anthropic": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 634,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:arizeai": {
       "candidates": 2,
@@ -275,10 +276,11 @@
     "greenhouse:flexport": {
       "candidates": 2,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 209,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:heygen": {
       "candidates": 2,
@@ -299,10 +301,11 @@
     "greenhouse:ogroup": {
       "candidates": 29,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 40,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:okx": {
       "candidates": 33,
@@ -315,26 +318,29 @@
     "greenhouse:point72": {
       "candidates": 3,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 200,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:recruitis": {
       "candidates": 1,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 5,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:schonfeld": {
       "candidates": 2,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 66,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "greenhouse:simplifynext": {
       "candidates": 7,
@@ -379,18 +385,20 @@
     "lever:csit": {
       "candidates": 20,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 106,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "lever:gotogroup": {
       "candidates": 10,
       "detail_requests": {},
+      "error": "Not scanned in this bounded run; previous records retained",
       "full_jds_hydrated": 0,
       "rows_read": 29,
       "scope": "whole_board",
-      "status": "COMPLETE"
+      "status": "DEFERRED_ROTATION"
     },
     "lever:patsnap": {
       "candidates": 0,
@@ -401,12 +409,20 @@
       "status": "COMPLETE"
     },
     "lever:portcast": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 7,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "lever:shopback-2": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 8,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 61,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "lever:sonarsource": {
       "candidates": 2,
@@ -417,24 +433,50 @@
       "status": "COMPLETE"
     },
     "lever:veeva": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 2,
+      "detail_requests": {},
+      "full_jds_hydrated": 0,
+      "rows_read": 865,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:aipalette": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {
+        "attempted": 1,
+        "cooldown_skipped": 0,
+        "deferred_budget": 0,
+        "due": 1,
+        "eligible": 1,
+        "failed": 0
+      },
+      "full_jds_hydrated": 1,
+      "rows_read": 1,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:aumovio": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 0,
+      "detail_requests": {
+        "attempted": 1,
+        "cooldown_skipped": 0,
+        "deferred_budget": 0,
+        "due": 1,
+        "eligible": 1,
+        "failed": 0
+      },
+      "full_jds_hydrated": 1,
+      "rows_read": 584,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:boschgroup": {
-      "candidates": 86,
+      "candidates": 96,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 46,
-        "deferred_budget": 75,
-        "due": 85,
+        "cooldown_skipped": 48,
+        "deferred_budget": 73,
+        "due": 83,
         "eligible": 131,
         "failed": 0
       },
@@ -444,16 +486,49 @@
       "status": "COMPLETE"
     },
     "smartrecruiters:carousellgroup": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {
+        "attempted": 1,
+        "cooldown_skipped": 0,
+        "deferred_budget": 0,
+        "due": 1,
+        "eligible": 1,
+        "failed": 0
+      },
+      "full_jds_hydrated": 1,
+      "rows_read": 79,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:deliveryhero": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {
+        "attempted": 1,
+        "cooldown_skipped": 0,
+        "deferred_budget": 0,
+        "due": 1,
+        "eligible": 1,
+        "failed": 0
+      },
+      "full_jds_hydrated": 1,
+      "rows_read": 801,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:doctoranywhere": {
-      "error": "Not scanned in this bounded run; previous records retained",
-      "status": "DEFERRED_ROTATION"
+      "candidates": 1,
+      "detail_requests": {
+        "attempted": 1,
+        "cooldown_skipped": 0,
+        "deferred_budget": 0,
+        "due": 1,
+        "eligible": 1,
+        "failed": 0
+      },
+      "full_jds_hydrated": 1,
+      "rows_read": 1,
+      "scope": "whole_board",
+      "status": "COMPLETE"
     },
     "smartrecruiters:experian": {
       "error": "Not scanned in this bounded run; previous records retained",
@@ -462,14 +537,14 @@
     "smartrecruiters:grab": {
       "candidates": 25,
       "detail_requests": {
-        "attempted": 9,
-        "cooldown_skipped": 18,
+        "attempted": 8,
+        "cooldown_skipped": 19,
         "deferred_budget": 0,
-        "due": 9,
+        "due": 8,
         "eligible": 27,
         "failed": 0
       },
-      "full_jds_hydrated": 9,
+      "full_jds_hydrated": 8,
       "rows_read": 448,
       "scope": "whole_board",
       "status": "COMPLETE"
@@ -482,9 +557,9 @@
       "candidates": 48,
       "detail_requests": {
         "attempted": 10,
-        "cooldown_skipped": 34,
-        "deferred_budget": 19,
-        "due": 29,
+        "cooldown_skipped": 40,
+        "deferred_budget": 13,
+        "due": 23,
         "eligible": 63,
         "failed": 0
       },
@@ -614,14 +689,14 @@
       }
     },
     "selected": [
-      "greenhouse:anthropic",
-      "greenhouse:flexport",
-      "greenhouse:ogroup",
-      "greenhouse:point72",
-      "greenhouse:recruitis",
-      "greenhouse:schonfeld",
-      "lever:csit",
-      "lever:gotogroup"
+      "lever:portcast",
+      "lever:shopback-2",
+      "lever:veeva",
+      "smartrecruiters:aipalette",
+      "smartrecruiters:aumovio",
+      "smartrecruiters:carousellgroup",
+      "smartrecruiters:deliveryhero",
+      "smartrecruiters:doctoranywhere"
     ]
   },
   "paused_boards": 7,
