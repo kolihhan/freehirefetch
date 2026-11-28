@@ -57,14 +57,13 @@ jobs:
           MODE="${{ steps.mode.outputs.mode }}"
           python firehose_fetch.py --mode "$MODE"
           python feed_pages.py
-          python public_quality.py
 
       - name: Publish changed public state
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add feed/events.jsonl feed/index.json feed/pages feed/candidates.json feed/coldstart.json feed/clean state/seen.json health.json
+          git add feed/events.jsonl feed/index.json feed/pages feed/candidates.json feed/coldstart.json state/seen.json health.json
           if git diff --cached --quiet; then
             echo "No public-state changes."
             exit 0
