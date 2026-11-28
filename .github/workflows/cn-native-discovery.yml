@@ -6,11 +6,15 @@ on:
     branches: [main]
     paths:
       - 'hydrate_cn_jobpro_jd.py'
+      - 'cn_source_retention.py'
+      - 'tests/test_cn_source_retention.py'
       - 'test_hydrate_cn_jobpro_jd.py'
       - '.github/workflows/cn-native-discovery.yml'
   pull_request:
     paths:
       - 'hydrate_cn_jobpro_jd.py'
+      - 'cn_source_retention.py'
+      - 'tests/test_cn_source_retention.py'
       - 'test_hydrate_cn_jobpro_jd.py'
       - '.github/workflows/cn-native-discovery.yml'
   schedule:
@@ -81,7 +85,7 @@ jobs:
             fi
           done
       - name: Verify CN official JD hydration matching, completeness and source-only boundaries
-        run: python -m unittest -v test_hydrate_cn_jobpro_jd
+        run: python -m unittest -v test_hydrate_cn_jobpro_jd && python -m unittest discover -s tests -p test_cn_source_retention.py -v
       - name: Hydrate bounded full JDs from public employer job-pro detail APIs
         run: python hydrate_cn_jobpro_jd.py --limit 24
       - name: Validate source identity, record scoped health and preserve unavailable sources
@@ -103,11 +107,21 @@ jobs:
           failed=liepin.get('failedPages') or []
           reports={}
           for name in ('ai','backend','swe','agent','llm','nlp','eval'):
-              doc=json.loads((src/f'jobpro-{name}.json').read_text())
-              if not isinstance(doc,dict) or not isinstance(doc.get('results'),list):
-                  raise ValueError('Invalid published employer public API JSON: '+name)
-              reports[name]={'jobs':sum(len(x.get('positions') or []) for x in doc['results']),
-                             'failed_adapters':len(doc.get('failed') or [])}
+              from cn_source_retention import reconcile_jobpro
+              import subprocess
+              path=src/f'jobpro-{name}.json'
+              try:
+                  doc=json.loads(path.read_text())
+              except (OSError, ValueError):
+                  doc=None
+              old=subprocess.run(['git','show','HEAD:'+str(path)],
+                                 text=True,capture_output=True,check=False)
+              try:
+                  previous=json.loads(old.stdout) if old.returncode==0 else None
+              except ValueError:
+                  previous=None
+              published,reports[name]=reconcile_jobpro(doc,previous)
+              path.write_text(json.dumps(published,ensure_ascii=False,indent=2)+'\n')
           # Do not erase last known public source rows with a totally failed
           # source response. A failure is not an empty job market.
           if not jobs and failed:
