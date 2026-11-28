@@ -22,6 +22,24 @@ class BoardDiscoveryTests(unittest.TestCase):
                     "https://job-boards.greenhouse.io/../jobs/123"):
             self.assertIsNone(ats.board_seed(url), url)
 
+    def test_aggregator_redirect_does_not_hide_exact_employer_route(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            path = root / "feed/market-api/SG.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps({"jobs": [
+                {"source_url": "https://freehire.me/jobs/example", "url": "https://job-boards.greenhouse.io/Alt/jobs/123",
+                 "location": "Singapore"},
+                {"url": "https://example.invalid/listing/456", "apply_url": "https://job-boards.greenhouse.io/Apply/jobs/456",
+                 "location": "Singapore"},
+                {"source_url": "https://example.invalid/redirect", "url": "https://evil.example/No/jobs/789",
+                 "location": "Singapore"}
+            ]}))
+            _, state = ats.discover_boards(root, [], "2026-11-28T03:00:00+00:00")
+            self.assertEqual(set(state["boards"]), {"greenhouse:alt", "greenhouse:apply"})
+            self.assertEqual(state["boards"]["greenhouse:alt"]["seed_url"],
+                             "https://job-boards.greenhouse.io/Alt/jobs/123")
+
     def test_rotation_and_known_owner_dedupe(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
