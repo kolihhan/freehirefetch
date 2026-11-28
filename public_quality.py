@@ -152,8 +152,8 @@ def build(rows,now,probes=()):
         observations=[]
         for x in items:
             observations.append({k:x[k] for k in ("source","source_file","market","url","source_url",
-                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","retained_jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title") if x.get(k) is not None})
-        markets=sorted({x["market"] for x in items if x.get("market") in MARKETS})
+                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","retained_jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title","matched_markets","countries","work_mode") if x.get(k) is not None})
+        markets=sorted({m for x in items for m in [x.get("market"), *(x.get("matched_markets") or [])] if m in MARKETS})
         locations=sorted({clean_text(x.get("location")) for x in items if clean_text(x.get("location"))})
         loc_markets=sorted({m for loc in locations for m in location_markets(loc)})
         full=[x for x in items if x.get("jd_kind")=="full_jd" and x.get("jd_ref") and fresh(x.get("jd_checked_at"),now) and x.get("discovery_freshness")!="RETAINED_UNVERIFIED"]
@@ -224,7 +224,7 @@ def collect(root):
     run_health["market_api"]={m:{k:{f:v.get(f) for f in ("status","successful_pages","accepted_exact_urls")} for k,v in api_health.get(m,{}).items() if isinstance(v,dict)} for m in sorted(MARKETS)}
     run_health["cn_native"]=cn_health
     rel="feed/candidates.json"; d=read(rel)
-    for x in d.get("candidates",[]):
+    for x in [*d.get("candidates",[]), *d.get("unassigned_candidates",[])]:
         add(x,"freehire",rel,observed_at=d.get("generated_at"),excerpt=x.get("description_excerpt"))
     jd_index=read("feed/ats/jd/index.json")
     index={(x.get("key"),x.get("url"),norm(x.get("title"))):x for x in jd_index.get("jobs",[]) if isinstance(x,dict)}

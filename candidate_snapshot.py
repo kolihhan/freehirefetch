@@ -131,6 +131,8 @@ def _candidate(job: dict, market: str, score: int, signals: list[str]) -> dict:
         "company": job.get("company_name") or job.get("company"),
         "title": job.get("title"),
         "location": job.get("location"),
+        "countries": job.get("countries"),
+        "work_mode": job.get("work_mode"),
         "source": job.get("source"),
         "external_id": job.get("external_id") or job.get("source_job_id"),
         "source_url": _source_url(job),
@@ -159,6 +161,7 @@ def build_candidate_snapshot(
     candidates: list[dict] = []
     counts: dict[str, int] = {}
     matched_counts: dict[str, int] = {}
+    matched_by_market: dict[str, list[dict]] = {}
     for market in ("SG", "CN", "MY"):
         matched: list[dict] = []
         seen: set[str] = set()
@@ -174,6 +177,31 @@ def build_candidate_snapshot(
                 continue
             matched.append(_candidate(job, market, score, signals))
 
+        matched_by_market[market] = matched
+
+    # A country search facet is not proof of the actual work location.
+    # Preserve exact shared identities with no location once, separately.
+    by_slug: dict[str, list[dict]] = {}
+    for matched in matched_by_market.values():
+        for item in matched:
+            if item.get("public_slug"):
+                by_slug.setdefault(item["identity"], []).append(item)
+
+    unassigned_candidates: list[dict] = []
+    unresolved_ids: set[str] = set()
+    for identity, items in by_slug.items():
+        markets = list(dict.fromkeys(item["market"] for item in items))
+        if len(markets) < 2 or any(_norm(item.get("location")) for item in items):
+            continue
+        best = max(items, key=lambda item: (
+            int(item.get("event_seq") or 0), int(item.get("ai_score") or 0)))
+        unassigned_candidates.append(dict(best, market="UNVERIFIED",
+            matched_markets=markets, flags=list(dict.fromkeys(
+                best["flags"] + ["cross_market_location_unverified"]))))
+        unresolved_ids.add(identity)
+
+    for market, matched in matched_by_market.items():
+        matched = [item for item in matched if item["identity"] not in unresolved_ids]
         matched.sort(
             key=lambda item: (
                 int(item.get("ai_score") or 0),
@@ -196,6 +224,8 @@ def build_candidate_snapshot(
         "counts": counts,
         "matched_counts": matched_counts,
         "candidates": candidates,
+        "unassigned_count": len(unassigned_candidates),
+        "unassigned_candidates": unassigned_candidates,
     }
 
 

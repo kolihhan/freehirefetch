@@ -19,6 +19,24 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(jobs[0]["location_markets"],[])
         self.assertEqual(audit["duplicate_observations"],2)
 
+    def test_unassigned_candidate_is_retained_with_market_facets_not_location(self):
+        row = dict(market="UNVERIFIED", matched_markets=["SG", "CN", "MY"],
+                   countries=["SG", "CN", "MY"], public_slug="shared-ai",
+                   source_url="https://freehire.me/api/v1/go/shared-ai?src=web",
+                   title="AI Engineer", company="Example", location="")
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "feed/candidates.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps({"candidates": [], "unassigned_candidates": [row]}))
+            rows, _, _, probes = collect(root)
+            jobs, audit = build(rows, NOW, probes)
+        self.assertEqual(len(jobs), 1)
+        self.assertEqual(jobs[0]["observed_markets"], ["CN", "MY", "SG"])
+        self.assertEqual(jobs[0]["location_markets"], [])
+        self.assertEqual(jobs[0]["location_status"], "UNRESOLVED")
+        self.assertEqual(audit["source_observations"]["freehire"], 1)
+
     def test_exact_query_identity_and_aliases(self):
         base="https://zhaopin.meituan.com/web/position/detail?jobUnionId="
         rows=[dict(source="ats",market="CN",url=base+i,title="AI Engineer",company="Meituan")

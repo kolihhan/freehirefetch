@@ -15,7 +15,7 @@
       "fast_delta": "feed/candidates.json",
       "recovery": "feed/coldstart.json",
       "health": "health.json",
-      "note": "Use retained sequence pages for gaps; coldstart is large; fast delta is latest run only."
+      "note": "Use retained sequence pages for gaps; coldstart is large; fast delta is latest run only. Fast delta and coldstart keep shared IDs without explicit location once in unassigned_candidates; matched_markets are query facets, not confirmed locations. Review these through the clean projection or directly as unresolved."
     },
     {
       "id": "official-ats",
