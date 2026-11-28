@@ -10,36 +10,6 @@ permissions:
   contents: read
 
 jobs:
-  offerdao:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Query OfferDao with one official read-only test key
-        run: |
-          python - <<'PY'
-          import json, urllib.request, urllib.parse, urllib.error
-          base = 'https://offerdao.ai'
-          def get(path, key=None):
-              headers = {'Accept':'application/json','User-Agent':'JobSourceSmoke/1.0'}
-              if key: headers['Authorization'] = 'Bearer ' + key
-              with urllib.request.urlopen(urllib.request.Request(base+path,headers=headers),timeout=25) as r:
-                  return json.load(r)
-          try:
-              key = get('/api/v1/agent/test-key').get('key')
-              if not key: raise ValueError('No test key available')
-              for q in ('LLM','Agent','大模型'):
-                  data = get('/api/v1/postings/search?'+urllib.parse.urlencode({'q':q,'employment_type':'正式','limit':5}), key)
-                  items = data.get('items')
-                  if not isinstance(items,list) or not isinstance(data.get('total'),int):
-                      raise ValueError('Unexpected search schema')
-                  print(json.dumps({'source':'offerdao','q':q,'total':data['total'],'returned':len(items),'distinct_ids':len({str(x['posting_id']) for x in items if x.get('posting_id')}),'with_jd_sections':sum(bool(x.get('description') and x.get('requirements')) for x in items)},ensure_ascii=False))
-          except urllib.error.HTTPError as e:
-              print('OFFERDAO_HTTP_STATUS',e.code)
-              raise SystemExit(1)
-          PY
   jobradar:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -57,11 +27,17 @@ jobs:
         run: |
           python - <<'PY'
           import subprocess,json
+          seen=set()
           for lane in ('social','campus'):
-              for q in ('大模型','Agent','NLP'):
-                  raw=subprocess.check_output(['jobradar','search','--keyword',q,'--type',lane,'--limit','10'],text=True,timeout=90)
+              for q in ('大模型','Agent','NLP','RAG','模型评测'):
+                  raw=subprocess.check_output(['jobradar','search','--keyword',q,'--type',lane,'--limit','20'],text=True,timeout=90)
                   d=json.loads(raw)
                   items=d.get('results')
                   if not isinstance(items,list): raise ValueError('Unexpected search schema')
+                  for x in items:
+                      uid=str(x.get('id') or '')
+                      if not uid or uid in seen: continue
+                      seen.add(uid)
+                      print('JOBRADAR_ROW '+json.dumps({k:x.get(k) for k in ('id','company','title','url','cities','recruit_type','grad_year','degree_min','availability','last_seen','source_stale','job_stale','url_scope')},ensure_ascii=False))
                   print(json.dumps({'source':'jobradar','lane':lane,'q':q,'data_as_of':d.get('data_as_of'),'stale':d.get('stale'),'returned':len(items),'distinct_ids':len({str(x.get('id')) for x in items if x.get('id')}),'with_url':sum(bool(x.get('url')) for x in items)},ensure_ascii=False))
           PY
