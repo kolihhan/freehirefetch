@@ -2,6 +2,151 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:0542674fa13616f78a92dac0",
+      "title": "高性能计算加速软件工程师",
+      "company": "alibaba",
+      "url": "https://campus-talent.alibaba.com/campus/position/199907820056",
+      "locations": [
+        "上海"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "jobpro-list",
+          "source_file": "feed/cn-native/jobpro-swe.json",
+          "market": "CN",
+          "url": "https://campus-talent.alibaba.com/campus/position/199907820056",
+          "job_id": "199907820056",
+          "discovery_freshness": "UNKNOWN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "recruit_label": "freshman",
+          "apply_url": "https://campus-talent.alibaba.com/campus/position/199907820056",
+          "location": "上海",
+          "company": "alibaba",
+          "title": "高性能计算加速软件工程师"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "UNKNOWN",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "软件工程师",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/cn-native/jobpro-swe.json",
+        "retained_jd_ref": null,
+        "source": "jobpro-list",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "18bab209e1b4484912c1e096b64ce2e37284fecbbc56c186bfc5df3e99048a15",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:04e26aadc24dc326d6cb88a4",
+      "title": "ML/AI Software Engineer",
+      "company": "Cadence",
+      "url": "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/SHANGHAI/ML-AI-Software-Engineer_R53042",
+      "locations": [
+        "SHANGHAI"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "At Cadence, we hire and develop leaders and innovators who want to make an impact on the world of technology. The candidate will be a member of the HDA AI team, to work on Celerity AI Solution related to Elect",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/CN.json",
+          "market": "CN",
+          "url": "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/SHANGHAI/ML-AI-Software-Engineer_R53042",
+          "key": "freehire|ml-ai-software-engineer-cadence-khbjvklw",
+          "job_id": "ml-ai-software-engineer-cadence-khbjvklw",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "SHANGHAI",
+          "company": "Cadence",
+          "title": "ML/AI Software Engineer"
+        }
+      ],
+      "application_evidence": [
+        {
+          "source": "browser",
+          "status": "AUTH_REQUIRED",
+          "checked_at": "2026-11-28T10:26:05+00:00",
+          "fresh": true,
+          "apply_url": "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/SHANGHAI/ML-AI-Software-Engineer_R53042/apply",
+          "title_match": true
+        }
+      ],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Software Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          }
+        ],
+        "source_file": "feed/market-api/CN.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "f7cb5bce60a6d9fa38b70846149bdaeb1c3a47634f46a74aadafcfb6e10177ac",
+      "duplicate_review": []
+    },
+    {
       "id": "job:04a8d0f4a34db5f27599be9a",
       "title": "AI Specialist",
       "company": "Infinity Financial",
@@ -317,8 +462,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/a/81359307.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-19",
           "salary": "15-30k·15薪",
@@ -354,7 +499,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "68055b50c22e5aaf5fdac7fb5cb906e9d1dd0f9f63907d762817417a4a649fad",
+      "content_fingerprint": "87bdaefbbe57be131258d83102446d2726d007a2bd5a78c4297d15c0ac288124",
       "duplicate_review": []
     },
     {
@@ -385,8 +530,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/job/1984618697.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-17",
           "salary": "22-40k·14薪",
@@ -425,7 +570,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "9075c7565bd807475396fa3218d82dab846f8519dd68b1c935a37eb3a93b3432",
+      "content_fingerprint": "bd22f23e036938993414e049d2f353d3ca9b95b4802dee55227e112201cc0727",
       "duplicate_review": []
     },
     {
@@ -521,8 +666,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/job/1979971897.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-01-23",
           "salary": "25-50k·18薪",
@@ -563,7 +708,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "a654a8db329463905b3593a062339231b824e6e2311ac02d63b45973e0608ee6",
+      "content_fingerprint": "1f4975957c5d0c0fe5242dc0b53a0e4a72f56420dbf4b4f3e84269e32047ef62",
       "duplicate_review": []
     },
     {
@@ -1022,72 +1167,6 @@
       "duplicate_review": []
     },
     {
-      "id": "job:026ad19577f6e934315a6430",
-      "title": "AI设计实习生",
-      "company": "xiaohongshu",
-      "url": "https://job.xiaohongshu.com/campus/position/22903",
-      "locations": [
-        "北京市，深圳市"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-ai.json",
-          "market": "CN",
-          "url": "https://job.xiaohongshu.com/campus/position/22903",
-          "job_id": "22903",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "体验设计",
-          "apply_url": "https://job.xiaohongshu.com/campus/position/22903",
-          "location": "北京市，深圳市",
-          "company": "xiaohongshu",
-          "title": "AI设计实习生"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "INTERNSHIP",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "实习",
-            "origin": "TITLE_OR_METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-ai.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "bc16c8fc9c81471cb637e91dcf2da6411190403d2eca98f84cc6fd5e54e03ea1",
-      "duplicate_review": []
-    },
-    {
       "id": "job:023d997d8841cee3f06187f0",
       "title": "Senior AI Harness Engineer",
       "company": "SNSoft Sdn Bhd",
@@ -1157,147 +1236,6 @@
         "identity_conflict": false
       },
       "content_fingerprint": "d68f320b6d06a1a66791f77d83a1b54468e27441daf542e6339921841517fa8f",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0234a6aff9683ce2d5a7a377",
-      "title": "AI咨询及FDE专家岗",
-      "company": "zerooneai",
-      "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-      "locations": [
-        "北京"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-ai.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "job_id": "7674954919855016202",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "location": "北京",
-          "company": "zerooneai",
-          "title": "AI咨询及FDE专家岗"
-        },
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-agent.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "job_id": "7674954919855016202",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "location": "北京",
-          "company": "zerooneai",
-          "title": "AI咨询及FDE专家岗"
-        },
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-llm.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "job_id": "7674954919855016202",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "location": "北京",
-          "company": "zerooneai",
-          "title": "AI咨询及FDE专家岗"
-        },
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-eval.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "job_id": "7674954919855016202",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "location": "北京",
-          "company": "zerooneai",
-          "title": "AI咨询及FDE专家岗"
-        },
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-backend.json",
-          "market": "CN",
-          "url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "job_id": "7674954919855016202",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "jd_checked_at": "2026-11-27T04:01:19.053019Z",
-          "retained_jd_ref": {
-            "path": "feed/cn-native/jobpro-jd-state.json",
-            "record_key": "zerooneai|7674954919855016202",
-            "sha256": "b8a75b8cdca69f599490f58f28d2ae9bdcf3d8d4bda63eb92c40204ca1c13d8c"
-          },
-          "recruit_label": "全职",
-          "apply_url": "https://01ai.jobs.feishu.cn/index/position/7674954919855016202/detail",
-          "location": "北京",
-          "company": "zerooneai",
-          "title": "AI咨询及FDE专家岗"
-        }
-      ],
-      "application_evidence": [],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "SENIOR_TITLE",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "FULL_TIME_UNSPECIFIED_TERM",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "seniority",
-            "quote": "专家",
-            "origin": "TITLE_OR_METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "本科及以上",
-            "origin": "FIRST_PARTY_RETAINED"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-jd-state.json",
-        "retained_jd_ref": {
-          "path": "feed/cn-native/jobpro-jd-state.json",
-          "record_key": "zerooneai|7674954919855016202",
-          "sha256": "b8a75b8cdca69f599490f58f28d2ae9bdcf3d8d4bda63eb92c40204ca1c13d8c"
-        },
-        "source": "jobpro-list",
-        "source_checked_at": "2026-11-27T04:01:19.053019Z",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "e6c45813109432c9f7fe4af2a6b48a2ce0082cbcaa430eb65721254019765fca",
       "duplicate_review": []
     },
     {
@@ -1429,8 +1367,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/a/81706563.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-10",
           "salary": "20-40k",
@@ -1471,7 +1409,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "296b3f2f370e06959793548e1eac43a80140f049cf6f087f919c09c3aaef6dcc",
+      "content_fingerprint": "1ef230b9fdb5046d5dd0507b729737035a5e2e144dcb7e53b4642611905090e9",
       "duplicate_review": []
     },
     {
@@ -1571,8 +1509,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/job/1986234773.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-10",
           "salary": "20-40k·14薪",
@@ -1608,7 +1546,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "35e7f657f1cc89431026da39dbd02d19acd33028d7f7b8e8544bf9b00477e548",
+      "content_fingerprint": "d1fd360ec962dda931df8342cec7bbbaa992d0da88ac0efa5e2d96d48449255c",
       "duplicate_review": []
     },
     {
@@ -1710,8 +1648,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/job/1981762109.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-04-14",
           "salary": "30-40k",
@@ -1747,7 +1685,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "5d24c731f27f5ca9166beda39963e541251f5743e30babb426066ff76bccf475",
+      "content_fingerprint": "b51481d6045ce02aca3fdeaf30ce784e77e2bd42d3193520abece1620f9a65fd",
       "duplicate_review": []
     },
     {

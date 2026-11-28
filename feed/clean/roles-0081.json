@@ -2,6 +2,149 @@
   "version": 1,
   "jobs": [
     {
+      "id": "job:145eb5f00ab3e380c98daa69",
+      "title": "FDE技术负责人（ai agent解决方案）",
+      "company": "某深圳互联网公司",
+      "url": "https://www.liepin.com/a/79982051.shtml",
+      "locations": [
+        "深圳"
+      ],
+      "observed_markets": [
+        "CN"
+      ],
+      "location_markets": [
+        "CN"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "UNVERIFIED_URL",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "",
+      "observations": [
+        {
+          "source": "liepin",
+          "source_file": "feed/cn-native/liepin-raw.json",
+          "market": "CN",
+          "url": "https://www.liepin.com/a/79982051.shtml",
+          "observed_at": "2026-11-28T08:47:08.251Z",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
+          "jd_kind": "listing_only",
+          "posted_at": "2026-11-24",
+          "salary": "40-60k·15薪",
+          "experience": "5-10年",
+          "education": "统招本科",
+          "location": "深圳",
+          "company": "某深圳互联网公司",
+          "title": "FDE技术负责人（ai agent解决方案）"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "UNKNOWN",
+        "ai_depth": "UNKNOWN",
+        "seniority": "SENIOR_TITLE",
+        "degree": "UNKNOWN",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "TITLE_ONLY",
+        "evidence": [
+          {
+            "field": "seniority",
+            "quote": "负责人",
+            "origin": "TITLE_OR_METADATA"
+          }
+        ],
+        "source_file": "feed/cn-native/liepin-raw.json",
+        "retained_jd_ref": null,
+        "source": "liepin",
+        "source_checked_at": "2026-11-28T08:47:08.251Z",
+        "identity_conflict": false
+      },
+      "content_fingerprint": "6792920c85ca64a6badd8ba9563f36fcf36e6da592596785744d7e04f830b71f",
+      "duplicate_review": []
+    },
+    {
+      "id": "job:13fbb77534c469820543777d",
+      "title": "Software Test Engineer (AI), TikTok",
+      "company": "TikTok",
+      "url": "https://www.linkedin.com/jobs/view/4481132984",
+      "locations": [
+        "Singapore, Singapore"
+      ],
+      "observed_markets": [
+        "SG"
+      ],
+      "location_markets": [
+        "SG"
+      ],
+      "location_status": "EXPLICIT_LOCATION_SIGNAL",
+      "identity_conflict": false,
+      "identity_quality": "EXACT_ROLE",
+      "fresh_full_jd": false,
+      "jd_ref": null,
+      "jd_checked_at": null,
+      "excerpt": "Responsibilities The TikTok Engineering Test Team is dedicated to ensuring the quality, reliability, and security of TikTok's products at global scale. We partner closely with software engineers, algorithm en",
+      "observations": [
+        {
+          "source": "market-api",
+          "source_file": "feed/market-api/SG.json",
+          "market": "SG",
+          "url": "https://www.linkedin.com/jobs/view/4481132984",
+          "key": "freehire|software-test-engineer-ai-tiktok-tiktok-gm42rvxr",
+          "job_id": "software-test-engineer-ai-tiktok-tiktok-gm42rvxr",
+          "discovery_freshness": "OBSERVED_THIS_RUN",
+          "source_run_status": "PARTIAL",
+          "jd_kind": "listing_only",
+          "location": "Singapore, Singapore",
+          "company": "TikTok",
+          "title": "Software Test Engineer (AI), TikTok"
+        }
+      ],
+      "application_evidence": [],
+      "role_tags": {
+        "role_family": "SOFTWARE_ENGINEERING",
+        "ai_depth": "AI_PRODUCT_CONTEXT_ONLY",
+        "seniority": "UNKNOWN",
+        "degree": "BACHELOR_MIN_SIGNAL",
+        "phd_preferred_signal": false,
+        "experience_min_mentions": [],
+        "employment": "UNKNOWN",
+        "graduation_cohorts": [],
+        "work_location_or_authorization_restriction": false,
+        "text_evidence_grade": "THIRD_PARTY_TEXT",
+        "evidence": [
+          {
+            "field": "role_family",
+            "quote": "Test Engineer",
+            "origin": "TITLE"
+          },
+          {
+            "field": "ai_depth",
+            "quote": "AI",
+            "origin": "TITLE"
+          },
+          {
+            "field": "degree",
+            "quote": "Bachelor's degree or above",
+            "origin": "THIRD_PARTY_TEXT"
+          }
+        ],
+        "source_file": "feed/market-api/SG.json",
+        "retained_jd_ref": null,
+        "source": "market-api",
+        "source_checked_at": null,
+        "identity_conflict": false
+      },
+      "content_fingerprint": "186f842dd985c6bdec9485dcda0d4916038c28250b9bddfe4d2ca618cdab9fc4",
+      "duplicate_review": []
+    },
+    {
       "id": "job:13d55c03e325f028c856f474",
       "title": "Data Analyst (AI)",
       "company": "Hartalega",
@@ -311,8 +454,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/a/79558305.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-09-03",
           "salary": "16-25k",
@@ -348,7 +491,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "9dcd6fef28ba9877f7ac19ab6c4094eb2dbb23c96f675186e902642ed58bc0e2",
+      "content_fingerprint": "17f968d5fc2747d89151efbc0d8899190368abc34722ac24ff2dfff0d282a6b1",
       "duplicate_review": []
     },
     {
@@ -726,8 +869,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/a/82081607.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-18",
           "salary": "80-100k·15薪",
@@ -763,7 +906,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "4ea8316eaf48c0ce59226f06c293eb816908dc0393a8e8fa2b9bb4bba92afcaf",
+      "content_fingerprint": "88edd19877cde90c7a75eaa60a90d53726301c8937c1f547b00503e3c55262a8",
       "duplicate_review": []
     },
     {
@@ -1665,8 +1808,8 @@
           "market": "CN",
           "url": "https://www.liepin.com/a/82183537.shtml",
           "observed_at": "2026-11-28T08:47:08.251Z",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "SOURCE_SAMPLE_COMPLETED",
+          "discovery_freshness": "RETAINED_UNVERIFIED",
+          "source_run_status": "PARTIAL_COVERAGE",
           "jd_kind": "listing_only",
           "posted_at": "2026-11-20",
           "salary": "70-100k·16薪",
@@ -1712,176 +1855,7 @@
         "source_checked_at": "2026-11-28T08:47:08.251Z",
         "identity_conflict": false
       },
-      "content_fingerprint": "4da8f4b26bb532835b53dcf1b3b8bf93278295b84113e7de45f7a2a63b472809",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0e9e3c986de9cd07321f2e33",
-      "title": "面向复杂软件工程项目的Agentic AI Coding关键技术研究-TRAE",
-      "company": "bytedance",
-      "url": "https://jobs.bytedance.com/campus/position/7628618212869998853/detail",
-      "locations": [
-        "杭州"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "",
-      "observations": [
-        {
-          "source": "jobpro-list",
-          "source_file": "feed/cn-native/jobpro-swe.json",
-          "market": "CN",
-          "url": "https://jobs.bytedance.com/campus/position/7628618212869998853/detail",
-          "job_id": "7628618212869998853",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "PARTIAL",
-          "jd_kind": "listing_only",
-          "recruit_label": "正式",
-          "apply_url": "https://jobs.bytedance.com/campus/position/7628618212869998853/detail",
-          "location": "杭州",
-          "company": "bytedance",
-          "title": "面向复杂软件工程项目的Agentic AI Coding关键技术研究-TRAE"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-27T22:22:24+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "UNKNOWN",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "TITLE_ONLY",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "正式",
-            "origin": "METADATA"
-          }
-        ],
-        "source_file": "feed/cn-native/jobpro-swe.json",
-        "retained_jd_ref": null,
-        "source": "jobpro-list",
-        "source_checked_at": null,
-        "identity_conflict": false
-      },
-      "content_fingerprint": "2197894695308944b0a770fd028217cf51922f3f2eae93be8f10c8e7ca5def00",
-      "duplicate_review": []
-    },
-    {
-      "id": "job:0e681dfefe9e08a2f8aeaaef",
-      "title": "AI Harness工程师_XC",
-      "company": "Bosch",
-      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000137591459",
-      "locations": [
-        "Suzhou, Jiangsu, cn"
-      ],
-      "observed_markets": [
-        "CN"
-      ],
-      "location_markets": [
-        "CN"
-      ],
-      "location_status": "EXPLICIT_LOCATION_SIGNAL",
-      "identity_conflict": false,
-      "identity_quality": "EXACT_ROLE",
-      "fresh_full_jd": false,
-      "jd_ref": null,
-      "jd_checked_at": null,
-      "excerpt": "一、AI Agent 企业场景挖掘与落地 1. 深入业务部门或客户现场，理解企业在运营、研发、运维，测试等场景中的业务流 程、数据基础和实际痛点。 2. 识别适合 AI Agent 落地的高价值业务场景，评估业务收益、技术可行性、数据可用性、 实施复杂度和优先级。 3. 设计面向企业真实流程的 AI Agent 解决方案，包括但不限于： - 企业知识助手 - 智能客服 Agent - 数据分析 Agent - 研发提效 Agent - 办公自动化 Agent - 审批流 /",
-      "observations": [
-        {
-          "source": "official-ats",
-          "source_file": "feed/ats/markets/CN.json",
-          "market": "CN",
-          "url": "https://jobs.smartrecruiters.com/BoschGroup/744000137591459",
-          "key": "boschgroup|smartrecruiters|744000137591459",
-          "job_id": "744000137591459",
-          "observed_at": "2026-11-28T10:21:56+00:00",
-          "discovery_freshness": "UNKNOWN",
-          "source_run_status": "COMPLETE",
-          "jd_kind": "retained_jd",
-          "jd_checked_at": "2026-11-28T09:23:26+00:00",
-          "posted_at": "2026-07-14T06:03:47.399Z",
-          "salary_summary": "",
-          "salary_components": [],
-          "employment_type": "{'id': 'permanent', 'label': 'Full-time'}",
-          "apply_url": "",
-          "location": "Suzhou, Jiangsu, cn",
-          "company": "Bosch",
-          "title": "AI Harness工程师_XC"
-        }
-      ],
-      "application_evidence": [
-        {
-          "source": "api",
-          "status": "API_LISTED",
-          "checked_at": "2026-11-28T10:21:56+00:00",
-          "fresh": true,
-          "apply_url": "",
-          "title_match": null
-        },
-        {
-          "source": "browser",
-          "status": "JD_ONLY",
-          "checked_at": "2026-11-28T09:27:02+00:00",
-          "fresh": true,
-          "apply_url": null,
-          "title_match": true
-        }
-      ],
-      "role_tags": {
-        "role_family": "UNKNOWN",
-        "ai_depth": "UNKNOWN",
-        "seniority": "UNKNOWN",
-        "degree": "BACHELOR_MIN_SIGNAL",
-        "phd_preferred_signal": false,
-        "experience_min_mentions": [],
-        "employment": "PERMANENT_SIGNAL",
-        "graduation_cohorts": [],
-        "work_location_or_authorization_restriction": false,
-        "text_evidence_grade": "FIRST_PARTY_RETAINED",
-        "evidence": [
-          {
-            "field": "employment",
-            "quote": "permanent",
-            "origin": "METADATA"
-          },
-          {
-            "field": "degree",
-            "quote": "本科及以上",
-            "origin": "FIRST_PARTY_RETAINED"
-          }
-        ],
-        "source_file": "feed/ats/markets/CN.json",
-        "retained_jd_ref": null,
-        "source": "official-ats",
-        "source_checked_at": "2026-11-28T09:23:26+00:00",
-        "identity_conflict": false
-      },
-      "content_fingerprint": "6aaa2b1e6387ebe51a6b203081c42ba92b26ecbbc63798d77edfe142706f9926",
+      "content_fingerprint": "b26a0b9fdcd4827b0172d47940cfae7a98b0d36ff4844bbbbd10e256a76ad731",
       "duplicate_review": []
     }
   ]
