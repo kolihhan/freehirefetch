@@ -41,5 +41,8 @@ jobs:
       - name: Run tests
         run: python -m unittest discover -s tests -v
 
+      - name: Check CN detail hydration regressions
+        run: python -m unittest -v test_hydrate_cn_jobpro_jd
+
       - name: Build clean projection against actual checked-out public feeds
         run: python public_quality.py

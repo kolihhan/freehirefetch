@@ -102,7 +102,7 @@ def build(rows,now,probes=()):
         observations=[]
         for x in items:
             observations.append({k:x[k] for k in ("source","source_file","market","url","source_url",
-                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title") if x.get(k) is not None})
+                "key","job_id","event_seq","observed_at","discovery_freshness","source_run_status","jd_kind","jd_checked_at","jd_ref","retained_jd_ref","posted_at","salary","salary_summary","salary_components","experience","education","employment_type","recruit_label","apply_url","location","company","title") if x.get(k) is not None})
         markets=sorted({x["market"] for x in items if x.get("market") in MARKETS})
         locations=sorted({clean_text(x.get("location")) for x in items if clean_text(x.get("location"))})
         loc_markets=sorted({m for loc in locations for m in location_markets(loc)})
@@ -132,7 +132,8 @@ def build(rows,now,probes=()):
         tag_text=clean_text(tag_source.get("_tag_text") or tag_source.get("excerpt"))
         grade=tag_source.get("_tag_grade") or ("EXCERPT" if tag_text else "TITLE_ONLY")
         job["role_tags"]=tag_role(job["title"],tag_text,grade,tag_source)
-        job["role_tags"]["source_file"]=tag_source.get("source_file")
+        job["role_tags"]["source_file"]=(tag_source.get("retained_jd_ref") or {}).get("path") or tag_source.get("source_file")
+        job["role_tags"]["retained_jd_ref"]=tag_source.get("retained_jd_ref")
         job["role_tags"]["source"]=tag_source.get("source")
         job["role_tags"]["source_checked_at"]=tag_source.get("jd_checked_at") or tag_source.get("observed_at")
         job["role_tags"]["identity_conflict"]=conflict
@@ -224,6 +225,26 @@ def collect(root):
         valid=x.get("full_jd_complete") is True and x.get("description_truncated") is False and bool(x.get("full_jd_text"))
         add(x,"jobpro-detail",rel,market="CN",company=x.get("company_key"),jd_kind="full_jd" if valid else "listing_only",
             jd_checked_at=x.get("checked_at"),jd_ref={"path":rel,"job_id":x.get("job_id"),"sha256":hashlib.sha256(x["full_jd_text"].encode()).hexdigest()} if valid else None,excerpt=x.get("description_text"),_tag_text=x.get("full_jd_text"),_tag_grade="FIRST_PARTY_FULL" if valid else "FIRST_PARTY_PARTIAL")
+    # Recover prior exact official JD text for currently observed listings when
+    # current detail refresh did not succeed. It remains retained, never fresh.
+    rel="feed/cn-native/jobpro-jd-state.json"
+    state=read(rel).get("records",{})
+    current_details={(x.get("company"),str(x.get("job_id")),x.get("url"),norm(x.get("title"))) for x in rows if x.get("source")=="jobpro-detail"}
+    current_listings={(x.get("company"),str(x.get("job_id")),x.get("url"),norm(x.get("title"))):x for x in rows if x.get("source")=="jobpro-list"}
+    for key,listing in current_listings.items():
+        if key in current_details: continue
+        record=state.get(str(key[0])+"|"+key[1],{})
+        e=record.get("evidence") or {}
+        if (e.get("url")!=key[2] or norm(e.get("title"))!=key[3]
+            or str(e.get("job_id"))!=key[1] or e.get("company_key")!=key[0]
+            or e.get("full_jd_complete") is not True or e.get("description_truncated") is not False
+            or not e.get("full_jd_text") or not timestamp(e.get("checked_at"))): continue
+        # The current public row is still just a listing; old body helps
+        # classification, never fresh JD or application evidence.
+        listing["_tag_text"]=e["full_jd_text"]
+        listing["_tag_grade"]="FIRST_PARTY_RETAINED"
+        listing["jd_checked_at"]=e["checked_at"]
+        listing["retained_jd_ref"]={"path":rel,"record_key":str(key[0])+"|"+key[1],"sha256":hashlib.sha256(e["full_jd_text"].encode()).hexdigest()}
     for kind,rel in (("api","feed/ats/api-liveness.json"),("browser","feed/ats/application-probes.json")):
         for item in read(rel).get("jobs",[]):
             if isinstance(item,dict): probes.append({**item,"evidence_source":kind})

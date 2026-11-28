@@ -181,6 +181,16 @@ class JDProducerTests(unittest.TestCase):
                        now="2026-11-25T03:00:00Z")
         self.assertEqual((b["attempted"], b["failed"], b["jobs"]), (1, 1, []))
 
+    def test_detail_budget_excludes_explicit_sales_and_internships_without_dropping_listings(self):
+        sales={**TENCENT,"post_id":"1282707398326592513","title":"大模型行业销售","apply_url":"https://join.qq.com/post_detail.html?postid=1282707398326592513"}
+        intern={**TENCENT,"post_id":"1282707398326592514","title":"Agent开发实习生","apply_url":"https://join.qq.com/post_detail.html?postid=1282707398326592514"}
+        data=[{"results":[{"company":"tencent","positions":[sales,intern,TENCENT]}]}]
+        report=jd.hydrate(data,detail_fetch=lambda *args:{"ok":False},limit=10)
+        self.assertEqual(report["observed_distinct"],3)
+        self.assertEqual(report["technical_observed_distinct"],1)
+        self.assertEqual(report["attempted"],1)
+        self.assertEqual(report["failures"][0]["job_id"],TENCENT["post_id"])
+
     def test_run_fail_closed_and_finite_failure_reports(self):
         data = [{"results": [{"company": "tencent", "positions": [TENCENT]}]}]
         def bad(*args, **kwargs):
